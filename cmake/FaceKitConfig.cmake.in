@@ -1,0 +1,287 @@
+# ------------------------------------------------------------------------------------
+# Helper to use CHLib from outside project
+#
+# target_link_libraries(my_fabulous_target CHLIB_XXX_LIBRARIES) where XXX is the 
+# upper cased xxx from : 
+# @CHLIBCONFIG_AVAILABLE_COMPONENTS_LIST@
+#
+# CHLIB_INCLUDE_DIRS is filled with CHLIB header
+# CHLIB_LIBRARY_DIRS is filled with CHLIB components libraries install directory
+# 
+#
+#------------------------------------------------------------------------------------
+
+### ---[ some useful macros
+macro(chlib_report_not_found _reason)
+  unset(CHLIB_FOUND)
+  unset(CHLIB_LIBRARIES)
+  unset(CHLIB_INCLUDE_DIRS)
+  unset(CHLIB_LIBRARY_DIRS)
+  unset(CHLIB_DEFINITIONS)
+  if(CHLIB_FIND_REQUIRED)
+    message(FATAL_ERROR ${_reason})
+  elseif(NOT CHLIB_FIND_QUIETLY)
+    message(WARNING ${_reason})
+  endif()
+  return()
+endmacro(chlib_report_not_found)
+
+macro(chlib_message)
+  if(NOT CHLIB_FIND_QUIETLY)
+    message(${ARGN})
+  endif(NOT CHLIB_FIND_QUIETLY)
+endmacro(chlib_message)
+
+# Remove duplicate libraries    
+macro(chlib_remove_duplicate_libraries _unfiltered_libraries _filtered_libraries)
+  set(${_filtered_libraries})
+  set(_debug_libraries)
+  set(_optimized_libraries)
+  set(_other_libraries)
+  set(_waiting_for_debug 0)
+  set(_waiting_for_optimized 0)
+  set(_library_position -1)
+  foreach(library ${${_unfiltered_libraries}})
+    if("${library}" STREQUAL "debug")
+      set(_waiting_for_debug 1)
+    elseif("${library}" STREQUAL "optimized")
+      set(_waiting_for_optimized 1)
+    elseif(_waiting_for_debug)
+      list(FIND _debug_libraries "${library}" library_position)
+      if(library_position EQUAL -1)
+        list(APPEND ${_filtered_libraries} debug ${library})
+        list(APPEND _debug_libraries ${library})
+      endif()
+      set(_waiting_for_debug 0)
+    elseif(_waiting_for_optimized)
+      list(FIND _optimized_libraries "${library}" library_position)
+      if(library_position EQUAL -1)
+        list(APPEND ${_filtered_libraries} optimized ${library})
+        list(APPEND _optimized_libraries ${library})
+      endif()
+      set(_waiting_for_optimized 0)
+    else("${library}" STREQUAL "debug")
+      list(FIND _other_libraries "${library}" library_position)
+      if(library_position EQUAL -1)
+        list(APPEND ${_filtered_libraries} ${library})
+        list(APPEND _other_libraries ${library})
+      endif()
+    endif("${library}" STREQUAL "debug")
+  endforeach(library)
+endmacro(chlib_remove_duplicate_libraries)
+
+#flatten dependencies recursivity is great \o/
+macro(compute_dependencies TO_FIND_COMPONENTS)
+  foreach(component ${${TO_FIND_COMPONENTS}})
+    set(chlib_component chlib_${component})
+    if(${chlib_component}_int_dep AND (NOT CHLIB_FIND_ALL))
+      foreach(dependency ${${chlib_component}_int_dep})
+        list(FIND ${TO_FIND_COMPONENTS} ${component} pos)
+        list(FIND ${TO_FIND_COMPONENTS} ${dependency} found)
+        if(found EQUAL -1)
+          set(chlib_dependency chlib_${dependency})
+          if(${chlib_dependency}_int_dep)
+            list(INSERT ${TO_FIND_COMPONENTS} ${pos} ${dependency})
+            if(chlib_${dependency}_ext_dep)
+              list(APPEND chlib_${component}_ext_dep ${chlib_${dependency}_ext_dep})
+            endif(chlib_${dependency}_ext_dep)
+            if(chlib_${dependency}_opt_dep)
+              list(APPEND chlib_${component}_opt_dep ${chlib_${dependency}_opt_dep})
+            endif(chlib_${dependency}_opt_dep)
+            compute_dependencies(${TO_FIND_COMPONENTS})
+          else(${chlib_dependency}_int_dep)
+            list(INSERT ${TO_FIND_COMPONENTS} 0 ${dependency})
+          endif(${chlib_dependency}_int_dep)
+        endif(found EQUAL -1)
+      endforeach(dependency)
+    endif(${chlib_component}_int_dep AND (NOT CHLIB_FIND_ALL))
+  endforeach(component)
+endmacro(compute_dependencies)
+
+### ---[ Find CHLIB
+
+if(CHLIB_FIND_QUIETLY)
+  set(QUIET_ QUIET)
+else(CHLIB_FIND_QUIETLY)
+  set(QUIET_)
+endif(CHLIB_FIND_QUIETLY)
+
+find_package(PkgConfig QUIET)
+
+file(TO_CMAKE_PATH "${CHLIB_DIR}" CHLIB_DIR)
+if(WIN32 AND NOT MINGW)
+# CHLIBConfig.cmake is installed to CHLIB_ROOT/cmake
+  get_filename_component(CHLIB_ROOT "${CHLIB_DIR}" PATH)
+else(WIN32 AND NOT MINGW)
+# CHLIBConfig.cmake is installed to CHLIB_ROOT/share/chlib-x.y
+  get_filename_component(CHLIB_ROOT "${CHLIB_DIR}" PATH)
+  get_filename_component(CHLIB_ROOT "${CHLIB_ROOT}" PATH)
+endif(WIN32 AND NOT MINGW)
+
+# check whether CHLIBConfig.cmake is found into a CHLIB installation or in a build tree
+if(EXISTS "${CHLIB_ROOT}/include/chlib/chlib_config.h")
+  # Found a CHLIB installation
+  # chlib_message("Found a CHLIB installation")
+  set(CHLIB_INCLUDE_DIRS "${CHLIB_ROOT}/include")
+  set(CHLIB_LIBRARY_DIRS "${CHLIB_ROOT}/lib")
+elseif(EXISTS "${CHLIB_DIR}/include/chlib/chlib_config.h")
+  # Found CHLIBConfig.cmake in a build tree of CHLIB
+  # chlib_message("CHLIB found into a build tree.")
+  set(CHLIB_INCLUDE_DIRS "${CHLIB_DIR}/include") # for chlib_config.h
+  set(CHLIB_LIBRARY_DIRS "${CHLIB_DIR}/@LIB_INSTALL_DIR@")
+  set(CHLIB_SOURCES_TREE "@CMAKE_SOURCE_DIR@")
+else(EXISTS "${CHLIB_ROOT}/include/chlib/chlib_config.h")
+  chlib_report_not_found("CHLIB can not be found on this machine")  
+endif(EXISTS "${CHLIB_ROOT}/include/chlib/chlib_config.h")
+
+#set a suffix for debug libraries
+set(CHLIB_DEBUG_SUFFIX "@CMAKE_DEBUG_POSTFIX@")
+set(CHLIB_RELEASE_SUFFIX "@CMAKE_RELEASE_POSTFIX@")
+
+set(chlib_all_components @CHLIBCONFIG_AVAILABLE_COMPONENTS@ )
+list(LENGTH chlib_all_components CHLIB_NB_COMPONENTS)
+
+#list each component dependencies IN CHLIB
+@CHLIBCONFIG_INTERNAL_DEPENDENCIES@
+
+#list each component external dependencies (ext means mandatory and opt means optional)
+@CHLIBCONFIG_EXTERNAL_DEPENDENCIES@
+
+@CHLIBCONFIG_OPTIONAL_DEPENDENCIES@
+
+#set(chlib_header_only_components 2d cuda_common geometry gpu_tracking modeler in_hand_scanner point_cloud_editor cloud_composer optronic_viewer)
+
+include(FindPackageHandleStandardArgs)
+
+#check if user provided a list of components
+#if no components at all or full list is given set CHLIB_FIND_ALL
+if(CHLIB_FIND_COMPONENTS)
+  list(LENGTH CHLIB_FIND_COMPONENTS CHLIB_FIND_COMPONENTS_LENGTH)
+  if(CHLIB_FIND_COMPONENTS_LENGTH EQUAL CHLIB_NB_COMPONENTS)
+    set(CHLIB_TO_FIND_COMPONENTS ${chlib_all_components})
+    set(CHLIB_FIND_ALL 1)
+  else(CHLIB_FIND_COMPONENTS_LENGTH EQUAL CHLIB_NB_COMPONENTS)
+    set(CHLIB_TO_FIND_COMPONENTS ${CHLIB_FIND_COMPONENTS})    
+  endif(CHLIB_FIND_COMPONENTS_LENGTH EQUAL CHLIB_NB_COMPONENTS)
+else(CHLIB_FIND_COMPONENTS)
+  set(CHLIB_TO_FIND_COMPONENTS ${chlib_all_components})
+  set(CHLIB_FIND_ALL 1)
+endif(CHLIB_FIND_COMPONENTS)
+
+compute_dependencies(CHLIB_TO_FIND_COMPONENTS)
+
+foreach(component ${CHLIB_TO_FIND_COMPONENTS})
+  set(chlib_component chlib_${component})
+  string(TOUPPER "${component}" COMPONENT)
+
+  chlib_message(STATUS "looking for CHLIB_${COMPONENT}")
+
+  string(REGEX REPLACE "^cuda_(.*)$" "\\1" cuda_component "${component}")
+  string(REGEX REPLACE "^gpu_(.*)$" "\\1" gpu_component "${component}") 
+  
+  find_path(CHLIB_${COMPONENT}_INCLUDE_DIR
+    NAMES chlib/${component}
+          chlib/apps/${component}
+          chlib/cuda/${cuda_component} chlib/cuda/${component}
+          chlib/gpu/${gpu_component} chlib/gpu/${component}
+    HINTS ${CHLIB_INCLUDE_DIRS}
+          "${CHLIB_SOURCES_TREE}"
+    PATH_SUFFIXES
+          ${component}/include
+          apps/${component}/include
+          cuda/${cuda_component}/include 
+          gpu/${gpu_component}/include
+    DOC "path to ${component} headers"
+    NO_CMAKE_FIND_ROOT_PATH)
+
+  if(CHLIB_${COMPONENT}_INCLUDE_DIR)
+    list(APPEND CHLIB_${COMPONENT}_INCLUDE_DIRS "${CHLIB_${COMPONENT}_INCLUDE_DIR}")
+  else(CHLIB_${COMPONENT}_INCLUDE_DIR)
+    #chlib_message("No include directory found for chlib_${component}.")
+  endif(CHLIB_${COMPONENT}_INCLUDE_DIR)
+  
+  # Skip find_library for header only modules
+  list(FIND chlib_header_only_components ${component} _is_header_only)
+  if(_is_header_only EQUAL -1)
+    find_library(CHLIB_${COMPONENT}_LIBRARY ${chlib_component}${CHLIB_RELEASE_SUFFIX}
+      HINTS ${CHLIB_LIBRARY_DIRS}
+      DOC "path to ${chlib_component} library"
+      NO_CMAKE_FIND_ROOT_PATH)
+    get_filename_component(${component}_library_path 
+      ${CHLIB_${COMPONENT}_LIBRARY}
+      PATH)
+
+    find_library(CHLIB_${COMPONENT}_LIBRARY_DEBUG ${chlib_component}${CHLIB_DEBUG_SUFFIX}
+      HINTS ${CHLIB_LIBRARY_DIRS} 
+      DOC "path to ${chlib_component} library debug"
+      NO_CMAKE_FIND_ROOT_PATH)
+    if(CHLIB_${COMPONENT}_LIBRARY_DEBUG)
+      get_filename_component(${component}_library_path_debug 
+        ${CHLIB_${COMPONENT}_LIBRARY_DEBUG}
+        PATH)
+    endif(CHLIB_${COMPONENT}_LIBRARY_DEBUG)
+
+    # Restrict this to Windows users
+    if(NOT CHLIB_${COMPONENT}_LIBRARY AND WIN32)
+      # might be debug only
+      set(CHLIB_${COMPONENT}_LIBRARY ${CHLIB_${COMPONENT}_LIBRARY_DEBUG})
+    endif(NOT CHLIB_${COMPONENT}_LIBRARY AND WIN32)
+
+    find_package_handle_standard_args(CHLIB_${COMPONENT} DEFAULT_MSG
+      CHLIB_${COMPONENT}_LIBRARY CHLIB_${COMPONENT}_INCLUDE_DIR)
+  else(_is_header_only EQUAL -1)
+    find_package_handle_standard_args(CHLIB_${COMPONENT} DEFAULT_MSG
+      CHLIB_${COMPONENT}_INCLUDE_DIR)  
+  endif(_is_header_only EQUAL -1)
+  
+  if(CHLIB_${COMPONENT}_FOUND)
+    if(NOT "${CHLIB_${COMPONENT}_INCLUDE_DIRS}" STREQUAL "")
+      list(REMOVE_DUPLICATES CHLIB_${COMPONENT}_INCLUDE_DIRS)
+    endif(NOT "${CHLIB_${COMPONENT}_INCLUDE_DIRS}" STREQUAL "")
+    list(APPEND CHLIB_INCLUDE_DIRS ${CHLIB_${COMPONENT}_INCLUDE_DIRS})
+    mark_as_advanced(CHLIB_${COMPONENT}_INCLUDE_DIRS)
+    if(_is_header_only EQUAL -1)
+      list(APPEND CHLIB_DEFINITIONS ${CHLIB_${COMPONENT}_DEFINITIONS})
+      list(APPEND CHLIB_LIBRARY_DIRS ${component_library_path})
+      if(CHLIB_${COMPONENT}_LIBRARY_DEBUG)
+        list(APPEND CHLIB_${COMPONENT}_LIBRARIES optimized ${CHLIB_${COMPONENT}_LIBRARY} debug ${CHLIB_${COMPONENT}_LIBRARY_DEBUG})
+        list(APPEND CHLIB_LIBRARY_DIRS ${component_library_path_debug})
+      else(CHLIB_${COMPONENT}_LIBRARY_DEBUG)
+        list(APPEND CHLIB_${COMPONENT}_LIBRARIES ${CHLIB_${COMPONENT}_LIBRARY})
+      endif(CHLIB_${COMPONENT}_LIBRARY_DEBUG)
+      list(APPEND CHLIB_LIBRARIES ${CHLIB_${COMPONENT}_LIBRARIES})
+      mark_as_advanced(CHLIB_${COMPONENT}_LIBRARY CHLIB_${COMPONENT}_LIBRARY_DEBUG)
+    endif(_is_header_only EQUAL -1)    
+    # Append internal dependencies
+    foreach(int_dep ${chlib_${component}_int_dep})
+      string(TOUPPER "${int_dep}" INT_DEP)
+      if(CHLIB_${INT_DEP}_FOUND)
+        list(APPEND CHLIB_${COMPONENT}_INCLUDE_DIRS ${CHLIB_${INT_DEP}_INCLUDE_DIRS})
+        if(CHLIB_${INT_DEP}_LIBRARIES)
+          list(APPEND CHLIB_${COMPONENT}_LIBRARIES "${CHLIB_${INT_DEP}_LIBRARIES}")
+        endif(CHLIB_${INT_DEP}_LIBRARIES) 
+      endif(CHLIB_${INT_DEP}_FOUND)
+    endforeach(int_dep)
+  endif(CHLIB_${COMPONENT}_FOUND)
+endforeach(component)
+
+if(NOT "${CHLIB_INCLUDE_DIRS}" STREQUAL "")
+  list(REMOVE_DUPLICATES CHLIB_INCLUDE_DIRS)
+endif(NOT "${CHLIB_INCLUDE_DIRS}" STREQUAL "")
+
+if(NOT "${CHLIB_LIBRARY_DIRS}" STREQUAL "")
+  list(REMOVE_DUPLICATES CHLIB_LIBRARY_DIRS)
+endif(NOT "${CHLIB_LIBRARY_DIRS}" STREQUAL "")
+
+if(NOT "${CHLIB_DEFINITIONS}" STREQUAL "")
+  list(REMOVE_DUPLICATES CHLIB_DEFINITIONS)
+endif(NOT "${CHLIB_DEFINITIONS}" STREQUAL "")
+
+# Remove duplicate libraries
+chlib_remove_duplicate_libraries(CHLIB_LIBRARIES CHLIB_DEDUP_LIBRARIES)
+set(CHLIB_LIBRARIES ${CHLIB_DEDUP_LIBRARIES})
+
+
+find_package_handle_standard_args(CHLIB DEFAULT_MSG CHLIB_LIBRARIES CHLIB_INCLUDE_DIRS)
+mark_as_advanced(CHLIB_LIBRARIES CHLIB_INCLUDE_DIRS CHLIB_LIBRARY_DIRS)
+

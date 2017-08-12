@@ -1,0 +1,8 @@
+IF(WITH_DOCS AND DOXYGEN_FOUND)
+  #Add documentation target
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/facekit_doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
+  add_custom_target(doc ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR} 
+  COMMENT "Generating API documentation with Doxygen" VERBATIM)
+  #Add install
+  install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html DESTINATION share/doc/facekit-${OGLKIT_MAJOR_VERSION}.${OGLKIT_MINOR_VERSION} CONFIGURATIONS Release;RelWithDebInfo)
+ENDIF(WITH_DOCS AND DOXYGEN_FOUND)

@@ -1,0 +1,50 @@
+set(FACEKIT_SUBSYSTEMS_MODULES ${FACEKIT_SUBSYSTEMS})
+
+set(FACEKITCONFIG_AVAILABLE_COMPONENTS)
+set(FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST)
+set(FACEKITCONFIG_INTERNAL_DEPENDENCIES)
+foreach(_ss ${FACEKIT_SUBSYSTEMS_MODULES})
+  FACEKIT_GET_SUBSYS_STATUS(_status ${_ss})
+  if(_status)
+    set(FACEKITCONFIG_AVAILABLE_COMPONENTS "${FACEKITCONFIG_AVAILABLE_COMPONENTS} ${_ss}")
+    set(FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST "${FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST}\n# - ${_ss}")
+    GET_IN_MAP(_deps FACEKIT_SUBSYS_DEPS ${_ss})
+    if(_deps)
+        set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}set(oglkit_${_ss}_int_dep ")
+        foreach(_dep ${_deps})
+            set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}${_dep} ")
+        endforeach(_dep)
+        set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES})\n")
+    endif(_deps)
+    #look for subsystems
+    string(TOUPPER "FACEKIT_${_ss}_SUBSYS" FACEKIT_SUBSYS_SUBSYS)
+    if (${FACEKIT_SUBSYS_SUBSYS})
+      string(TOUPPER "FACEKIT_${_ss}_SUBSYS_STATUS" FACEKIT_SUBSYS_SUBSYS_STATUS)
+      foreach(_sub ${${FACEKIT_SUBSYS_SUBSYS}})
+        FACEKIT_GET_SUBSUBSYS_STATUS(_sub_status ${_ss} ${_sub})
+        if (_sub_status)
+          set(FACEKITCONFIG_AVAILABLE_COMPONENTS "${FACEKITCONFIG_AVAILABLE_COMPONENTS} ${_sub}")
+          set(FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST "${FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST}\n# - ${_sub}")
+          GET_IN_MAP(_deps FACEKIT_SUBSYS_DEPS ${_ss}_${sub})
+          if(_deps)
+            set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}set(oglkit_${_sub}_int_dep ")
+            foreach(_dep ${_deps})
+              set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}${_dep} ")
+            endforeach(_dep)
+            set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES})\n")
+          endif(_deps)
+        endif(_sub_status)
+      endforeach(_sub)
+    endif (${FACEKIT_SUBSYS_SUBSYS})
+  endif(_status)
+endforeach(_ss)
+
+configure_file("${FACEKIT_SOURCE_DIR}/cmake/FACEKITConfig.cmake.in"
+               "${FACEKIT_BINARY_DIR}/FACEKITConfig.cmake" @ONLY)
+configure_file("${FACEKIT_SOURCE_DIR}/cmake/FACEKITConfigVersion.cmake.in"
+               "${FACEKIT_BINARY_DIR}/FACEKITConfigVersion.cmake" @ONLY)
+install(FILES
+        "${FACEKIT_BINARY_DIR}/FACEKITConfig.cmake"
+        "${FACEKIT_BINARY_DIR}/FACEKITConfigVersion.cmake"
+        COMPONENT oglkitconfig
+        DESTINATION ${FACEKITCONFIG_INSTALL_DIR})
