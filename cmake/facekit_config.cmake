@@ -10,7 +10,7 @@ foreach(_ss ${FACEKIT_SUBSYSTEMS_MODULES})
     set(FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST "${FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST}\n# - ${_ss}")
     GET_IN_MAP(_deps FACEKIT_SUBSYS_DEPS ${_ss})
     if(_deps)
-        set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}set(oglkit_${_ss}_int_dep ")
+        set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}set(facekit_${_ss}_int_dep ")
         foreach(_dep ${_deps})
             set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}${_dep} ")
         endforeach(_dep)
@@ -27,7 +27,7 @@ foreach(_ss ${FACEKIT_SUBSYSTEMS_MODULES})
           set(FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST "${FACEKITCONFIG_AVAILABLE_COMPONENTS_LIST}\n# - ${_sub}")
           GET_IN_MAP(_deps FACEKIT_SUBSYS_DEPS ${_ss}_${sub})
           if(_deps)
-            set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}set(oglkit_${_sub}_int_dep ")
+            set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}set(facekit_${_sub}_int_dep ")
             foreach(_dep ${_deps})
               set(FACEKITCONFIG_INTERNAL_DEPENDENCIES "${FACEKITCONFIG_INTERNAL_DEPENDENCIES}${_dep} ")
             endforeach(_dep)
@@ -39,12 +39,12 @@ foreach(_ss ${FACEKIT_SUBSYSTEMS_MODULES})
   endif(_status)
 endforeach(_ss)
 
-configure_file("${FACEKIT_SOURCE_DIR}/cmake/FACEKITConfig.cmake.in"
-               "${FACEKIT_BINARY_DIR}/FACEKITConfig.cmake" @ONLY)
-configure_file("${FACEKIT_SOURCE_DIR}/cmake/FACEKITConfigVersion.cmake.in"
-               "${FACEKIT_BINARY_DIR}/FACEKITConfigVersion.cmake" @ONLY)
+configure_file("${FACEKIT_SOURCE_DIR}/cmake/FaceKitConfig.cmake.in"
+               "${FACEKIT_BINARY_DIR}/FaceKitConfig.cmake" @ONLY)
+configure_file("${FACEKIT_SOURCE_DIR}/cmake/FaceKitConfigVersion.cmake.in"
+               "${FACEKIT_BINARY_DIR}/FaceKitConfigVersion.cmake" @ONLY)
 install(FILES
-        "${FACEKIT_BINARY_DIR}/FACEKITConfig.cmake"
-        "${FACEKIT_BINARY_DIR}/FACEKITConfigVersion.cmake"
-        COMPONENT oglkitconfig
+        "${FACEKIT_BINARY_DIR}/FaceKitConfig.cmake"
+        "${FACEKIT_BINARY_DIR}/FaceKitConfigVersion.cmake"
+        COMPONENT facekitconfig
         DESTINATION ${FACEKITCONFIG_INSTALL_DIR})
