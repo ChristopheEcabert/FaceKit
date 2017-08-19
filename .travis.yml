@@ -1,0 +1,91 @@
+# Based on : https://github.com/boostorg/hana/blob/master/.travis.yml
+# Project language
+language: c++
+# sudo 
+sudo: required
+# Global variable
+env:
+  global:
+    - DEPS_ROOT=~/deps
+    - OPENBLAS_ROOT=$DEPS_ROOT/openblas
+    - OPENCV_ROOT=$DEPS_ROOT/opencv
+# Define list of OS and compiler to test on
+matrix:
+  include:
+    # Linux - GCC
+    - os: linux
+      dist: trusty
+      env: NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.tar.gz
+      compiler: gcc
+    
+    # Linux - Clang
+    - os: linux
+      dist: trusty
+      env: NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.tar.gz 
+      compiler: clang
+    
+    # OSX - Clang
+    - os: osx
+      osx_image: xcode8.3
+      env: NSTRIP=3 CMAKE_URL=https://cmake.org/files/v3.4/cmake-3.4.3-Darwin-x86_64.tar.gz
+      compiler: clang
+# Cache dependencies
+cache:
+  directories:
+    - $OPENBLAS_ROOT
+    - $OPENCV_ROOT
+# Install dependencies needed by library
+install:
+  ############################################################################
+  # All the dependencies are installed in ${TRAVIS_BUILD_DIR}/deps/
+  ############################################################################
+  - mkdir -p $DEPS_ROOT && cd $DEPS_ROOT
+  
+  ############################################################################
+  # Install a recent CMake
+  ############################################################################
+  - |
+    mkdir cmake && curl -o cmake.tar.gz -O ${CMAKE_URL} && tar -C cmake/ --strip-components=${NSTRIP} -xzf cmake.tar.gz
+    export PATH=$DEPS_ROOT/cmake/bin:${PATH}
+  - cmake --version
+  
+  ############################################################################
+  # Install OpenBLAS (only on linux)
+  ############################################################################
+  - |
+    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+      sudo apt-get -qq update
+      sudo apt-get install -y gfortran
+      echo $OPENBLAS_ROOT
+      ./travis/install-openblas.sh $OPENBLAS_ROOT
+    fi
+    
+  ############################################################################
+  # Install OpenCV
+  ############################################################################
+  - ./travis/install-opencv.sh $OPENCV_ROOT
+  
+  ############################################################################
+  # Install a recent Doxygen
+  ############################################################################
+  - echo "Installing Doxygen ..."
+  
+before_script:
+  ############################################################################
+  # Set the git identity (for pushing the documentation and the benchmarks)
+  ############################################################################
+  - git config --global user.name "Travis bot"
+  - git config --global user.email "<>"
+  
+# Compilation scripts start here
+script:
+  ############################################################################
+  # Go back to the root of the project and setup the build directory
+  ############################################################################
+  - cd ${TRAVIS_BUILD_DIR}
+  - mkdir -p build && cd build && cmake ${CMAKE_OPTIONS} .. && make -j8
+  - make test
+  - cat Testing/Temporary/LastTest.log
+  
+# Deploy doc if success
+#after_sucess:
