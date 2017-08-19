@@ -12,6 +12,8 @@
 #include <Accelerate/Accelerate.h>
 #else
 // Include proper file for Linux/Win32 -> OpenBLAS
+#include "cblas.h"
+#include "lapacke.h"
 #endif
 
 #include "facekit/core/math/linear_algebra.hpp"
