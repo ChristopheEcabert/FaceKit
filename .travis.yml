@@ -36,7 +36,6 @@ cache:
     - $OPENCV_ROOT
 # Install dependencies needed by library
 install:
-  - echo $TRAVIS_BUILD_DIR
   ############################################################################
   # All the dependencies are installed in ${TRAVIS_BUILD_DIR}/deps/
   ############################################################################
@@ -57,15 +56,12 @@ install:
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       sudo apt-get -qq update
       sudo apt-get install -y gfortran
-      echo $OPENBLAS_ROOT
-      pwd
       $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
     
   ############################################################################
   # Install OpenCV
   ############################################################################
-  - pwd
   - $TRAVIS_BUILD_DIR/travis/install-opencv.sh $OPENCV_ROOT
   
   ############################################################################

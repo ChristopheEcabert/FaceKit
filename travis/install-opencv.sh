@@ -43,7 +43,8 @@ else
     LOG_FILE=$LOCAL_DIR/opencv-build.log
     mkdir -p build && cd build
     cmake -DCMAKE_PREFIX_INSTALL=/usr/local -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF ..
-    make -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
+    #make -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
+    make -j8
 fi
 cd $INSTALL_DIR
 sudo make install
