@@ -15,7 +15,6 @@
 #include "opencv2/core/core.hpp"
 #include "opencv2/core/core_c.h"
 
-
 #include "facekit/core/math/linear_algebra.hpp"
 
 template<typename T>
