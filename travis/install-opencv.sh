@@ -46,5 +46,5 @@ else
     #make -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
     make -j8
 fi
-cd $INSTALL_DIR
+cd $INSTALL_DIR/build
 sudo make install
