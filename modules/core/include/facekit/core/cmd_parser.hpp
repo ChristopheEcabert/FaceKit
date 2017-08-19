@@ -27,7 +27,7 @@ namespace FaceKit {
  *  @author Christophe Ecabert
  *  @date   12/11/15
  */
-class FACEKIT_EXPORTS CmdLineParser {
+class FK_EXPORTS CmdLineParser {
 
  public :
 #pragma mark -

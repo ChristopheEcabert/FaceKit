@@ -30,7 +30,7 @@ namespace FaceKit {
  *  @see https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
  */
 template<typename T>
-class FACEKIT_EXPORTS TComparator {
+class FK_EXPORTS TComparator {
 
  public:
 
@@ -142,7 +142,7 @@ class FACEKIT_EXPORTS TComparator {
  *  @see https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
  */
 template<>
-class FACEKIT_EXPORTS TComparator<float> {
+class FK_EXPORTS TComparator<float> {
 
 public:
 
@@ -266,7 +266,7 @@ private:
  *  @see https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
  */
 template<>
-class FACEKIT_EXPORTS TComparator<double> {
+class FK_EXPORTS TComparator<double> {
 
 public:
 

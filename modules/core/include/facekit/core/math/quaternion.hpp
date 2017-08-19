@@ -29,7 +29,7 @@ namespace FaceKit {
  *  @ingroup core
  */
 template <typename T>
-class FACEKIT_EXPORTS Quaternion {
+class FK_EXPORTS Quaternion {
  public:
   
 #pragma mark -

@@ -31,7 +31,7 @@ namespace FaceKit {
  *  @ingroup core
  */
 template<typename T>
-class FACEKIT_EXPORTS Matrix3 {
+class FK_EXPORTS Matrix3 {
 
  public:
 
@@ -371,7 +371,7 @@ class FACEKIT_EXPORTS Matrix3 {
  *  @ingroup core
  */
 template<typename T>
-class FACEKIT_EXPORTS Matrix4 {
+class FK_EXPORTS Matrix4 {
 
 public:
 

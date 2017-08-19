@@ -14,16 +14,16 @@
 #if (defined WIN32 || defined _WIN32 || defined WINCE)
   #define FUNC_NAME __FUNCTION__
   #if defined FACEKIT_API_EXPORTS
-    #define FACEKIT_EXPORTS __declspec(dllexport)
+    #define FK_EXPORTS __declspec(dllexport)
     #if _MSC_VER && !__INTEL_COMPILER
       /* disable unknown pragma warnings */
       #pragma warning (disable : 4068 )
     #endif
   #else
-    #define FACEKIT_EXPORTS __declspec(dllimport)
+    #define FK_EXPORTS __declspec(dllimport)
   #endif
 #else
-  #define FACEKIT_EXPORTS
+  #define FK_EXPORTS
   #define FUNC_NAME __PRETTY_FUNCTION__
 #endif
 

@@ -29,7 +29,7 @@ namespace FaceKit {
  *  @date   02/08/16
  *  @ingroup core
  */
-class FACEKIT_EXPORTS OGLError : public std::exception {
+class FK_EXPORTS OGLError : public std::exception {
 
  public:
 

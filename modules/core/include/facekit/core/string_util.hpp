@@ -29,7 +29,7 @@ namespace FaceKit {
  *  @date   26/08/16
  *  @ingroup core
  */
-class FACEKIT_EXPORTS StringUtil {
+class FK_EXPORTS StringUtil {
  public:
   
   /**

@@ -35,7 +35,7 @@ namespace FaceKit {
  *  @ingroup core
  */
 template<typename T>
-struct FACEKIT_EXPORTS Vector2 {
+struct FK_EXPORTS Vector2 {
 
 #pragma mark -
 #pragma mark Initialization
@@ -319,7 +319,7 @@ struct FACEKIT_EXPORTS Vector2 {
  *  @ingroup core
  */
 template<typename T>
-struct FACEKIT_EXPORTS Vector3 {
+struct FK_EXPORTS Vector3 {
 
 #pragma mark -
 #pragma mark Initialization
@@ -617,7 +617,7 @@ struct FACEKIT_EXPORTS Vector3 {
  *  @ingroup core
  */
 template<typename T>
-struct FACEKIT_EXPORTS Vector4 {
+struct FK_EXPORTS Vector4 {
 
 #pragma mark -
 #pragma mark Initialization
@@ -927,39 +927,39 @@ struct FACEKIT_EXPORTS Vector4 {
 
 /** Addition */
 template<typename T>
-FACEKIT_EXPORTS Vector2<T> operator+(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+FK_EXPORTS Vector2<T> operator+(const Vector2<T>& lhs, const Vector2<T>& rhs) {
   return Vector2<T>(lhs.x_ + rhs.x_, lhs.y_ + rhs.y_);
 }
 template<typename T>
-FACEKIT_EXPORTS Vector2<T> operator+(const Vector2<T>& lhs, const T v) {
+FK_EXPORTS Vector2<T> operator+(const Vector2<T>& lhs, const T v) {
   return Vector2<T>(lhs.x_ + v, lhs.y_ + v);
 }
 
 /** Substraction */
 template<typename T>
-FACEKIT_EXPORTS Vector2<T> operator-(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+FK_EXPORTS Vector2<T> operator-(const Vector2<T>& lhs, const Vector2<T>& rhs) {
   return Vector2<T>(lhs.x_ - rhs.x_, lhs.y_ - rhs.y_);
 }
 template<typename T>
-FACEKIT_EXPORTS Vector2<T> operator-(const Vector2<T>& lhs, const T v) {
+FK_EXPORTS Vector2<T> operator-(const Vector2<T>& lhs, const T v) {
   return Vector2<T>(lhs.x_ - v, lhs.y_ - v);
 }
 
 /** Scalar product */
 template<typename T>
-FACEKIT_EXPORTS Vector2<T> operator*(const Vector2<T>& lhs, const T scalar) {
+FK_EXPORTS Vector2<T> operator*(const Vector2<T>& lhs, const T scalar) {
   return Vector2<T>(lhs.x_ * scalar, lhs.y_ * scalar);
 }
 
 /** Division product */
 template<typename T>
-FACEKIT_EXPORTS Vector2<T> operator/(const Vector2<T>& lhs, const T scalar) {
+FK_EXPORTS Vector2<T> operator/(const Vector2<T>& lhs, const T scalar) {
   return Vector2<T>(lhs.x_ / scalar, lhs.y_ / scalar);
 }
 
 /** Dot product */
 template<typename T>
-FACEKIT_EXPORTS T operator*(const Vector2<T>& lhs, const Vector2<T>& rhs) {
+FK_EXPORTS T operator*(const Vector2<T>& lhs, const Vector2<T>& rhs) {
   return (lhs.x_ * rhs.x_) + (lhs.y_ * rhs.y_);
 }
 
@@ -968,45 +968,45 @@ FACEKIT_EXPORTS T operator*(const Vector2<T>& lhs, const Vector2<T>& rhs) {
 
 /** Addition */
 template<typename T>
-FACEKIT_EXPORTS Vector3<T> operator+(const Vector3<T>& lhs, const Vector3<T>& rhs) {
+FK_EXPORTS Vector3<T> operator+(const Vector3<T>& lhs, const Vector3<T>& rhs) {
   return Vector3<T>(lhs.x_ + rhs.x_, lhs.y_ + rhs.y_, lhs.z_ + rhs.z_);
 }
 template<typename T>
-FACEKIT_EXPORTS Vector3<T> operator+(const Vector3<T>& lhs, const T v) {
+FK_EXPORTS Vector3<T> operator+(const Vector3<T>& lhs, const T v) {
   return Vector3<T>(lhs.x_ + v, lhs.y_ + v, lhs.z_ + v);
 }
 
 /** Substraction */
 template<typename T>
-FACEKIT_EXPORTS Vector3<T> operator-(const Vector3<T>& lhs, const Vector3<T>& rhs) {
+FK_EXPORTS Vector3<T> operator-(const Vector3<T>& lhs, const Vector3<T>& rhs) {
   return Vector3<T>(lhs.x_ - rhs.x_, lhs.y_ - rhs.y_, lhs.z_ - rhs.z_);
 }
 template<typename T>
-FACEKIT_EXPORTS Vector3<T> operator-(const Vector3<T>& lhs, const T v) {
+FK_EXPORTS Vector3<T> operator-(const Vector3<T>& lhs, const T v) {
   return Vector3<T>(lhs.x_ - v, lhs.y_ - v, lhs.z_ - v);
 }
 
 /** Scalar product */
 template<typename T>
-FACEKIT_EXPORTS Vector3<T> operator*(const Vector3<T>& lhs, const T scalar) {
+FK_EXPORTS Vector3<T> operator*(const Vector3<T>& lhs, const T scalar) {
   return Vector3<T>(lhs.x_ * scalar, lhs.y_ * scalar, lhs.z_ * scalar);
 }
 
 /** Division product */
 template<typename T>
-FACEKIT_EXPORTS Vector3<T> operator/(const Vector3<T>& lhs, const T scalar) {
+FK_EXPORTS Vector3<T> operator/(const Vector3<T>& lhs, const T scalar) {
   return Vector3<T>(lhs.x_ / scalar, lhs.y_ / scalar, lhs.z_ / scalar);
 }
 
 /** Dot product */
 template<typename T>
-FACEKIT_EXPORTS T operator*(const Vector3<T>& lhs, const Vector3<T>& rhs) {
+FK_EXPORTS T operator*(const Vector3<T>& lhs, const Vector3<T>& rhs) {
   return (lhs.x_ * rhs.x_) + (lhs.y_ * rhs.y_) + (lhs.z_ * rhs.z_);
 }
 
 /** Cross product */
 template<typename T>
-FACEKIT_EXPORTS Vector3<T> operator^(const Vector3<T>& lhs, const Vector3<T>& rhs) {
+FK_EXPORTS Vector3<T> operator^(const Vector3<T>& lhs, const Vector3<T>& rhs) {
   return Vector3<T>(lhs.y_ * rhs.z_ - rhs.y_ * lhs.z_,
                     lhs.z_ * rhs.x_ - rhs.z_ * lhs.x_,
                     lhs.x_ * rhs.y_ - rhs.x_ * lhs.y_);
@@ -1017,33 +1017,33 @@ FACEKIT_EXPORTS Vector3<T> operator^(const Vector3<T>& lhs, const Vector3<T>& rh
 
 /** Addition */
 template<typename T>
-FACEKIT_EXPORTS Vector4<T> operator+(const Vector4<T>& lhs, const Vector4<T>& rhs) {
+FK_EXPORTS Vector4<T> operator+(const Vector4<T>& lhs, const Vector4<T>& rhs) {
   return Vector4<T>(lhs.x_ + rhs.x_,
                     lhs.y_ + rhs.y_,
                     lhs.z_ + rhs.z_,
                     lhs.w_ + rhs.w_);
 }
 template<typename T>
-FACEKIT_EXPORTS Vector4<T> operator+(const Vector4<T>& lhs, const T v) {
+FK_EXPORTS Vector4<T> operator+(const Vector4<T>& lhs, const T v) {
   return Vector4<T>(lhs.x_ + v, lhs.y_ + v, lhs.z_ + v, lhs.w_ + v);
 }
 
 /** Substraction */
 template<typename T>
-FACEKIT_EXPORTS Vector4<T> operator-(const Vector4<T>& lhs, const Vector4<T>& rhs) {
+FK_EXPORTS Vector4<T> operator-(const Vector4<T>& lhs, const Vector4<T>& rhs) {
   return Vector4<T>(lhs.x_ - rhs.x_,
                     lhs.y_ - rhs.y_,
                     lhs.z_ - rhs.z_,
                     lhs.w_ - rhs.w_);
 }
 template<typename T>
-FACEKIT_EXPORTS Vector4<T> operator-(const Vector4<T>& lhs, const T v) {
+FK_EXPORTS Vector4<T> operator-(const Vector4<T>& lhs, const T v) {
   return Vector4<T>(lhs.x_ - v, lhs.y_ - v, lhs.z_ - v, lhs.w_ - v);
 }
 
 /** Scalar product */
 template<typename T>
-FACEKIT_EXPORTS Vector4<T> operator*(const Vector4<T>& lhs, const T scalar) {
+FK_EXPORTS Vector4<T> operator*(const Vector4<T>& lhs, const T scalar) {
   return Vector4<T>(lhs.x_ * scalar,
                     lhs.y_ * scalar,
                     lhs.z_ * scalar,
@@ -1052,7 +1052,7 @@ FACEKIT_EXPORTS Vector4<T> operator*(const Vector4<T>& lhs, const T scalar) {
 
 /** Division product */
 template<typename T>
-FACEKIT_EXPORTS Vector4<T> operator/(const Vector4<T>& lhs, const T scalar) {
+FK_EXPORTS Vector4<T> operator/(const Vector4<T>& lhs, const T scalar) {
   return Vector4<T>(lhs.x_ / scalar,
                     lhs.y_ / scalar,
                     lhs.z_ / scalar,
@@ -1061,7 +1061,7 @@ FACEKIT_EXPORTS Vector4<T> operator/(const Vector4<T>& lhs, const T scalar) {
 
 /** Dot product */
 template<typename T>
-FACEKIT_EXPORTS T operator*(const Vector4<T>& lhs, const Vector4<T>& rhs) {
+FK_EXPORTS T operator*(const Vector4<T>& lhs, const Vector4<T>& rhs) {
   return ((lhs.x_ * rhs.x_) +
           (lhs.y_ * rhs.y_) +
           (lhs.z_ * rhs.z_) +
