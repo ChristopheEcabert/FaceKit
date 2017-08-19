@@ -36,6 +36,7 @@ cache:
     - $OPENCV_ROOT
 # Install dependencies needed by library
 install:
+  - echo $TRAVIS_BUILD_DIR
   ############################################################################
   # All the dependencies are installed in ${TRAVIS_BUILD_DIR}/deps/
   ############################################################################
@@ -53,17 +54,19 @@ install:
   # Install OpenBLAS (only on linux)
   ############################################################################
   - |
-    if [[ "${TRAVIS_OS_NAME}" == "linux" ]]; then
+    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       sudo apt-get -qq update
       sudo apt-get install -y gfortran
       echo $OPENBLAS_ROOT
-      ./travis/install-openblas.sh $OPENBLAS_ROOT
+      pwd
+      $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
     
   ############################################################################
   # Install OpenCV
   ############################################################################
-  - ./travis/install-opencv.sh $OPENCV_ROOT
+  - pwd
+  - $TRAVIS_BUILD_DIR/travis/install-opencv.sh $OPENCV_ROOT
   
   ############################################################################
   # Install a recent Doxygen
@@ -82,7 +85,7 @@ script:
   ############################################################################
   # Go back to the root of the project and setup the build directory
   ############################################################################
-  - cd ${TRAVIS_BUILD_DIR}
+  - cd $TRAVIS_BUILD_DIR
   - mkdir -p build && cd build && cmake ${CMAKE_OPTIONS} .. && make -j8
   - make test
   - cat Testing/Temporary/LastTest.log
