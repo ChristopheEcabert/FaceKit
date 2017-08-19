@@ -30,12 +30,13 @@ case "$OSTYPE" in
     ;;
 esac
 
-INSTALL_DIR=`readlink -f $1`
+#INSTALL_DIR=`readlink -f $1`
+INSTALL_DIR=$1
 if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/build/lib/*$EXT >/dev/null 2>&1; then
     echo "Using cached build at $INSTALL_DIR ..."
 else
     rm -rf $INSTALL_DIR
-    https://github.com/opencv/opencv.git ${INSTALL_DIR} --depth 1
+    git clone https://github.com/opencv/opencv.git ${INSTALL_DIR} --depth 1
     cd $INSTALL_DIR
     # Redirect build output to a log and only show it if an error occurs
     # Otherwise there is too much output for TravisCI to display properly

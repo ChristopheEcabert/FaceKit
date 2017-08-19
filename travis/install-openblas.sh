@@ -21,7 +21,7 @@ else
     # Redirect build output to a log and only show it if an error occurs
     # Otherwise there is too much output for TravisCI to display properly
     LOG_FILE=$LOCAL_DIR/openblas-build.log
-    make NO_AFFINITY=1 USE_OPENMP=1 -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
+    make NO_AFFINITY=1 USE_THREAD=0 -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
 fi
 cd $INSTALL_DIR
 sudo make install PREFIX=/usr/local
