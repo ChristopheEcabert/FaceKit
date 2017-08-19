@@ -57,13 +57,15 @@ install:
       sudo apt-get -qq update
       sudo apt-get install -y gfortran
       echo $OPENBLAS_ROOT
-      ./travis/install-openblas.sh $OPENBLAS_ROOT
+      pwd
+      ~/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
     
   ############################################################################
   # Install OpenCV
   ############################################################################
-  - ./travis/install-opencv.sh $OPENCV_ROOT
+  - pwd
+  - ~/travis/install-opencv.sh $OPENCV_ROOT
   
   ############################################################################
   # Install a recent Doxygen
@@ -82,7 +84,7 @@ script:
   ############################################################################
   # Go back to the root of the project and setup the build directory
   ############################################################################
-  - cd ${TRAVIS_BUILD_DIR}
+  - cd $TRAVIS_BUILD_DIR
   - mkdir -p build && cd build && cmake ${CMAKE_OPTIONS} .. && make -j8
   - make test
   - cat Testing/Temporary/LastTest.log
