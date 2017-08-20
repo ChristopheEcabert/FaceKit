@@ -208,7 +208,12 @@ ENDIF("${is_system_dir}" STREQUAL "-1")
 
 ### ---[ Find universal dependencies
 # the gcc-4.2.1 coming with MacOS X is not compatible with the OpenMP pragmas we use, so disabling OpenMP for it
-if((NOT APPLE) OR (NOT CMAKE_COMPILER_IS_GNUCXX) OR (GCC_VERSION VERSION_GREATER 4.2.1) OR (NOT CMAKE_COMPILER_IS_CLANG))
+MESSAGE(STATUS "Apple : ${APPLE}")
+MESSAGE(STATUS "Clang : ${CMAKE_COMPILER_IS_CLANG}")
+MESSAGE(STATUS "GnuCXX : ${CMAKE_COMPILER_IS_GNUCXX}")
+MESSAGE(STATUS "GCC version : ${GCC_VERSION}")
+
+if(((NOT APPLE) AND (NOT CMAKE_COMPILER_IS_CLANG)) OR (CMAKE_COMPILER_IS_GNUCXX) OR (GCC_VERSION VERSION_GREATER 4.2.1))
   FIND_PACKAGE(OpenMP)
 endif()
 if(OPENMP_FOUND)
