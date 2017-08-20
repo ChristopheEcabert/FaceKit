@@ -86,7 +86,7 @@ before_script:
   - git config --global user.email "<>"
   
 # Compilation scripts start here
-scripts:
+script:
   - $TRAVIS_BUILD_DIR/travis/build-library.sh
   
 after_success:

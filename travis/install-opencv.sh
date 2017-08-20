@@ -1,8 +1,8 @@
 #! /bin/bash
 # Copyright (c) 2016, NVIDIA CORPORATION.  All rights reserved.
 # Taken  from https://github.com/lukeyeager/DIGITS
-
 set -e
+echo "Install OpenCV"
 LOCAL_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 
 if [ "$#" -ne 1 ];
