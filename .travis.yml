@@ -29,6 +29,14 @@ matrix:
       osx_image: xcode8.3
       env: NSTRIP=3 CMAKE_URL=https://cmake.org/files/v3.4/cmake-3.4.3-Darwin-x86_64.tar.gz
       compiler: clang
+# Add packages
+addons:
+  apt:
+    packages:
+      # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
+      - libc++1
+      - libc++-dev
+      - gfortran
 # Cache dependencies
 cache:
   directories:
@@ -42,14 +50,6 @@ install:
   - mkdir -p $DEPS_ROOT && cd $DEPS_ROOT
   
   ############################################################################
-  # Add libc++ for linux/clangs
-  # See: https://github.com/mapbox/mapbox-gl-native/issues/287
-  ############################################################################
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "linux" ]] && [[ "$CXX" == "clang++" ]]; then
-      sudo apt-get install -y libc++1 libc++-dev
-    fi
-  ############################################################################
   # Install a recent CMake
   ############################################################################
   - |
@@ -62,8 +62,6 @@ install:
   ############################################################################
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      sudo apt-get -qq update
-      sudo apt-get install -y gfortran
       $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
     
@@ -85,18 +83,14 @@ before_script:
   - git config --global user.email "<>"
   
 # Compilation scripts start here
-script:
-  ############################################################################
-  # Go back to the root of the project and setup the build directory
-  ############################################################################
-  - cd $TRAVIS_BUILD_DIR
-  - mkdir -p build && cd build && cmake ${CMAKE_OPTIONS} .. && make -j8
-  - |
-    if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      ldd bin/facekit_ut_cmd_parser
-    fi
-  - make test
-  - cat Testing/Temporary/LastTest.log
-  
-# Deploy doc if success
-#after_sucess:
+jobs:
+  include:
+    # Build 
+    - stage: Build
+      script: $TRAVIS_BUILD_DIR/travis/build-library.sh
+    # Run UnitTest
+    - stage: Test
+      script: $TRAVIS_BUILD_DIR/travis/test-library.sh
+    # Deploy Doc
+    - stage: Deploy
+      script: echo "Build docs here"
