@@ -87,14 +87,10 @@ before_script:
   
 # Compilation scripts start here
 script:
-  - cd $TRAVIS_BUILD_DIR
-  - ls -la
   - $TRAVIS_BUILD_DIR/travis/build-library.sh
   
 after_success:
     # Run UnitTest
-    - cd $TRAVIS_BUILD_DIR
-    - ls -la
     - $TRAVIS_BUILD_DIR/travis/test-library.sh
 
 deploy:
