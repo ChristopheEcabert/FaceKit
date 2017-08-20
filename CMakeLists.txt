@@ -148,14 +148,13 @@ if (CMAKE_COMPILER_IS_PATHSCALE)
 endif()
 
 if (CMAKE_COMPILER_IS_CLANG)
+  MESSAGE(STATUS "Clang compiler")
   if("${CMAKE_C_FLAGS}" STREQUAL "")
     SET(CMAKE_C_FLAGS "-Qunused-arguments")
   endif()
   if("${CMAKE_CXX_FLAGS}" STREQUAL "")
-    SET(CMAKE_CXX_FLAGS "-ftemplate-depth=1024 -Qunused-arguments -Wno-invalid-offsetof -std=c++11 ${SSE_FLAGS}") # Unfortunately older Clang versions do not have this: -Wno-unnamed-type-template-args
-    if(APPLE AND WITH_CUDA AND CUDA_FOUND)
-      SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-    endif()
+    #Unfortunately older Clang versions do not have this: -Wno-unnamed-type-template-args
+    SET(CMAKE_CXX_FLAGS "-ftemplate-depth=1024 -Qunused-arguments -Wno-invalid-offsetof -std=c++11 -stdlib=libc++ ${SSE_FLAGS}") 
   endif()
   SET(CLANG_LIBRARIES "c++")
 endif()
