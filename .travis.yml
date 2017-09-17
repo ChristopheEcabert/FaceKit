@@ -118,4 +118,6 @@ deploy:
   provider: script
   skip_cleanup: true
   script: $TRAVIS_BUILD_DIR/travis/deploy-doc.sh
+  on:
+    branch: develop
   
