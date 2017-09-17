@@ -1,7 +1,7 @@
 <script language="php">
 
 $config = array(
-  'PROJECT_NAME' => "CHLib Library",
+  'PROJECT_NAME' => "FaceKit",
   'GENERATE_TREEVIEW' => false,
   'DISABLE_INDEX' => false,
 );
@@ -16,7 +16,7 @@ $translator = array(
   'search_matches' => "Matches:",
   'search' => "Search",
   'split_bar' => "",
-  'logo' => "Generated on Sun Sep 17 2017 18:41:46 for CHLib Library by&#160;\n<a href=\"http://www.doxygen.org/index.html\">\n<img class=\"footer\" src=\"doxygen.png\" alt=\"doxygen\"/></a> 1.8.13 ",
+  'logo' => "Generated on Sun Sep 17 2017 18:50:52 for FaceKit by&#160;\n<a href=\"http://www.doxygen.org/index.html\">\n<img class=\"footer\" src=\"doxygen.png\" alt=\"doxygen\"/></a> 1.8.13 ",
 );
 
 </script>

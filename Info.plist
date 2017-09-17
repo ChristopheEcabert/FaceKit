@@ -4,7 +4,7 @@
 <plist version="1.0">
 <dict>
      <key>CFBundleName</key>
-     <string>CHLib Library</string>
+     <string>FaceKit</string>
      <key>CFBundleIdentifier</key>
      <string>org.doxygen.Project</string>
      <key>CFBundleVersion</key>
@@ -14,7 +14,7 @@
      <key>DocSetPublisherIdentifier</key>
      <string>PublisherId</string>
      <key>DocSetPublisherName</key>
-     <string>CHLibDeveloper</string>
+     <string>FaceKitDeveloper</string>
      <key>DashDocSetFamily</key>
      <string>doxy</string>
      <key>DocSetPlatformFamily</key>
