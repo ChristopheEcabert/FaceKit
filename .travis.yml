@@ -9,6 +9,7 @@ env:
     - DEPS_ROOT=~/deps
     - OPENBLAS_ROOT=$DEPS_ROOT/openblas
     - OPENCV_ROOT=$DEPS_ROOT/opencv
+    - CMAKE_OPTIONS=-DWITH_EXAMPLES=ON
 # Define list of OS and compiler to test on
 matrix:
   include:
@@ -29,6 +30,12 @@ matrix:
       osx_image: xcode8.3
       env: NSTRIP=3 CMAKE_URL=https://cmake.org/files/v3.4/cmake-3.4.3-Darwin-x86_64.tar.gz
       compiler: clang
+      
+    # Doc Generator
+    - os: linux
+      dist: trusty
+      env: : DOCUMENTATION=TRUE NSTRIP=1 DOXYGEN_URL=http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.linux.bin.tar.gz CMAKE_OPTIONS="${CMAKE_OPTIONS} -DWITH_DOCS"
+      compiler: gcc
 # Add packages
 addons:
   apt:
@@ -37,6 +44,7 @@ addons:
       - libc++1
       - libc++-dev
       - gfortran
+      - graphviz
 # Cache dependencies
 cache:
   directories:
@@ -76,7 +84,12 @@ install:
   ############################################################################
   # Install a recent Doxygen
   ############################################################################
-  - echo "Installing Doxygen ..."
+  - |
+    if [[ "$DOCUMENTATION" == "TRUE" ]]; then
+      cd $DEPS_ROOT && mkdir doxygen && curl -o doxygen.tar.gz -O ${DOXYGEN_URL} && tar -C doxygen/ --strip-components=${NSTRIP} -xzf doxygen.tar.gz
+      export PATH=$DEPS_ROOT/doxygen/bin:${PATH}
+      doxygen --version
+    fi
   
 before_script:
   ############################################################################
@@ -88,13 +101,21 @@ before_script:
 # Compilation scripts start here
 script:
   - $TRAVIS_BUILD_DIR/travis/build-library.sh
-  
-after_success:
-    # Run UnitTest
-    - $TRAVIS_BUILD_DIR/travis/test-library.sh
+  # Run UnitTest
+  - $TRAVIS_BUILD_DIR/travis/test-library.sh
+  # Build docs
+  - $TRAVIS_BUILD_DIR/travis/build-doc.sh
 
+# Setup SSH for deployment
+before_deploy:
+  - |
+    openssl aes-256-cbc -K $encrypted_dcb86d38f385_key -iv $encrypted_dcb86d38f385_iv -in deploy-key.enc -out deploy-key -d
+    chmod 600 deploy_key
+    eval `ssh-agent -s`
+    ssh-add deploy_key
+# Push freshly build documentation online
 deploy:
   provider: pages
   skip_cleanup: true
-  script: echo "Should build here"
+  script: $TRAVIS_BUILD_DIR/travis/deploy-doc.sh
   

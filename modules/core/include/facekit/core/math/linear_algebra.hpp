@@ -103,10 +103,10 @@ class FK_EXPORTS LinearAlgebra {
   
   /**
    *  @name   Dot
-   *  @fn T Dot(const cv::Mat& A,const int inc_a,
+   *  @fn T Dot(const cv::Mat& a,const int inc_a,
                 const cv::Mat& b, const int inc_b)
    *  @brief  Compute the dot product between two vectors
-   *  @param[in]  a  Vector A
+   *  @param[in]  a         Vector A
    *  @param[in]  inc_a     Stride within \p a
    *  @param[in]  b         Vector B
    *  @param[in]  inc_b     Stride within \p b
