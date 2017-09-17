@@ -109,6 +109,7 @@ script:
 # Setup SSH for deployment
 before_deploy:
   - |
+    cd àTRAVIS_BUILD_DIR
     openssl aes-256-cbc -K $encrypted_dcb86d38f385_key -iv $encrypted_dcb86d38f385_iv -in deploy-key.enc -out deploy-key -d
     chmod 600 deploy_key
     eval `ssh-agent -s`
