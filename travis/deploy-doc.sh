@@ -1,8 +1,9 @@
 #! /bin/bash
 set -e
 echo "Deploy - Documentation"
-if [[ -d "$TRAVIS_BUILD_DIR/build/modules/doc/html"]]; then
+if [ -d "$TRAVIS_BUILD_DIR/build/modules/doc/html" ]; then
   cd $TRAVIS_BUILD_DIR/build
+  echo "Check if documentation can be updated"
   if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_BRANCH" == "develop" && "$TRAVIS_REPO_SLUG" == "ChristopheEcabert/FaceKit" ]]; then
     echo "Get exisitin documentation"
     # Suppress output to avoid leaking the token when the command fails
