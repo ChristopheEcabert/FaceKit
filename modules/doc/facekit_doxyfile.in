@@ -2,7 +2,7 @@
 # Project related configuration options
 #---------------------------------------------------------------------------
 DOXYFILE_ENCODING      = UTF-8
-PROJECT_NAME           = "CHLib Library"
+PROJECT_NAME           = "FaceKit"
 PROJECT_NUMBER         = @FACEKIT_VERSION@
 PROJECT_BRIEF          = 
 PROJECT_LOGO           =
@@ -167,7 +167,7 @@ GENERATE_DOCSET        = YES
 DOCSET_FEEDNAME        = "Doxygen generated docs"
 DOCSET_BUNDLE_ID       = 
 DOCSET_PUBLISHER_ID    = 
-DOCSET_PUBLISHER_NAME  = CHLib Developer
+DOCSET_PUBLISHER_NAME  = FaceKit Developer
 GENERATE_HTMLHELP      = @DOCUMENTATION_HTML_HELP@
 CHM_FILE               = "facekit-@FACEKIT_MAJOR_VERSION@.@FACEKIT_MINOR_VERSION@.chm"
 HHC_LOCATION           = "@HTML_HELP_COMPILER@"

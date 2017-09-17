@@ -16,6 +16,7 @@ if [ -d "$TRAVIS_BUILD_DIR/build/modules/doc/html" ]; then
     # Copy new doc
     rm -rf doc/html/{search,*.png,*.css,*.js,*.html}
     cp -R modules/doc/html/* doc/html/
+    ls doc/html
     
     # Commit
     pushd doc/html

@@ -1,6 +1,6 @@
 ## Overview 
 
-Documentation for CHLib C++ library, 
+*FaceKit* Documentation. 
 
 
 ## Issues
