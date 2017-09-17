@@ -16,11 +16,14 @@ if [ -d "$TRAVIS_BUILD_DIR/build/modules/doc/html" ]; then
     # Copy new doc
     rm -rf doc/html/{search,*.png,*.css,*.js,*.html}
     cp -R modules/doc/html/* doc/html/
+    echo "Already in"
     ls doc/html
+    echo "Newly generated"
+    ls modules/doc/html
     
     # Commit
     pushd doc/html
-    git add .
+    git add --force .
     git commit --allow-empty -m "Update documentation to ${TRAVIS_COMMIT:0:7}"
     git push ${SSH_REPO} gh-pages
     popd
