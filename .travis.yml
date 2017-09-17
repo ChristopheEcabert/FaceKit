@@ -115,7 +115,7 @@ before_deploy:
     ssh-add deploy_key
 # Push freshly build documentation online
 deploy:
-  provider: pages
+  provider: script
   skip_cleanup: true
   script: $TRAVIS_BUILD_DIR/travis/deploy-doc.sh
   
