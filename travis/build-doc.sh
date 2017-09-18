@@ -6,7 +6,8 @@ if [[ "$DOCUMENTATION" == "TRUE" ]]; then
   #echo "Already some doc ?"
   #cd build && ls modules/doc
   echo "Generate"
-  cd build && make doc
+  #cd build && make doc
+  cd build && doxygen modules/doc/Doxyfile
   echo "Check"
   pwd
   cat modules/doc/Doxyfile
