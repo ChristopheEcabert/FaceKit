@@ -11,4 +11,5 @@ if [[ "$DOCUMENTATION" == "TRUE" ]]; then
   echo "Check"
   pwd
   ls ../modules
+  ls ../modules/core/include/facekit/core
 fi

@@ -116,9 +116,9 @@ FILE_PATTERNS          = *.h \
 RECURSIVE              = YES
 EXCLUDE                = "@FACEKIT_SOURCE_DIR@/cmake" \
                          "@FACEKIT_SOURCE_DIR@/apps" \
-EXCLUDE_SYMLINKS       = YES
+EXCLUDE_SYMLINKS       = NO
 EXCLUDE_PATTERNS       = */build* */3rdparty*
-EXCLUDE_SYMBOLS        = FACEKIT_EXPORTS
+EXCLUDE_SYMBOLS        =
 EXAMPLE_PATH           = 
 EXAMPLE_PATTERNS       = *
 EXAMPLE_RECURSIVE      = NO
