@@ -9,6 +9,7 @@ env:
     - DEPS_ROOT=~/deps
     - OPENBLAS_ROOT=$DEPS_ROOT/openblas
     - OPENCV_ROOT=$DEPS_ROOT/opencv
+    - DOXYGEN_ROOT=$DEPS_ROOT/doyxgen
     - CMAKE_OPTIONS=-DWITH_EXAMPLES=ON
 # Define list of OS and compiler to test on
 matrix:
@@ -44,12 +45,17 @@ addons:
       - libc++1
       - libc++-dev
       - gfortran
+      # Doxygen
       - graphviz
+      - flex
+      - bison
+      - libiconv
 # Cache dependencies
 cache:
   directories:
     - $OPENBLAS_ROOT
     - $OPENCV_ROOT
+    - $DOXYGEN_ROOT
 # Limit cloning depth
 git:
   depth: 3
@@ -86,8 +92,7 @@ install:
   ############################################################################
   - |
     if [[ "$DOCUMENTATION" == "TRUE" ]]; then
-      cd $DEPS_ROOT && mkdir doxygen && curl -o doxygen.tar.gz -O ${DOXYGEN_URL} && tar -C doxygen/ --strip-components=${NSTRIP} -xzf doxygen.tar.gz
-      export PATH=$DEPS_ROOT/doxygen/bin:${PATH}
+      $TRAVIS_BUILD_DIR/travis/install-doxygen.sh $DOXYGEN_ROOT
       doxygen --version
     fi
   
