@@ -49,7 +49,7 @@ addons:
       - graphviz
       - flex
       - bison
-      - libiconv
+      - libiconv-hook*
 # Cache dependencies
 cache:
   directories:
