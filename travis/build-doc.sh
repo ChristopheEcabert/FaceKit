@@ -10,6 +10,5 @@ if [[ "$DOCUMENTATION" == "TRUE" ]]; then
   cd build && doxygen modules/doc/Doxyfile
   echo "Check"
   pwd
-  cat modules/doc/Doxyfile
-  ls modules/doc/html
+  ls ../modules
 fi
