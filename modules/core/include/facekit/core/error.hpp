@@ -23,13 +23,13 @@
 namespace FaceKit {
 
 /**
- *  @class  OGLError
+ *  @class  FKError
  *  @brief  Error class
  *  @author Christophe Ecabert
  *  @date   02/08/16
  *  @ingroup core
  */
-class FK_EXPORTS OGLError : public std::exception {
+class FK_EXPORTS FKError : public std::exception {
 
  public:
 
@@ -53,15 +53,15 @@ class FK_EXPORTS OGLError : public std::exception {
 #pragma mark Initialization
 
   /**
-   *  @name OGLError
-   *  @fn OGLError(void)
+   *  @name FKError
+   *  @fn FKError(void)
    *  @brief  Constructor
    */
-  OGLError(void);
+  FKError(void);
 
   /**
-   *  @name OGLError
-   *  @fn OGLError(const Type err_code, 
+   *  @name FKError
+   *  @fn FKError(const Type err_code, 
                   const std::string& message,
                   const std::string& function_name)
    *  @brief  Constructor
@@ -69,16 +69,16 @@ class FK_EXPORTS OGLError : public std::exception {
    *  @param[in]  message       Error message
    *  @param[in]  function_name Name of the function that trigger the exception
    */
-  OGLError(const Type err_code,
+  FKError(const Type err_code,
           const std::string& message,
           const std::string& function_name);
 
   /**
-   *  @name ~OGLError
-   *  @fn virtual ~OGLError(void) throw()
+   *  @name ~FKError
+   *  @fn virtual ~FKError(void) throw()
    *  @brief  Destructor
    */
-  virtual ~OGLError(void) throw();
+  virtual ~FKError(void) throw();
 
 #pragma mark -
 #pragma mark Usage

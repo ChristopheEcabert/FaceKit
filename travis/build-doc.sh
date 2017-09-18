@@ -4,7 +4,7 @@ echo "Build Documentation"
 cd $TRAVIS_BUILD_DIR
 if [[ "$DOCUMENTATION" == "TRUE" ]]; then
   echo "Already some doc ?"
-  ls modules/doc/html
+  cd build && ls modules/doc
   echo "Generate"
   cd build && make doc
   echo "Check"

@@ -19,16 +19,16 @@ namespace FaceKit {
 #pragma mark Initialization
 
 /*
- *  @name OGLError
- *  @fn OGLError(void)
+ *  @name FKError
+ *  @fn FKError(void)
  *  @brief  Constructor
  */
-OGLError::OGLError(void) : msg_("") {
+FKError::FKError(void) : msg_("") {
 }
 
 /*
- *  @name OGLError
- *  @fn OGLError(const Type err_code,
+ *  @name FKError
+ *  @fn FKError(const Type err_code,
                 const std::string& message,
                 const std::string& function_name)
  *  @brief  Constructor
@@ -36,7 +36,7 @@ OGLError::OGLError(void) : msg_("") {
  *  @param[in]  message       Error message
  *  @param[in]  function_name Name of the function that trigger the exception
  */
-OGLError::OGLError(const Type err_code,
+FKError::FKError(const Type err_code,
                  const std::string& message,
                  const std::string& function_name) {
   msg_ = function_name + " gives error : " + std::to_string(err_code) +
@@ -44,11 +44,11 @@ OGLError::OGLError(const Type err_code,
 }
 
 /*
- *  @name ~OGLError
- *  @fn virtual ~OGLError(void) throw()
+ *  @name ~FKError
+ *  @fn virtual ~FKError(void) throw()
  *  @brief  Destructor
  */
-OGLError::~OGLError(void) throw() {
+FKError::~FKError(void) throw() {
 }
 
 #pragma mark -
@@ -59,7 +59,7 @@ OGLError::~OGLError(void) throw() {
 *  @fn virtual const char *what() const throw()
 *  @brief  Return description and context of the error
 */
-const char* OGLError::what() const throw() {
+const char* FKError::what() const throw() {
   return msg_.c_str();
 }
 
