@@ -25,5 +25,5 @@ else
     cmake -DCMAKE_BUILD_TYPE=Release ..
     make -j8
 fi
-cd $INSTALL_DIR
-sudo make install PREFIX=/usr/local
+cd $INSTALL_DIR/build
+sudo make install
