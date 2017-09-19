@@ -107,7 +107,7 @@ WARN_LOGFILE           =
 #---------------------------------------------------------------------------
 # configuration options related to the input files
 #---------------------------------------------------------------------------
-INPUT                  = "@FACEKIT_SOURCE_DIR@" \
+INPUT                  = "@FACEKIT_SOURCE_DIR@/" \
                          "@FACEKIT_SOURCE_DIR@/modules/doc/mainpage.md"
 INPUT_ENCODING         = UTF-8
 FILE_PATTERNS          = *.h \
