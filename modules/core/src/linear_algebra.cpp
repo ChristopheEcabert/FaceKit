@@ -561,6 +561,93 @@ void LinearAlgebra<double>::Gemm(const cv::Mat& A,
 }
   
 #pragma mark -
+#pragma mark Sbmv
+  
+/*
+ * @name  Sbmv
+ * @fn    static void Sbmv(const cv::Mat& A, const T alpha, const cv::Mat& x,
+                           const T beta, cv::Mat* y)
+ * @brief Perform matrix-vector operation :  y := alpha*A*x + beta*y
+ *        where alpha and beta are scalars, x and y are n element vectors and
+ *        A is an n by n symmetric band matrix, with k super-diagonals.
+ *        At the moment support only diagonal matrix
+ *        i.e. element-wise vector multiplication
+ * @param[in] A       Vector of element on the matrix's diagonal
+ * @param[in] alpha   Scaling factor
+ * @param[in] x       Vector
+ * @param[in] beta    Scaling factor
+ * @param[in, out] y  Output
+ */
+template<typename T>
+void LinearAlgebra<T>::Sbmv(const cv::Mat& A,
+                            const T alpha,
+                            const cv::Mat& x,
+                            const T beta, cv::Mat* y) {
+  // STub
+}
+
+template<>
+void LinearAlgebra<float>::Sbmv(const cv::Mat& A,
+                                const float alpha,
+                                const cv::Mat& x,
+                                const float beta,
+                                cv::Mat* y) {
+  // Sanity check
+  assert((A.cols == 1 && A.rows > 1) || (A.cols > 1 && A.rows == 1));
+  assert((x.cols == 1 && x.rows > 1) || (x.cols > 1 && x.rows == 1));
+  assert(A.type() == CV_32FC1 && x.type() == CV_32FC1);
+  // Define output
+  y->create(x.rows, x.cols, x.type());
+  // Compute
+  const int k = 0;  // only diagonal
+  const int N = std::max(A.cols, A.rows);
+  const int lda = 1;
+  const int inc = 1;
+  cblas_ssbmv(CBLAS_ORDER::CblasRowMajor,
+              CBLAS_UPLO::CblasUpper,
+              N,
+              k,
+              alpha,
+              reinterpret_cast<const float*>(A.data),
+              lda,
+              reinterpret_cast<const float*>(x.data),
+              inc,
+              beta,
+              reinterpret_cast<float*>(y->data),
+              inc);
+}
+
+template<>
+void LinearAlgebra<double>::Sbmv(const cv::Mat& A,
+                                 const double alpha,
+                                 const cv::Mat& x,
+                                 const double beta,
+                                 cv::Mat* y) {
+  // Sanity check
+  assert((A.cols == 1 && A.rows > 1) || (A.cols > 1 && A.rows == 1));
+  assert((x.cols == 1 && x.rows > 1) || (x.cols > 1 && x.rows == 1));
+  assert(A.type() == CV_64FC1 && x.type() == CV_64FC1);
+  // Define output
+  y->create(x.rows, x.cols, x.type());
+  // Compute
+  const int k = 0;  // only diagonal
+  const int N = std::max(A.cols, A.rows);
+  const int lda = 1;
+  const int inc = 1;
+  cblas_dsbmv(CBLAS_ORDER::CblasRowMajor,
+              CBLAS_UPLO::CblasUpper,
+              N,
+              k,
+              alpha,
+              reinterpret_cast<const double*>(A.data),
+              lda,
+              reinterpret_cast<const double*>(x.data),
+              inc,
+              beta,
+              reinterpret_cast<double*>(y->data),
+              inc);
+}
+#pragma mark -
 #pragma mark Explicit Instantiation
   
 /** Float - LinearAlgebra */

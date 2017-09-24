@@ -165,6 +165,26 @@ class FK_EXPORTS LinearAlgebra {
                    const TransposeType trans_b,
                    const T beta,
                    cv::Mat* C);
+    
+  /**
+   * @name  Sbmv
+   * @fn    static void Sbmv(const cv::Mat& A, const T alpha, const cv::Mat& x,
+                             const T beta, cv::Mat* y)
+   * @brief Perform matrix-vector operation :  y := alpha*A*x + beta*y
+   *        where alpha and beta are scalars, x and y are n element vectors and
+   *        A is an n by n symmetric band matrix, with k super-diagonals.
+   *        At the moment support only diagonal matrix
+   *        i.e. element-wise vector multiplication
+   * @param[in] A       Vector of element on the matrix's diagonal
+   * @param[in] alpha   Scaling factor
+   * @param[in] x       Vector
+   * @param[in] beta    Scaling factor
+   * @param[in, out] y  Output
+   */
+  static void Sbmv(const cv::Mat& A,
+                   const T alpha,
+                   const cv::Mat& x,
+                   const T beta, cv::Mat* y);
   
 };
   

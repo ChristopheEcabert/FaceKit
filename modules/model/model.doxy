@@ -1,0 +1,11 @@
+/**
+
+  \addtogroup model Module Model
+
+  \section secmodelPresentation Overview
+
+  Gather different type of face models
+	
+  \section secmodelRequirements Requirements
+	- utils
+*/

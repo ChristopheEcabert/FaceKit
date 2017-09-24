@@ -396,6 +396,30 @@ TYPED_TEST(LinearAlgebraUnitTest, Gemm_AtBt) {
   EXPECT_LT(diff, thr);
 }
 
+
+/** Sbmv */
+TYPED_TEST(LinearAlgebraUnitTest, Sbmv) {
+  // Input
+  cv::Mat A(17, 1, cv::DataType<TypeParam>::type);
+  cv::Mat x(17, 1, cv::DataType<TypeParam>::type);
+  cv::randn(A, TypeParam(0.0), TypeParam(5.0));
+  cv::randn(x, TypeParam(0.0), TypeParam(5.0));
+  // Output
+  cv::Mat ytrue, y;
+  ytrue = A.mul(x);
+  
+  // Compute element-wise product
+  FaceKit::LinearAlgebra<TypeParam>::Sbmv(A,
+                                          TypeParam(1.0),
+                                          x,
+                                          TypeParam(0.0),
+                                          &y);
+  // Compare
+  TypeParam diff = (TypeParam)cv::norm(ytrue - y) / TypeParam(x.total());
+  TypeParam thr = sizeof(TypeParam) == 4 ? 1e-6 : 1e-14;
+  EXPECT_LE(diff, thr);
+}
+
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
