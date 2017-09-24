@@ -11,6 +11,7 @@
 
 #include <algorithm>
 #include <limits>
+#include <cstring>
 
 #include "facekit/io/object_manager.hpp"
 #include "facekit/core/error.hpp"
