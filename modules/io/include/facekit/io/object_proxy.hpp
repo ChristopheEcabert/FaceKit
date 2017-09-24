@@ -49,7 +49,7 @@ class ObjectProxy {
   
   /**
    *  @name get_class_name
-   *  @fn const std::string& get_class_name(void) const 
+   *  @fn const std::string& get_classname(void) const 
    *  @brief  Provide the name of the class represented by this proxy
    *  @return Class name
    */

@@ -124,6 +124,7 @@ class FK_EXPORTS IO {
                                    std::vector<std::string>* content)
    *  @brief  Extract the content of a binary file
    *  @param[in]  stream  Binary stream
+   *  @param[out] content List of object found inside the \p stream
    *  @return -1 if error, 0 otherwise
    */
   static int StreamContent(std::istream& stream,

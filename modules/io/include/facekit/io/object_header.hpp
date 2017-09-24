@@ -45,7 +45,7 @@ class FK_EXPORTS ObjectHeader {
   
   /**
    *  @name ObjectHeader
-   *  @fn ObjectHeader(void) = default
+   *  @fn ObjectHeader(const size_t id, const size_t size)
    *  @brief  Constructor
    *  @param[in] id   Object's ID
    *  @param[in] size Object's size in bytes

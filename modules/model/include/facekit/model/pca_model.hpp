@@ -136,6 +136,7 @@ class FK_EXPORTS PCAModel : public Serializable {
 #pragma mark -
 #pragma mark Protected
  protected:
+  
   /** Mean */
   cv::Mat mean_;
   /** Variation */
@@ -144,7 +145,7 @@ class FK_EXPORTS PCAModel : public Serializable {
   cv::Mat prior_;
   /** Channels */
   int n_channels_;
-  /** Number of frincipal components */
+  /** Number of principal components */
   int n_principle_component_;
 
 };

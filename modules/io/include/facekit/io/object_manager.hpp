@@ -96,7 +96,7 @@ class FK_EXPORTS ObjectManager {
    *  @fn void Register(const ObjectProxy* proxy)
    *  @brief  Add new entry in the manager
    *  @param[in]  proxy New proxy to register with this manager
-   *  @throw  ::FKError if ID already registered.
+   *  @throw  FaceKit::FKError if ID already registered.
    */
   void Register(const ObjectProxy* proxy);
   

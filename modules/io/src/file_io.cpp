@@ -84,7 +84,6 @@ template int IO::LoadTypedMat<uint8_t>(std::istream& stream, cv::Mat* matrix);
 template int IO::LoadTypedMat<int8_t>(std::istream& stream, cv::Mat* matrix);
 template int IO::LoadTypedMat<uint16_t>(std::istream& stream, cv::Mat* matrix);
 template int IO::LoadTypedMat<int16_t>(std::istream& stream, cv::Mat* matrix);
-template int IO::LoadTypedMat<uint32_t>(std::istream& stream, cv::Mat* matrix);
 template int IO::LoadTypedMat<int32_t>(std::istream& stream, cv::Mat* matrix);
 template int IO::LoadTypedMat<float>(std::istream& stream, cv::Mat* matrix);
 template int IO::LoadTypedMat<double>(std::istream& stream, cv::Mat* matrix);
@@ -130,7 +129,6 @@ template int IO::LoadTypedMat<uint8_t>(const std::string& path, cv::Mat* matrix)
 template int IO::LoadTypedMat<int8_t>(const std::string& path, cv::Mat* matrix);
 template int IO::LoadTypedMat<uint16_t>(const std::string& path, cv::Mat* matrix);
 template int IO::LoadTypedMat<int16_t>(const std::string& path, cv::Mat* matrix);
-template int IO::LoadTypedMat<uint32_t>(const std::string& path, cv::Mat* matrix);
 template int IO::LoadTypedMat<int32_t>(const std::string& path, cv::Mat* matrix);
 template int IO::LoadTypedMat<float>(const std::string& path, cv::Mat* matrix);
 template int IO::LoadTypedMat<double>(const std::string& path, cv::Mat* matrix);
@@ -197,7 +195,6 @@ template int IO::SaveTypedMat<uint8_t>(std::ostream& stream, const cv::Mat& matr
 template int IO::SaveTypedMat<int8_t>(std::ostream& stream, const cv::Mat& matrix);
 template int IO::SaveTypedMat<uint16_t>(std::ostream& stream, const cv::Mat& matrix);
 template int IO::SaveTypedMat<int16_t>(std::ostream& stream, const cv::Mat& matrix);
-template int IO::SaveTypedMat<uint32_t>(std::ostream& stream, const cv::Mat& matrix);
 template int IO::SaveTypedMat<int32_t>(std::ostream& stream, const cv::Mat& matrix);
 template int IO::SaveTypedMat<float>(std::ostream& stream, const cv::Mat& matrix);
 template int IO::SaveTypedMat<double>(std::ostream& stream, const cv::Mat& matrix);
