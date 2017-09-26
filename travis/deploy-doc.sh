@@ -22,7 +22,7 @@ if [ -d "$TRAVIS_BUILD_DIR/build/modules/doc/html" ]; then
     pushd doc/html
     git add --all .
     git commit --allow-empty -m "Update documentation to ${TRAVIS_COMMIT:0:7}"
-    git push --force ${SSH_REPO} gh-pages > /dev/null 2>$1
+    git push --force ${SSH_REPO} gh-pages &>/dev/null
     popd
   fi
 fi
