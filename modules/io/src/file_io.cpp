@@ -160,7 +160,7 @@ int IO::SaveMat(std::ostream& stream, const cv::Mat& matrix) {
   return err;
 }
   
-/**
+/*
  *  @name SaveTypedMat
  *  @fn static int SaveTypedMat(std::ostream& stream, const cv::Mat& matrix)
  *  @brief  Save a \p matrix into a given stream with a specific type
@@ -198,6 +198,50 @@ template int IO::SaveTypedMat<int16_t>(std::ostream& stream, const cv::Mat& matr
 template int IO::SaveTypedMat<int32_t>(std::ostream& stream, const cv::Mat& matrix);
 template int IO::SaveTypedMat<float>(std::ostream& stream, const cv::Mat& matrix);
 template int IO::SaveTypedMat<double>(std::ostream& stream, const cv::Mat& matrix);
+  
+/*
+ *  @name SaveMat
+ *  @fn static int SaveMat(const std::string& filename, const cv::Mat& matrix)
+ *  @brief  Save a \p matrix into a given stream
+ *  @param[in]  filename  File's name
+ *  @param[in]  matrix  Matrix to write
+ *  @return -1 if error, 0 otherwise
+ */
+int IO::SaveMat(const std::string& filename, const cv::Mat& matrix) {
+  int err = -1;
+  std::ofstream stream(filename.c_str(), std::ios_base::binary);
+  if (stream.is_open()) {
+    err = IO::SaveMat(stream, matrix);
+  }
+  return err;
+}
+  
+/*
+ *  @name SaveTypedMat
+ *  @fn static int SaveTypedMat(const std::string& filename, const cv::Mat& matrix)
+ *  @brief  Save a \p matrix into a given stream with a specific type
+ *  @tparam T output data type wanted
+ *  @param[in]  filename  File's name
+ *  @param[in]  matrix  Matrix to write
+ *  @return -1 if error, 0 otherwise
+ */
+template<typename T>
+int IO::SaveTypedMat(const std::string& filename, const cv::Mat& matrix) {
+  int err = -1;
+  std::ofstream stream(filename.c_str(), std::ios_base::binary);
+  if (stream.is_open()) {
+    err = IO::SaveTypedMat<T>(stream, matrix);
+  }
+  return err;
+}
+  
+template int IO::SaveTypedMat<uint8_t>(const std::string& filename, const cv::Mat& matrix);
+template int IO::SaveTypedMat<int8_t>(const std::string& filename, const cv::Mat& matrix);
+template int IO::SaveTypedMat<uint16_t>(const std::string& filename, const cv::Mat& matrix);
+template int IO::SaveTypedMat<int16_t>(const std::string& filename, const cv::Mat& matrix);
+template int IO::SaveTypedMat<int32_t>(const std::string& filename, const cv::Mat& matrix);
+template int IO::SaveTypedMat<float>(const std::string& filename, const cv::Mat& matrix);
+template int IO::SaveTypedMat<double>(const std::string& filename, const cv::Mat& matrix);
   
 #pragma mark -
 #pragma mark Stream Utility

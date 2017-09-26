@@ -105,6 +105,28 @@ class FK_EXPORTS IO {
   template<typename T>
   static int SaveTypedMat(std::ostream& stream, const cv::Mat& matrix);
   
+  /**
+   *  @name SaveMat
+   *  @fn static int SaveMat(const std::string& filename, const cv::Mat& matrix)
+   *  @brief  Save a \p matrix into a given stream
+   *  @param[in]  filename  File's name
+   *  @param[in]  matrix  Matrix to write
+   *  @return -1 if error, 0 otherwise
+   */
+  static int SaveMat(const std::string& filename, const cv::Mat& matrix);
+  
+  /**
+   *  @name SaveTypedMat
+   *  @fn static int SaveTypedMat(const std::string& filename, const cv::Mat& matrix)
+   *  @brief  Save a \p matrix into a given stream with a specific type
+   *  @tparam T output data type wanted
+   *  @param[in]  filename  File's name
+   *  @param[in]  matrix  Matrix to write
+   *  @return -1 if error, 0 otherwise
+   */
+  template<typename T>
+  static int SaveTypedMat(const std::string& filename, const cv::Mat& matrix);
+  
 #pragma mark -
 #pragma mark Stream Utility
   

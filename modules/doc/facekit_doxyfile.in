@@ -117,7 +117,7 @@ RECURSIVE              = YES
 EXCLUDE                = "@FACEKIT_SOURCE_DIR@/cmake" \
                          "@FACEKIT_SOURCE_DIR@/apps" \
 EXCLUDE_SYMLINKS       = NO
-EXCLUDE_PATTERNS       = */build* */3rdparty*
+EXCLUDE_PATTERNS       = *FaceKit/build* *FaceKit/3rdparty*
 EXCLUDE_SYMBOLS        =
 EXAMPLE_PATH           = 
 EXAMPLE_PATTERNS       = *
