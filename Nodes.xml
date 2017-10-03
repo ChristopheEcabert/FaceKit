@@ -14,7 +14,7 @@
         <Path>modules.html</Path>
         <Subnodes>
          <Node>
-          <Name>Module Core</Name>
+          <Name>Core</Name>
           <Path>group__core.html</Path>
           <Subnodes>
            <Node>
@@ -1043,7 +1043,7 @@
           </Subnodes>
          </Node>
          <Node>
-          <Name>Module Geometry</Name>
+          <Name>Geometry</Name>
           <Path>group__geometry.html</Path>
           <Subnodes>
            <Node>
@@ -1428,7 +1428,7 @@
           </Subnodes>
          </Node>
          <Node>
-          <Name>Module IO</Name>
+          <Name>IO</Name>
           <Path>group__io.html</Path>
           <Subnodes>
            <Node>
@@ -1644,7 +1644,7 @@
           </Subnodes>
          </Node>
          <Node>
-          <Name>Module Model</Name>
+          <Name>Model</Name>
           <Path>group__model.html</Path>
           <Subnodes>
            <Node>
