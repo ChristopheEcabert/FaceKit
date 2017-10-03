@@ -1,12 +1,12 @@
 /**
 
-  \addtogroup core Module Core
+  \addtogroup core Core
 
-  \section seccorePresentation Overview
+  \section seccoreOverview Overview
 
   BlaBla 
 	
-  \section seccoreRequirements Requirements
+  \section seccoreRequirement Requirements
 	- none
 
 */

@@ -1,12 +1,12 @@
 /**
 
-  \addtogroup io Module IO
+  \addtogroup io IO
 
-  \section secioPresentation Overview
+  \section secioOverview Overview
 
   Module dedicated to handle Inputs / Outputs
 	
-  \section secioRequirements Requirements
+  \section secioRequirement Requirements
 	- core
 
 */
