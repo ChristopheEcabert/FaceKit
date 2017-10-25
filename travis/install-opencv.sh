@@ -32,19 +32,19 @@ esac
 
 #INSTALL_DIR=`readlink -f $1`
 INSTALL_DIR=$1
-if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/build/lib/*$EXT >/dev/null 2>&1; then
+if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/lib/*$EXT >/dev/null 2>&1; then
     echo "Using cached build at $INSTALL_DIR ..."
 else
     rm -rf $INSTALL_DIR
-    git clone https://github.com/opencv/opencv.git ${INSTALL_DIR} --depth 1
-    cd $INSTALL_DIR
+    git clone https://github.com/opencv/opencv.git ${INSTALL_DIR}/source --depth 1
+    cd $INSTALL_DIR/source
     # Redirect build output to a log and only show it if an error occurs
     # Otherwise there is too much output for TravisCI to display properly
-    LOG_FILE=$LOCAL_DIR/opencv-build.log
     mkdir -p build && cd build
-    cmake -DCMAKE_PREFIX_INSTALL=/usr/local -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF ..
+    cmake -DCMAKE_PREFIX_INSTALL=$INSTALL_DIR -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF ..
     #make -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
     make -j8
+    make install
 fi
-cd $INSTALL_DIR/build
-sudo make install
+# Update path file
+export PATH=$INSTALL_DIR:${PATH}
