@@ -16,14 +16,16 @@ if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/build/lib/*.a >/dev/null 2>&1; then
     echo "Using cached build at $INSTALL_DIR ..."
 else
     rm -rf $INSTALL_DIR
-    git clone https://github.com/doxygen/doxygen.git ${INSTALL_DIR} --depth 1
-    cd $INSTALL_DIR
+    git clone https://github.com/doxygen/doxygen.git ${INSTALL_DIR}/source --depth 1
+    cd $INSTALL_DIR/source
     # Redirect build output to a log and only show it if an error occurs
     # Otherwise there is too much output for TravisCI to display properly
-    LOG_FILE=$LOCAL_DIR/doxygen-build.log
     mkdir -p build && cd build
-    cmake -DCMAKE_BUILD_TYPE=Release ..
+    cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=${INSTALL_DIR} ..
     make -j8
+    make install
+    # Remove source
+    cd ${INSTALL_DIR} && rm -rf ${INSTALL_DIR}/source
 fi
-cd $INSTALL_DIR/build
-sudo make install
+# Update path
+export PATH=${INSTALL_DIR}:${PATH}

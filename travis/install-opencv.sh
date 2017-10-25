@@ -41,10 +41,12 @@ else
     # Redirect build output to a log and only show it if an error occurs
     # Otherwise there is too much output for TravisCI to display properly
     mkdir -p build && cd build
-    cmake -DCMAKE_PREFIX_INSTALL=$INSTALL_DIR -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF ..
+    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF ..
     #make -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
     make -j8
     make install
+    # Remove source, not needed anymore
+    cd ${INSTALL_DIR} && rm -rf ${INSTALL_DIR}/source
 fi
 # Update path file
 export PATH=$INSTALL_DIR:${PATH}
