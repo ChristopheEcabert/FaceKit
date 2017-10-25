@@ -1,0 +1,12 @@
+/**
+
+  \addtogroup dataset Dataset
+
+  \section secdatasetOverview Overview
+
+  Module dedicated to data manipulation from various data set, such as data augmentation
+	
+  \section secdatasetRequirement Requirements
+	- core
+
+*/

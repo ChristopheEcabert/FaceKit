@@ -19,6 +19,7 @@ if(build)
 
   set(incs
     include/facekit/${SUBSYS_NAME}/cmd_parser.hpp
+    include/facekit/${SUBSYS_NAME}/enum_bitmask_operator.hpp
     include/facekit/${SUBSYS_NAME}/error.hpp
     include/facekit/${SUBSYS_NAME}/library_export.hpp
     include/facekit/${SUBSYS_NAME}/logger.hpp)
@@ -43,9 +44,9 @@ if(build)
   ENDIF(WITH_EXAMPLES)
 
   # TESTS
-  FACEKIT_ADD_TEST(ut_cmd_parser facekit_ut_cmd_parser FILES test/ut_cmd_parser.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
-  FACEKIT_ADD_TEST(ut_linear_algebra facekit_ut_linear_algebra FILES test/ut_linear_algebra.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
-  FACEKIT_ADD_TEST(ut_logger facekit_ut_logger FILES test/ut_logger.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_cmd_parser cmd_parser FILES test/ut_cmd_parser.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_linear_algebra linear_algebra FILES test/ut_linear_algebra.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_logger logger FILES test/ut_logger.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
 
   # Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})

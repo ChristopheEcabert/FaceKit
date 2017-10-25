@@ -28,8 +28,8 @@ if(build)
   target_link_libraries("${LIB_NAME}" ${LIB_LINK})
 
   #EXAMPLE
-  IF(OPT_BUILD_EXAMPLE)
-  ENDIF(OPT_BUILD_EXAMPLE)
+  IF(WITH_EXAMPLES)
+  ENDIF(WITH_EXAMPLES)
 
   ## Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})

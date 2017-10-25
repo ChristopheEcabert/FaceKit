@@ -9,6 +9,9 @@
  */
 
 #include <fstream>
+#include <stack>
+
+#include "tinydir/tinydir.h"
 
 #include "facekit/io/file_io.hpp"
 #include "facekit/io/object_header.hpp"
@@ -275,6 +278,57 @@ int IO::StreamContent(std::istream& stream,
   int err = -1;
   
   return err;
+}
+  
+#pragma mark -
+#pragma mark Folder utility
+  
+/*
+ *  @name   SearchInFolder
+ *  @fn     static void SearchInFolder(const std::string& root,
+                                     const std::string& ext,
+                                     std::vector<std::string>* files)
+ *  @brief  Search recursively from a root folder for files with a specific
+ *          extension
+ */
+void IO::SearchInFolder(const std::string& root,
+                       const std::string& ext,
+                       std::vector<std::string>* files) {
+  std::stack<std::string> stack;
+  stack.push(root);
+  tinydir_dir dir;
+  tinydir_file file;
+  // Start recursive search
+  while (!stack.empty()) {
+    // Get actual folder
+    std::string path = stack.top();
+    stack.pop();
+    // Open it
+    tinydir_open(&dir, path.c_str());
+    // Iterate over content
+    while (dir.has_next) {
+      // Read file
+      tinydir_readfile(&dir, &file);
+      // File or folder ?
+      const auto file_str = std::string(file.name);
+      const auto name = std::string(dir.path) + "/" + file_str;
+      if (file.is_dir && (file_str != "." && file_str != "..")) {
+        // Add to stack
+        stack.push(name);
+      } else {
+        // Check if match extension
+        auto p = name.rfind(ext);
+        if (p != std::string::npos) {
+          // Add to the list if file matching extension
+          files->push_back(name);
+        }
+      }
+      // Move to the next file/folder
+      tinydir_next(&dir);
+    }
+    // Done iterating over folder, close it
+    tinydir_close(&dir);
+  }
 }
   
 }  // namespace FaceKit

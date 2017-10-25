@@ -62,6 +62,19 @@ class FK_EXPORTS StringUtil {
                                std::string* dir,
                                std::string* file,
                                std::string* ext);
+  
+  /**
+   *  @name   LeadingZero
+   *  @fn     static std::string LeadingZero(const T number, const size_t N)
+   *  @brief  Convert a number to string and complete it with leading zeros if 
+   *          needed
+   *  @param[in]  number  Number to convert to string
+   *  @param[in]  N       Number total of char wanted (i.e. N=3, number=12 
+   *                      -> 012)
+   *  @tparam T Data type
+   */
+  template<typename T>
+  static std::string LeadingZero(const T number, const size_t N);
 };
   
 }  // namespace FaceKit

@@ -1,4 +1,6 @@
 #! /bin/bash
+# See: https://gist.github.com/domenic/ec8b0fc8ab45f39403dd
+#      https://github.com/boostorg/hana/blob/master/.travis.yml
 set -e
 echo "Deploy - Documentation"
 if [ -d "$TRAVIS_BUILD_DIR/build/modules/doc/html" ]; then

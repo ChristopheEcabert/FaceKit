@@ -24,7 +24,7 @@ if(build)
   # Set library name
   set(LIB_NAME "facekit_${SUBSYS_NAME}")
   # Add include folder location
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${FACEKIT_SOURCE_DIR}/3rdparty)
   # Add library
   FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} LINK_WITH facekit_core ${OpenCV_LIBS})
 

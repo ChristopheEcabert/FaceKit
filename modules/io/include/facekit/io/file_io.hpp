@@ -151,6 +151,21 @@ class FK_EXPORTS IO {
    */
   static int StreamContent(std::istream& stream,
                            std::vector<std::string>* content);
+  
+#pragma mark -
+#pragma mark Folder utility
+  
+  /**
+   *  @name   SearchInFolder
+   *  @fn     static void SearchInFolder(const std::string& root,
+                                         const std::string& ext,
+                                         std::vector<std::string>* files)
+   *  @brief  Search recursively from a root folder for files with a specific
+   *          extension
+   */
+  static void SearchInFolder(const std::string& root,
+                             const std::string& ext,
+                             std::vector<std::string>* files);
 };
   
 }  // namespace FaceKit
