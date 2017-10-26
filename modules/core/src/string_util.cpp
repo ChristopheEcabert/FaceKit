@@ -91,8 +91,6 @@ template std::string StringUtil::LeadingZero(const int16_t, size_t);
 template std::string StringUtil::LeadingZero(const uint16_t, size_t);
 template std::string StringUtil::LeadingZero(const int32_t, size_t);
 template std::string StringUtil::LeadingZero(const uint32_t, size_t);
-template std::string StringUtil::LeadingZero(const int64_t, size_t);
-template std::string StringUtil::LeadingZero(const uint64_t, size_t);
 template std::string StringUtil::LeadingZero(const size_t, size_t);
   
 }  // namespace FaceKit
