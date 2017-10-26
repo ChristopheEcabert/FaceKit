@@ -27,5 +27,3 @@ else
     # Remove source
     cd ${INSTALL_DIR} && rm -rf ${INSTALL_DIR}/source
 fi
-# Update path
-export PATH=${INSTALL_DIR}/bin:${PATH}
