@@ -2,6 +2,96 @@
 <Tokens version="1.0">
   <Token>
     <TokenIdentifier>
+      <Name>ENABLE_BITMASK_OPERATORS</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>enum__bitmask__operator_8hpp.html</Path>
+    <Anchor>ae4302c1ba8e7f13fd5f4245013e63bf3</Anchor>
+    <Abstract>Helper macro for enabling bitmask operator for a specific enum type. </Abstract>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator|</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a65e1fb0bd7866864a7cdd92a3d78ad2c</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator &amp;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a562861454cbd4066fc57cb6722318fd3</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator^</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a136108ec92aefb4e310d6e3ef59314d9</Anchor>
+    <Abstract>XOR-operator. </Abstract>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator~</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>aedb745dde79128998b03fc1568044fc6</Anchor>
+    <Abstract>Inversion-operator. </Abstract>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator|=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a7f7468a529bb0a7b96ea5af7aed17340</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator &amp;=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a67d310e0b1629530dbb49ba4caaccbc8</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator^=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a1b69b859f22ad8ba60b8e558a2071020</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FK_EXPORTS</Name>
       <APILanguage>unknown</APILanguage>
       <Type>macro</Type>
@@ -445,10 +535,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>ENABLE_BITMASK_OPERATORS</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a8221cbbe33ef5eeeb0e2da18b8173e61</Anchor>
+    <DeclaredIn>flip_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>core</Name>
       <APILanguage>c</APILanguage>
     </TokenIdentifier>
     <Path>group__core.html</Path>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>dataset</Name>
+      <APILanguage>c</APILanguage>
+    </TokenIdentifier>
+    <Path>group__dataset.html</Path>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -738,6 +846,96 @@
     <Anchor>a076d2665489d93d680d93d41a80de15f</Anchor>
     <Abstract>Dot product. </Abstract>
     <DeclaredIn>vector.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ENABLE_BITMASK_OPERATORS</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a8221cbbe33ef5eeeb0e2da18b8173e61</Anchor>
+    <DeclaredIn>flip_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator|</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a65e1fb0bd7866864a7cdd92a3d78ad2c</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator &amp;</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a562861454cbd4066fc57cb6722318fd3</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator^</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a136108ec92aefb4e310d6e3ef59314d9</Anchor>
+    <Abstract>XOR-operator. </Abstract>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator~</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>aedb745dde79128998b03fc1568044fc6</Anchor>
+    <Abstract>Inversion-operator. </Abstract>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator|=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a7f7468a529bb0a7b96ea5af7aed17340</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator &amp;=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a67d310e0b1629530dbb49ba4caaccbc8</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator^=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a1b69b859f22ad8ba60b8e558a2071020</Anchor>
+    <DeclaredIn>enum_bitmask_operator.hpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1067,6 +1265,220 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>FaceKit::AugmentationCell</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Abstract>Interface for various augementation cells. </Abstract>
+    <DeclaredIn>modules/dataset/include/facekit/dataset/augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~AugmentationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Anchor>a68a6aa3c2e51dc8279598a64e3f9b6da</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Anchor>adaa6073dd039a21f10d37d54d42fb7a2</Anchor>
+    <Abstract>Run augmentation step on provided data. </Abstract>
+    <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Anchor>acf7b6ae5c92a3c7b882febb9bdaa7845</Anchor>
+    <Abstract>Provide name of the operation. </Abstract>
+    <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::AugmentationEngine</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Abstract>Pipeline for standardized data augmentation process. </Abstract>
+    <DeclaredIn>modules/dataset/include/facekit/dataset/augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>AugmentationEngine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a4a3526a42a5c4c2aa995470e16412109</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>AugmentationEngine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>aa7ad697b5bc20c14c513e647a7eb3e39</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>AugmentationEngine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>aa82174947633bc5b35c0cd3f95617fb2</Anchor>
+    <Abstract>Copy constructor. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>AugmentationEngine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a25912e52dac23a67beb7c06ec5379b7b</Anchor>
+    <Abstract>Move constructor. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~AugmentationEngine</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>ad9d12f796534e1efbd28bac6f96ed043</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a2f9f92d22ee26dcc3c7a3df51d7c5748</Anchor>
+    <Abstract>Copy assignment operator. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>accca00bb0a2c2b2bbe39749c470671f3</Anchor>
+    <Abstract>Move assignment operator. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ScanForData</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a9a0fffe6aa0884000a2246ce3215ee1a</Anchor>
+    <Abstract>Search for data matching a specific extension list in a given folder. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Register</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a07bd4feab820e1814086d67e9db09c28</Anchor>
+    <Abstract>Add new augmentation step to the engine. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>AddIdentityCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a93d6a8857fce189bd87eda770cea30fb</Anchor>
+    <Abstract>Register a new IdentityCell within a given AugmentationEngine. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>AddImgFlipCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>ac0b41c6a00d9d109dccc953b32878033</Anchor>
+    <Abstract>Register a new ImgFlipCell within a given AugmentationEngine. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>AddImgInPlaneRotationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a4e7c81e2e21c52cc46cb42f80371a200</Anchor>
+    <Abstract>Register a new ImgInPlaneRotationCell within a given AugmentationEngine. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Run</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a7780a1db226a7bbef47195399fbc9ec3</Anchor>
+    <Abstract>Run data augmentation chain. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit::CmdLineParser</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -1251,6 +1663,28 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>FaceKit::EnableBitMaskOperators</Name>
+      <APILanguage>c</APILanguage>
+      <Type>tmplt</Type>
+      <Scope>FaceKit::EnableBitMaskOperators</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_enable_bit_mask_operators.html</Path>
+    <Abstract>Indicate if bitmask operator are enabled for a specific enum type. </Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/enum_bitmask_operator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>enable</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::EnableBitMaskOperators</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_enable_bit_mask_operators.html</Path>
+    <Anchor>af3e847fd0e764ca08a3adaf5fd162505</Anchor>
+    <Abstract>Indicate if operators are enable for this specific type. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit::FKError</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -1351,6 +1785,252 @@
     <Path>class_face_kit_1_1_f_k_error.html</Path>
     <Anchor>a0aa3b32824fb89c6d44831a61a9d3922af34e744f0f7eb1431496e5eb97d7038b</Anchor>
     <Abstract>Reading data. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::IdentityCell</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::IdentityCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_identity_cell.html</Path>
+    <Abstract>Basic augmentation bloc, where input is copied to output locations. </Abstract>
+    <DeclaredIn>modules/dataset/include/facekit/dataset/identity_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IdentityCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::IdentityCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_identity_cell.html</Path>
+    <Anchor>a80c4959ba676692d09f8e6f6a27db00c</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>identity_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~IdentityCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::IdentityCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_identity_cell.html</Path>
+    <Anchor>a1f6ecb1de447d93976b0c67fb59812b3</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>identity_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::IdentityCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_identity_cell.html</Path>
+    <Anchor>adfdce0ef3c53ddc75f1dc7b251dbfd26</Anchor>
+    <Abstract>Copy input sample to output location. </Abstract>
+    <DeclaredIn>identity_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::IdentityCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_identity_cell.html</Path>
+    <Anchor>a4ee1e98f056955a28165218ff067b846</Anchor>
+    <Abstract>Provide name of the operation. </Abstract>
+    <DeclaredIn>identity_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~AugmentationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Anchor>a68a6aa3c2e51dc8279598a64e3f9b6da</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::ImgFlipCell</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::ImgFlipCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_flip_cell.html</Path>
+    <Abstract>Perform flip into horizontal/vertical direction. </Abstract>
+    <DeclaredIn>modules/dataset/include/facekit/dataset/flip_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ImgFlipCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImgFlipCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_flip_cell.html</Path>
+    <Anchor>ac28813ab13d12789ddddc5c825266308</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>flip_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ImgFlipCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImgFlipCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_flip_cell.html</Path>
+    <Anchor>afd524e0719239ace53ad7c3c3a6ff67a</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>flip_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImgFlipCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_flip_cell.html</Path>
+    <Anchor>abbd20f71b04ed98f701740f32b16dd38</Anchor>
+    <Abstract>Run augmentation step on provided data. </Abstract>
+    <DeclaredIn>flip_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~AugmentationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Anchor>a68a6aa3c2e51dc8279598a64e3f9b6da</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImgFlipCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_flip_cell.html</Path>
+    <Anchor>a6f20cf440f94e45d798a2ad428dab672</Anchor>
+    <Abstract>Provide name of the operation. </Abstract>
+    <DeclaredIn>flip_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>kVertical</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>FaceKit::ImgFlipCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_flip_cell.html</Path>
+    <Anchor>aa405dd4f4474fd1ea0e29b941d30eaafa04da8b9a72f74bff480c2858ffc1bc95</Anchor>
+    <Abstract>Vertical. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>kHorizontal</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>FaceKit::ImgFlipCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_flip_cell.html</Path>
+    <Anchor>aa405dd4f4474fd1ea0e29b941d30eaafa3d3bbb7767b92dd2ae2c7128cf66d2ca</Anchor>
+    <Abstract>Horizontal. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>kBoth</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>FaceKit::ImgFlipCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_flip_cell.html</Path>
+    <Anchor>aa405dd4f4474fd1ea0e29b941d30eaafa4f968049bc5e5f7c6e0d89946366fff2</Anchor>
+    <Abstract>Both. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::ImgInPlaneRotationCell</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::ImgInPlaneRotationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_in_plane_rotation_cell.html</Path>
+    <Abstract>Generate image with random in-plane rotation around a random point. </Abstract>
+    <DeclaredIn>modules/dataset/include/facekit/dataset/in_plane_rotation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ImgInPlaneRotationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImgInPlaneRotationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_in_plane_rotation_cell.html</Path>
+    <Anchor>af23585f2a97c1e44b726fd25fa777803</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>in_plane_rotation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ImgInPlaneRotationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImgInPlaneRotationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_in_plane_rotation_cell.html</Path>
+    <Anchor>a7d54dff777cc7c99376d947ceaeebca7</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>in_plane_rotation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImgInPlaneRotationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_in_plane_rotation_cell.html</Path>
+    <Anchor>a09f6e039ac4b20ed8545c64189f5a943</Anchor>
+    <Abstract>Run augmentation step on provided data. </Abstract>
+    <DeclaredIn>in_plane_rotation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~AugmentationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Anchor>a68a6aa3c2e51dc8279598a64e3f9b6da</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImgInPlaneRotationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_img_in_plane_rotation_cell.html</Path>
+    <Anchor>ad505e30837c7b330ebba92b1b9349d72</Anchor>
+    <Abstract>Provide name of the operation. </Abstract>
+    <DeclaredIn>in_plane_rotation_cell.hpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1481,6 +2161,18 @@
     <Path>class_face_kit_1_1_i_o.html</Path>
     <Anchor>a4da93dc53fb71cb4a6a9ac105844a587</Anchor>
     <Abstract>Extract the content of a binary file. </Abstract>
+    <DeclaredIn>file_io.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>SearchInFolder</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::IO</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_i_o.html</Path>
+    <Anchor>a14eca32ea26b473f4b7256c75cc2a5ae</Anchor>
+    <Abstract>Search recursively from a root folder for files with a specific extension. </Abstract>
     <DeclaredIn>file_io.hpp</DeclaredIn>
   </Token>
   <Token>
@@ -3884,6 +4576,18 @@
     <Path>class_face_kit_1_1_string_util.html</Path>
     <Anchor>acbfe80e4edb48c638706b0984d1c0bb7</Anchor>
     <Abstract>Split path into directory + extension. </Abstract>
+    <DeclaredIn>string_util.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>LeadingZero</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::StringUtil</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_string_util.html</Path>
+    <Anchor>a58dd6028b96d14e1da173c9f9ce5e3a2</Anchor>
+    <Abstract>Convert a number to string and complete it with leading zeros if needed. </Abstract>
     <DeclaredIn>string_util.hpp</DeclaredIn>
   </Token>
   <Token>

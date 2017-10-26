@@ -77,6 +77,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:acbfe80e4edb48c638706b0984d1c0bb7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_string_util.html#acbfe80e4edb48c638706b0984d1c0bb7">ExtractDirectory</a> (const std::string &amp;path, std::string *dir, std::string *file, std::string *ext)</td></tr>
 <tr class="memdesc:acbfe80e4edb48c638706b0984d1c0bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split path into directory + extension.  <a href="#acbfe80e4edb48c638706b0984d1c0bb7">More...</a><br /></td></tr>
 <tr class="separator:acbfe80e4edb48c638706b0984d1c0bb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">LeadingZero</div></td></tr>
+<tr class="memitem:a58dd6028b96d14e1da173c9f9ce5e3a2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a58dd6028b96d14e1da173c9f9ce5e3a2"><td class="memTemplItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_string_util.html#a58dd6028b96d14e1da173c9f9ce5e3a2">LeadingZero</a> (const T number, const size_t N)</td></tr>
+<tr class="memdesc:a58dd6028b96d14e1da173c9f9ce5e3a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a number to string and complete it with leading zeros if needed.  <a href="#a58dd6028b96d14e1da173c9f9ce5e3a2">More...</a><br /></td></tr>
+<tr class="separator:a58dd6028b96d14e1da173c9f9ce5e3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Utility function for string handling. </p>
@@ -142,6 +147,59 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a58dd6028b96d14e1da173c9f9ce5e3a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58dd6028b96d14e1da173c9f9ce5e3a2">&#9670;&nbsp;</a></span>LeadingZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string FaceKit::StringUtil::LeadingZero </td>
+          <td>(</td>
+          <td class="paramtype">const T&#160;</td>
+          <td class="paramname"><em>number</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>N</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert a number to string and complete it with leading zeros if needed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">number</td><td>Number to convert to string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">N</td><td>Number total of char wanted (i.e. N=3, number=12 -&gt; 012) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Data type </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a0dfaa9ee821b545c71e114d3cc56bbcf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0dfaa9ee821b545c71e114d3cc56bbcf">&#9670;&nbsp;</a></span>Split()</h2>
 
@@ -200,7 +258,7 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 24 2017 10:02:02 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 26 2017 18:33:05 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>

@@ -67,11 +67,29 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_a_a_b_b.html">AABB</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Axis Aligned Bouding Box.  <a href="class_face_kit_1_1_a_a_b_b.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_augmentation_cell.html">AugmentationCell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for various augementation cells.  <a href="class_face_kit_1_1_augmentation_cell.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_augmentation_engine.html">AugmentationEngine</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pipeline for standardized data augmentation process.  <a href="class_face_kit_1_1_augmentation_engine.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_cmd_line_parser.html">CmdLineParser</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility class to parse command line argument.  <a href="class_face_kit_1_1_cmd_line_parser.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicate if bitmask operator are enabled for a specific enum type.  <a href="struct_face_kit_1_1_enable_bit_mask_operators.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_f_k_error.html">FKError</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error class.  <a href="class_face_kit_1_1_f_k_error.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_identity_cell.html">IdentityCell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic augmentation bloc, where input is copied to output locations.  <a href="class_face_kit_1_1_identity_cell.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_img_flip_cell.html">ImgFlipCell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform flip into horizontal/vertical direction.  <a href="class_face_kit_1_1_img_flip_cell.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_img_in_plane_rotation_cell.html">ImgInPlaneRotationCell</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate image with random in-plane rotation around a random point.  <a href="class_face_kit_1_1_img_in_plane_rotation_cell.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_i_o.html">IO</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle reading/writing from various file.  <a href="class_face_kit_1_1_i_o.html#details">More...</a><br /></td></tr>
@@ -219,11 +237,123 @@ Functions</h2></td></tr>
 <tr class="memitem:a076d2665489d93d680d93d41a80de15f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a076d2665489d93d680d93d41a80de15f">operator*</a> (const <a class="el" href="struct_face_kit_1_1_vector4.html">Vector4</a>&lt; T &gt; &amp;lhs, const <a class="el" href="struct_face_kit_1_1_vector4.html">Vector4</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="memdesc:a076d2665489d93d680d93d41a80de15f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dot product.  <a href="#a076d2665489d93d680d93d41a80de15f">More...</a><br /></td></tr>
 <tr class="separator:a076d2665489d93d680d93d41a80de15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8221cbbe33ef5eeeb0e2da18b8173e61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a8221cbbe33ef5eeeb0e2da18b8173e61">ENABLE_BITMASK_OPERATORS</a> (<a class="el" href="class_face_kit_1_1_img_flip_cell.html#aa405dd4f4474fd1ea0e29b941d30eaaf">ImgFlipCell::Direction</a>)</td></tr>
+<tr class="separator:a8221cbbe33ef5eeeb0e2da18b8173e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">operator|</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>OR-operator </p>
+</div></td></tr>
+<tr class="memitem:a65e1fb0bd7866864a7cdd92a3d78ad2c"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
+<tr class="memitem:a65e1fb0bd7866864a7cdd92a3d78ad2c"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a65e1fb0bd7866864a7cdd92a3d78ad2c">operator|</a> (const Enum &amp;lhs, const Enum &amp;rhs)</td></tr>
+<tr class="separator:a65e1fb0bd7866864a7cdd92a3d78ad2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">operator&amp;</div></td></tr>
+<tr class="memitem:a562861454cbd4066fc57cb6722318fd3"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
+<tr class="memitem:a562861454cbd4066fc57cb6722318fd3"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a562861454cbd4066fc57cb6722318fd3">operator &amp;</a> (const Enum &amp;lhs, const Enum &amp;rhs)</td></tr>
+<tr class="separator:a562861454cbd4066fc57cb6722318fd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">operator^</div></td></tr>
+<tr class="memitem:a136108ec92aefb4e310d6e3ef59314d9"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
+<tr class="memitem:a136108ec92aefb4e310d6e3ef59314d9"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a136108ec92aefb4e310d6e3ef59314d9">operator^</a> (const Enum &amp;lhs, const Enum &amp;rhs)</td></tr>
+<tr class="memdesc:a136108ec92aefb4e310d6e3ef59314d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">XOR-operator.  <a href="#a136108ec92aefb4e310d6e3ef59314d9">More...</a><br /></td></tr>
+<tr class="separator:a136108ec92aefb4e310d6e3ef59314d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">operator~</div></td></tr>
+<tr class="memitem:aedb745dde79128998b03fc1568044fc6"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
+<tr class="memitem:aedb745dde79128998b03fc1568044fc6"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#aedb745dde79128998b03fc1568044fc6">operator~</a> (const Enum &amp;rhs)</td></tr>
+<tr class="memdesc:aedb745dde79128998b03fc1568044fc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inversion-operator.  <a href="#aedb745dde79128998b03fc1568044fc6">More...</a><br /></td></tr>
+<tr class="separator:aedb745dde79128998b03fc1568044fc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">operator|=</div></td></tr>
+<tr class="memitem:a7f7468a529bb0a7b96ea5af7aed17340"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
+<tr class="memitem:a7f7468a529bb0a7b96ea5af7aed17340"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a7f7468a529bb0a7b96ea5af7aed17340">operator|=</a> (Enum &amp;lhs, Enum &amp;rhs)</td></tr>
+<tr class="separator:a7f7468a529bb0a7b96ea5af7aed17340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">operator&amp;=</div></td></tr>
+<tr class="memitem:a67d310e0b1629530dbb49ba4caaccbc8"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
+<tr class="memitem:a67d310e0b1629530dbb49ba4caaccbc8"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a67d310e0b1629530dbb49ba4caaccbc8">operator &amp;=</a> (Enum &amp;lhs, Enum &amp;rhs)</td></tr>
+<tr class="separator:a67d310e0b1629530dbb49ba4caaccbc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">operator^=</div></td></tr>
+<tr class="memitem:a1b69b859f22ad8ba60b8e558a2071020"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
+<tr class="memitem:a1b69b859f22ad8ba60b8e558a2071020"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a1b69b859f22ad8ba60b8e558a2071020">operator^=</a> (Enum &amp;lhs, Enum &amp;rhs)</td></tr>
+<tr class="separator:a1b69b859f22ad8ba60b8e558a2071020"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Development space. </p>
 <p>Devlopment space. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a8221cbbe33ef5eeeb0e2da18b8173e61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8221cbbe33ef5eeeb0e2da18b8173e61">&#9670;&nbsp;</a></span>ENABLE_BITMASK_OPERATORS()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::ENABLE_BITMASK_OPERATORS </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_face_kit_1_1_img_flip_cell.html#aa405dd4f4474fd1ea0e29b941d30eaaf">ImgFlipCell::Direction</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a562861454cbd4066fc57cb6722318fd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a562861454cbd4066fc57cb6722318fd3">&#9670;&nbsp;</a></span>operator &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Enum &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;<a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt;Enum&gt;::enable, Enum&gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a> FaceKit::operator&amp; </td>
+          <td>(</td>
+          <td class="paramtype">const Enum &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Enum &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a67d310e0b1629530dbb49ba4caaccbc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67d310e0b1629530dbb49ba4caaccbc8">&#9670;&nbsp;</a></span>operator &amp;=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Enum &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;<a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt;Enum&gt;::enable, Enum&gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a> FaceKit::operator&amp;= </td>
+          <td>(</td>
+          <td class="paramtype">Enum &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enum &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a6729141259b069ebc929ffffe2ff1342"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6729141259b069ebc929ffffe2ff1342">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/6]</span></h2>
 
@@ -884,8 +1014,54 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a136108ec92aefb4e310d6e3ef59314d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136108ec92aefb4e310d6e3ef59314d9">&#9670;&nbsp;</a></span>operator^() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Enum &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Enum FaceKit::operator^ </td>
+          <td>(</td>
+          <td class="paramtype">const Enum &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Enum &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>XOR-operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lhs</td><td>Left hand sign </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rhs</td><td>Right hand sign </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>lhs</code> XOR <code>rhs</code>. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Enum</td><td>Enumerate type </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aaa5bbf0962b60df6f0fffe162e43bd97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa5bbf0962b60df6f0fffe162e43bd97">&#9670;&nbsp;</a></span>operator^()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa5bbf0962b60df6f0fffe162e43bd97">&#9670;&nbsp;</a></span>operator^() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -916,10 +1092,149 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a1b69b859f22ad8ba60b8e558a2071020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b69b859f22ad8ba60b8e558a2071020">&#9670;&nbsp;</a></span>operator^=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Enum &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;<a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt;Enum&gt;::enable, Enum&gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a> FaceKit::operator^= </td>
+          <td>(</td>
+          <td class="paramtype">Enum &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enum &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a65e1fb0bd7866864a7cdd92a3d78ad2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65e1fb0bd7866864a7cdd92a3d78ad2c">&#9670;&nbsp;</a></span>operator|()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Enum &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Enum FaceKit::operator| </td>
+          <td>(</td>
+          <td class="paramtype">const Enum &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Enum &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">lhs</td><td>Left hand sign </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">rhs</td><td>Right hand sign </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>lhs</code> OR <code>rhs</code>. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Enum</td><td>Enumerate type </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7f7468a529bb0a7b96ea5af7aed17340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f7468a529bb0a7b96ea5af7aed17340">&#9670;&nbsp;</a></span>operator|=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Enum &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;<a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt;Enum&gt;::enable, Enum&gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a> FaceKit::operator|= </td>
+          <td>(</td>
+          <td class="paramtype">Enum &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Enum &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aedb745dde79128998b03fc1568044fc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedb745dde79128998b03fc1568044fc6">&#9670;&nbsp;</a></span>operator~()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Enum &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">Enum FaceKit::operator~ </td>
+          <td>(</td>
+          <td class="paramtype">const Enum &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inversion-operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rhs</td><td>Right hand sign </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Inversion <code>rhs</code>. </dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Enum</td><td>Enumerate type </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Oct 24 2017 10:02:02 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Oct 26 2017 18:33:05 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>
