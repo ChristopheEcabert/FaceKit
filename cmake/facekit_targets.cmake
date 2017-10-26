@@ -363,7 +363,7 @@ macro(FACEKIT_ADD_TEST _name _exename)
     elseif(UNIX AND NOT ANDROID)
       set_target_properties(facekit_ut_${_exename} PROPERTIES LINK_FLAGS -Wl,--as-needed)
       # GTest >= 1.5 requires pthread and CMake's 2.8.4 FindGTest is broken
-      target_link_libraries(${_exename} pthread)
+      target_link_libraries(facekit_ut_${_exename} pthread)
     elseif(CMAKE_COMPILER_IS_GNUCXX AND MINGW)
       set_target_properties(facekit_ut_${_exename} PROPERTIES LINK_FLAGS "-Wl,--allow-multiple-definition -Wl,--as-needed")
     elseif(WIN32)

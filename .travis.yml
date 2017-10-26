@@ -93,7 +93,6 @@ install:
   - |
     if [[ "$DOCUMENTATION" == "TRUE" ]]; then
       $TRAVIS_BUILD_DIR/travis/install-doxygen.sh $DOXYGEN_ROOT
-      doxygen --version
     fi
   
 before_script:
