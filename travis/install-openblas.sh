@@ -12,7 +12,7 @@ then
 fi
 
 INSTALL_DIR=`readlink -f $1`
-if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/*.so >/dev/null 2>&1; then
+if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/lib/*.so >/dev/null 2>&1; then
     echo "Using cached build at $INSTALL_DIR ..."
 else
     rm -rf $INSTALL_DIR

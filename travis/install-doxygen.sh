@@ -12,7 +12,7 @@ then
 fi
 
 INSTALL_DIR=`readlink -f $1`
-if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/build/lib/*.a >/dev/null 2>&1; then
+if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/lib/*.a >/dev/null 2>&1; then
     echo "Using cached build at $INSTALL_DIR ..."
 else
     rm -rf $INSTALL_DIR
@@ -28,4 +28,4 @@ else
     cd ${INSTALL_DIR} && rm -rf ${INSTALL_DIR}/source
 fi
 # Update path
-export PATH=${INSTALL_DIR}:${PATH}
+export PATH=${INSTALL_DIR}/bin:${PATH}
