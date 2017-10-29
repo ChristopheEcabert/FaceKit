@@ -11,14 +11,18 @@ if(build)
   # Add sources 
   set(srcs
     src/augmentation_engine.cpp
-    src/identity_cell.cpp
+    src/color_space_cell.cpp
+    src/crop_cell.cpp
     src/flip_cell.cpp
+    src/identity_cell.cpp
     src/in_plane_rotation_cell.cpp)
   set(incs
     include/facekit/${SUBSYS_NAME}/augmentation_engine.hpp
     include/facekit/${SUBSYS_NAME}/augmentation_cell.hpp
-    include/facekit/${SUBSYS_NAME}/identity_cell.hpp
+    include/facekit/${SUBSYS_NAME}/color_space_cell.hpp
+    include/facekit/${SUBSYS_NAME}/crop_cell.hpp
     include/facekit/${SUBSYS_NAME}/flip_cell.hpp
+    include/facekit/${SUBSYS_NAME}/identity_cell.hpp
     include/facekit/${SUBSYS_NAME}/in_plane_rotation_cell.hpp)
   # Set library name
   set(LIB_NAME "facekit_${SUBSYS_NAME}")

@@ -14,6 +14,7 @@
 #include "facekit/io/file_io.hpp"
 #include "facekit/dataset/identity_cell.hpp"
 #include "facekit/dataset/in_plane_rotation_cell.hpp"
+#include "facekit/dataset/crop_cell.hpp"
 
 
 /**
@@ -132,6 +133,24 @@ void AugmentationEngine::AddImgInPlaneRotationCell(AugmentationEngine& engine,
                                                      const double range,
                                                      const size_t n_sample) {
   auto* cell = new ImgInPlaneRotationCell(range, n_sample);
+  engine.Register(cell, true);
+}
+  
+/*
+ *  @name   AddImgCornerCropCell
+ *  @fn     static void AddImgCornerCropCell(AugmentationEngine& engine,
+ const int width,
+ const int height)
+ *  @brief  Register a new ImgInPlaneRotationCell within a given
+ *          AugmentationEngine.
+ *  @param[in]  engine    Engine in which to add the cell
+ *  @param[in]  width     Patch width
+ *  @param[in]  height    Patch height
+ */
+void AugmentationEngine::AddImgCornerCropCell(AugmentationEngine& engine,
+                                              const int width,
+                                              const int height) {
+  auto* cell = new ImageCropCell(width, height);
   engine.Register(cell, true);
 }
   

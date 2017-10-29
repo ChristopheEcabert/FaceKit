@@ -283,11 +283,9 @@ IF(OpenCV_LIBRARIES)
         ENDFOREACH(_lib)
     ENDIF(APPLE AND CMAKE_MINOR_VERSION GREATER 6)
 ENDIF(OpenCV_LIBRARIES)
-MESSAGE(STATUS "Opencv libs: ${OpenCV_LIBS}")
 
 ### ---[ Doxygen
 FIND_PACKAGE(Doxygen QUIET)
-
 
 ### ---[ Create the config.h file
 set(facekit_config_h_in "${CMAKE_CURRENT_SOURCE_DIR}/cmake/facekit_config.h.in")

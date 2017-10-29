@@ -157,6 +157,21 @@ class FK_EXPORTS AugmentationEngine {
                                           const double range,
                                           const size_t n_sample);
   
+  /**
+   *  @name   AddImgCornerCropCell
+   *  @fn     static void AddImgCornerCropCell(AugmentationEngine& engine,
+                                               const int width,
+                                               const int height)
+   *  @brief  Register a new ImgInPlaneRotationCell within a given
+   *          AugmentationEngine.
+   *  @param[in]  engine    Engine in which to add the cell
+   *  @param[in]  width     Patch width
+   *  @param[in]  height    Patch height
+   */
+  static void AddImgCornerCropCell(AugmentationEngine& engine,
+                                   const int width,
+                                   const int height);
+  
 #pragma mark -
 #pragma mark Usage
   

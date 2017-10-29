@@ -8,7 +8,8 @@
  *  Copyright © 2017 Christophe Ecabert. All rights reserved.
  */
 
-#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/core.hpp"
+#include "opencv2/imgcodecs.hpp"
 
 #include "facekit/dataset/flip_cell.hpp"
 #include "facekit/core/string_util.hpp"
@@ -46,15 +47,15 @@ ImgFlipCell::ImgFlipCell(const Direction direction) : dir_(direction) {
  *  @return -1 if error, 0 otherwise
  */
 int ImgFlipCell::Process(const std::vector<std::string>& input,
-                           const std::string& output,
-                           std::vector<std::string>* generated) const {
+                         const std::string& output,
+                         std::vector<std::string>* generated) const {
   int err = 0;
   for (size_t i = 0; i < input.size(); ++i) {
     // Get filename
     std::string dir, file, ext;
     StringUtil::ExtractDirectory(input[i], &dir, &file, &ext);
     // Load image
-    cv::Mat img = cv::imread(input[i], CV_LOAD_IMAGE_UNCHANGED);
+    cv::Mat img = cv::imread(input[i], cv::ImreadModes::IMREAD_COLOR);
     if (!img.empty()) {
       if ((dir_ & Direction::kHorizontal) == Direction::kHorizontal) {
         // Horizontal flip

@@ -38,6 +38,8 @@ else
     rm -rf $INSTALL_DIR
     git clone https://github.com/opencv/opencv.git ${INSTALL_DIR}/source --depth 1
     cd $INSTALL_DIR/source
+    # Update path in order to find BLAS/LAPACK
+    export PATH=${OPENBLAS_ROOT}:${PATH}
     # Redirect build output to a log and only show it if an error occurs
     # Otherwise there is too much output for TravisCI to display properly
     mkdir -p build && cd build

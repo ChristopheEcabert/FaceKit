@@ -11,9 +11,9 @@
 #include <chrono>
 #include <random>
 
-
-#include "opencv2/highgui/highgui.hpp"
-#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/core.hpp"
+#include "opencv2/imgcodecs.hpp"
+#include "opencv2/imgproc.hpp"
 
 #include "facekit/dataset/in_plane_rotation_cell.hpp"
 #include "facekit/core/string_util.hpp"
@@ -60,7 +60,7 @@ int ImgInPlaneRotationCell::Process(const std::vector<std::string>& input,
     std::string dir, file, ext;
     StringUtil::ExtractDirectory(input[i], &dir, &file, &ext);
     // Load image
-    cv::Mat img = cv::imread(input[i], CV_LOAD_IMAGE_UNCHANGED);
+    cv::Mat img = cv::imread(input[i], cv::ImreadModes::IMREAD_COLOR);
     if (!img.empty()) {
       // Create distribution
       const float cx = float(img.cols) / 2.f;

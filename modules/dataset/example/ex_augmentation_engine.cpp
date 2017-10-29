@@ -45,6 +45,7 @@ int main(const int argc, const char** argv) {
     FK::AugmentationEngine::AddImgFlipCell(engine,
                                            FK::ImgFlipCell::Direction::kBoth);
     FK::AugmentationEngine::AddImgInPlaneRotationCell(engine, 5.0, 5);
+    FK::AugmentationEngine::AddImgCornerCropCell(engine, 300, 300);
     if (err == 0) {
       // Do augmentation
       engine.Run(output);
