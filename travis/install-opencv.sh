@@ -44,9 +44,10 @@ else
     # Otherwise there is too much output for TravisCI to display properly
     mkdir -p build && cd build
     if [ "$CXX" == "clang++" ] ; then
-      COMPILER_FLAGS="CMAKE_CXX_FLAGS=\"-stdlib=libc++ -DCMAKE_EXE_LINKER_FLAGS=-stdlib=libc++\""
+      COMPILER_FLAGS="-DCMAKE_CXX_FLAGS=-stdlib=libc++ -DCMAKE_EXE_LINKER_FLAGS=-stdlib=libc++"
     fi
-    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -D$COMPILER_FLAGS -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF ..
+    echo "cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF $COMPILER_FLAGS  .."
+    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF $COMPILER_FLAGS  ..
     #make -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
     make -j8
     make install
