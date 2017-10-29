@@ -1122,6 +1122,11 @@
               <Anchor>a93d6a8857fce189bd87eda770cea30fb</Anchor>
              </Node>
              <Node>
+              <Name>AddImgCornerCropCell</Name>
+              <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+              <Anchor>a5aefaedfd15e7d28252dd422e58936d7</Anchor>
+             </Node>
+             <Node>
               <Name>AddImgFlipCell</Name>
               <Path>class_face_kit_1_1_augmentation_engine.html</Path>
               <Anchor>ac0b41c6a00d9d109dccc953b32878033</Anchor>
@@ -1155,6 +1160,32 @@
               <Name>ScanForData</Name>
               <Path>class_face_kit_1_1_augmentation_engine.html</Path>
               <Anchor>a9a0fffe6aa0884000a2246ce3215ee1a</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>ImageCropCell</Name>
+            <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>ImageCropCell</Name>
+              <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+              <Anchor>a4e85fd130e043593c64cc1f115924224</Anchor>
+             </Node>
+             <Node>
+              <Name>~ImageCropCell</Name>
+              <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+              <Anchor>a445972b96bddcc11f9cc13dbcbef0f57</Anchor>
+             </Node>
+             <Node>
+              <Name>name</Name>
+              <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+              <Anchor>a1c7ed90c1cab5ede7550261bc5b23f74</Anchor>
+             </Node>
+             <Node>
+              <Name>Process</Name>
+              <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+              <Anchor>ada9ae1fcbd77764ff6d3d9830bc94971</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -1261,6 +1292,14 @@
            <Node>
             <Name>augmentation_engine.hpp</Name>
             <Path>augmentation__engine_8hpp.html</Path>
+           </Node>
+           <Node>
+            <Name>color_space_cell.hpp</Name>
+            <Path>color__space__cell_8hpp.html</Path>
+           </Node>
+           <Node>
+            <Name>crop_cell.hpp</Name>
+            <Path>crop__cell_8hpp.html</Path>
            </Node>
            <Node>
             <Name>flip_cell.hpp</Name>
@@ -2302,6 +2341,11 @@
                 <Anchor>a93d6a8857fce189bd87eda770cea30fb</Anchor>
                </Node>
                <Node>
+                <Name>AddImgCornerCropCell</Name>
+                <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+                <Anchor>a5aefaedfd15e7d28252dd422e58936d7</Anchor>
+               </Node>
+               <Node>
                 <Name>AddImgFlipCell</Name>
                 <Path>class_face_kit_1_1_augmentation_engine.html</Path>
                 <Anchor>ac0b41c6a00d9d109dccc953b32878033</Anchor>
@@ -2492,6 +2536,32 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>HSVScalingCell</Name>
+              <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>HSVScalingCell</Name>
+                <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+                <Anchor>a25edab02484c1ee0ebb31febca8b2118</Anchor>
+               </Node>
+               <Node>
+                <Name>~HSVScalingCell</Name>
+                <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+                <Anchor>ace36e6232c2e37c9599c96f52b4d7350</Anchor>
+               </Node>
+               <Node>
+                <Name>name</Name>
+                <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+                <Anchor>af302bc0eec057ef24a1df66c9576ddad</Anchor>
+               </Node>
+               <Node>
+                <Name>Process</Name>
+                <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+                <Anchor>ac45ceed7a4d9e71d470bdfa5bc402882</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>IdentityCell</Name>
               <Path>class_face_kit_1_1_identity_cell.html</Path>
               <Subnodes>
@@ -2514,6 +2584,32 @@
                 <Name>Process</Name>
                 <Path>class_face_kit_1_1_identity_cell.html</Path>
                 <Anchor>adfdce0ef3c53ddc75f1dc7b251dbfd26</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>ImageCropCell</Name>
+              <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>ImageCropCell</Name>
+                <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+                <Anchor>a4e85fd130e043593c64cc1f115924224</Anchor>
+               </Node>
+               <Node>
+                <Name>~ImageCropCell</Name>
+                <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+                <Anchor>a445972b96bddcc11f9cc13dbcbef0f57</Anchor>
+               </Node>
+               <Node>
+                <Name>name</Name>
+                <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+                <Anchor>a1c7ed90c1cab5ede7550261bc5b23f74</Anchor>
+               </Node>
+               <Node>
+                <Name>Process</Name>
+                <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+                <Anchor>ada9ae1fcbd77764ff6d3d9830bc94971</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -4233,8 +4329,16 @@
             <Path>class_face_kit_1_1_augmentation_cell.html</Path>
             <Subnodes>
              <Node>
+              <Name>FaceKit::HSVScalingCell</Name>
+              <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+             </Node>
+             <Node>
               <Name>FaceKit::IdentityCell</Name>
               <Path>class_face_kit_1_1_identity_cell.html</Path>
+             </Node>
+             <Node>
+              <Name>FaceKit::ImageCropCell</Name>
+              <Path>class_face_kit_1_1_image_crop_cell.html</Path>
              </Node>
              <Node>
               <Name>FaceKit::ImgFlipCell</Name>

@@ -1467,6 +1467,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>AddImgCornerCropCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::AugmentationEngine</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_engine.html</Path>
+    <Anchor>a5aefaedfd15e7d28252dd422e58936d7</Anchor>
+    <Abstract>Register a new ImgInPlaneRotationCell within a given AugmentationEngine. </Abstract>
+    <DeclaredIn>augmentation_engine.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>Run</Name>
       <APILanguage>cpp</APILanguage>
       <Type>instm</Type>
@@ -1788,6 +1800,76 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>FaceKit::HSVScalingCell</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::HSVScalingCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+    <DeclaredIn>modules/dataset/include/facekit/dataset/color_space_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>HSVScalingCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::HSVScalingCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+    <Anchor>a25edab02484c1ee0ebb31febca8b2118</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>color_space_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~HSVScalingCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::HSVScalingCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+    <Anchor>ace36e6232c2e37c9599c96f52b4d7350</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>color_space_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::HSVScalingCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+    <Anchor>ac45ceed7a4d9e71d470bdfa5bc402882</Anchor>
+    <Abstract>Run augmentation step on provided data. </Abstract>
+    <DeclaredIn>color_space_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~AugmentationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Anchor>a68a6aa3c2e51dc8279598a64e3f9b6da</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::HSVScalingCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_h_s_v_scaling_cell.html</Path>
+    <Anchor>af302bc0eec057ef24a1df66c9576ddad</Anchor>
+    <Abstract>Provide name of the operation. </Abstract>
+    <DeclaredIn>color_space_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit::IdentityCell</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -1856,6 +1938,77 @@
     <Anchor>a68a6aa3c2e51dc8279598a64e3f9b6da</Anchor>
     <Abstract>Destructor. </Abstract>
     <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::ImageCropCell</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::ImageCropCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+    <Abstract>Extract region from the corner/middle of the images. </Abstract>
+    <DeclaredIn>modules/dataset/include/facekit/dataset/crop_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ImageCropCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImageCropCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+    <Anchor>a4e85fd130e043593c64cc1f115924224</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>crop_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ImageCropCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImageCropCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+    <Anchor>a445972b96bddcc11f9cc13dbcbef0f57</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>crop_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Process</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImageCropCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+    <Anchor>ada9ae1fcbd77764ff6d3d9830bc94971</Anchor>
+    <Abstract>Run augmentation step on provided data. </Abstract>
+    <DeclaredIn>crop_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~AugmentationCell</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::AugmentationCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_augmentation_cell.html</Path>
+    <Anchor>a68a6aa3c2e51dc8279598a64e3f9b6da</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>augmentation_cell.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ImageCropCell</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_image_crop_cell.html</Path>
+    <Anchor>a1c7ed90c1cab5ede7550261bc5b23f74</Anchor>
+    <Abstract>Provide name of the operation. </Abstract>
+    <DeclaredIn>crop_cell.hpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
