@@ -33,6 +33,9 @@ template<typename T>
 class FK_EXPORTS LinearAlgebra {
  public:
   
+#pragma mark -
+#pragma mark BLAS
+  
   /**
    * @enum  TransposeType
    * @brief List of operation on matrix
@@ -185,7 +188,166 @@ class FK_EXPORTS LinearAlgebra {
                    const T alpha,
                    const cv::Mat& x,
                    const T beta, cv::Mat* y);
+    
+#pragma mark -
+#pragma mark LAPACK
   
+  /**
+   *  @class  Lapack
+   *  @brief  Subspace for lapack call
+   */
+  class Lapack {
+   public:
+    
+    /**
+     *  @struct lin_solver_params
+     *  @brief  Structure including all parameters for linear solver Ax = B
+     */
+    struct lin_solver_params {
+      /** Indicate if matrix A is transposed */
+      char k_trans;
+      /** Number of rows in matrix A */
+      int k_m;
+      /** Number of cols in matrix A */
+      int k_n;
+      /** Number of columns of the matrices B and X */
+      int k_nrhs;
+      /** Matrix A data */
+      T* k_a;
+      /** Leading direction of A */
+      int k_lda;
+      /** Matrix B data */
+      T* k_b;
+      /** Leading direction of B */
+      int k_ldb;
+      /** Workspace */
+      T* k_work;
+      /** Workspace size */
+      int k_lwork;
+      /** Info */
+      int k_info;
+    };
+    
+    /**
+     *  @name   LinearSolverCall
+     *  @fn inline void LinearSolverCall(lin_solver_params& p)
+     *  @brief  Interface for lapack function call - Undefined type
+     *  @throw  std::runtime_error()
+     */
+    static void LinearSolverCall(lin_solver_params& p);
+    
+    /**
+     * @struct  square_lin_solver_params
+     * @brief   Structure including all parameters for linear solver Ax = B.
+     *          A matrix must be square
+     */
+    struct square_lin_solver_params {
+      /** Number of linear equation */
+      int k_n;
+      /** Number of right hand side, i.e. number of column in matrix B */
+      int k_nrhs;
+      /** Matrix A [N x N] */
+      T* k_a;
+      /** Leading direction in A */
+      int k_lda;
+      /** List of pivot indexes (i.e. permutation) [N x 1] */
+      int* k_ipiv;
+      /** Right hand side - Matrix B */
+      T* k_b;
+      /** Leading direction in B */
+      int k_ldb;
+      /** Info - output */
+      int k_info;
+    };
+    
+    /**
+     *  @name   SquareLinearSolverCall
+     *  @fn inline void SquareLinearSolverCall(square_lin_solver_params& p)
+     *  @brief  Interface for lapack function call - Undefined type
+     *  @throw  std::runtime_error()
+     */
+    static void SquareLinearSolverCall(square_lin_solver_params& p);
+  };
+    
+#pragma mark Linear Solver
+    
+  /**
+   *  @class LinearSolver
+   *  @brief  Linear solver class
+   */
+  class LinearSolver {
+   public:
+    
+    /**
+     *  @name   LinearSolver
+     *  @fn LinearSolver(void)
+     *  @brief  Constructor
+     */
+    LinearSolver(void);
+    
+    /**
+     *  @name   ~LinearSolver
+     *  @fn ~LinearSolver(void)
+     *  @brief  Destructor
+     */
+    ~LinearSolver(void);
+    
+    /**
+     *  @name Solve
+     *  @fn void Solve(const cv::Mat& A, const cv::Mat& b, cv::Mat* x)
+     *  @brief  Solve Ax = B
+     *  @param[in]  A  Matrix A
+     *  @param[in]  b  Matrix B, stored in column
+     *  @param[out] x  Solution
+     */
+    void Solve(const cv::Mat& A,
+               const cv::Mat& b,
+               cv::Mat* x);
+    
+   private:
+    /** Solver parameters */
+    typename Lapack::lin_solver_params p_;
+  };
+    
+  /**
+   *  @class SquareLinearSolver
+   *  @brief  Linear solver class for square system. Solve Ax = B using LU
+   *          decomposition on A
+   */
+  class SquareLinearSolver {
+   public:
+    
+    /**
+     *  @name   SquareLinearSolver
+     *  @fn SquareLinearSolver(void)
+     *  @brief  Constructor
+     */
+    SquareLinearSolver(void);
+    
+    /**
+     *  @name   ~SquareLinearSolver
+     *  @fn ~SquareLinearSolver(void)
+     *  @brief  Destructor
+     */
+    ~SquareLinearSolver(void);
+    
+    /**
+     *  @name Solve
+     *  @fn void Solve(const cv::Mat& matrix_a,
+     const cv::Mat& matrix_b,
+     cv::Mat* matrix_x)
+     *  @brief  Solve Ax = B
+     *  @param[in]  A  Matrix A
+     *  @param[in]  b  Matrix B, stored in column
+     *  @param[out] x  Solution
+     */
+    void Solve(const cv::Mat& A,
+               const cv::Mat& b,
+               cv::Mat* x);
+   private:
+    /** Solver configuration */
+    typename Lapack::square_lin_solver_params p_;
+  };
 };
   
   

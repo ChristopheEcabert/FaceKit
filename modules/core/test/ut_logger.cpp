@@ -38,7 +38,7 @@ TEST(LoggerDebug, Logger) {
   FACEKIT_LOG_DEBUG("This is a debug entry");
   // Check for output
   std::vector<std::string> log_part;
-  FaceKit::StringUtil::Split(stream.str(), ":", &log_part);
+  FaceKit::String::Split(stream.str(), ":", &log_part);
   // Check line number
   EXPECT_EQ(std::atoi(log_part[1].c_str()), __LINE__ - 5);
   // Check level indicator
@@ -53,7 +53,7 @@ TEST(LoggerInfo, Logger) {
   FACEKIT_LOG_INFO("This is an info entry");
   // Check for output
   std::vector<std::string> log_part;
-  FaceKit::StringUtil::Split(stream.str(), ":", &log_part);
+  FaceKit::String::Split(stream.str(), ":", &log_part);
   // Check line number
   EXPECT_EQ(std::atoi(log_part[1].c_str()),  __LINE__ - 5);
   // Check level indicator
@@ -68,7 +68,7 @@ TEST(LoggerWarning, Logger) {
   FACEKIT_LOG_WARNING("This is a warning entry");
   // Check for output
   std::vector<std::string> log_part;
-  FaceKit::StringUtil::Split(stream.str(), ":", &log_part);
+  FaceKit::String::Split(stream.str(), ":", &log_part);
   // Check line number
   EXPECT_EQ(std::atoi(log_part[1].c_str()),  __LINE__ - 5);
   // Check level indicator
@@ -83,7 +83,7 @@ TEST(LoggerError, Logger) {
   FACEKIT_LOG_ERROR("This is an error entry with value " << 42);
   // Check for output
   std::vector<std::string> log_part;
-  FaceKit::StringUtil::Split(stream.str(), ":", &log_part);
+  FaceKit::String::Split(stream.str(), ":", &log_part);
   // Check line number
   EXPECT_EQ(std::atoi(log_part[1].c_str()),  __LINE__ - 5);
   // Check level indicator
@@ -99,7 +99,7 @@ TEST(LoggerDebugLvl1, Logger) {
   FACEKIT_LOG_DEBUG1("This is a level 1 debug entry");
   // Check for output
   std::vector<std::string> log_part;
-  FaceKit::StringUtil::Split(stream.str(), ":", &log_part);
+  FaceKit::String::Split(stream.str(), ":", &log_part);
   // Check line number
   EXPECT_EQ(std::atoi(log_part[1].c_str()),  __LINE__ - 5);
   // Check level indicator
@@ -115,7 +115,7 @@ TEST(LoggerDebugLvl2, Logger) {
   FACEKIT_LOG_DEBUG2("This is a level 2 debug entry");
   // Check for output
   std::vector<std::string> log_part;
-  FaceKit::StringUtil::Split(stream.str(), ":", &log_part);
+  FaceKit::String::Split(stream.str(), ":", &log_part);
   // Check line number
   EXPECT_EQ(std::atoi(log_part[1].c_str()),  __LINE__ - 5);
   // Check level indicator
@@ -148,7 +148,7 @@ TEST(LoggerFilter, Logger) {
   FACEKIT_LOG_DEBUG2("This should not be logged");
   // Check for output
   std::vector<std::string> log_part;
-  FaceKit::StringUtil::Split(stream.str(), ":", &log_part);
+  FaceKit::String::Split(stream.str(), ":", &log_part);
   // Check line number
   EXPECT_EQ(std::atoi(log_part[1].c_str()),  __LINE__ - 6);
   // Check level indicator

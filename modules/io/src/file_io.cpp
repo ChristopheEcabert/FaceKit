@@ -14,7 +14,10 @@
 #include "tinydir/tinydir.h"
 
 #include "facekit/io/file_io.hpp"
+#include "facekit/core/logger.hpp"
 #include "facekit/io/object_header.hpp"
+#include "facekit/io/object_manager.hpp"
+
 
 /**
  *  @namespace  FaceKit
@@ -260,7 +263,15 @@ template int IO::SaveTypedMat<double>(const std::string& filename, const cv::Mat
 int IO::ScanStream(std::istream& stream, const size_t& id) {
   int err = -1;
   if (stream.good()) {
-    
+    ObjectHeader hdr;
+    // Iterate till finding the object or reaching the end of stream
+    while (stream.good() && hdr.get_id() != id) {
+      stream >> hdr;
+      if (hdr.get_id() != id) {
+        stream.seekg(hdr.get_size(), std::ios_base::cur);
+      }
+    }
+    err = hdr.get_id() == id ? 0 : -1;
   }
   return err;
 }
@@ -276,7 +287,18 @@ int IO::ScanStream(std::istream& stream, const size_t& id) {
 int IO::StreamContent(std::istream& stream,
                       std::vector<std::string>* content) {
   int err = -1;
-  
+  if (stream.good()) {
+    ObjectHeader hdr;
+    while (stream.good()) {
+      // Get object info
+      stream >> hdr;
+      // Print content
+      FACEKIT_LOG_INFO(ObjectManager::Get().GetName(hdr.get_id()));
+      // Move to the next one
+      stream.seekg(hdr.get_size(), std::ios_base::cur);
+    }
+    err = 0;
+  }
   return err;
 }
   

@@ -70,20 +70,36 @@ void ObjectManager::Register(const ObjectProxy* proxy) {
   
 /*
  *  @name GetId
- *  @fn void GetId(const char* classname, size_t* id) const
+ *  @fn size_t GetId(const std::string& classname) const
  *  @brief  Retrive the Id of a given class name
  *  @param[in]  classname Class name to quary
- *  @param[out] id  Object's ID, if none matching class if founded
- *                  ID=MAX(size_t)
+ *  @return Object's ID, if none matching class if founded ID=MAX(size_t)
  */
-void ObjectManager::GetId(const char* classname, size_t* id) const {
-  *id = std::numeric_limits<size_t>::max();
+size_t ObjectManager::GetId(const std::string& classname) const {
+  
+  const auto& it = id_table_.find(classname);
+  size_t id = (it == id_table_.end() ?
+               std::numeric_limits<size_t>::max() :
+               it->second);
+  return id;
+}
+  
+/*
+ *  @name GetName
+ *  @fn std::string GetName(const size_t id) const
+ *  @brief  Retrive the name of a given class ID
+ *  @param[in]  id Object's ID to query
+ *  @return Object's name, or empty if unknown ID.
+ */
+std::string ObjectManager::GetName(const size_t id) const {
+  std::string name = "";
   for (const auto* p : proxies_) {
-    if (strcmp(classname, p->get_classname().c_str()) == 0) {
-      *id = p->get_id();
+    if (p->get_id() == id) {
+      name = p->get_classname();
       break;
     }
   }
+  return name;
 }
   
 }  // namespace FaceKit

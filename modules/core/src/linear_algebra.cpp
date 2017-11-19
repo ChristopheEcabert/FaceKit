@@ -10,19 +10,28 @@
 
 #ifdef __APPLE__
 #include <Accelerate/Accelerate.h>
+typedef __CLPK_integer  lapack_int;
+typedef __CLPK_real lapack_flt;
+typedef __CLPK_doublereal lapack_dbl;
 #else
 // Include proper file for Linux/Win32 -> OpenBLAS
 #include "cblas.h"
 #include "lapacke.h"
+typedef float lapack_flt;
+typedef double lapack_dbl;
 #endif
 
 #include "facekit/core/math/linear_algebra.hpp"
+#include "facekit/core/logger.hpp"
 
 /**
  *  @namespace  FaceKit
  *  @brief      Development space
  */
 namespace FaceKit {
+  
+#pragma mark -
+#pragma mark BLAS
   
 #pragma mark -
 #pragma mark L2 Norm
@@ -647,6 +656,291 @@ void LinearAlgebra<double>::Sbmv(const cv::Mat& A,
               reinterpret_cast<double*>(y->data),
               inc);
 }
+  
+#pragma mark -
+#pragma mark LAPACK
+  
+#pragma mark Linear Solver
+  
+/*
+ *  @name   LinearSolverCall
+ *  @fn inline void LinearSolverCall(const lin_solver_params& p)
+ *  @brief  Interface for lapack function call - Undefined type
+ *  @throw  std::runtime_error()
+ */
+template<typename T>
+void LinearAlgebra<T>::Lapack::LinearSolverCall(lin_solver_params& p) {
+  throw std::runtime_error("Error Unsupported Type");
+}
+
+template<>
+void LinearAlgebra<float>::Lapack::LinearSolverCall(lin_solver_params& p) {
+  sgels_(&p.k_trans,
+         &p.k_m,
+         &p.k_n,
+         &p.k_nrhs,
+         (lapack_flt*)p.k_a,
+         &p.k_lda,
+         (lapack_flt*)p.k_b,
+         &p.k_ldb,
+         (lapack_flt*)p.k_work,
+         &p.k_lwork,
+         &p.k_info);
+}
+
+template<>
+void LinearAlgebra<double>::Lapack::LinearSolverCall(lin_solver_params& p) {
+  dgels_(&p.k_trans,
+         &p.k_m,
+         &p.k_n,
+         &p.k_nrhs,
+         (lapack_dbl*)p.k_a,
+         &p.k_lda,
+         (lapack_dbl*)p.k_b,
+         &p.k_ldb,
+         (lapack_dbl*)p.k_work,
+         &p.k_lwork,
+         &p.k_info);
+}
+  
+/*
+ *  @name   LinearSolver
+ *  @fn LinearSolver(void)
+ *  @brief  Constructor
+ */
+template<typename T>
+LinearAlgebra<T>::LinearSolver::LinearSolver(void) {
+  p_.k_a = nullptr;
+  p_.k_b = nullptr;
+  p_.k_work = nullptr;
+}
+
+/*
+ *  @name   ~LinearSolver
+ *  @fn ~LinearSolver(void)
+ *  @brief  Destructor
+ */
+template<typename T>
+LinearAlgebra<T>::LinearSolver::~LinearSolver(void) {
+  if (p_.k_a) {
+    delete[] p_.k_a;
+  }
+  if (p_.k_b) {
+    delete[] p_.k_b;
+  }
+  if (p_.k_work) {
+    delete[] p_.k_work;
+  }
+}
+
+/*
+ *  @name Solve
+ *  @fn void Solve(const cv::Mat& A,
+ const cv::Mat& b,
+ cv::Mat* x)
+ *  @brief  Solve AX = B
+ *  @param[in]  A  Matrix A
+ *  @param[in]  b  Matrix B, stored in column
+ *  @param[out] x  Solution
+ */
+template<typename T>
+void LinearAlgebra<T>::LinearSolver::Solve(const cv::Mat& A,
+                                           const cv::Mat& b,
+                                           cv::Mat* x) {
+  //Init
+  p_.k_trans = 'N';
+  if (p_.k_n != A.cols ||
+      p_.k_m != A.rows ||
+      p_.k_lda != A.rows ||
+      p_.k_nrhs != b.cols) {
+    // Release ressources if necessary
+    if (p_.k_a) { delete[] p_.k_a; }
+    if (p_.k_b) { delete[] p_.k_b; }
+    if (p_.k_work) {delete [] p_.k_work; }
+    // Define dimensions
+    p_.k_m = A.rows; //Column-major system
+    p_.k_n = A.cols;
+    p_.k_nrhs = b.cols;
+    p_.k_lda = p_.k_m;
+    p_.k_nrhs = b.cols;
+    p_.k_ldb = std::max(p_.k_m, p_.k_n);
+    // Init arrays
+    p_.k_a = new T[p_.k_m * p_.k_n];
+    p_.k_b = new T[p_.k_ldb * p_.k_nrhs];
+    //Workspace
+    p_.k_work = new T[1];
+    p_.k_lwork = -1;
+    //Query workspace size
+    Lapack::LinearSolverCall(p_);
+    //Setup workspace with correct size
+    p_.k_lwork = static_cast<int>(p_.k_work[0]);
+    delete[] p_.k_work;
+    p_.k_work = new T[p_.k_lwork];
+  }
+  //Convert to column major memory layout for A
+  cv::Mat tmp_mat_a = cv::Mat(A.cols,
+                              A.rows,
+                              cv::DataType<T>::type,
+                              p_.k_a);
+  tmp_mat_a = A.t();
+  //Convert to column major memory layout for B
+  cv::Mat tmp_mat_b = cv::Mat(b.cols,
+                              b.rows,
+                              cv::DataType<T>::type,
+                              p_.k_b);
+  tmp_mat_b = b.t();
+  //Done, Solve the problem
+  p_.k_info = 0;
+  Lapack::LinearSolverCall(p_);
+  //Retrive solution
+  if (p_.k_info == 0) {
+    x->create(p_.k_nrhs, A.cols, cv::DataType<T>::type);
+    T* src_ptr = p_.k_b;
+    T* dest_ptr = x->ptr<T>(0);
+    for(int i = 0 ; i < p_.k_nrhs; ++i) {
+      std::memcpy((void*)dest_ptr, (const void*)src_ptr, p_.k_n * sizeof(T));
+      src_ptr += p_.k_ldb;
+      dest_ptr += p_.k_n;
+    }
+    //Transpose back to columnwise structure
+    *x = x->t();
+  } else {
+    FACEKIT_LOG_INFO("Solver can not find a solution to the provided system");
+    *x = cv::Mat();
+  }
+}
+  
+#pragma mark Square Linear Solver
+  
+/*
+ *  @name   SquareLinearSolverCall
+ *  @fn inline void SquareLinearSolverCall(lin_solver_params<T>& p)
+ *  @brief  Interface for lapack function call - Undefined type
+ *  @throw  std::runtime_error()
+ */
+template<typename T>
+void LinearAlgebra<T>::Lapack::
+SquareLinearSolverCall(square_lin_solver_params& p) {
+  throw std::runtime_error("Error Unsupported Type");
+}
+
+template<>
+void LinearAlgebra<float>::Lapack::
+SquareLinearSolverCall(square_lin_solver_params& p) {
+  sgesv_(&p.k_n,
+         &p.k_nrhs,
+         (lapack_flt*)p.k_a,
+         &p.k_lda,
+         (lapack_int*)p.k_ipiv,
+         (lapack_flt*)p.k_b,
+         &p.k_ldb,
+         &p.k_info);
+}
+
+template<>
+void LinearAlgebra<double>::Lapack::
+SquareLinearSolverCall(square_lin_solver_params& p) {
+  dgesv_(&p.k_n,
+         &p.k_nrhs,
+         (lapack_dbl*)p.k_a,
+         &p.k_lda,
+         (lapack_int*)p.k_ipiv,
+         (lapack_dbl*)p.k_b,
+         &p.k_ldb,
+         &p.k_info);
+}
+  
+/*
+ *  @name   SquareLinearSolver
+ *  @fn SquareLinearSolver(void)
+ *  @brief  Constructor
+ */
+template<typename T>
+LinearAlgebra<T>::SquareLinearSolver::SquareLinearSolver(void) {
+  p_.k_a = nullptr;
+  p_.k_ipiv = nullptr;
+  p_.k_b = nullptr;
+}
+
+/*
+ *  @name   ~SquareLinearSolver
+ *  @fn ~SquareLinearSolver(void)
+ *  @brief  Destructor
+ */
+template<typename T>
+LinearAlgebra<T>::SquareLinearSolver::~SquareLinearSolver(void) {
+  if (p_.k_a) {
+    delete[] p_.k_a;
+    p_.k_a = nullptr;
+  }
+  if (p_.k_b) {
+    delete[] p_.k_b;
+    p_.k_b = nullptr;
+  }
+  if (p_.k_ipiv) {
+    delete[] p_.k_ipiv;
+    p_.k_ipiv = nullptr;
+  }
+}
+
+/*
+ *  @name Solve
+ *  @fn void Solve(const cv::Mat& A, const cv::Mat& b, cv::Mat* x)
+ *  @brief  Solve AX = B
+ *  @param[in]  A  Matrix A
+ *  @param[in]  b  Matrix B, stored in column
+ *  @param[out] x  Solution
+ */
+template<typename T>
+void LinearAlgebra<T>::SquareLinearSolver::Solve(const cv::Mat& A,
+                                                 const cv::Mat& b,
+                                                 cv::Mat* x) {
+  assert(A.rows == A.cols);
+  // Init
+  if (p_.k_n != A.rows ||
+      p_.k_lda != A.rows ||
+      p_.k_nrhs != b.cols) {
+    // Release ressources if necessary
+    if (p_.k_a) { delete[] p_.k_a; }
+    if (p_.k_b) { delete[] p_.k_b; }
+    if (p_.k_ipiv) { delete[] p_.k_ipiv; }
+    // Define dimensions
+    p_.k_n = A.rows; //Column-major system
+    p_.k_lda = A.rows;
+    p_.k_nrhs = b.cols;
+    p_.k_ldb = p_.k_n;
+    // Init arrays
+    p_.k_a = new T[p_.k_n * p_.k_n];
+    p_.k_b = new T[p_.k_ldb * p_.k_nrhs];
+    p_.k_ipiv = new int[p_.k_n];
+  }
+  
+  //Convert to column major memory layout for A
+  cv::Mat tmp_a = cv::Mat(A.cols,
+                          A.rows,
+                          cv::DataType<T>::type,
+                          p_.k_a );
+  tmp_a = A.t();
+  //Convert to column major memory layout for B
+  cv::Mat tmp_b = cv::Mat(b.cols,
+                          b.rows,
+                          cv::DataType<T>::type,
+                          p_.k_b);
+  tmp_b = b.t();
+  //Done, Solve the problem
+  p_.k_info = 0;
+  Lapack::SquareLinearSolverCall(p_);
+  // Retrieve results
+  if (p_.k_info == 0) {
+    cv::Mat buff(p_.k_nrhs, p_.k_ldb, cv::DataType<T>::type, p_.k_b);
+    *x = buff.t();
+  } else {
+    FACEKIT_LOG_INFO("Solver can not find a solution to the provided system");
+    *x = cv::Mat();
+  }
+}
+  
+  
 #pragma mark -
 #pragma mark Explicit Instantiation
   

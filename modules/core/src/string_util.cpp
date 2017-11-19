@@ -25,7 +25,7 @@ namespace FaceKit {
  *  @param[in]  delimiter Delimiter
  *  @param[out] parts     Splitted parts
  */
-void StringUtil::Split(const std::string& string,
+void String::Split(const std::string& string,
                        const std::string delimiter,
                        std::vector<std::string>* parts) {
   std::size_t from = 0;
@@ -49,7 +49,7 @@ void StringUtil::Split(const std::string& string,
  *  @param[out] dir   Extracted directory
  *  @param[out] ext   Extracted extension
  */
-void StringUtil::ExtractDirectory(const std::string& path,
+void String::ExtractDirectory(const std::string& path,
                                   std::string* dir,
                                   std::string* file,
                                   std::string* ext) {
@@ -80,17 +80,17 @@ void StringUtil::ExtractDirectory(const std::string& path,
  *  @tparam T Data type
  */
 template<typename T>
-std::string StringUtil::LeadingZero(const T number, const size_t N) {
+std::string String::LeadingZero(const T number, const size_t N) {
   std::string num = std::to_string(number);
   return std::string(N - num.length(), '0') + num;
 }
   
-template std::string StringUtil::LeadingZero(const int8_t, size_t);
-template std::string StringUtil::LeadingZero(const uint8_t, size_t);
-template std::string StringUtil::LeadingZero(const int16_t, size_t);
-template std::string StringUtil::LeadingZero(const uint16_t, size_t);
-template std::string StringUtil::LeadingZero(const int32_t, size_t);
-template std::string StringUtil::LeadingZero(const uint32_t, size_t);
-template std::string StringUtil::LeadingZero(const size_t, size_t);
+template std::string String::LeadingZero(const int8_t, size_t);
+template std::string String::LeadingZero(const uint8_t, size_t);
+template std::string String::LeadingZero(const int16_t, size_t);
+template std::string String::LeadingZero(const uint16_t, size_t);
+template std::string String::LeadingZero(const int32_t, size_t);
+template std::string String::LeadingZero(const uint32_t, size_t);
+template std::string String::LeadingZero(const size_t, size_t);
   
 }  // namespace FaceKit

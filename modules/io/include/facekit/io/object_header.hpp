@@ -59,6 +59,33 @@ class FK_EXPORTS ObjectHeader {
    */
   ~ObjectHeader(void) = default;
   
+#pragma mark -
+#pragma mark Accessors
+  
+  /**
+   *  @name get_id
+   *  @fn size_t get_id(void) const
+   *  @brief  Provider object ID
+   *  @return Object ID
+   */
+  size_t get_id(void) const {
+    return id_;
+  }
+  
+  /**
+   *  @name get_size
+   *  @fn size_t get_size(void) const
+   *  @brief  Provider object size
+   *  @return Object size
+   */
+  size_t get_size(void) const {
+    return size_;
+  }
+  
+  
+#pragma mark -
+#pragma mark Operator
+  
   /**
    *  @name operator<<
    *  @fn friend std::ostream& operator<<(std::ostream& os, 

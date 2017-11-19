@@ -420,6 +420,69 @@ TYPED_TEST(LinearAlgebraUnitTest, Sbmv) {
   EXPECT_LE(diff, thr);
 }
 
+#pragma mark -
+#pragma mark LAPACK
+
+#pragma mark Linear Solver
+
+TYPED_TEST(LinearAlgebraUnitTest, LinearSolverOverDetermined) {
+  std::vector<TypeParam> a = {1.0, -4.0, 3.0, 2.0, 0.0, 5.0, 3.0, -2.0, 7.0,
+    8.0, -4.0, 3.0};
+  std::vector<TypeParam> x = {7.0, 1.0, -6.0, -5.0, 9.0, -3.0};
+  cv::Mat A = cv::Mat(4, 3, cv::DataType<TypeParam>::type, a.data());
+  cv::Mat X = cv::Mat(3, 2, cv::DataType<TypeParam>::type, x.data());
+  cv::Mat X1 = cv::Mat(4, 1, cv::DataType<TypeParam>::type, x.data());
+  cv::Mat B = A * X;
+  cv::Mat B1 = A.t() * X1;
+  
+  //Over determined system
+  typename FaceKit::LinearAlgebra<TypeParam>::LinearSolver solver;
+  cv::Mat sol;
+  solver.Solve(A, B, &sol);
+  TypeParam diff = (TypeParam)cv::norm(X - sol) / TypeParam(sol.total());
+  TypeParam thr = sizeof(TypeParam) == 4 ? 1e-4 : 1e-12;
+  EXPECT_LE(diff, thr);
+}
+
+TYPED_TEST(LinearAlgebraUnitTest, LinearSolverUnderDetermined) {
+  std::vector<TypeParam> a = {1.0, -4.0, 3.0, 2.0, 0.0, 5.0, 3.0, -2.0, 7.0,
+    8.0, -4.0, 3.0};
+  std::vector<TypeParam> x = {7.0, 1.0, -6.0, -5.0, 9.0, -3.0};
+  cv::Mat A = cv::Mat(4, 3, cv::DataType<TypeParam>::type, a.data());
+  cv::Mat X = cv::Mat(3, 2, cv::DataType<TypeParam>::type, x.data());
+  cv::Mat X1 = cv::Mat(4, 1, cv::DataType<TypeParam>::type, x.data());
+  cv::Mat B = A * X;
+  cv::Mat B1 = A.t() * X1;
+  
+  //Over determined system
+  typename FaceKit::LinearAlgebra<TypeParam>::LinearSolver solver;
+  cv::Mat sol;
+  solver.Solve(A.t(), B1, &sol);
+  TypeParam diff = (TypeParam)cv::norm(A.t() * sol - B1) / TypeParam(B1.total());
+  TypeParam thr = sizeof(TypeParam) == 4 ? 1e-4 : 1e-12;
+  EXPECT_LE(diff, thr);
+}
+
+TYPED_TEST(LinearAlgebraUnitTest, SquareLinearSystem) {
+  using SqLinSolver = typename FaceKit::LinearAlgebra<TypeParam>::SquareLinearSolver;
+  cv::Mat A(78, 78, cv::DataType<TypeParam>::type);
+  cv::Mat x(78, 1, cv::DataType<TypeParam>::type);
+  cv::theRNG().state = static_cast<uint64_t>(cv::getTickCount());
+  cv::randn(A, TypeParam(0.0), TypeParam(5.0));
+  cv::randn(x, TypeParam(0.0), TypeParam(5.0));
+  // Output
+  cv::Mat y;
+  y = A * x;
+  // Solve system
+  cv::Mat xhat;
+  SqLinSolver solver;
+  solver.Solve(A, y, &xhat);
+  // Check value
+  TypeParam diff = (TypeParam)cv::norm(xhat - x) / (TypeParam)x.total();
+  TypeParam thr = sizeof(TypeParam) == 4 ? 1e-4 : 1e-12;
+  EXPECT_LE(diff, thr);
+}
+
 int main(int argc, char** argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();

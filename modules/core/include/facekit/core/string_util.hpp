@@ -23,13 +23,13 @@
 namespace FaceKit {
   
 /**
- *  @class  StringUtil
+ *  @class  String
  *  @brief  Utility function for string handling
  *  @author Christophe Ecabert
  *  @date   26/08/16
  *  @ingroup core
  */
-class FK_EXPORTS StringUtil {
+class FK_EXPORTS String {
  public:
   
   /**

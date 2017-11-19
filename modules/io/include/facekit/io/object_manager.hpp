@@ -14,6 +14,7 @@
 #define __FACEKIT_OBJECT_MANAGER__
 
 #include <vector>
+#include <unordered_map>
 
 #include "facekit/core/library_export.hpp"
 #include "facekit/io/object_proxy.hpp"
@@ -102,13 +103,21 @@ class FK_EXPORTS ObjectManager {
   
   /**
    *  @name GetId
-   *  @fn void GetId(const char* classname, size_t* id) const
+   *  @fn size_t GetId(const std::string& classname) const
    *  @brief  Retrive the Id of a given class name
-   *  @param[in]  classname Class name to quary
-   *  @param[out] id  Object's ID, if none matching class if founded 
-   *                  ID=MAX(size_t)
+   *  @param[in]  classname Class name to query
+   *  @return Object's ID, if none matching class if founded ID=MAX(size_t)
    */
-  void GetId(const char* classname, size_t* id) const;
+  size_t GetId(const std::string& classname) const;
+  
+  /**
+   *  @name GetName
+   *  @fn std::string GetName(const size_t id) const
+   *  @brief  Retrive the name of a given class ID
+   *  @param[in]  id Object's ID to query
+   *  @return Object's name, or empty if unknown ID.
+   */
+  std::string GetName(const size_t id) const;
   
  private:
   
@@ -121,6 +130,8 @@ class FK_EXPORTS ObjectManager {
   
   /** Registered proxies */
   std::vector<const ObjectProxy*> proxies_;
+  /** Look up table for already registered proxies */
+  std::unordered_map<std::string, size_t> id_table_;
 };
 
 }  // namespace FaceKit

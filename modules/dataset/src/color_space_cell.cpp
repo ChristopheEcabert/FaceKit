@@ -60,7 +60,7 @@ int HSVScalingCell::Process(const std::vector<std::string>& input,
   for (size_t i = 0; i < input.size(); ++i) {
     // Get filename
     std::string dir, file, ext;
-    StringUtil::ExtractDirectory(input[i], &dir, &file, &ext);
+    String::ExtractDirectory(input[i], &dir, &file, &ext);
     // Load image + convert to hsv
     cv::Mat img = cv::imread(input[i], cv::ImreadModes::IMREAD_COLOR);
     cv::Mat imgf, hsv_imgf;
@@ -86,7 +86,7 @@ int HSVScalingCell::Process(const std::vector<std::string>& input,
         cv::cvtColor(hsv_scaled, sample, CV_HSV2BGR);
         // Save
         std::string dest = output.back() == '/' ? output : output + "/";
-        dest += file + "_hsv" + StringUtil::LeadingZero(i, 3) +"." + ext;
+        dest += file + "_hsv" + String::LeadingZero(i, 3) +"." + ext;
         cv::imwrite(dest, sample);
         generated->push_back(dest);
       }

@@ -40,7 +40,7 @@ class FK_EXPORTS Quaternion {
    *  @fn Quaternion(void)
    *  @brief  Constructor
    */
-  Quaternion(void) : q_(T(0.0)), v_{T(0.0)} {}
+  Quaternion(void) : q_(T(0.0)), v_(T(0.0), T(0.0), T(0.0)) {}
   
   /**
    *  @name Quaternion
@@ -105,36 +105,36 @@ class FK_EXPORTS Quaternion {
   
   /**
    *  @name operator+
-   *  @fn Quaternion& operator+(const Quaternion& rhs)
+   *  @fn Quaternion operator+(const Quaternion& rhs)
    *  @brief  Addition operator
    *  @param[in]  rhs Quaternion to add
    *  @return Addition result
    */
-  Quaternion& operator+(const Quaternion& rhs) {
+  Quaternion operator+(const Quaternion& rhs) {
     return Quaternion(q_ + rhs.q_, v_ + rhs.v_);
   }
   
   /**
    *  @name operator-
-   *  @fn Quaternion& operator-(const Quaternion& rhs)
+   *  @fn Quaternion operator-(const Quaternion& rhs)
    *  @brief  Addition operator
    *  @param[in]  rhs Quaternion to add
    *  @return Addition result
    */
-  Quaternion& operator-(const Quaternion& rhs) {
+  Quaternion operator-(const Quaternion& rhs) {
     return Quaternion(q_ - rhs.q_, v_ - rhs.v_);
   }
   
   /**
    *  @name operator*
-   *  @fn Quaternion& operator*(const Quaternion& rhs)
+   *  @fn Quaternion operator*(const Quaternion& rhs)
    *  @brief  Multiplication operator
    *  @param[in]  rhs Quaternion to multiply
    *  @return Multiply result
    */
-  Quaternion& operator*(const Quaternion& rhs) {
+  Quaternion operator*(const Quaternion& rhs) {
     return Quaternion(q_ * rhs.q_ + v_ * rhs.v_,
-                      v_ ^ rhs.v_ + q_ * rhs.v_ + rhs.q_ * v_);
+                      v_ ^ rhs.v_ + rhs.v_ * q_ + v_ * rhs.q_);
   }
   
 #pragma mark -
@@ -250,10 +250,8 @@ class FK_EXPORTS Quaternion {
   }
   
 #pragma mark -
-#pragma mark Private
-  
- private:
-  
+#pragma mark Members
+
   /** Real part */
   T q_;
   /** Imaginary part */

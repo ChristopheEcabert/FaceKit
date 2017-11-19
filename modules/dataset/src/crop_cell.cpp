@@ -50,7 +50,7 @@ int ImageCropCell::Process(const std::vector<std::string>& input,
   for (size_t i = 0; i < input.size(); ++i) {
     // Get filename
     std::string dir, file, ext;
-    StringUtil::ExtractDirectory(input[i], &dir, &file, &ext);
+    String::ExtractDirectory(input[i], &dir, &file, &ext);
     // Load image
     cv::Mat img = cv::imread(input[i], cv::ImreadModes::IMREAD_COLOR);
     if (!img.empty() && img.cols > width_ && img.rows > height_) {
@@ -87,7 +87,7 @@ int ImageCropCell::Process(const std::vector<std::string>& input,
         cv::Mat sample = img(roi).clone();
         // Save
         std::string dest = output.back() == '/' ? output : output + "/";
-        dest += file + "_crop" + StringUtil::LeadingZero(i, 3) +"." + ext;
+        dest += file + "_crop" + String::LeadingZero(i, 3) +"." + ext;
         cv::imwrite(dest, sample);
         generated->push_back(dest);
       }
