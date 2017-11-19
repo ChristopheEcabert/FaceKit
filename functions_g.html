@@ -67,11 +67,21 @@ $(function() {
 : <a class="el" href="class_face_kit_1_1_object_manager.html#a33c89aa7a63aa2bf35a583311f463e3d">FaceKit::ObjectManager</a>
 , <a class="el" href="class_face_kit_1_1_p_c_a_model_factory.html#ab645a5294c6f29b9739e3f795534f679">FaceKit::PCAModelFactory&lt; T &gt;</a>
 </li>
+<li>get_axis_inversion()
+: <a class="el" href="class_face_kit_1_1_camera.html#aed495b64ec88b867a5859e55c2f00317">FaceKit::Camera&lt; T, ProjType &gt;</a>
+</li>
 <li>get_classname()
 : <a class="el" href="class_face_kit_1_1_object_proxy.html#a850a8e3c3b57a3d7c92607cc633d268e">FaceKit::ObjectProxy</a>
 </li>
+<li>get_focal_length()
+: <a class="el" href="class_face_kit_1_1_camera.html#a8c043003957746eeb69a0075aa38c16a">FaceKit::Camera&lt; T, ProjType &gt;</a>
+, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#aa0c0837e092286725fecc55e2c34d023">FaceKit::OrthographicProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_perspective_projection.html#af9c9a93350c816bf336f54007ac797a8">FaceKit::PerspectiveProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_weak_projection.html#a62c168f54e1f1f5789a73baeed07bf01">FaceKit::WeakProjection&lt; T &gt;</a>
+</li>
 <li>get_id()
-: <a class="el" href="class_face_kit_1_1_object_proxy.html#a640f5fa0d29d38f18f03fdda8dfded2c">FaceKit::ObjectProxy</a>
+: <a class="el" href="class_face_kit_1_1_object_header.html#af48198d8c44b9c7ab88b10c8aac352d4">FaceKit::ObjectHeader</a>
+, <a class="el" href="class_face_kit_1_1_object_proxy.html#a640f5fa0d29d38f18f03fdda8dfded2c">FaceKit::ObjectProxy</a>
 </li>
 <li>get_log_level()
 : <a class="el" href="class_face_kit_1_1_logger.html#a774a2b6f95970897ccf9f66e24fc5b8c">FaceKit::Logger</a>
@@ -79,35 +89,71 @@ $(function() {
 <li>get_n_channels()
 : <a class="el" href="class_face_kit_1_1_p_c_a_model.html#a4cbd496acde32f84dd25a4906722a7ea">FaceKit::PCAModel&lt; T &gt;</a>
 </li>
+<li>get_n_parameter()
+: <a class="el" href="class_face_kit_1_1_camera.html#a48d5ec9f1926f974cc969da50dbd0c98">FaceKit::Camera&lt; T, ProjType &gt;</a>
+, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#a6d598405e406dffaa05773a259d7de4a">FaceKit::OrthographicProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_perspective_projection.html#a8f7fd16d835f593866fd7f9d2776fc17">FaceKit::PerspectiveProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_weak_projection.html#a1a5a4b89f5037c970e112462d384f227">FaceKit::WeakProjection&lt; T &gt;</a>
+</li>
 <li>get_n_principle_component()
 : <a class="el" href="class_face_kit_1_1_p_c_a_model.html#abb20bd777ec40eba39b5cf82b9633ed2">FaceKit::PCAModel&lt; T &gt;</a>
 </li>
 <li>get_normal()
-: <a class="el" href="class_face_kit_1_1_mesh.html#acac1089e06ea0856b32c8d1a9627e703">FaceKit::Mesh&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_mesh.html#a2f1e8d5cf31ae581eed82963fdac329e">FaceKit::Mesh&lt; T &gt;</a>
+</li>
+<li>get_principal_point_x()
+: <a class="el" href="class_face_kit_1_1_camera.html#ac0f41986b8d4a39f9a40e3aec97c15a4">FaceKit::Camera&lt; T, ProjType &gt;</a>
+, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#ac085fd618d2647ccf4f2da73f6aaa782">FaceKit::OrthographicProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_perspective_projection.html#a75165017b82af1e71c4e34d96c3be2e3">FaceKit::PerspectiveProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_weak_projection.html#af93edef98f5d46c29e7862a37ff11ac2">FaceKit::WeakProjection&lt; T &gt;</a>
+</li>
+<li>get_principal_point_y()
+: <a class="el" href="class_face_kit_1_1_camera.html#a18c660404d66373f819cb6f1b3bea969">FaceKit::Camera&lt; T, ProjType &gt;</a>
+, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#a8181351a69336ff257b59f7524ec0854">FaceKit::OrthographicProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_perspective_projection.html#a95e345c3e0f79b40341a3630551ba0c4">FaceKit::PerspectiveProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_weak_projection.html#a246b6e64afd48fb091556808d1ae42dc">FaceKit::WeakProjection&lt; T &gt;</a>
+</li>
+<li>get_rotation()
+: <a class="el" href="class_face_kit_1_1_camera.html#aa4258d9bc3ff19d54f6cb7ac6fafe467">FaceKit::Camera&lt; T, ProjType &gt;</a>
+</li>
+<li>get_rotation_matrix()
+: <a class="el" href="class_face_kit_1_1_camera.html#a3e028970937bf03a8e464252692c92da">FaceKit::Camera&lt; T, ProjType &gt;</a>
+</li>
+<li>get_size()
+: <a class="el" href="class_face_kit_1_1_object_header.html#a8a1e243b2753a65915be0fccf40747c6">FaceKit::ObjectHeader</a>
 </li>
 <li>get_tangent()
-: <a class="el" href="class_face_kit_1_1_mesh.html#a4f0ff73f2a11125d5f91eedd32cc00f8">FaceKit::Mesh&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_mesh.html#a682cf566e395c6445453ac4873dfc436">FaceKit::Mesh&lt; T &gt;</a>
 </li>
 <li>get_tex_coord()
-: <a class="el" href="class_face_kit_1_1_mesh.html#a953817cf575b3cf5a74ae771829b559e">FaceKit::Mesh&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_mesh.html#a491296aedf18d8143cb54dec2667cc26">FaceKit::Mesh&lt; T &gt;</a>
+</li>
+<li>get_translation()
+: <a class="el" href="class_face_kit_1_1_camera.html#a6ddadff5b621dbdd4cfc14856d0468ab">FaceKit::Camera&lt; T, ProjType &gt;</a>
 </li>
 <li>get_triangle()
-: <a class="el" href="class_face_kit_1_1_mesh.html#a1702235a1c0f629daa8b0bf058daf82b">FaceKit::Mesh&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_mesh.html#acebc87a8ec9a77fa17359bd3fe118ce2">FaceKit::Mesh&lt; T &gt;</a>
 </li>
 <li>get_vertex()
-: <a class="el" href="class_face_kit_1_1_mesh.html#a7dcd850a5dd512b57d984c6169e04561">FaceKit::Mesh&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_mesh.html#a50655b8c15e1120a75ea0b5fa16880a0">FaceKit::Mesh&lt; T &gt;</a>
 </li>
 <li>get_vertex_color()
 : <a class="el" href="class_face_kit_1_1_mesh.html#a300d0aab0197cba55e88b2f42866b4d2">FaceKit::Mesh&lt; T &gt;</a>
 </li>
+<li>get_view_transform()
+: <a class="el" href="class_face_kit_1_1_camera.html#a59af4b0f2b31a802b7bc2416e49332d3">FaceKit::Camera&lt; T, ProjType &gt;</a>
+</li>
 <li>GetId()
-: <a class="el" href="class_face_kit_1_1_object_manager.html#a38b92233e054d3a232ba639bdc528329">FaceKit::ObjectManager</a>
+: <a class="el" href="class_face_kit_1_1_object_manager.html#af11a0f41775ce676a7583c20ba810971">FaceKit::ObjectManager</a>
+</li>
+<li>GetName()
+: <a class="el" href="class_face_kit_1_1_object_manager.html#a4d404cda75a042a22c7a58e67f96763e">FaceKit::ObjectManager</a>
 </li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 14 2017 10:04:59 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 19 2017 18:38:01 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>

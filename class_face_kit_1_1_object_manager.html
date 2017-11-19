@@ -85,9 +85,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a83eef21db1afce0aec8f9ec31a470d3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add new entry in the manager.  <a href="#a83eef21db1afce0aec8f9ec31a470d3c">More...</a><br /></td></tr>
 <tr class="separator:a83eef21db1afce0aec8f9ec31a470d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">GetId</div></td></tr>
-<tr class="memitem:a38b92233e054d3a232ba639bdc528329"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_object_manager.html#a38b92233e054d3a232ba639bdc528329">GetId</a> (const char *classname, size_t *id) const</td></tr>
-<tr class="memdesc:a38b92233e054d3a232ba639bdc528329"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrive the Id of a given class name.  <a href="#a38b92233e054d3a232ba639bdc528329">More...</a><br /></td></tr>
-<tr class="separator:a38b92233e054d3a232ba639bdc528329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af11a0f41775ce676a7583c20ba810971"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_object_manager.html#af11a0f41775ce676a7583c20ba810971">GetId</a> (const std::string &amp;classname) const</td></tr>
+<tr class="memdesc:af11a0f41775ce676a7583c20ba810971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrive the Id of a given class name.  <a href="#af11a0f41775ce676a7583c20ba810971">More...</a><br /></td></tr>
+<tr class="separator:af11a0f41775ce676a7583c20ba810971"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">GetName</div></td></tr>
+<tr class="memitem:a4d404cda75a042a22c7a58e67f96763e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_object_manager.html#a4d404cda75a042a22c7a58e67f96763e">GetName</a> (const size_t id) const</td></tr>
+<tr class="memdesc:a4d404cda75a042a22c7a58e67f96763e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrive the name of a given class ID.  <a href="#a4d404cda75a042a22c7a58e67f96763e">More...</a><br /></td></tr>
+<tr class="separator:a4d404cda75a042a22c7a58e67f96763e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -224,28 +228,18 @@ ObjectManager</h2></td></tr>
 
 </div>
 </div>
-<a id="a38b92233e054d3a232ba639bdc528329"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38b92233e054d3a232ba639bdc528329">&#9670;&nbsp;</a></span>GetId()</h2>
+<a id="af11a0f41775ce676a7583c20ba810971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af11a0f41775ce676a7583c20ba810971">&#9670;&nbsp;</a></span>GetId()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void FaceKit::ObjectManager::GetId </td>
+          <td class="memname">size_t FaceKit::ObjectManager::GetId </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>classname</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t *&#160;</td>
-          <td class="paramname"><em>id</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classname</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -253,11 +247,38 @@ ObjectManager</h2></td></tr>
 <p>Retrive the Id of a given class name. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">classname</td><td>Class name to quary </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">id</td><td>Object's ID, if none matching class if founded ID=MAX(size_t) </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">classname</td><td>Class name to query </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Object's ID, if none matching class if founded ID=MAX(size_t) </dd></dl>
+
+</div>
+</div>
+<a id="a4d404cda75a042a22c7a58e67f96763e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d404cda75a042a22c7a58e67f96763e">&#9670;&nbsp;</a></span>GetName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string FaceKit::ObjectManager::GetName </td>
+          <td>(</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrive the name of a given class ID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Object's ID to query </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Object's name, or empty if unknown ID. </dd></dl>
 
 </div>
 </div>
@@ -369,7 +390,7 @@ ObjectManager</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 14 2017 10:04:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 19 2017 18:38:01 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>

@@ -98,6 +98,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3846560a5cb66fbbbaf81f71e044a643"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_serializable.html#a3846560a5cb66fbbbaf81f71e044a643">ComputeObjectSize</a> (void) const =0</td></tr>
 <tr class="memdesc:a3846560a5cb66fbbbaf81f71e044a643"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute object size in byte.  <a href="#a3846560a5cb66fbbbaf81f71e044a643">More...</a><br /></td></tr>
 <tr class="separator:a3846560a5cb66fbbbaf81f71e044a643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td colspan="2"><div class="groupHeader">StreamHelper</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p><br />
+ </p>
+</div></td></tr>
+<tr class="memitem:aa0df185624a89bd3e6c2087a1766ca06"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_serializable.html#aa0df185624a89bd3e6c2087a1766ca06">StreamHelper</a> (std::istream &amp;stream, const std::string &amp;classname)</td></tr>
+<tr class="memdesc:aa0df185624a89bd3e6c2087a1766ca06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method to search within a stream a given object name.  <a href="#aa0df185624a89bd3e6c2087a1766ca06">More...</a><br /></td></tr>
+<tr class="separator:aa0df185624a89bd3e6c2087a1766ca06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interface definition for object that can be saved/loaded into file. </p>
@@ -263,13 +273,58 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa0df185624a89bd3e6c2087a1766ca06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0df185624a89bd3e6c2087a1766ca06">&#9670;&nbsp;</a></span>StreamHelper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static int FaceKit::Serializable::StreamHelper </td>
+          <td>(</td>
+          <td class="paramtype">std::istream &amp;&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>classname</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Helper method to search within a stream a given object name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">stream</td><td>Binary stream to search in. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">classname</td><td>Object's name to search for  -1 if no object match the name, 0 otherwise. When returning 0 the stream is already at the correct position, therefore object can be loaded directly. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/ChristopheEcabert/FaceKit/modules/io/include/facekit/io/<a class="el" href="serializable_8hpp_source.html">serializable.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 14 2017 10:04:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 19 2017 18:38:01 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>

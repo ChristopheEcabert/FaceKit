@@ -1491,6 +1491,326 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>FaceKit::Camera</Name>
+      <APILanguage>c</APILanguage>
+      <Type>tmplt</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Abstract>Camera behaviour abstraction. </Abstract>
+    <DeclaredIn>modules/model/include/facekit/model/camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Point3</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a5caa90b86b98f17a919296a90b501335</Anchor>
+    <Abstract>3D Points </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Point2</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a0b176e95f23f02b78a0417def82dc124</Anchor>
+    <Abstract>2D Points </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Camera</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a3df8a0ebe4e7a51c5746ed949ce9aa90</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Camera</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a417ff68d2b13ef53c2f9470f26b4fb4f</Anchor>
+    <Abstract>Copy Constructor. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Camera</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a24f319131392ff8a5cb3396de1ba734a</Anchor>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a0dd057d848509d42d4eb5ec3125458b0</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>adb9e41389f8655f602250abddae3c14f</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~Camera</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a9fe73bf6c944d8809a4f183de9a1d98f</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ToVector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>aea5b6895e8c3fc7b8921dff2ee714b87</Anchor>
+    <Abstract>Export parameters to a given vector: vector = [f cx cy qx qy qz qw tx ty tz]. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FromVector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>afd261218f8b6939438b88bea2568139d</Anchor>
+    <Abstract>Initialize parameters from a given vector: vector = [f cx cy qx qy qz qw tx ty tz]. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>From3Dto2D</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a131df9d46bba1787452bab6a2ce87673</Anchor>
+    <Abstract>Initialize camera transformation (R, T) from a set of matching pairs 3D-2D. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>From3Dto2D</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a5e8c4a84100cd0dcd3ecffc92622fa38</Anchor>
+    <Abstract>Initialize camera transformation (R, T) from a set of matching pairs 3D-2D. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>ad09da9dad2a198287ff46cd450efbc96</Anchor>
+    <Abstract>Project one given pts with complete transformation. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a9895a8afcf99716a755ba0fcce839e47</Anchor>
+    <Abstract>Project a list of pts with complete transformation. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a8dd821978431fb71deb68fbcc305cf44</Anchor>
+    <Abstract>Project a list of pts with complete transformation. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_focal_length</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a8c043003957746eeb69a0075aa38c16a</Anchor>
+    <Abstract>Provide camera&amp;#39;s focal length. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_principal_point_x</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>ac0f41986b8d4a39f9a40e3aec97c15a4</Anchor>
+    <Abstract>Provide camera&amp;#39;s principal point in X direction. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_principal_point_y</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a18c660404d66373f819cb6f1b3bea969</Anchor>
+    <Abstract>Provide camera&amp;#39;s principal point in Y direction. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_rotation</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a2b3a9c4ed6a15723e3e1a6cbc03e5c0a</Anchor>
+    <Abstract>Provide view transformation (Rotation only) </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_rotation</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>aa4258d9bc3ff19d54f6cb7ac6fafe467</Anchor>
+    <Abstract>Provide view transformation (Rotation only) </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_rotation_matrix</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a3e028970937bf03a8e464252692c92da</Anchor>
+    <Abstract>Provide view transformation (Rotation only) </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_translation</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a6ddadff5b621dbdd4cfc14856d0468ab</Anchor>
+    <Abstract>Provide view transformation (Translation only) </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_n_parameter</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a48d5ec9f1926f974cc969da50dbd0c98</Anchor>
+    <Abstract>Provide the amount of parameters that can be optimized in this camera. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>set_axis_inversion</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>ad1aca52b6034fd16b9bacc5d85d53840</Anchor>
+    <Abstract>Set axis inversion for conversion between different reference system. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_axis_inversion</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>aed495b64ec88b867a5859e55c2f00317</Anchor>
+    <Abstract>Get current axis inversion. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_view_transform</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Camera</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_camera.html</Path>
+    <Anchor>a59af4b0f2b31a802b7bc2416e49332d3</Anchor>
+    <Abstract>Provide View tranformation for this camera T = [R | T; 0 0 0 1]. </Abstract>
+    <DeclaredIn>camera.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit::CmdLineParser</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -2490,6 +2810,366 @@
     <Path>class_face_kit_1_1_linear_algebra.html</Path>
     <Anchor>a224fd1916cef6795ec9ab694f7df09ffa16fd0cc765b99ac38bd1c33047b664ae</Anchor>
     <Abstract>Conjugate transpose. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::LinearAlgebra::Lapack</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+    <Abstract>Subspace for lapack call. </Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/math/linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>LinearSolverCall</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+    <Anchor>a9af357ac5475c178823777f39d28a479</Anchor>
+    <Abstract>Interface for lapack function call - Undefined type. </Abstract>
+    <DeclaredIn>linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>SquareLinearSolverCall</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+    <Anchor>a03480e0e8a8ad1e0ad8d1e1bcc26ed87</Anchor>
+    <Abstract>Interface for lapack function call - Undefined type. </Abstract>
+    <DeclaredIn>linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Abstract>Structure including all parameters for linear solver Ax = B. </Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/math/linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_trans</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>ac4066cc1148a9b33ad633b6a600ecf00</Anchor>
+    <Abstract>Indicate if matrix A is transposed. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_m</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>a8acaff2a8175979c6df79eab62dd7558</Anchor>
+    <Abstract>Number of rows in matrix A. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_n</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>a81f4d88ed9a6e572302cd3243fa10efb</Anchor>
+    <Abstract>Number of cols in matrix A. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_nrhs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>ab219c92161c9132fab8d56e3c0dc06b1</Anchor>
+    <Abstract>Number of columns of the matrices B and X. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_a</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>ac67e23a8462bae3b80cd0c8900667e2e</Anchor>
+    <Abstract>Matrix A data. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_lda</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>ae9ef05bfe12aa960cd2408e274aa8a63</Anchor>
+    <Abstract>Leading direction of A. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_b</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>ae2f30a140ebb7895c5e019a188444a33</Anchor>
+    <Abstract>Matrix B data. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_ldb</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>a5e6ac7c2b6ad29dd76ef69a74350b54e</Anchor>
+    <Abstract>Leading direction of B. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_work</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>aa8e00ad23ff5cd6d6c1f0ffad96703d4</Anchor>
+    <Abstract>Workspace. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_lwork</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>a3a6b10c4b2e14b417a6aa5f87e3b5dd9</Anchor>
+    <Abstract>Workspace size. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_info</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+    <Anchor>ab03c4823a8fbd056fc6cab42fb2be4c0</Anchor>
+    <Abstract>Info. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Abstract>Structure including all parameters for linear solver Ax = B. </Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/math/linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_n</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Anchor>ab060c5756e022a250506c6e9a1e2579e</Anchor>
+    <Abstract>Number of linear equation. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_nrhs</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Anchor>af7c090fcaa71244a40822931e96cd186</Anchor>
+    <Abstract>Number of right hand side, i.e. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_a</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Anchor>a7675c4bbef64f24104fb1c125594a909</Anchor>
+    <Abstract>Matrix A [N x N]. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_lda</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Anchor>ab4b384344497f0b800d4227595ccd869</Anchor>
+    <Abstract>Leading direction in A. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_ipiv</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Anchor>a27be91110aed0098348d5fd66ecc23d5</Anchor>
+    <Abstract>List of pivot indexes (i.e. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_b</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Anchor>af0e0b8b0610b9f4dad68bb3bcc65efbd</Anchor>
+    <Abstract>Right hand side - Matrix B. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_ldb</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Anchor>a051ec735d69f915c784b1c6d3940cf12</Anchor>
+    <Abstract>Leading direction in B. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>k_info</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::LinearAlgebra::Lapack::square_lin_solver_params</Scope>
+    </TokenIdentifier>
+    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+    <Anchor>a5c2fc7e3dac3024f912369335c77845a</Anchor>
+    <Abstract>Info - output. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::LinearAlgebra::LinearSolver</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::LinearAlgebra::LinearSolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+    <Abstract>Linear solver class. </Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/math/linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>LinearSolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::LinearAlgebra::LinearSolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+    <Anchor>a32a5b3c2b2baeb3326e7339efa95883c</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~LinearSolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::LinearAlgebra::LinearSolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+    <Anchor>a38bdde030bd595a4c14abe0dfc0d5542</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Solve</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::LinearAlgebra::LinearSolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+    <Anchor>a139249bf2d40b1110ec2fa7a95ad4637</Anchor>
+    <Abstract>Solve Ax = B. </Abstract>
+    <DeclaredIn>linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::LinearAlgebra::SquareLinearSolver</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::LinearAlgebra::SquareLinearSolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+    <Abstract>Linear solver class for square system. </Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/math/linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>SquareLinearSolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::LinearAlgebra::SquareLinearSolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+    <Anchor>a25c0e4dcbf86d40ae79320f38e2fa0f3</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~SquareLinearSolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::LinearAlgebra::SquareLinearSolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+    <Anchor>adcb575fa5b6ceec659515c8ba3d4f2d4</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>linear_algebra.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Solve</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::LinearAlgebra::SquareLinearSolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+    <Anchor>a06ef2119108d0078aa85f49cd891afaf</Anchor>
+    <Abstract>Solve Ax = B. </Abstract>
+    <DeclaredIn>linear_algebra.hpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -3848,6 +4528,30 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>get_id</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ObjectHeader</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_object_header.html</Path>
+    <Anchor>af48198d8c44b9c7ab88b10c8aac352d4</Anchor>
+    <Abstract>Provider object ID. </Abstract>
+    <DeclaredIn>object_header.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_size</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ObjectHeader</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_object_header.html</Path>
+    <Anchor>a8a1e243b2753a65915be0fccf40747c6</Anchor>
+    <Abstract>Provider object size. </Abstract>
+    <DeclaredIn>object_header.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>operator&lt;&lt;</Name>
       <APILanguage>cpp</APILanguage>
       <Type>ffunc</Type>
@@ -3937,8 +4641,20 @@
       <Scope>FaceKit::ObjectManager</Scope>
     </TokenIdentifier>
     <Path>class_face_kit_1_1_object_manager.html</Path>
-    <Anchor>a38b92233e054d3a232ba639bdc528329</Anchor>
+    <Anchor>af11a0f41775ce676a7583c20ba810971</Anchor>
     <Abstract>Retrive the Id of a given class name. </Abstract>
+    <DeclaredIn>object_manager.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>GetName</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ObjectManager</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_object_manager.html</Path>
+    <Anchor>a4d404cda75a042a22c7a58e67f96763e</Anchor>
+    <Abstract>Retrive the name of a given class ID. </Abstract>
     <DeclaredIn>object_manager.hpp</DeclaredIn>
   </Token>
   <Token>
@@ -4035,6 +4751,206 @@
     <Anchor>a640f5fa0d29d38f18f03fdda8dfded2c</Anchor>
     <Abstract>Provide the ID of the class represended by this proxy. </Abstract>
     <DeclaredIn>object_proxy.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::OrthographicProjection</Name>
+      <APILanguage>c</APILanguage>
+      <Type>tmplt</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Abstract>Abstraction for orthographic geometric projection. </Abstract>
+    <DeclaredIn>modules/model/include/facekit/model/orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Point3</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>ae3a9a83433ac75281fe483ac7052d033</Anchor>
+    <Abstract>Points. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Point2</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>aaae5a6cf09f68e56045826c84c7b36ab</Anchor>
+    <Abstract>Points. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>OrthographicProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>a907436ef044be774f2656f36b703477d</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>OrthographicProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>af3451db1ccc8dc0b87341c90871eddd8</Anchor>
+    <Abstract>Copy Constructor. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>OrthographicProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>aeb9b484f316dee95a651ce08a50417b9</Anchor>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>a5c077b1fc77e3694eacdb1746a938fb0</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>afd1cb84a81ee129140f346bdce01bc91</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~OrthographicProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>ad00d29385120b0b9737e91873d996fa6</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ToVector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>a1c9a5ae34f5a2251c94f1a322adb76ef</Anchor>
+    <Abstract>Export parameters to a given vector: vector = [f, cx, cy]. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FromVector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>adff9512a68332014d9a6050b360a58af</Anchor>
+    <Abstract>Initialize parameters from a given vector: vector = [f, cx, cy]. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>a26d958c3beac738e4db0052841d74def</Anchor>
+    <Abstract>Project a given points. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>a1991b1866ede3499c0a02a12ec319a84</Anchor>
+    <Abstract>Project a list of given points. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_n_parameter</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>a6d598405e406dffaa05773a259d7de4a</Anchor>
+    <Abstract>Provide the number of free parameters for the projection. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_focal_length</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>aa0c0837e092286725fecc55e2c34d023</Anchor>
+    <Abstract>Provide camera&amp;#39;s focal length. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_principal_point_x</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>ac085fd618d2647ccf4f2da73f6aaa782</Anchor>
+    <Abstract>Provide camera&amp;#39;s principal point in X direction. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_principal_point_y</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::OrthographicProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+    <Anchor>a8181351a69336ff257b59f7524ec0854</Anchor>
+    <Abstract>Provide camera&amp;#39;s principal point in Y direction. </Abstract>
+    <DeclaredIn>orthographic_projection.hpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -4248,6 +5164,18 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>StreamHelper</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::Serializable</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_serializable.html</Path>
+    <Anchor>aa0df185624a89bd3e6c2087a1766ca06</Anchor>
+    <Abstract>Helper method to search within a stream a given object name. </Abstract>
+    <DeclaredIn>serializable.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit::PCAModelFactory</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>
@@ -4424,6 +5352,206 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>FaceKit::PerspectiveProjection</Name>
+      <APILanguage>c</APILanguage>
+      <Type>tmplt</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Abstract>Abstraction for orthographic geometric projection. </Abstract>
+    <DeclaredIn>modules/model/include/facekit/model/perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Point3</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a3030c7424e74fc24eca9b4c904fe9b91</Anchor>
+    <Abstract>Points. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Point2</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a8da50134a567cedec62fb29cdbfb79c1</Anchor>
+    <Abstract>Points. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>PerspectiveProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a402262a2a86e1bc950a4af84d2649d83</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>PerspectiveProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a20d249700ff0654654675a05757b13af</Anchor>
+    <Abstract>Copy Constructor. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>PerspectiveProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a26856674b9c56e1ac38f5b346a124d2c</Anchor>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a2ef493a7f3e2e271a911869fd7e266cf</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>ad00a5119d2d33a56fe0dd6059436afdc</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~PerspectiveProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a94292009ec479a77b6884abb9adde772</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ToVector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a289776f5bf08ccbbf93df0654fd9ae1d</Anchor>
+    <Abstract>Export parameters to a given vector: vector = [f, cx, cy]. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FromVector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>ac4981c31e729f050a4df6b86906c1e2a</Anchor>
+    <Abstract>Initialize parameters from a given vector: vector = [f, cx, cy]. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a5f25f411231645bbefa16537659ccbe2</Anchor>
+    <Abstract>Project a given points. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>af31b572c347129f7dba3a06fabf030a4</Anchor>
+    <Abstract>Project a list of given points. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_n_parameter</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a8f7fd16d835f593866fd7f9d2776fc17</Anchor>
+    <Abstract>Provide the number of free parameters for the projection. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_focal_length</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>af9c9a93350c816bf336f54007ac797a8</Anchor>
+    <Abstract>Provide camera&amp;#39;s focal length. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_principal_point_x</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a75165017b82af1e71c4e34d96c3be2e3</Anchor>
+    <Abstract>Provide camera&amp;#39;s principal point in X direction. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_principal_point_y</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::PerspectiveProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_perspective_projection.html</Path>
+    <Anchor>a95e345c3e0f79b40341a3630551ba0c4</Anchor>
+    <Abstract>Provide camera&amp;#39;s principal point in Y direction. </Abstract>
+    <DeclaredIn>perspective_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit::Quaternion</Name>
       <APILanguage>c</APILanguage>
       <Type>tmplt</Type>
@@ -4513,7 +5641,7 @@
       <Scope>FaceKit::Quaternion</Scope>
     </TokenIdentifier>
     <Path>class_face_kit_1_1_quaternion.html</Path>
-    <Anchor>a1270c40997df674ae4688aac818c55be</Anchor>
+    <Anchor>a1d8cf5bfcedbafb86bc75256f6201b6b</Anchor>
     <Abstract>Addition operator. </Abstract>
     <DeclaredIn>quaternion.hpp</DeclaredIn>
   </Token>
@@ -4525,7 +5653,7 @@
       <Scope>FaceKit::Quaternion</Scope>
     </TokenIdentifier>
     <Path>class_face_kit_1_1_quaternion.html</Path>
-    <Anchor>ac08900d765363b291977816929fa19b8</Anchor>
+    <Anchor>a47a2f841db6f5805abf882912d99c0cf</Anchor>
     <Abstract>Addition operator. </Abstract>
     <DeclaredIn>quaternion.hpp</DeclaredIn>
   </Token>
@@ -4537,7 +5665,7 @@
       <Scope>FaceKit::Quaternion</Scope>
     </TokenIdentifier>
     <Path>class_face_kit_1_1_quaternion.html</Path>
-    <Anchor>a87b81807056a78f2225bf5d6c4d53030</Anchor>
+    <Anchor>a868ee134861fb8fdc6f836200916252b</Anchor>
     <Abstract>Multiplication operator. </Abstract>
     <DeclaredIn>quaternion.hpp</DeclaredIn>
   </Token>
@@ -4600,6 +5728,28 @@
     <Anchor>aff66413f8b7350b2c3d30169f1d596e8</Anchor>
     <Abstract>Normalize quaternion. </Abstract>
     <DeclaredIn>quaternion.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>q_</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::Quaternion</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_quaternion.html</Path>
+    <Anchor>a1c72a872aa607cf2c5b23a36ec83c2e3</Anchor>
+    <Abstract>Real part. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>v_</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::Quaternion</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_quaternion.html</Path>
+    <Anchor>a0fd763db4c0d91af333b4646d9c494bc</Anchor>
+    <Abstract>Imaginary part. </Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -4698,12 +5848,24 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>FaceKit::StringUtil</Name>
+      <Name>StreamHelper</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::Serializable</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_serializable.html</Path>
+    <Anchor>aa0df185624a89bd3e6c2087a1766ca06</Anchor>
+    <Abstract>Helper method to search within a stream a given object name. </Abstract>
+    <DeclaredIn>serializable.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::String</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
-      <Scope>FaceKit::StringUtil</Scope>
+      <Scope>FaceKit::String</Scope>
     </TokenIdentifier>
-    <Path>class_face_kit_1_1_string_util.html</Path>
+    <Path>class_face_kit_1_1_string.html</Path>
     <Abstract>Utility function for string handling. </Abstract>
     <DeclaredIn>modules/core/include/facekit/core/string_util.hpp</DeclaredIn>
   </Token>
@@ -4712,10 +5874,10 @@
       <Name>Split</Name>
       <APILanguage>cpp</APILanguage>
       <Type>clm</Type>
-      <Scope>FaceKit::StringUtil</Scope>
+      <Scope>FaceKit::String</Scope>
     </TokenIdentifier>
-    <Path>class_face_kit_1_1_string_util.html</Path>
-    <Anchor>a0dfaa9ee821b545c71e114d3cc56bbcf</Anchor>
+    <Path>class_face_kit_1_1_string.html</Path>
+    <Anchor>a3f4958b59f0ff63f365fe037a8cb4550</Anchor>
     <Abstract>Split a given string into parts for a specific delimiter. </Abstract>
     <DeclaredIn>string_util.hpp</DeclaredIn>
   </Token>
@@ -4724,10 +5886,10 @@
       <Name>ExtractDirectory</Name>
       <APILanguage>cpp</APILanguage>
       <Type>clm</Type>
-      <Scope>FaceKit::StringUtil</Scope>
+      <Scope>FaceKit::String</Scope>
     </TokenIdentifier>
-    <Path>class_face_kit_1_1_string_util.html</Path>
-    <Anchor>acbfe80e4edb48c638706b0984d1c0bb7</Anchor>
+    <Path>class_face_kit_1_1_string.html</Path>
+    <Anchor>a68f97990bd711cb4ace61583c4279029</Anchor>
     <Abstract>Split path into directory + extension. </Abstract>
     <DeclaredIn>string_util.hpp</DeclaredIn>
   </Token>
@@ -4736,10 +5898,10 @@
       <Name>LeadingZero</Name>
       <APILanguage>cpp</APILanguage>
       <Type>clm</Type>
-      <Scope>FaceKit::StringUtil</Scope>
+      <Scope>FaceKit::String</Scope>
     </TokenIdentifier>
-    <Path>class_face_kit_1_1_string_util.html</Path>
-    <Anchor>a58dd6028b96d14e1da173c9f9ce5e3a2</Anchor>
+    <Path>class_face_kit_1_1_string.html</Path>
+    <Anchor>aaf048207c2aadcc4ff482727677cacff</Anchor>
     <Abstract>Convert a number to string and complete it with leading zeros if needed. </Abstract>
     <DeclaredIn>string_util.hpp</DeclaredIn>
   </Token>
@@ -5832,5 +6994,205 @@
     <Path>struct_face_kit_1_1_vector4.html</Path>
     <Anchor>a6786bd82414c0e4d33d186e75d72486e</Anchor>
     <DeclaredIn>vector.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::WeakProjection</Name>
+      <APILanguage>c</APILanguage>
+      <Type>tmplt</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Abstract>Abstraction for orthographic geometric projection. </Abstract>
+    <DeclaredIn>modules/model/include/facekit/model/weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Point3</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a052626777246f2b2e7eeac994a9b4004</Anchor>
+    <Abstract>Points. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Point2</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>tdef</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a58594f7a30e8219dbcafd60a1c054b6b</Anchor>
+    <Abstract>Points. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>WeakProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a253ef4eafbc1791f74fd8bdbb579ec5e</Anchor>
+    <Abstract>Constructor. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>WeakProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a65657d653cceb52260e879531bb12bf4</Anchor>
+    <Abstract>Copy Constructor. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>WeakProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>ae08fba6127decc9190f75b38924e5574</Anchor>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a35caaba9fbdc98bca67873477514daa3</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a669166ad4e3999e1bfcaa242714fb335</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~WeakProjection</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a16f85593d0f45679df69e6107661758a</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ToVector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>ab55e4d5f712883d9b5deb18fc5e5f9f4</Anchor>
+    <Abstract>Export parameters to a given vector: vector = [f, cx, cy]. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FromVector</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a6dfbccdd0eae45462c5a2b68ce9d42c6</Anchor>
+    <Abstract>Initialize parameters from a given vector: vector = [f, cx, cy]. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>ad5bab33161ffff5ae55bda97ceffb330</Anchor>
+    <Abstract>Project a given points. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator()</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a860928d6e5beff3eee94c5f0fe5cc56a</Anchor>
+    <Abstract>Project a list of given points. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_n_parameter</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a1a5a4b89f5037c970e112462d384f227</Anchor>
+    <Abstract>Provide the number of free parameters for the projection. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_focal_length</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a62c168f54e1f1f5789a73baeed07bf01</Anchor>
+    <Abstract>Provide camera&amp;#39;s focal length. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_principal_point_x</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>af93edef98f5d46c29e7862a37ff11ac2</Anchor>
+    <Abstract>Provide camera&amp;#39;s principal point in X direction. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_principal_point_y</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::WeakProjection</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_weak_projection.html</Path>
+    <Anchor>a246b6e64afd48fb091556808d1ae42dc</Anchor>
+    <Abstract>Provide camera&amp;#39;s principal point in Y direction. </Abstract>
+    <DeclaredIn>weak_projection.hpp</DeclaredIn>
   </Token>
 </Tokens>

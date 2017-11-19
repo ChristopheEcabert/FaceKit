@@ -209,6 +209,171 @@
             <Path>class_face_kit_1_1_linear_algebra.html</Path>
             <Subnodes>
              <Node>
+              <Name>Lapack</Name>
+              <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>lin_solver_params</Name>
+                <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>k_a</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>ac67e23a8462bae3b80cd0c8900667e2e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_b</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>ae2f30a140ebb7895c5e019a188444a33</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_info</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>ab03c4823a8fbd056fc6cab42fb2be4c0</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_lda</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>ae9ef05bfe12aa960cd2408e274aa8a63</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_ldb</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>a5e6ac7c2b6ad29dd76ef69a74350b54e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_lwork</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>a3a6b10c4b2e14b417a6aa5f87e3b5dd9</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_m</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>a8acaff2a8175979c6df79eab62dd7558</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_n</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>a81f4d88ed9a6e572302cd3243fa10efb</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_nrhs</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>ab219c92161c9132fab8d56e3c0dc06b1</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_trans</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>ac4066cc1148a9b33ad633b6a600ecf00</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_work</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Anchor>aa8e00ad23ff5cd6d6c1f0ffad96703d4</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>square_lin_solver_params</Name>
+                <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>k_a</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Anchor>a7675c4bbef64f24104fb1c125594a909</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_b</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Anchor>af0e0b8b0610b9f4dad68bb3bcc65efbd</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_info</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Anchor>a5c2fc7e3dac3024f912369335c77845a</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_ipiv</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Anchor>a27be91110aed0098348d5fd66ecc23d5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_lda</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Anchor>ab4b384344497f0b800d4227595ccd869</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_ldb</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Anchor>a051ec735d69f915c784b1c6d3940cf12</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_n</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Anchor>ab060c5756e022a250506c6e9a1e2579e</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>k_nrhs</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Anchor>af7c090fcaa71244a40822931e96cd186</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>LinearSolverCall</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+                <Anchor>a9af357ac5475c178823777f39d28a479</Anchor>
+               </Node>
+               <Node>
+                <Name>SquareLinearSolverCall</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+                <Anchor>a03480e0e8a8ad1e0ad8d1e1bcc26ed87</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>LinearSolver</Name>
+              <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>LinearSolver</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+                <Anchor>a32a5b3c2b2baeb3326e7339efa95883c</Anchor>
+               </Node>
+               <Node>
+                <Name>~LinearSolver</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+                <Anchor>a38bdde030bd595a4c14abe0dfc0d5542</Anchor>
+               </Node>
+               <Node>
+                <Name>Solve</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+                <Anchor>a139249bf2d40b1110ec2fa7a95ad4637</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>SquareLinearSolver</Name>
+              <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>SquareLinearSolver</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+                <Anchor>a25c0e4dcbf86d40ae79320f38e2fa0f3</Anchor>
+               </Node>
+               <Node>
+                <Name>~SquareLinearSolver</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+                <Anchor>adcb575fa5b6ceec659515c8ba3d4f2d4</Anchor>
+               </Node>
+               <Node>
+                <Name>Solve</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+                <Anchor>a06ef2119108d0078aa85f49cd891afaf</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>TransposeType</Name>
               <Path>class_face_kit_1_1_linear_algebra.html</Path>
               <Anchor>a224fd1916cef6795ec9ab694f7df09ff</Anchor>
@@ -566,17 +731,17 @@
              <Node>
               <Name>operator*</Name>
               <Path>class_face_kit_1_1_quaternion.html</Path>
-              <Anchor>a87b81807056a78f2225bf5d6c4d53030</Anchor>
+              <Anchor>a868ee134861fb8fdc6f836200916252b</Anchor>
              </Node>
              <Node>
               <Name>operator+</Name>
               <Path>class_face_kit_1_1_quaternion.html</Path>
-              <Anchor>a1270c40997df674ae4688aac818c55be</Anchor>
+              <Anchor>a1d8cf5bfcedbafb86bc75256f6201b6b</Anchor>
              </Node>
              <Node>
               <Name>operator-</Name>
               <Path>class_face_kit_1_1_quaternion.html</Path>
-              <Anchor>ac08900d765363b291977816929fa19b8</Anchor>
+              <Anchor>a47a2f841db6f5805abf882912d99c0cf</Anchor>
              </Node>
              <Node>
               <Name>operator=</Name>
@@ -597,6 +762,16 @@
               <Name>ToRotationMatrix</Name>
               <Path>class_face_kit_1_1_quaternion.html</Path>
               <Anchor>aa2d628b89392de77bf1125f55081f40b</Anchor>
+             </Node>
+             <Node>
+              <Name>q_</Name>
+              <Path>class_face_kit_1_1_quaternion.html</Path>
+              <Anchor>a1c72a872aa607cf2c5b23a36ec83c2e3</Anchor>
+             </Node>
+             <Node>
+              <Name>v_</Name>
+              <Path>class_face_kit_1_1_quaternion.html</Path>
+              <Anchor>a0fd763db4c0d91af333b4646d9c494bc</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -1000,23 +1175,23 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>StringUtil</Name>
-            <Path>class_face_kit_1_1_string_util.html</Path>
+            <Name>String</Name>
+            <Path>class_face_kit_1_1_string.html</Path>
             <Subnodes>
              <Node>
               <Name>ExtractDirectory</Name>
-              <Path>class_face_kit_1_1_string_util.html</Path>
-              <Anchor>acbfe80e4edb48c638706b0984d1c0bb7</Anchor>
+              <Path>class_face_kit_1_1_string.html</Path>
+              <Anchor>a68f97990bd711cb4ace61583c4279029</Anchor>
              </Node>
              <Node>
               <Name>LeadingZero</Name>
-              <Path>class_face_kit_1_1_string_util.html</Path>
-              <Anchor>a58dd6028b96d14e1da173c9f9ce5e3a2</Anchor>
+              <Path>class_face_kit_1_1_string.html</Path>
+              <Anchor>aaf048207c2aadcc4ff482727677cacff</Anchor>
              </Node>
              <Node>
               <Name>Split</Name>
-              <Path>class_face_kit_1_1_string_util.html</Path>
-              <Anchor>a0dfaa9ee821b545c71e114d3cc56bbcf</Anchor>
+              <Path>class_face_kit_1_1_string.html</Path>
+              <Anchor>a3f4958b59f0ff63f365fe037a8cb4550</Anchor>
              </Node>
             </Subnodes>
            </Node>
@@ -1785,6 +1960,16 @@
               <Anchor>adc7157d284a482c3ceb1661a082ca567</Anchor>
              </Node>
              <Node>
+              <Name>get_id</Name>
+              <Path>class_face_kit_1_1_object_header.html</Path>
+              <Anchor>af48198d8c44b9c7ab88b10c8aac352d4</Anchor>
+             </Node>
+             <Node>
+              <Name>get_size</Name>
+              <Path>class_face_kit_1_1_object_header.html</Path>
+              <Anchor>a8a1e243b2753a65915be0fccf40747c6</Anchor>
+             </Node>
+             <Node>
               <Name>operator&lt;&lt;</Name>
               <Path>class_face_kit_1_1_object_header.html</Path>
               <Anchor>ac501bf8376ef5bcadcf17976c0d6f02d</Anchor>
@@ -1823,7 +2008,12 @@
              <Node>
               <Name>GetId</Name>
               <Path>class_face_kit_1_1_object_manager.html</Path>
-              <Anchor>a38b92233e054d3a232ba639bdc528329</Anchor>
+              <Anchor>af11a0f41775ce676a7583c20ba810971</Anchor>
+             </Node>
+             <Node>
+              <Name>GetName</Name>
+              <Path>class_face_kit_1_1_object_manager.html</Path>
+              <Anchor>a4d404cda75a042a22c7a58e67f96763e</Anchor>
              </Node>
              <Node>
               <Name>operator=</Name>
@@ -1897,6 +2087,11 @@
               <Path>class_face_kit_1_1_serializable.html</Path>
               <Anchor>a033451dba8afe4296469b34d9a2de9de</Anchor>
              </Node>
+             <Node>
+              <Name>StreamHelper</Name>
+              <Path>class_face_kit_1_1_serializable.html</Path>
+              <Anchor>aa0df185624a89bd3e6c2087a1766ca06</Anchor>
+             </Node>
             </Subnodes>
            </Node>
            <Node>
@@ -1925,6 +2120,228 @@
           <Name>Model</Name>
           <Path>group__model.html</Path>
           <Subnodes>
+           <Node>
+            <Name>Camera</Name>
+            <Path>class_face_kit_1_1_camera.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Point2</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a0b176e95f23f02b78a0417def82dc124</Anchor>
+             </Node>
+             <Node>
+              <Name>Point3</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a5caa90b86b98f17a919296a90b501335</Anchor>
+             </Node>
+             <Node>
+              <Name>Camera</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a3df8a0ebe4e7a51c5746ed949ce9aa90</Anchor>
+             </Node>
+             <Node>
+              <Name>Camera</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a417ff68d2b13ef53c2f9470f26b4fb4f</Anchor>
+             </Node>
+             <Node>
+              <Name>Camera</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a24f319131392ff8a5cb3396de1ba734a</Anchor>
+             </Node>
+             <Node>
+              <Name>~Camera</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a9fe73bf6c944d8809a4f183de9a1d98f</Anchor>
+             </Node>
+             <Node>
+              <Name>From3Dto2D</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a131df9d46bba1787452bab6a2ce87673</Anchor>
+             </Node>
+             <Node>
+              <Name>From3Dto2D</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a5e8c4a84100cd0dcd3ecffc92622fa38</Anchor>
+             </Node>
+             <Node>
+              <Name>FromVector</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>afd261218f8b6939438b88bea2568139d</Anchor>
+             </Node>
+             <Node>
+              <Name>get_axis_inversion</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>aed495b64ec88b867a5859e55c2f00317</Anchor>
+             </Node>
+             <Node>
+              <Name>get_focal_length</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a8c043003957746eeb69a0075aa38c16a</Anchor>
+             </Node>
+             <Node>
+              <Name>get_n_parameter</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a48d5ec9f1926f974cc969da50dbd0c98</Anchor>
+             </Node>
+             <Node>
+              <Name>get_principal_point_x</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>ac0f41986b8d4a39f9a40e3aec97c15a4</Anchor>
+             </Node>
+             <Node>
+              <Name>get_principal_point_y</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a18c660404d66373f819cb6f1b3bea969</Anchor>
+             </Node>
+             <Node>
+              <Name>get_rotation</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a2b3a9c4ed6a15723e3e1a6cbc03e5c0a</Anchor>
+             </Node>
+             <Node>
+              <Name>get_rotation</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>aa4258d9bc3ff19d54f6cb7ac6fafe467</Anchor>
+             </Node>
+             <Node>
+              <Name>get_rotation_matrix</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a3e028970937bf03a8e464252692c92da</Anchor>
+             </Node>
+             <Node>
+              <Name>get_translation</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a6ddadff5b621dbdd4cfc14856d0468ab</Anchor>
+             </Node>
+             <Node>
+              <Name>get_view_transform</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a59af4b0f2b31a802b7bc2416e49332d3</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>ad09da9dad2a198287ff46cd450efbc96</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a9895a8afcf99716a755ba0fcce839e47</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a8dd821978431fb71deb68fbcc305cf44</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>a0dd057d848509d42d4eb5ec3125458b0</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>adb9e41389f8655f602250abddae3c14f</Anchor>
+             </Node>
+             <Node>
+              <Name>set_axis_inversion</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>ad1aca52b6034fd16b9bacc5d85d53840</Anchor>
+             </Node>
+             <Node>
+              <Name>ToVector</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Anchor>aea5b6895e8c3fc7b8921dff2ee714b87</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>OrthographicProjection</Name>
+            <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Point2</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>aaae5a6cf09f68e56045826c84c7b36ab</Anchor>
+             </Node>
+             <Node>
+              <Name>Point3</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>ae3a9a83433ac75281fe483ac7052d033</Anchor>
+             </Node>
+             <Node>
+              <Name>OrthographicProjection</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>a907436ef044be774f2656f36b703477d</Anchor>
+             </Node>
+             <Node>
+              <Name>OrthographicProjection</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>af3451db1ccc8dc0b87341c90871eddd8</Anchor>
+             </Node>
+             <Node>
+              <Name>OrthographicProjection</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>aeb9b484f316dee95a651ce08a50417b9</Anchor>
+             </Node>
+             <Node>
+              <Name>~OrthographicProjection</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>ad00d29385120b0b9737e91873d996fa6</Anchor>
+             </Node>
+             <Node>
+              <Name>FromVector</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>adff9512a68332014d9a6050b360a58af</Anchor>
+             </Node>
+             <Node>
+              <Name>get_focal_length</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>aa0c0837e092286725fecc55e2c34d023</Anchor>
+             </Node>
+             <Node>
+              <Name>get_n_parameter</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>a6d598405e406dffaa05773a259d7de4a</Anchor>
+             </Node>
+             <Node>
+              <Name>get_principal_point_x</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>ac085fd618d2647ccf4f2da73f6aaa782</Anchor>
+             </Node>
+             <Node>
+              <Name>get_principal_point_y</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>a8181351a69336ff257b59f7524ec0854</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>a26d958c3beac738e4db0052841d74def</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>a1991b1866ede3499c0a02a12ec319a84</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>a5c077b1fc77e3694eacdb1746a938fb0</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>afd1cb84a81ee129140f346bdce01bc91</Anchor>
+             </Node>
+             <Node>
+              <Name>ToVector</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Anchor>a1c9a5ae34f5a2251c94f1a322adb76ef</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
            <Node>
             <Name>PCAModel</Name>
             <Path>class_face_kit_1_1_p_c_a_model.html</Path>
@@ -2084,12 +2501,200 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>PerspectiveProjection</Name>
+            <Path>class_face_kit_1_1_perspective_projection.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Point2</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a8da50134a567cedec62fb29cdbfb79c1</Anchor>
+             </Node>
+             <Node>
+              <Name>Point3</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a3030c7424e74fc24eca9b4c904fe9b91</Anchor>
+             </Node>
+             <Node>
+              <Name>PerspectiveProjection</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a402262a2a86e1bc950a4af84d2649d83</Anchor>
+             </Node>
+             <Node>
+              <Name>PerspectiveProjection</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a20d249700ff0654654675a05757b13af</Anchor>
+             </Node>
+             <Node>
+              <Name>PerspectiveProjection</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a26856674b9c56e1ac38f5b346a124d2c</Anchor>
+             </Node>
+             <Node>
+              <Name>~PerspectiveProjection</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a94292009ec479a77b6884abb9adde772</Anchor>
+             </Node>
+             <Node>
+              <Name>FromVector</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>ac4981c31e729f050a4df6b86906c1e2a</Anchor>
+             </Node>
+             <Node>
+              <Name>get_focal_length</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>af9c9a93350c816bf336f54007ac797a8</Anchor>
+             </Node>
+             <Node>
+              <Name>get_n_parameter</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a8f7fd16d835f593866fd7f9d2776fc17</Anchor>
+             </Node>
+             <Node>
+              <Name>get_principal_point_x</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a75165017b82af1e71c4e34d96c3be2e3</Anchor>
+             </Node>
+             <Node>
+              <Name>get_principal_point_y</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a95e345c3e0f79b40341a3630551ba0c4</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a5f25f411231645bbefa16537659ccbe2</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>af31b572c347129f7dba3a06fabf030a4</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a2ef493a7f3e2e271a911869fd7e266cf</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>ad00a5119d2d33a56fe0dd6059436afdc</Anchor>
+             </Node>
+             <Node>
+              <Name>ToVector</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Anchor>a289776f5bf08ccbbf93df0654fd9ae1d</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>WeakProjection</Name>
+            <Path>class_face_kit_1_1_weak_projection.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Point2</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a58594f7a30e8219dbcafd60a1c054b6b</Anchor>
+             </Node>
+             <Node>
+              <Name>Point3</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a052626777246f2b2e7eeac994a9b4004</Anchor>
+             </Node>
+             <Node>
+              <Name>WeakProjection</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a253ef4eafbc1791f74fd8bdbb579ec5e</Anchor>
+             </Node>
+             <Node>
+              <Name>WeakProjection</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a65657d653cceb52260e879531bb12bf4</Anchor>
+             </Node>
+             <Node>
+              <Name>WeakProjection</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>ae08fba6127decc9190f75b38924e5574</Anchor>
+             </Node>
+             <Node>
+              <Name>~WeakProjection</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a16f85593d0f45679df69e6107661758a</Anchor>
+             </Node>
+             <Node>
+              <Name>FromVector</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a6dfbccdd0eae45462c5a2b68ce9d42c6</Anchor>
+             </Node>
+             <Node>
+              <Name>get_focal_length</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a62c168f54e1f1f5789a73baeed07bf01</Anchor>
+             </Node>
+             <Node>
+              <Name>get_n_parameter</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a1a5a4b89f5037c970e112462d384f227</Anchor>
+             </Node>
+             <Node>
+              <Name>get_principal_point_x</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>af93edef98f5d46c29e7862a37ff11ac2</Anchor>
+             </Node>
+             <Node>
+              <Name>get_principal_point_y</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a246b6e64afd48fb091556808d1ae42dc</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>ad5bab33161ffff5ae55bda97ceffb330</Anchor>
+             </Node>
+             <Node>
+              <Name>operator()</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a860928d6e5beff3eee94c5f0fe5cc56a</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a35caaba9fbdc98bca67873477514daa3</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>a669166ad4e3999e1bfcaa242714fb335</Anchor>
+             </Node>
+             <Node>
+              <Name>ToVector</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Anchor>ab55e4d5f712883d9b5deb18fc5e5f9f4</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>camera.hpp</Name>
+            <Path>camera_8hpp.html</Path>
+           </Node>
+           <Node>
+            <Name>orthographic_projection.hpp</Name>
+            <Path>orthographic__projection_8hpp.html</Path>
+           </Node>
+           <Node>
             <Name>pca_model.hpp</Name>
             <Path>pca__model_8hpp.html</Path>
            </Node>
            <Node>
             <Name>pca_model_factory.hpp</Name>
             <Path>pca__model__factory_8hpp.html</Path>
+           </Node>
+           <Node>
+            <Name>weak_projection.hpp</Name>
+            <Path>weak__projection_8hpp.html</Path>
+           </Node>
+           <Node>
+            <Name>weak_projection.hpp</Name>
+            <Path>weak__projection_8hpp.html</Path>
            </Node>
           </Subnodes>
          </Node>
@@ -2379,6 +2984,142 @@
                 <Name>ScanForData</Name>
                 <Path>class_face_kit_1_1_augmentation_engine.html</Path>
                 <Anchor>a9a0fffe6aa0884000a2246ce3215ee1a</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>Camera</Name>
+              <Path>class_face_kit_1_1_camera.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Point2</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a0b176e95f23f02b78a0417def82dc124</Anchor>
+               </Node>
+               <Node>
+                <Name>Point3</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a5caa90b86b98f17a919296a90b501335</Anchor>
+               </Node>
+               <Node>
+                <Name>Camera</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a3df8a0ebe4e7a51c5746ed949ce9aa90</Anchor>
+               </Node>
+               <Node>
+                <Name>Camera</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a417ff68d2b13ef53c2f9470f26b4fb4f</Anchor>
+               </Node>
+               <Node>
+                <Name>Camera</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a24f319131392ff8a5cb3396de1ba734a</Anchor>
+               </Node>
+               <Node>
+                <Name>~Camera</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a9fe73bf6c944d8809a4f183de9a1d98f</Anchor>
+               </Node>
+               <Node>
+                <Name>From3Dto2D</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a131df9d46bba1787452bab6a2ce87673</Anchor>
+               </Node>
+               <Node>
+                <Name>From3Dto2D</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a5e8c4a84100cd0dcd3ecffc92622fa38</Anchor>
+               </Node>
+               <Node>
+                <Name>FromVector</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>afd261218f8b6939438b88bea2568139d</Anchor>
+               </Node>
+               <Node>
+                <Name>get_axis_inversion</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>aed495b64ec88b867a5859e55c2f00317</Anchor>
+               </Node>
+               <Node>
+                <Name>get_focal_length</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a8c043003957746eeb69a0075aa38c16a</Anchor>
+               </Node>
+               <Node>
+                <Name>get_n_parameter</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a48d5ec9f1926f974cc969da50dbd0c98</Anchor>
+               </Node>
+               <Node>
+                <Name>get_principal_point_x</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>ac0f41986b8d4a39f9a40e3aec97c15a4</Anchor>
+               </Node>
+               <Node>
+                <Name>get_principal_point_y</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a18c660404d66373f819cb6f1b3bea969</Anchor>
+               </Node>
+               <Node>
+                <Name>get_rotation</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a2b3a9c4ed6a15723e3e1a6cbc03e5c0a</Anchor>
+               </Node>
+               <Node>
+                <Name>get_rotation</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>aa4258d9bc3ff19d54f6cb7ac6fafe467</Anchor>
+               </Node>
+               <Node>
+                <Name>get_rotation_matrix</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a3e028970937bf03a8e464252692c92da</Anchor>
+               </Node>
+               <Node>
+                <Name>get_translation</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a6ddadff5b621dbdd4cfc14856d0468ab</Anchor>
+               </Node>
+               <Node>
+                <Name>get_view_transform</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a59af4b0f2b31a802b7bc2416e49332d3</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>ad09da9dad2a198287ff46cd450efbc96</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a9895a8afcf99716a755ba0fcce839e47</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a8dd821978431fb71deb68fbcc305cf44</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>a0dd057d848509d42d4eb5ec3125458b0</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>adb9e41389f8655f602250abddae3c14f</Anchor>
+               </Node>
+               <Node>
+                <Name>set_axis_inversion</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>ad1aca52b6034fd16b9bacc5d85d53840</Anchor>
+               </Node>
+               <Node>
+                <Name>ToVector</Name>
+                <Path>class_face_kit_1_1_camera.html</Path>
+                <Anchor>aea5b6895e8c3fc7b8921dff2ee714b87</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -2752,6 +3493,171 @@
               <Name>LinearAlgebra</Name>
               <Path>class_face_kit_1_1_linear_algebra.html</Path>
               <Subnodes>
+               <Node>
+                <Name>Lapack</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>lin_solver_params</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>k_a</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>ac67e23a8462bae3b80cd0c8900667e2e</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_b</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>ae2f30a140ebb7895c5e019a188444a33</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_info</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>ab03c4823a8fbd056fc6cab42fb2be4c0</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_lda</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>ae9ef05bfe12aa960cd2408e274aa8a63</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_ldb</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>a5e6ac7c2b6ad29dd76ef69a74350b54e</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_lwork</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>a3a6b10c4b2e14b417a6aa5f87e3b5dd9</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_m</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>a8acaff2a8175979c6df79eab62dd7558</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_n</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>a81f4d88ed9a6e572302cd3243fa10efb</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_nrhs</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>ab219c92161c9132fab8d56e3c0dc06b1</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_trans</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>ac4066cc1148a9b33ad633b6a600ecf00</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_work</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+                    <Anchor>aa8e00ad23ff5cd6d6c1f0ffad96703d4</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
+                  <Name>square_lin_solver_params</Name>
+                  <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                  <Subnodes>
+                   <Node>
+                    <Name>k_a</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                    <Anchor>a7675c4bbef64f24104fb1c125594a909</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_b</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                    <Anchor>af0e0b8b0610b9f4dad68bb3bcc65efbd</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_info</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                    <Anchor>a5c2fc7e3dac3024f912369335c77845a</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_ipiv</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                    <Anchor>a27be91110aed0098348d5fd66ecc23d5</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_lda</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                    <Anchor>ab4b384344497f0b800d4227595ccd869</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_ldb</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                    <Anchor>a051ec735d69f915c784b1c6d3940cf12</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_n</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                    <Anchor>ab060c5756e022a250506c6e9a1e2579e</Anchor>
+                   </Node>
+                   <Node>
+                    <Name>k_nrhs</Name>
+                    <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+                    <Anchor>af7c090fcaa71244a40822931e96cd186</Anchor>
+                   </Node>
+                  </Subnodes>
+                 </Node>
+                 <Node>
+                  <Name>LinearSolverCall</Name>
+                  <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+                  <Anchor>a9af357ac5475c178823777f39d28a479</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>SquareLinearSolverCall</Name>
+                  <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+                  <Anchor>a03480e0e8a8ad1e0ad8d1e1bcc26ed87</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>LinearSolver</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>LinearSolver</Name>
+                  <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+                  <Anchor>a32a5b3c2b2baeb3326e7339efa95883c</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~LinearSolver</Name>
+                  <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+                  <Anchor>a38bdde030bd595a4c14abe0dfc0d5542</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Solve</Name>
+                  <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
+                  <Anchor>a139249bf2d40b1110ec2fa7a95ad4637</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>SquareLinearSolver</Name>
+                <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+                <Subnodes>
+                 <Node>
+                  <Name>SquareLinearSolver</Name>
+                  <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+                  <Anchor>a25c0e4dcbf86d40ae79320f38e2fa0f3</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>~SquareLinearSolver</Name>
+                  <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+                  <Anchor>adcb575fa5b6ceec659515c8ba3d4f2d4</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>Solve</Name>
+                  <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+                  <Anchor>a06ef2119108d0078aa85f49cd891afaf</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
                <Node>
                 <Name>TransposeType</Name>
                 <Path>class_face_kit_1_1_linear_algebra.html</Path>
@@ -3424,6 +4330,16 @@
                 <Anchor>adc7157d284a482c3ceb1661a082ca567</Anchor>
                </Node>
                <Node>
+                <Name>get_id</Name>
+                <Path>class_face_kit_1_1_object_header.html</Path>
+                <Anchor>af48198d8c44b9c7ab88b10c8aac352d4</Anchor>
+               </Node>
+               <Node>
+                <Name>get_size</Name>
+                <Path>class_face_kit_1_1_object_header.html</Path>
+                <Anchor>a8a1e243b2753a65915be0fccf40747c6</Anchor>
+               </Node>
+               <Node>
                 <Name>operator&lt;&lt;</Name>
                 <Path>class_face_kit_1_1_object_header.html</Path>
                 <Anchor>ac501bf8376ef5bcadcf17976c0d6f02d</Anchor>
@@ -3462,7 +4378,12 @@
                <Node>
                 <Name>GetId</Name>
                 <Path>class_face_kit_1_1_object_manager.html</Path>
-                <Anchor>a38b92233e054d3a232ba639bdc528329</Anchor>
+                <Anchor>af11a0f41775ce676a7583c20ba810971</Anchor>
+               </Node>
+               <Node>
+                <Name>GetName</Name>
+                <Path>class_face_kit_1_1_object_manager.html</Path>
+                <Anchor>a4d404cda75a042a22c7a58e67f96763e</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -3504,6 +4425,92 @@
                 <Name>get_id</Name>
                 <Path>class_face_kit_1_1_object_proxy.html</Path>
                 <Anchor>a640f5fa0d29d38f18f03fdda8dfded2c</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>OrthographicProjection</Name>
+              <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Point2</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>aaae5a6cf09f68e56045826c84c7b36ab</Anchor>
+               </Node>
+               <Node>
+                <Name>Point3</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>ae3a9a83433ac75281fe483ac7052d033</Anchor>
+               </Node>
+               <Node>
+                <Name>OrthographicProjection</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>a907436ef044be774f2656f36b703477d</Anchor>
+               </Node>
+               <Node>
+                <Name>OrthographicProjection</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>af3451db1ccc8dc0b87341c90871eddd8</Anchor>
+               </Node>
+               <Node>
+                <Name>OrthographicProjection</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>aeb9b484f316dee95a651ce08a50417b9</Anchor>
+               </Node>
+               <Node>
+                <Name>~OrthographicProjection</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>ad00d29385120b0b9737e91873d996fa6</Anchor>
+               </Node>
+               <Node>
+                <Name>FromVector</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>adff9512a68332014d9a6050b360a58af</Anchor>
+               </Node>
+               <Node>
+                <Name>get_focal_length</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>aa0c0837e092286725fecc55e2c34d023</Anchor>
+               </Node>
+               <Node>
+                <Name>get_n_parameter</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>a6d598405e406dffaa05773a259d7de4a</Anchor>
+               </Node>
+               <Node>
+                <Name>get_principal_point_x</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>ac085fd618d2647ccf4f2da73f6aaa782</Anchor>
+               </Node>
+               <Node>
+                <Name>get_principal_point_y</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>a8181351a69336ff257b59f7524ec0854</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>a26d958c3beac738e4db0052841d74def</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>a1991b1866ede3499c0a02a12ec319a84</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>a5c077b1fc77e3694eacdb1746a938fb0</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>afd1cb84a81ee129140f346bdce01bc91</Anchor>
+               </Node>
+               <Node>
+                <Name>ToVector</Name>
+                <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+                <Anchor>a1c9a5ae34f5a2251c94f1a322adb76ef</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -3666,6 +4673,92 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>PerspectiveProjection</Name>
+              <Path>class_face_kit_1_1_perspective_projection.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Point2</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a8da50134a567cedec62fb29cdbfb79c1</Anchor>
+               </Node>
+               <Node>
+                <Name>Point3</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a3030c7424e74fc24eca9b4c904fe9b91</Anchor>
+               </Node>
+               <Node>
+                <Name>PerspectiveProjection</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a402262a2a86e1bc950a4af84d2649d83</Anchor>
+               </Node>
+               <Node>
+                <Name>PerspectiveProjection</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a20d249700ff0654654675a05757b13af</Anchor>
+               </Node>
+               <Node>
+                <Name>PerspectiveProjection</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a26856674b9c56e1ac38f5b346a124d2c</Anchor>
+               </Node>
+               <Node>
+                <Name>~PerspectiveProjection</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a94292009ec479a77b6884abb9adde772</Anchor>
+               </Node>
+               <Node>
+                <Name>FromVector</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>ac4981c31e729f050a4df6b86906c1e2a</Anchor>
+               </Node>
+               <Node>
+                <Name>get_focal_length</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>af9c9a93350c816bf336f54007ac797a8</Anchor>
+               </Node>
+               <Node>
+                <Name>get_n_parameter</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a8f7fd16d835f593866fd7f9d2776fc17</Anchor>
+               </Node>
+               <Node>
+                <Name>get_principal_point_x</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a75165017b82af1e71c4e34d96c3be2e3</Anchor>
+               </Node>
+               <Node>
+                <Name>get_principal_point_y</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a95e345c3e0f79b40341a3630551ba0c4</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a5f25f411231645bbefa16537659ccbe2</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>af31b572c347129f7dba3a06fabf030a4</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a2ef493a7f3e2e271a911869fd7e266cf</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>ad00a5119d2d33a56fe0dd6059436afdc</Anchor>
+               </Node>
+               <Node>
+                <Name>ToVector</Name>
+                <Path>class_face_kit_1_1_perspective_projection.html</Path>
+                <Anchor>a289776f5bf08ccbbf93df0654fd9ae1d</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>Quaternion</Name>
               <Path>class_face_kit_1_1_quaternion.html</Path>
               <Subnodes>
@@ -3717,17 +4810,17 @@
                <Node>
                 <Name>operator*</Name>
                 <Path>class_face_kit_1_1_quaternion.html</Path>
-                <Anchor>a87b81807056a78f2225bf5d6c4d53030</Anchor>
+                <Anchor>a868ee134861fb8fdc6f836200916252b</Anchor>
                </Node>
                <Node>
                 <Name>operator+</Name>
                 <Path>class_face_kit_1_1_quaternion.html</Path>
-                <Anchor>a1270c40997df674ae4688aac818c55be</Anchor>
+                <Anchor>a1d8cf5bfcedbafb86bc75256f6201b6b</Anchor>
                </Node>
                <Node>
                 <Name>operator-</Name>
                 <Path>class_face_kit_1_1_quaternion.html</Path>
-                <Anchor>ac08900d765363b291977816929fa19b8</Anchor>
+                <Anchor>a47a2f841db6f5805abf882912d99c0cf</Anchor>
                </Node>
                <Node>
                 <Name>operator=</Name>
@@ -3748,6 +4841,16 @@
                 <Name>ToRotationMatrix</Name>
                 <Path>class_face_kit_1_1_quaternion.html</Path>
                 <Anchor>aa2d628b89392de77bf1125f55081f40b</Anchor>
+               </Node>
+               <Node>
+                <Name>q_</Name>
+                <Path>class_face_kit_1_1_quaternion.html</Path>
+                <Anchor>a1c72a872aa607cf2c5b23a36ec83c2e3</Anchor>
+               </Node>
+               <Node>
+                <Name>v_</Name>
+                <Path>class_face_kit_1_1_quaternion.html</Path>
+                <Anchor>a0fd763db4c0d91af333b4646d9c494bc</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -3780,26 +4883,31 @@
                 <Path>class_face_kit_1_1_serializable.html</Path>
                 <Anchor>a033451dba8afe4296469b34d9a2de9de</Anchor>
                </Node>
+               <Node>
+                <Name>StreamHelper</Name>
+                <Path>class_face_kit_1_1_serializable.html</Path>
+                <Anchor>aa0df185624a89bd3e6c2087a1766ca06</Anchor>
+               </Node>
               </Subnodes>
              </Node>
              <Node>
-              <Name>StringUtil</Name>
-              <Path>class_face_kit_1_1_string_util.html</Path>
+              <Name>String</Name>
+              <Path>class_face_kit_1_1_string.html</Path>
               <Subnodes>
                <Node>
                 <Name>ExtractDirectory</Name>
-                <Path>class_face_kit_1_1_string_util.html</Path>
-                <Anchor>acbfe80e4edb48c638706b0984d1c0bb7</Anchor>
+                <Path>class_face_kit_1_1_string.html</Path>
+                <Anchor>a68f97990bd711cb4ace61583c4279029</Anchor>
                </Node>
                <Node>
                 <Name>LeadingZero</Name>
-                <Path>class_face_kit_1_1_string_util.html</Path>
-                <Anchor>a58dd6028b96d14e1da173c9f9ce5e3a2</Anchor>
+                <Path>class_face_kit_1_1_string.html</Path>
+                <Anchor>aaf048207c2aadcc4ff482727677cacff</Anchor>
                </Node>
                <Node>
                 <Name>Split</Name>
-                <Path>class_face_kit_1_1_string_util.html</Path>
-                <Anchor>a0dfaa9ee821b545c71e114d3cc56bbcf</Anchor>
+                <Path>class_face_kit_1_1_string.html</Path>
+                <Anchor>a3f4958b59f0ff63f365fe037a8cb4550</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -4304,6 +5412,92 @@
                </Node>
               </Subnodes>
              </Node>
+             <Node>
+              <Name>WeakProjection</Name>
+              <Path>class_face_kit_1_1_weak_projection.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Point2</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a58594f7a30e8219dbcafd60a1c054b6b</Anchor>
+               </Node>
+               <Node>
+                <Name>Point3</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a052626777246f2b2e7eeac994a9b4004</Anchor>
+               </Node>
+               <Node>
+                <Name>WeakProjection</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a253ef4eafbc1791f74fd8bdbb579ec5e</Anchor>
+               </Node>
+               <Node>
+                <Name>WeakProjection</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a65657d653cceb52260e879531bb12bf4</Anchor>
+               </Node>
+               <Node>
+                <Name>WeakProjection</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>ae08fba6127decc9190f75b38924e5574</Anchor>
+               </Node>
+               <Node>
+                <Name>~WeakProjection</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a16f85593d0f45679df69e6107661758a</Anchor>
+               </Node>
+               <Node>
+                <Name>FromVector</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a6dfbccdd0eae45462c5a2b68ce9d42c6</Anchor>
+               </Node>
+               <Node>
+                <Name>get_focal_length</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a62c168f54e1f1f5789a73baeed07bf01</Anchor>
+               </Node>
+               <Node>
+                <Name>get_n_parameter</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a1a5a4b89f5037c970e112462d384f227</Anchor>
+               </Node>
+               <Node>
+                <Name>get_principal_point_x</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>af93edef98f5d46c29e7862a37ff11ac2</Anchor>
+               </Node>
+               <Node>
+                <Name>get_principal_point_y</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a246b6e64afd48fb091556808d1ae42dc</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>ad5bab33161ffff5ae55bda97ceffb330</Anchor>
+               </Node>
+               <Node>
+                <Name>operator()</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a860928d6e5beff3eee94c5f0fe5cc56a</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a35caaba9fbdc98bca67873477514daa3</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>a669166ad4e3999e1bfcaa242714fb335</Anchor>
+               </Node>
+               <Node>
+                <Name>ToVector</Name>
+                <Path>class_face_kit_1_1_weak_projection.html</Path>
+                <Anchor>ab55e4d5f712883d9b5deb18fc5e5f9f4</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
             </Subnodes>
            </Node>
           </Subnodes>
@@ -4355,6 +5549,10 @@
             <Path>class_face_kit_1_1_augmentation_engine.html</Path>
            </Node>
            <Node>
+            <Name>FaceKit::Camera&lt; T, ProjType &gt;</Name>
+            <Path>class_face_kit_1_1_camera.html</Path>
+           </Node>
+           <Node>
             <Name>FaceKit::CmdLineParser</Name>
             <Path>class_face_kit_1_1_cmd_line_parser.html</Path>
            </Node>
@@ -4377,8 +5575,20 @@
             <Path>class_face_kit_1_1_i_o.html</Path>
            </Node>
            <Node>
+            <Name>FaceKit::LinearAlgebra&lt; T &gt;::Lapack</Name>
+            <Path>class_face_kit_1_1_linear_algebra_1_1_lapack.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::LinearAlgebra&lt; T &gt;::Lapack::lin_solver_params</Name>
+            <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html</Path>
+           </Node>
+           <Node>
             <Name>FaceKit::LinearAlgebra&lt; T &gt;</Name>
             <Path>class_face_kit_1_1_linear_algebra.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::LinearAlgebra&lt; T &gt;::LinearSolver</Name>
+            <Path>class_face_kit_1_1_linear_algebra_1_1_linear_solver.html</Path>
            </Node>
            <Node>
             <Name>FaceKit::Logger::LogData&lt; List &gt;</Name>
@@ -4417,12 +5627,20 @@
             <Path>class_face_kit_1_1_object_proxy.html</Path>
            </Node>
            <Node>
+            <Name>FaceKit::OrthographicProjection&lt; T &gt;</Name>
+            <Path>class_face_kit_1_1_orthographic_projection.html</Path>
+           </Node>
+           <Node>
             <Name>FaceKit::PCAModelFactory&lt; T &gt;</Name>
             <Path>class_face_kit_1_1_p_c_a_model_factory.html</Path>
            </Node>
            <Node>
             <Name>FaceKit::PCAModelProxy&lt; T &gt;</Name>
             <Path>class_face_kit_1_1_p_c_a_model_proxy.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::PerspectiveProjection&lt; T &gt;</Name>
+            <Path>class_face_kit_1_1_perspective_projection.html</Path>
            </Node>
            <Node>
             <Name>FaceKit::Quaternion&lt; T &gt;</Name>
@@ -4439,8 +5657,16 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>FaceKit::StringUtil</Name>
-            <Path>class_face_kit_1_1_string_util.html</Path>
+            <Name>FaceKit::LinearAlgebra&lt; T &gt;::Lapack::square_lin_solver_params</Name>
+            <Path>struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1square__lin__solver__params.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::LinearAlgebra&lt; T &gt;::SquareLinearSolver</Name>
+            <Path>class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::String</Name>
+            <Path>class_face_kit_1_1_string.html</Path>
            </Node>
            <Node>
             <Name>FaceKit::TComparator&lt; T &gt;</Name>
@@ -4465,6 +5691,10 @@
            <Node>
             <Name>FaceKit::Vector4&lt; T &gt;</Name>
             <Path>struct_face_kit_1_1_vector4.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::WeakProjection&lt; T &gt;</Name>
+            <Path>class_face_kit_1_1_weak_projection.html</Path>
            </Node>
           </Subnodes>
          </Node>

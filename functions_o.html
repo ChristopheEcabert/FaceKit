@@ -76,13 +76,17 @@ $(function() {
 , <a class="el" href="struct_face_kit_1_1_vector4.html#ab557d105e15c81e40f439a87e34ccf17">FaceKit::Vector4&lt; T &gt;</a>
 </li>
 <li>operator()()
-: <a class="el" href="class_face_kit_1_1_matrix3.html#a32f17df3996d298a7e538dee087992ec">FaceKit::Matrix3&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_camera.html#ad09da9dad2a198287ff46cd450efbc96">FaceKit::Camera&lt; T, ProjType &gt;</a>
+, <a class="el" href="class_face_kit_1_1_matrix3.html#a32f17df3996d298a7e538dee087992ec">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a56332d719db728cc20002cc3917e0f9f">FaceKit::Matrix4&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#a26d958c3beac738e4db0052841d74def">FaceKit::OrthographicProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_perspective_projection.html#a5f25f411231645bbefa16537659ccbe2">FaceKit::PerspectiveProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_weak_projection.html#a860928d6e5beff3eee94c5f0fe5cc56a">FaceKit::WeakProjection&lt; T &gt;</a>
 </li>
 <li>operator*()
 : <a class="el" href="class_face_kit_1_1_matrix3.html#ae54f5674bd47d657e14d112cbf27d75a">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a26e692063597311c60894be17f2b862d">FaceKit::Matrix4&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_quaternion.html#a87b81807056a78f2225bf5d6c4d53030">FaceKit::Quaternion&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_quaternion.html#a868ee134861fb8fdc6f836200916252b">FaceKit::Quaternion&lt; T &gt;</a>
 </li>
 <li>operator*=()
 : <a class="el" href="struct_face_kit_1_1_vector2.html#aa07fc63661a2284ac7de16a71fd38b44">FaceKit::Vector2&lt; T &gt;</a>
@@ -93,7 +97,7 @@ $(function() {
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#ab238bda6a03612e071a2e2b37293a405">FaceKit::AABB&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix3.html#ade02df844fa447585b60ee7e967773f6">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a5ebf63c9d8085ee5b3ff4ab1a8ee0896">FaceKit::Matrix4&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_quaternion.html#a1270c40997df674ae4688aac818c55be">FaceKit::Quaternion&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_quaternion.html#a1d8cf5bfcedbafb86bc75256f6201b6b">FaceKit::Quaternion&lt; T &gt;</a>
 </li>
 <li>operator+=()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#a2496a144cf77358e20224ce621b52fc4">FaceKit::AABB&lt; T &gt;</a>
@@ -104,7 +108,7 @@ $(function() {
 <li>operator-()
 : <a class="el" href="class_face_kit_1_1_matrix3.html#ac026095e6ae35bdd9c775f33c60452b2">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a813bff8179aa399256d775121a2b5e2a">FaceKit::Matrix4&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_quaternion.html#ac08900d765363b291977816929fa19b8">FaceKit::Quaternion&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_quaternion.html#a47a2f841db6f5805abf882912d99c0cf">FaceKit::Quaternion&lt; T &gt;</a>
 </li>
 <li>operator-=()
 : <a class="el" href="struct_face_kit_1_1_vector2.html#ab98029cfb77d4e53eab2b25ee4d66bb2">FaceKit::Vector2&lt; T &gt;</a>
@@ -118,7 +122,7 @@ $(function() {
 </li>
 <li>operator&lt;&lt;
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#a33c63331097eb846c127706e6ab315b3">FaceKit::AABB&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_logger.html#a4aefe8207b6280911f409d9a40eb8c15">FaceKit::Logger</a>
+, <a class="el" href="class_face_kit_1_1_logger.html#a73d5c5d7dbd752617d9e24c2411c7f16">FaceKit::Logger</a>
 , <a class="el" href="class_face_kit_1_1_matrix3.html#ac17a9639e72fbfbf27b902027901b538">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a938b9a26809f0e0d7d2a6ece3050fb43">FaceKit::Matrix4&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_object_header.html#ac501bf8376ef5bcadcf17976c0d6f02d">FaceKit::ObjectHeader</a>
@@ -129,24 +133,28 @@ $(function() {
 <li>operator=()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#ad5b47d578db1ed151b875477012f497f">FaceKit::AABB&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_augmentation_engine.html#a2f9f92d22ee26dcc3c7a3df51d7c5748">FaceKit::AugmentationEngine</a>
+, <a class="el" href="class_face_kit_1_1_camera.html#a0dd057d848509d42d4eb5ec3125458b0">FaceKit::Camera&lt; T, ProjType &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix3.html#a807ae944baad594b4e8e53f01a6e6a88">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a2e4cce8723212ca427fb1b009c8c2024">FaceKit::Matrix4&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_mesh.html#a2a25de5f8b5c520d660cb4327832d0fa">FaceKit::Mesh&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_object_manager.html#a7795c868230398e859fc7e88b983b888">FaceKit::ObjectManager</a>
-, <a class="el" href="class_face_kit_1_1_p_c_a_model_factory.html#a4d3c7681cbb673608d5482ba3f62a820">FaceKit::PCAModelFactory&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#afd1cb84a81ee129140f346bdce01bc91">FaceKit::OrthographicProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_p_c_a_model_factory.html#add37cc84d2788b172b4d22612265be5a">FaceKit::PCAModelFactory&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_perspective_projection.html#a2ef493a7f3e2e271a911869fd7e266cf">FaceKit::PerspectiveProjection&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_quaternion.html#a964f018bd8a18a4300e897a797c93a74">FaceKit::Quaternion&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector2.html#a5fbfca8d0cc1b85c46776a2ef923382f">FaceKit::Vector2&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector3.html#a7dc8a2eb595790b7aca07255a542f611">FaceKit::Vector3&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector4.html#ad5dd26ea87cabe71963528dc818fb982">FaceKit::Vector4&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_weak_projection.html#a35caaba9fbdc98bca67873477514daa3">FaceKit::WeakProjection&lt; T &gt;</a>
 </li>
 <li>operator==()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#ab92a3cd3e3c26a833796924a48dc1ac8">FaceKit::AABB&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_t_comparator.html#a738b3cdc57bef34bdc371fd1776bedf4">FaceKit::TComparator&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_t_comparator.html#a8527431b7904a34861769a9b26ef29bd">FaceKit::TComparator&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_t_comparator_3_01double_01_4.html#ada7a3395c60c275b6393bbdd7904cfa1">FaceKit::TComparator&lt; double &gt;</a>
-, <a class="el" href="class_face_kit_1_1_t_comparator_3_01float_01_4.html#a97e883c5461262c641d694c94724e91b">FaceKit::TComparator&lt; float &gt;</a>
+, <a class="el" href="class_face_kit_1_1_t_comparator_3_01float_01_4.html#a38885f3632ffb7d83c90f81d79f04b16">FaceKit::TComparator&lt; float &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector2.html#a304db1dbb7d0ef6c8e5232ff66d82d79">FaceKit::Vector2&lt; T &gt;</a>
-, <a class="el" href="struct_face_kit_1_1_vector3.html#a56b1b59de9f14712b28d669ed1f5595a">FaceKit::Vector3&lt; T &gt;</a>
-, <a class="el" href="struct_face_kit_1_1_vector4.html#a082860ee095dab7d6374ade06ddb015e">FaceKit::Vector4&lt; T &gt;</a>
+, <a class="el" href="struct_face_kit_1_1_vector3.html#a09970a441077c68f68ca8ae4bd38e996">FaceKit::Vector3&lt; T &gt;</a>
+, <a class="el" href="struct_face_kit_1_1_vector4.html#af72494dfdc5f42d39a7e615bf54076cd">FaceKit::Vector4&lt; T &gt;</a>
 </li>
 <li>operator&gt;&gt;
 : <a class="el" href="class_face_kit_1_1_object_header.html#a1262a838be0d3fd1635ab26b4a1adc0b">FaceKit::ObjectHeader</a>
@@ -155,8 +163,11 @@ $(function() {
 , <a class="el" href="struct_face_kit_1_1_vector4.html#a1086e930129fa1d3564a3de7f081a3a7">FaceKit::Vector4&lt; T &gt;</a>
 </li>
 <li>operator[]()
-: <a class="el" href="class_face_kit_1_1_matrix3.html#a3a621714c6fc4b601dcba9c6bad0d5dd">FaceKit::Matrix3&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_matrix4.html#aa65a644d4e4ea092a6778eb41fb5989f">FaceKit::Matrix4&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_matrix3.html#a71e8d3d72832dc0c9e80242a699d14ef">FaceKit::Matrix3&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_matrix4.html#abe7e804503e6a57f27bc764f8e5a6c5c">FaceKit::Matrix4&lt; T &gt;</a>
+</li>
+<li>OrthographicProjection()
+: <a class="el" href="class_face_kit_1_1_orthographic_projection.html#a907436ef044be774f2656f36b703477d">FaceKit::OrthographicProjection&lt; T &gt;</a>
 </li>
 <li>Overlap()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#a8b31cda6550303ecb4f99795ab135ef3">FaceKit::AABB&lt; T &gt;</a>
@@ -165,7 +176,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Nov 14 2017 10:04:59 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 19 2017 18:38:01 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.14
 </small></address>
