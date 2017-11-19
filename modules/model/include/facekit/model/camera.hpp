@@ -132,7 +132,7 @@ class FK_EXPORTS Camera {
                  const T eps);
 
   /**
-   * @name  InitFrom3Dto2D
+   * @name  From3Dto2D
    * @fn    void From3Dto2D(const cv::Mat& pts, const cv::Mat& proj,const T eps)
    * @brief Initialize camera transformation (R, T) from a set of matching pairs
    *        3D-2D.

@@ -300,9 +300,7 @@ class FK_EXPORTS LinearAlgebra {
      *  @param[in]  b  Matrix B, stored in column
      *  @param[out] x  Solution
      */
-    void Solve(const cv::Mat& A,
-               const cv::Mat& b,
-               cv::Mat* x);
+    void Solve(const cv::Mat& A, const cv::Mat& b, cv::Mat* x);
     
    private:
     /** Solver parameters */
@@ -333,17 +331,13 @@ class FK_EXPORTS LinearAlgebra {
     
     /**
      *  @name Solve
-     *  @fn void Solve(const cv::Mat& matrix_a,
-     const cv::Mat& matrix_b,
-     cv::Mat* matrix_x)
+     *  @fn void Solve(const cv::Mat& A, const cv::Mat& b, cv::Mat* x)
      *  @brief  Solve Ax = B
      *  @param[in]  A  Matrix A
      *  @param[in]  b  Matrix B, stored in column
      *  @param[out] x  Solution
      */
-    void Solve(const cv::Mat& A,
-               const cv::Mat& b,
-               cv::Mat* x);
+    void Solve(const cv::Mat& A, const cv::Mat& b, cv::Mat* x);
    private:
     /** Solver configuration */
     typename Lapack::square_lin_solver_params p_;

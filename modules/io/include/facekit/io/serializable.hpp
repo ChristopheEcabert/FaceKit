@@ -39,7 +39,7 @@ class FK_EXPORTS Serializable {
    *  @brief  Helper method to search within a stream a given object name. 
    *  @param[in,out]  stream  Binary stream to search in.
    *  @param[in]  classname   Object's name to search for
-   *  @retunr -1 if no object match the name, 0 otherwise. When returning 0 the
+   *  @return -1 if no object match the name, 0 otherwise. When returning 0 the
               stream is already at the correct position, therefore object can
               be loaded directly.
    */
