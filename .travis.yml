@@ -2,7 +2,7 @@
 # Project language
 language: c++
 # sudo 
-sudo: required
+#sudo: required
 # Global variable
 env:
   global:
