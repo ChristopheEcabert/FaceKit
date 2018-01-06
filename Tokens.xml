@@ -581,6 +581,17 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>ThreaedPool</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>ThreaedPool</Scope>
+    </TokenIdentifier>
+    <Path>class_threaed_pool.html</Path>
+    <Abstract>Lightweight thread pool. </Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -6184,6 +6195,132 @@
     <Path>class_face_kit_1_1_t_comparator_3_01float_01_4.html</Path>
     <Anchor>a08bcbaf89cc4df02e14b7d3f5a9be6ec</Anchor>
     <DeclaredIn>type_comparator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::ThreadPool</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <DeclaredIn>modules/core/include/facekit/core/thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>a333882c912acbfd0d1c581de18b657ee</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>ac4a746c7d8db1b138735592151c535ca</Anchor>
+    <Abstract>Move Assignment operator. </Abstract>
+    <DeclaredIn>thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ThreadPool</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>a95678919bdb268a973e0754d2e533ecd</Anchor>
+    <Abstract>Destructor. </Abstract>
+    <DeclaredIn>thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Get</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>a4e4efe032891b3bbc9c409941ed9b923</Anchor>
+    <Abstract>Singleton accessor. </Abstract>
+    <DeclaredIn>thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ThreadPool</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>abc20b49b589da695f5d48f5ab40521aa</Anchor>
+    <Abstract>Copy constructor. </Abstract>
+    <DeclaredIn>thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ThreadPool</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>a5904160fb224f4e40d7cb83e9839bfcc</Anchor>
+    <Abstract>Move constructor. </Abstract>
+    <DeclaredIn>thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Enqueue</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>a507d97f76ce13b9f7d9622f63892584b</Anchor>
+    <DeclaredIn>thread_pool.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>kLow</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>a65dc980c7764fdb208bff4a60aab6216acd8fe42741a3bbc973bbf1d404afeff4</Anchor>
+    <Abstract>Low priority. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>kNormal</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>a65dc980c7764fdb208bff4a60aab6216a07fa7a19aa722c635a15e94cb7f50416</Anchor>
+    <Abstract>Normal Priority. </Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>kHigh</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>econst</Type>
+      <Scope>FaceKit::ThreadPool</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Anchor>a65dc980c7764fdb208bff4a60aab6216aa022f15e910eb36278094efb6e808a07</Anchor>
+    <Abstract>High Priority. </Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
