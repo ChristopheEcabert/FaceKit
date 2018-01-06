@@ -128,6 +128,7 @@ class FK_EXPORTS Logger {
   /**
    * @struct    LogData
    * @brief     List of data to log
+   * @tparam    List  Data
    */
   template<typename List>
   struct LogData {
