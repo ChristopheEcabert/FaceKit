@@ -18,6 +18,7 @@
 #include <future>
 #include <queue>
 #include <deque>
+#include <memory>
 
 #include "facekit/core/library_export.hpp"
 
@@ -233,20 +234,19 @@ template<typename F, typename... Args>
 auto ThreadPool::Enqueue(const TaskPriority& priority, F&& f, Args&&... args)
 -> std::future<typename std::result_of<F(Args...)>::type> {
   // Fcn return type
-  using ret_type = typename std::result_of<F(Args...)>::type;
-  
+  using rtype = typename std::result_of<F(Args...)>::type;
   // Create task
-  auto task = std::make_shared<std::packaged_task<ret_type>>(std::forward<F>(f),
-                                                             std::forward<Args>(args)...);
+  auto task = std::make_shared<std::packaged_task<rtype()>>(std::bind(std::forward<F>(f),
+                                                                      std::forward<Args>(args)...));
   // Define return object
-  std::future<ret_type> res = task->get_future();
+  auto res = task->get_future();
   // Add to queue
   {
     std::unique_lock<std::mutex> lock(this->lock_);
     if (this->stop_) {
       throw std::runtime_error("Error, try to add task on stopped pool");
     }
-    this->queue_.emplace({priority, [task](void){ (*task)();}});
+    this->queue_.emplace(priority, [task](void){ (*task)();});
   }
   // Signal new job
   this->cond_.notify_one();
