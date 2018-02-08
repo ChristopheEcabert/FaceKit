@@ -35,8 +35,7 @@ if(build)
   include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
   # Add library
-  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} ${incs_math})
-  TARGET_LINK_LIBRARIES("${LIB_NAME}" ${OpenCV_LIBRARIES} ${BLAS_LIBRARIES})
+  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} ${incs_math} LINK_WITH ${OpenCV_LIBRARIES} ${BLAS_LIBRARIES})
 
   #EXAMPLES
   IF(WITH_EXAMPLES)
@@ -45,7 +44,7 @@ if(build)
 
   # TESTS
   FACEKIT_ADD_TEST(ut_cmd_parser cmd_parser FILES test/ut_cmd_parser.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
-  FACEKIT_ADD_TEST(ut_linear_algebra linear_algebra FILES test/ut_linear_algebra.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_linear_algebra linear_algebra FILES test/ut_linear_algebra.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core ${OpenCV_LIBRARIES})
   FACEKIT_ADD_TEST(ut_logger logger FILES test/ut_logger.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_refcounter refcounter FILES test/ut_refcounter.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "")
 

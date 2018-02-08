@@ -32,8 +32,7 @@ if(build)
   SET(LIB_LINK ${OpenCV_LIBS} facekit_core facekit_io)
 
   # Add library
-  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${LIB_SRCS})
-  target_link_libraries("${LIB_NAME}" ${LIB_LINK})
+  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${LIB_SRCS} LINK_WITH ${LIB_LINK})
 
   #EXAMPLE
   IF(WITH_EXAMPLES)
