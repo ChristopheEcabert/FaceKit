@@ -5788,6 +5788,101 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>FaceKit::RefCounter</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::RefCounter</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_ref_counter.html</Path>
+    <Abstract>Reference counting mechanism. </Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/refcounter.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RefCounter</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::RefCounter</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_ref_counter.html</Path>
+    <Anchor>a716f85153f42143ffb29796ccc16ad77</Anchor>
+    <Abstract>Constructor - Init with reference counter of 1. </Abstract>
+    <DeclaredIn>refcounter.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>RefCounter</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::RefCounter</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_ref_counter.html</Path>
+    <Anchor>a64beb792b6dbf449d5dfed6d6fe99d63</Anchor>
+    <Abstract>Copy Constructor. </Abstract>
+    <DeclaredIn>refcounter.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::RefCounter</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_ref_counter.html</Path>
+    <Anchor>a0523c0ca752ec549731921ec8b96f9b7</Anchor>
+    <Abstract>Assignment operator. </Abstract>
+    <DeclaredIn>refcounter.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Inc</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::RefCounter</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_ref_counter.html</Path>
+    <Anchor>a93dab0877fa1d9c361c036181623d64c</Anchor>
+    <Abstract>Increment reference counter by 1. </Abstract>
+    <DeclaredIn>refcounter.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Dec</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::RefCounter</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_ref_counter.html</Path>
+    <Anchor>a795e7092dcd270a3bc04752947ce83bf</Anchor>
+    <Abstract>Decrement reference counter by 1. </Abstract>
+    <DeclaredIn>refcounter.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsOne</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::RefCounter</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_ref_counter.html</Path>
+    <Anchor>a59edf003444f283d5d35c4e43b51e3bf</Anchor>
+    <Abstract>Indicate if reference counter is equal to 1. </Abstract>
+    <DeclaredIn>refcounter.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~RefCounter</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::RefCounter</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_ref_counter.html</Path>
+    <Anchor>a356ec7c6f3046080257f55d261adb899</Anchor>
+    <Abstract>Destructor, make it protected in order to avoid this class being instantiated (only subclass can) ...</Abstract>
+    <DeclaredIn>refcounter.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit::Serializable</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>

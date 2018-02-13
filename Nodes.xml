@@ -1175,6 +1175,47 @@
             </Subnodes>
            </Node>
            <Node>
+            <Name>RefCounter</Name>
+            <Path>class_face_kit_1_1_ref_counter.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>RefCounter</Name>
+              <Path>class_face_kit_1_1_ref_counter.html</Path>
+              <Anchor>a716f85153f42143ffb29796ccc16ad77</Anchor>
+             </Node>
+             <Node>
+              <Name>RefCounter</Name>
+              <Path>class_face_kit_1_1_ref_counter.html</Path>
+              <Anchor>a64beb792b6dbf449d5dfed6d6fe99d63</Anchor>
+             </Node>
+             <Node>
+              <Name>~RefCounter</Name>
+              <Path>class_face_kit_1_1_ref_counter.html</Path>
+              <Anchor>a356ec7c6f3046080257f55d261adb899</Anchor>
+             </Node>
+             <Node>
+              <Name>Dec</Name>
+              <Path>class_face_kit_1_1_ref_counter.html</Path>
+              <Anchor>a795e7092dcd270a3bc04752947ce83bf</Anchor>
+             </Node>
+             <Node>
+              <Name>Inc</Name>
+              <Path>class_face_kit_1_1_ref_counter.html</Path>
+              <Anchor>a93dab0877fa1d9c361c036181623d64c</Anchor>
+             </Node>
+             <Node>
+              <Name>IsOne</Name>
+              <Path>class_face_kit_1_1_ref_counter.html</Path>
+              <Anchor>a59edf003444f283d5d35c4e43b51e3bf</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_ref_counter.html</Path>
+              <Anchor>a0523c0ca752ec549731921ec8b96f9b7</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
             <Name>String</Name>
             <Path>class_face_kit_1_1_string.html</Path>
             <Subnodes>
@@ -1234,6 +1275,10 @@
            <Node>
             <Name>vector.hpp</Name>
             <Path>vector_8hpp.html</Path>
+           </Node>
+           <Node>
+            <Name>refcounter.hpp</Name>
+            <Path>refcounter_8hpp.html</Path>
            </Node>
            <Node>
             <Name>string_util.hpp</Name>
@@ -4863,6 +4908,47 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>RefCounter</Name>
+              <Path>class_face_kit_1_1_ref_counter.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>RefCounter</Name>
+                <Path>class_face_kit_1_1_ref_counter.html</Path>
+                <Anchor>a716f85153f42143ffb29796ccc16ad77</Anchor>
+               </Node>
+               <Node>
+                <Name>RefCounter</Name>
+                <Path>class_face_kit_1_1_ref_counter.html</Path>
+                <Anchor>a64beb792b6dbf449d5dfed6d6fe99d63</Anchor>
+               </Node>
+               <Node>
+                <Name>~RefCounter</Name>
+                <Path>class_face_kit_1_1_ref_counter.html</Path>
+                <Anchor>a356ec7c6f3046080257f55d261adb899</Anchor>
+               </Node>
+               <Node>
+                <Name>Dec</Name>
+                <Path>class_face_kit_1_1_ref_counter.html</Path>
+                <Anchor>a795e7092dcd270a3bc04752947ce83bf</Anchor>
+               </Node>
+               <Node>
+                <Name>Inc</Name>
+                <Path>class_face_kit_1_1_ref_counter.html</Path>
+                <Anchor>a93dab0877fa1d9c361c036181623d64c</Anchor>
+               </Node>
+               <Node>
+                <Name>IsOne</Name>
+                <Path>class_face_kit_1_1_ref_counter.html</Path>
+                <Anchor>a59edf003444f283d5d35c4e43b51e3bf</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_ref_counter.html</Path>
+                <Anchor>a0523c0ca752ec549731921ec8b96f9b7</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>Serializable</Name>
               <Path>class_face_kit_1_1_serializable.html</Path>
               <Subnodes>
@@ -5720,6 +5806,10 @@
            <Node>
             <Name>FaceKit::Quaternion&lt; T &gt;</Name>
             <Path>class_face_kit_1_1_quaternion.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::RefCounter</Name>
+            <Path>class_face_kit_1_1_ref_counter.html</Path>
            </Node>
            <Node>
             <Name>FaceKit::Serializable</Name>
