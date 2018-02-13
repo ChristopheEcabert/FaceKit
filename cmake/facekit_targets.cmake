@@ -196,27 +196,27 @@ endmacro(FACEKIT_ADD_INCLUDES)
 #   LINK_WITH   List if library to link against
 macro(FACEKIT_ADD_LIBRARY _name _component)
   # parse arguments
-  set(options)
-  set(oneValueArgs)
-  set(multiValueArgs FILES LINK_WITH)
+  SET(options)
+  SET(oneValueArgs)
+  SET(multiValueArgs FILES LINK_WITH)
   cmake_parse_arguments(FACEKIT_ADD_LIBRARY "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
   # Create libbrary
-  add_library(${_name} ${FACEKIT_LIB_TYPE} ${FACEKIT_ADD_LIBRARY_FILES})
+  ADD_LIBRARY(${_name} ${FACEKIT_LIB_TYPE} ${FACEKIT_ADD_LIBRARY_FILES})
   # Add link
-  TARGET_LINK_LIBRARIES(${_name} ${FACEKIT_ADD_LIBRARY_LINK_WITH})
+  TARGET_LINK_LIBRARIES(${_name} PRIVATE ${FACEKIT_ADD_LIBRARY_LINK_WITH})
   
-  if((UNIX AND NOT ANDROID) OR MINGW)
-    target_link_libraries(${_name} m)
-  endif()
+  IF((UNIX AND NOT ANDROID) OR MINGW)
+    TARGET_LINK_LIBRARIES(${_name} PRIVATE m)
+  ENDIF()
 
-  if (MINGW)
-    target_link_libraries(${_name} gomp)
-  endif()
-  if(MSVC)
-    target_link_libraries(${_name} delayimp.lib)  # because delay load is enabled for openmp.dll
-  endif()
+  IF (MINGW)
+    TARGET_LINK_LIBRARIES(${_name} PRIVATE gomp)
+  ENDIF()
+  IF(MSVC)
+    TARGET_LINK_LIBRARIES(${_name} PRIVATE delayimp.lib)  # because delay load is enabled for openmp.dll
+  ENDIF()
 
-  set_target_properties(${_name} PROPERTIES 
+  SET_TARGET_PROPERTIES(${_name} PROPERTIES 
     VERSION ${FACEKIT_VERSION} 
     SOVERSION ${FACEKIT_MAJOR_VERSION}.${FACEKIT_MINOR_VERSION})
 
@@ -240,9 +240,6 @@ macro(FACEKIT_CUDA_ADD_LIBRARY _name _component)
     else(FACEKIT_SHARED_LIBS)
       cuda_add_library(${_name} ${FACEKIT_LIB_TYPE} ${ARGN})
     endif(FACEKIT_SHARED_LIBS)
-    
-    # must link explicitly against boost.
-    target_link_libraries(${_name} ${Boost_LIBRARIES})
 
     set_target_properties(${_name} PROPERTIES
       VERSION ${FACEKIT_VERSION}
@@ -353,17 +350,17 @@ macro(FACEKIT_ADD_TEST _name _exename)
     include_directories(${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googletest/include)
     include_directories(${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googlemock/include)
     # Link extra library
-    target_link_libraries(facekit_ut_${_exename} ${FACEKIT_ADD_TEST_LINK_WITH} gtest gmock ${CLANG_LIBRARIES})
+    target_link_libraries(facekit_ut_${_exename} PRIVATE ${FACEKIT_ADD_TEST_LINK_WITH} gtest gmock ${CLANG_LIBRARIES})
     # Only link if needed
     if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
       if(NOT CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         set_target_properties(facekit_ut_${_exename} PROPERTIES LINK_FLAGS -Wl)
       endif()
-      target_link_libraries(facekit_ut_${_exename} pthread)
+      target_link_libraries(facekit_ut_${_exename} PRIVATE pthread)
     elseif(UNIX AND NOT ANDROID)
       set_target_properties(facekit_ut_${_exename} PROPERTIES LINK_FLAGS -Wl,--as-needed)
       # GTest >= 1.5 requires pthread and CMake's 2.8.4 FindGTest is broken
-      target_link_libraries(facekit_ut_${_exename} pthread)
+      target_link_libraries(facekit_ut_${_exename} PRIVATE pthread)
     elseif(CMAKE_COMPILER_IS_GNUCXX AND MINGW)
       set_target_properties(facekit_ut_${_exename} PROPERTIES LINK_FLAGS "-Wl,--allow-multiple-definition -Wl,--as-needed")
     elseif(WIN32)
@@ -385,7 +382,7 @@ macro(FACEKIT_ADD_EXAMPLE _name)
     set(multiValueArgs FILES LINK_WITH)
     cmake_parse_arguments(FACEKIT_ADD_EXAMPLE "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
     add_executable(facekit_ex_${_name} ${FACEKIT_ADD_EXAMPLE_FILES})
-    target_link_libraries(facekit_ex_${_name} ${FACEKIT_ADD_EXAMPLE_LINK_WITH} ${CLANG_LIBRARIES})
+    target_link_libraries(facekit_ex_${_name} PRIVATE ${FACEKIT_ADD_EXAMPLE_LINK_WITH} ${CLANG_LIBRARIES})
     if(WIN32 AND MSVC)
       set_target_properties(facekit_ex_${_name} PROPERTIES DEBUG_OUTPUT_NAME ${_name}${CMAKE_DEBUG_POSTFIX}
                                                            RELEASE_OUTPUT_NAME ${_name}${CMAKE_RELEASE_POSTFIX})
