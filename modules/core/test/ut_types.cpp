@@ -79,6 +79,41 @@ TEST(IsDataTypeValid, Types) {
   EXPECT_FALSE((bool)FK::IsDataTypeValid<long long>::value);
 }
 
+TEST(DataTypeToEnum, Types) {
+  namespace FK = FaceKit;
+  using DType = FaceKit::DataType;
+  // Valid
+  EXPECT_EQ((DType)FK::DataTypeToEnum<int8_t>::value, DType::kInt8);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<uint8_t>::value, DType::kUInt8);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<int16_t>::value, DType::kInt16);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<uint16_t>::value, DType::kUInt16);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<int32_t>::value, DType::kInt32);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<uint32_t>::value, DType::kUInt32);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<float>::value, DType::kFloat);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<double>::value, DType::kDouble);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<size_t>::value, DType::kSize_t);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<bool>::value, DType::kBool);
+}
+
+TEST(DataTypeSize, Types) {
+  namespace FK = FaceKit;
+  using DType = FaceKit::DataType;
+  // Valid
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kInt8>::value, sizeof(int8_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kUInt8>::value, sizeof(uint8_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kInt16>::value, sizeof(int16_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kUInt16>::value, sizeof(uint16_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kInt32>::value, sizeof(int32_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kUInt32>::value, sizeof(uint32_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kFloat>::value, sizeof(float));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kDouble>::value, sizeof(double));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kSize_t>::value, sizeof(size_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kBool>::value, sizeof(bool));
+  // Invalid
+  EXPECT_EQ((size_t)FK::DataTypeSize<(DType)20>::value, 0);
+  EXPECT_EQ((size_t)FK::DataTypeSize<(DType)42>::value, 0);
+}
+
 
 int main(int argc, char* argv[]) {
   // Init gtest framework

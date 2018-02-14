@@ -1,15 +1,5 @@
 ### ---[ FACEKIT global CMake
-cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
-
-if(POLICY CMP0017)
-  # Do not include files in CMAKE_MODULE_PATH from files
-  # in CMake module directory. Fix MXE build
-  #cmake_policy(SET CMP0017 NEW)
-endif()
-
-if(POLICY CMP0020 AND (WIN32 AND NOT MINGW))
-  cmake_policy(SET CMP0020 NEW) # Automatically link Qt executables to qtmain target on Windows
-endif()
+cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 
 if(POLICY CMP0048)
   cmake_policy(SET CMP0048 OLD) # do not use VERSION option in project() command
@@ -26,7 +16,7 @@ if("${CMAKE_BUILD_TYPE}" STREQUAL "")
   set(CMAKE_BUILD_TYPE Release CACHE STRING "build type default to Release" FORCE)
 endif("${CMAKE_BUILD_TYPE}" STREQUAL "")
 
-project(FACEKIT)
+project(FACEKIT LANGUAGES C CXX)
 string(TOLOWER ${PROJECT_NAME} PROJECT_NAME_LOWER)
 
 ### ---[ Find universal dependencies
@@ -264,24 +254,12 @@ ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 ### ---[ OpenCV
 # Temporary fix for OPENCV
 # http://stackoverflow.com/questions/37534604/opencv-with-cmake-version-3-5-2-vs-cmake-2-x-x
-SET(CUDA_USE_STATIC_CUDA_RUNTIME OFF CACHE BOOL "Cuda runtime" FORCE)
+#SET(CUDA_USE_STATIC_CUDA_RUNTIME OFF CACHE BOOL "Cuda runtime" FORCE)
 FIND_PACKAGE(OpenCV REQUIRED)
 IF(OpenCV_LIBRARIES)
   INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
 	SET(OPENCV_FOUND TRUE)
 	MARK_AS_ADVANCED(OpenCV_DIR)
-    # Remove, -lopencv_dep_cudart options on OSX
-    IF(APPLE AND CMAKE_MINOR_VERSION GREATER 6)
-        FOREACH(_lib ${OpenCV_LIBS})
-            GET_PROPERTY(OCV_IMPORT_INTERFACE TARGET ${_lib} PROPERTY IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE)
-            FOREACH(_item ${OCV_IMPORT_INTERFACE})
-                IF(NOT ${_item} MATCHES "opencv_dep_cudart")
-                    SET(OCV_IMPORT_INTERFACE_CLEAN ${OCV_IMPORT_INTERFACE_CLEAN} ${_item})
-                ENDIF(NOT ${_item} MATCHES "opencv_dep_cudart")
-            ENDFOREACH(_item)
-            SET_TARGET_PROPERTIES(${_lib} PROPERTIES IMPORTED_LINK_INTERFACE_LIBRARIES_RELEASE "${OCV_IMPORT_INTERFACE_CLEAN}")
-        ENDFOREACH(_lib)
-    ENDIF(APPLE AND CMAKE_MINOR_VERSION GREATER 6)
 ENDIF(OpenCV_LIBRARIES)
 
 ### ---[ Doxygen
