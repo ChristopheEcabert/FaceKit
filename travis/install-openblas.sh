@@ -20,8 +20,7 @@ else
     cd $INSTALL_DIR/source
     # Redirect build output to a log and only show it if an error occurs
     # Otherwise there is too much output for TravisCI to display properly
-    LOG_FILE=$LOCAL_DIR/openblas-build.log
-    make NO_AFFINITY=1 USE_THREAD=0 -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
+    make NO_AFFINITY=1 USE_THREAD=0 -j8
     make install PREFIX=$INSTALL_DIR
     # Remove source
     cd ${INSTALL_DIR} && rm -rf ${INSTALL_DIR}/source
