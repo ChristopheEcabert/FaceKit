@@ -1,5 +1,5 @@
 /**
- *  @file   ut_types.cpp
+ *  @file   ut_allocator.cpp
  *  @brief Unit test for allocator
  *  @ingroup core
  *
@@ -41,7 +41,7 @@ static void CheckStatistics(FaceKit::Allocator* a,
 }
 
 
-TEST(CpuAllocatorRaw, Allocator) {
+TEST(Allocator, CpuAllocatorRaw) {
   namespace FK = FaceKit;
   // Enable statistics
   FK::EnableAllocatorStatistics(true);
@@ -67,7 +67,7 @@ TEST(CpuAllocatorRaw, Allocator) {
   FK::EnableAllocatorStatistics(false);
 }
 
-TEST(CpuAllocatorTyped, Allocator) {
+TEST(Allocator, CpuAllocatorTyped) {
   namespace FK = FaceKit;
   // Enable statistics
   FK::EnableAllocatorStatistics(true);
@@ -95,7 +95,7 @@ TEST(CpuAllocatorTyped, Allocator) {
   FK::EnableAllocatorStatistics(false);
 }
 
-TEST(CpuAllocatorMaxChunk, Allocator) {
+TEST(Allocator, CpuAllocatorMaxChunk) {
   namespace FK = FaceKit;
   // Enable statistics
   auto* a = FK::DefaultCpuAllocator();

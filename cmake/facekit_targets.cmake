@@ -193,15 +193,37 @@ endmacro(FACEKIT_ADD_INCLUDES)
 # 
 # ARGN:
 #   FILES       The source files for the library.
+#   PROTO_FILES The protobuf files that need to be generated
 #   LINK_WITH   List if library to link against
 macro(FACEKIT_ADD_LIBRARY _name _component)
   # parse arguments
   SET(options)
   SET(oneValueArgs)
-  SET(multiValueArgs FILES LINK_WITH)
+  SET(multiValueArgs FILES PROTO_FILES LINK_WITH)
   cmake_parse_arguments(FACEKIT_ADD_LIBRARY "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
+  # Check if protobuf class need to be generated
+  SET(PROTO_GEN_FILES)
+  IF(FACEKIT_ADD_LIBRARY_PROTO_FILES)  
+    MESSAGE("There is some proto files to process")
+    # Generate files
+    PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS ${FACEKIT_ADD_LIBRARY_PROTO_FILES})
+    # Copy to <build>/proto
+    SET(PROTO_GEN_FILES)
+    INCLUDE_DIRECTORIES(${FACEKIT_OUTPUT_PROTO_DIR})
+    FOREACH(_f ${PROTO_SRCS} ${PROTO_HDRS})
+      GET_FILENAME_COMPONENT(_fname ${_f} NAME)
+      GET_FILENAME_COMPONENT(_folder ${_f} DIRECTORY)
+      SET(_dest_file "${FACEKIT_OUTPUT_PROTO_DIR}/${_fname}")
+      ADD_CUSTOM_COMMAND(OUTPUT ${_dest_file}
+                         COMMAND ${CMAKE_COMMAND} -E copy ${_f} ${_dest_file}
+                         DEPENDS ${_f}
+                         COMMENT "Copying generated protobuf file ${_fname}"
+                         VERBATIM)
+                         SET(PROTO_GEN_FILES ${PROTO_GEN_FILES} ${_dest_file})
+    ENDFOREACH()
+  ENDIF()
   # Create libbrary
-  ADD_LIBRARY(${_name} ${FACEKIT_LIB_TYPE} ${FACEKIT_ADD_LIBRARY_FILES})
+  ADD_LIBRARY(${_name} ${FACEKIT_LIB_TYPE} ${FACEKIT_ADD_LIBRARY_FILES} ${PROTO_GEN_FILES})
   # Add link
   TARGET_LINK_LIBRARIES(${_name} PRIVATE ${FACEKIT_ADD_LIBRARY_LINK_WITH})
   

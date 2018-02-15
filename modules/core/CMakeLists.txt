@@ -6,12 +6,13 @@ set(SUBSYS_DEPS)
 set(build TRUE)
 FACEKIT_SUBSYS_OPTION(build "${SUBSYS_NAME}" "${SUBSYS_DESC}" ON)
 #Add dependencies as well as external dependencies
-FACEKIT_SUBSYS_DEPEND(build "${SUBSYS_NAME}" DEPS ${SUBSYS_DEPS} EXT_DEPS opencv blas)
+FACEKIT_SUBSYS_DEPEND(build "${SUBSYS_NAME}" DEPS ${SUBSYS_DEPS} EXT_DEPS opencv blas protobuf)
 if(build)
   # Add sources 
   set(srcs
     src/allocator_factory.cpp
     src/allocator.cpp
+    src/array_dims.cpp
     src/cmd_parser.cpp
     src/error.cpp
     src/linear_algebra.cpp
@@ -19,7 +20,6 @@ if(build)
     src/memory.cpp
     src/string_util.cpp
     src/types.cpp)
-
   set(incs
     include/facekit/${SUBSYS_NAME}/cmd_parser.hpp
     include/facekit/${SUBSYS_NAME}/enum_bitmask_operator.hpp
@@ -36,17 +36,22 @@ if(build)
     include/facekit/${SUBSYS_NAME}/math/quaternion.hpp
     include/facekit/${SUBSYS_NAME}/math/type_comparator.hpp
     include/facekit/${SUBSYS_NAME}/math/vector.hpp)
-    set(incs_mem
+  set(incs_mem
     include/facekit/${SUBSYS_NAME}/mem/allocator_factory.hpp
     include/facekit/${SUBSYS_NAME}/mem/allocator.hpp
     include/facekit/${SUBSYS_NAME}/mem/memory.hpp)
+  set(proto
+    src/proto/array_dims.proto)
   # Set library name
   set(LIB_NAME "facekit_${SUBSYS_NAME}")
   # Add include folder location
   include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
   # Add library
-  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} ${incs_math} ${incs_mem} LINK_WITH ${OpenCV_LIBRARIES} ${BLAS_LIBRARIES})
+  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" 
+                      FILES ${srcs} ${incs} ${incs_math} ${incs_mem} 
+                      PROTO_FILES ${proto} 
+                      LINK_WITH ${OpenCV_LIBRARIES} ${BLAS_LIBRARIES} ${Protobuf_LIBRARIES})
 
   #EXAMPLES
   IF(WITH_EXAMPLES)
@@ -60,6 +65,7 @@ if(build)
   FACEKIT_ADD_TEST(ut_refcounter refcounter FILES test/ut_refcounter.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "")
   FACEKIT_ADD_TEST(ut_types types FILES test/ut_types.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_allocator allocator FILES test/ut_allocator.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_array_dims array_dims FILES test/ut_array_dims.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core ${Protobuf_LIBRARIES})
 
   # Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})

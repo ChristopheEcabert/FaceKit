@@ -15,7 +15,7 @@
 
 
 
-TEST(DataTypeToString, Types) {
+TEST(Types, DataTypeToString) {
   namespace FK = FaceKit;
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kUnknown), "unknown");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kInt8), "int8");
@@ -31,7 +31,7 @@ TEST(DataTypeToString, Types) {
   EXPECT_EQ(FK::DataTypeToString((FK::DataType)32), "unsupported");
 }
 
-TEST(DataTypeFromString, Types) {
+TEST(Types, DataTypeFromString) {
   namespace FK = FaceKit;
   
   FK::DataType type;
@@ -61,7 +61,7 @@ TEST(DataTypeFromString, Types) {
   EXPECT_EQ(type, FK::DataType::kUnknown);
 }
 
-TEST(IsDataTypeValid, Types) {
+TEST(Types, IsDataTypeValid) {
   namespace FK = FaceKit;
   // Valid
   EXPECT_TRUE((bool)FK::IsDataTypeValid<int8_t>::value);
@@ -79,7 +79,7 @@ TEST(IsDataTypeValid, Types) {
   EXPECT_FALSE((bool)FK::IsDataTypeValid<long long>::value);
 }
 
-TEST(DataTypeToEnum, Types) {
+TEST(Types, DataTypeToEnum) {
   namespace FK = FaceKit;
   using DType = FaceKit::DataType;
   // Valid
@@ -95,7 +95,7 @@ TEST(DataTypeToEnum, Types) {
   EXPECT_EQ((DType)FK::DataTypeToEnum<bool>::value, DType::kBool);
 }
 
-TEST(DataTypeSize, Types) {
+TEST(Types, DataTypeSize) {
   namespace FK = FaceKit;
   using DType = FaceKit::DataType;
   // Valid

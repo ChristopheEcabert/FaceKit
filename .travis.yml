@@ -8,6 +8,7 @@ env:
   global:
     - DEPS_ROOT=~/deps
     - OPENBLAS_ROOT=$DEPS_ROOT/openblas
+    - PROTOBUF_ROOT=$DEPS_ROOT/protobuf
     - OPENCV_ROOT=$DEPS_ROOT/opencv
     - DOXYGEN_ROOT=$DEPS_ROOT/doyxgen
     - CMAKE_OPTIONS=-DWITH_EXAMPLES=ON
@@ -56,10 +57,14 @@ addons:
       - flex
       - bison
       - libiconv-hook*
+      # Protobuf
+      - curl
+      - unzip
 # Cache dependencies
 cache:
   directories:
     - $OPENBLAS_ROOT
+    - $PROTOBUF_ROOT
     - $OPENCV_ROOT
     - $DOXYGEN_ROOT
 # Limit cloning depth
@@ -87,7 +92,12 @@ install:
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
       $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
-    
+  
+  ############################################################################
+  # Install Protobuf
+  ############################################################################
+  - $TRAVIS_BUILD_DIR/travis/install-protobuf.sh $PROTOBUF_ROOT
+  
   ############################################################################
   # Install OpenCV
   ############################################################################
