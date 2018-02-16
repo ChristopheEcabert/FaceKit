@@ -97,6 +97,11 @@
 #   ``ARGN``
 #     ``.proto`` filess
 
+# DISCLAIMER:
+# TAKEN FROM KITWARE REPOSITORY AND ADAPTED TO SEARCH FOR PROTOC FIRST
+# ESTABLISH THE ROOT INSTALLATION FOLDER, USE THE LOCATION AS HINTS TO FIND
+# INCLUDES AND LIBRARIES (line 328-333)
+
 function(PROTOBUF_GENERATE_CPP SRCS HDRS)
   if(NOT ARGN)
     message(SEND_ERROR "Error: PROTOBUF_GENERATE_CPP() called without any proto files")
@@ -325,9 +330,6 @@ IF(Protobuf_PROTOC_EXECUTABLE)
   # Replace bin/ with include/ & lib/
   STRING(REPLACE "/bin" "/include" Protobuf_EXTRA_INCLUDE_DIR ${Protobuf_PROTOC_DIR})
   STRING(REPLACE "/bin" "/lib" Protobuf_EXTRA_LIBRARIES_DIR ${Protobuf_PROTOC_DIR})
-
-  MESSAGE("inc: ${Protobuf_EXTRA_INCLUDE_DIR}")
-  MESSAGE("lib: ${Protobuf_EXTRA_LIBRARIES_DIR}")
 ENDIF(Protobuf_PROTOC_EXECUTABLE)
 
 # The Protobuf library

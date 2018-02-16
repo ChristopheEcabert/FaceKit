@@ -13,6 +13,7 @@
 
 #include <cstdlib>
 #include <string>
+#include <limits>
 
 #include "facekit/core/library_export.hpp"
 #include "facekit/core/types.hpp"
