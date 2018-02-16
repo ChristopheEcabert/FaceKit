@@ -6,4 +6,4 @@ export PATH=${OPENBLAS_ROOT}:${OPENCV_ROOT}:${DOXYGEN_ROOT}/bin:${PROTOBUF_ROOT}
 cd $TRAVIS_BUILD_DIR
 echo "Current path: ${PATH}"
 protoc --version
-mkdir -p build && cd build && cmake ${CMAKE_OPTIONS} -DProtobuf_DEBUG=ON -DProtobuf_INCLUDE_DIR=${PROTOBUF_ROOT}/include .. && make -j8 
+mkdir -p build && cd build && cmake ${CMAKE_OPTIONS} -DOPENBLAS_ROOT=${OPENBLAS_ROOT} .. && make -j8 
