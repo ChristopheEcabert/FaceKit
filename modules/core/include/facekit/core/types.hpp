@@ -122,7 +122,7 @@ struct DataTypeToEnum {
 };
   
 /**
- *  @macro  SPECIALIZE_TYPE_AND_ENUM
+ *  @def  SPECIALIZE_TYPE_AND_ENUM
  *  @brief  Define template specialization for the supported data type
  */
 #define SPECIALIZE_TYPE_AND_ENUM(TYPE, ENUM, SIZE)  \

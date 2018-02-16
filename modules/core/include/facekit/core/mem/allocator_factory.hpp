@@ -143,21 +143,21 @@ class FK_EXPORTS AllocatorProxy {
 };
 
 /**
- *  @macro  REGISTER_ALLOCATOR
+ *  @def  REGISTER_ALLOCATOR
  *  @brief  Register a given allocator
  */
 #define REGISTER_ALLOCATOR(name, allocator) \
   REGISTER_ALLOCATOR_UNIQ_HELPER(__COUNTER__, name, allocator)
   
 /**
- *  @macro REGISTER_ALLOCATOR_UNIQ_HELPER
+ *  @def REGISTER_ALLOCATOR_UNIQ_HELPER
  *  @brief  Helper function to create unique allocator proxy
  */
 #define REGISTER_ALLOCATOR_UNIQ_HELPER(cnt, name, allocator) \
   REGISTER_ALLOCATOR_UNIQ(cnt, name, allocator)
   
 /**
- *  @macro REGISTER_ALLOCATOR_UNIQ
+ *  @def REGISTER_ALLOCATOR_UNIQ
  *  @brief  Create unique allocator proxy
  */
 #define REGISTER_ALLOCATOR_UNIQ(cnt, name, allocator) \

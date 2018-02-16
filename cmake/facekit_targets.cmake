@@ -204,7 +204,6 @@ macro(FACEKIT_ADD_LIBRARY _name _component)
   # Check if protobuf class need to be generated
   SET(PROTO_GEN_FILES)
   IF(FACEKIT_ADD_LIBRARY_PROTO_FILES)  
-    MESSAGE("There is some proto files to process")
     # Generate files
     PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS ${FACEKIT_ADD_LIBRARY_PROTO_FILES})
     # Copy to <build>/proto
