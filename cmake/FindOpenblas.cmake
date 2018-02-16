@@ -5,7 +5,6 @@
 #  OPENBLAS_LIB- The libraries needed to use Openblas
 
 MESSAGE(STATUS "Look for openblas")
-MESSAGE(STATUS "OpenBLAS env root: $ENV{OPENBLAS_ROOT}")
 
 FILE(TO_CMAKE_PATH "$ENV{OpenBLAS_HOME}" OpenBLAS_WIN_ROOT)
 SET(Open_BLAS_INCLUDE_SEARCH_PATHS
