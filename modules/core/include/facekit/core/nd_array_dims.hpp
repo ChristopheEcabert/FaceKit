@@ -12,7 +12,7 @@
 #define __FACEKIT_ARRAY_DIMS__
 
 #include <initializer_list>
-#include <vector>
+#include <array>
 
 #include "facekit/core/library_export.hpp"
 
@@ -22,113 +22,113 @@
  */
 namespace FaceKit {
   
-/** Forward ArrayDimsProto */
-class ArrayDimsProto;
+/** Forward NDArrayDimsProto */
+class NDArrayDimsProto;
   
 /**
- *  @class  ArrayDims
+ *  @class  NDArrayDims
  *  @brief  Dimensions representation for NDArray
  *  @author Christophe Ecabert
  *  @date   14.02.18
  *  @ingroup core
  */
-class FK_EXPORTS ArrayDims {
+class FK_EXPORTS NDArrayDims {
  public:
   
 #pragma mark -
 #pragma mark Initialization
   
   /**
-   *  @name   ArrayDims
-   *  @fn     ArrayDims(void)
+   *  @name   NDArrayDims
+   *  @fn     NDArrayDims(void)
    *  @brief  Constructor
    */
-  ArrayDims(void);
+  NDArrayDims(void);
   
   /**
-   *  @name   ArrayDims
-   *  @fn     explicit ArrayDims(const std::initializer_list<size_t>& dims)
+   *  @name   NDArrayDims
+   *  @fn     explicit NDArrayDims(const std::initializer_list<size_t>& dims)
    *  @brief  Constructor
    *  @param[in] dims List of dimensions
    */
-  explicit ArrayDims(const std::initializer_list<size_t>& dims);
+  explicit NDArrayDims(const std::initializer_list<size_t>& dims);
   
   /**
-   *  @name   ArrayDims
-   *  @fn     explicit ArrayDims(const ArrayDimsProto& proto)
+   *  @name   NDArrayDims
+   *  @fn     explicit NDArrayDims(const NDArrayDimsProto& proto)
    *  @brief  Constructor from protobuf object
    */
-  explicit ArrayDims(const ArrayDimsProto& proto);
+  explicit NDArrayDims(const NDArrayDimsProto& proto);
   
   /**
-   *  @name   ArrayDims
-   *  @fn     ArrayDims(const ArrayDims& other) = default;
+   *  @name   NDArrayDims
+   *  @fn     NDArrayDims(const NDArrayDims& other) = default;
    *  @brief  Copy constructor
    *  @param[in]  other Object to copy from
    */
-  ArrayDims(const ArrayDims& other) = default;
+  NDArrayDims(const NDArrayDims& other) = default;
   
   /**
-   *  @name   ArrayDims
-   *  @fn     ArrayDims(ArrayDims&& other) = default;
+   *  @name   NDArrayDims
+   *  @fn     NDArrayDims(NDArrayDims&& other) = default;
    *  @brief  Move constructor
    *  @param[in]  other Object to move from
    */
-  ArrayDims(ArrayDims&& other) = default;
+  NDArrayDims(NDArrayDims&& other) = default;
   
   /**
    *  @name   operator=
-   *  @fn     ArrayDims& operator=(const ArrayDims& rhs) = default;
+   *  @fn     NDArrayDims& operator=(const NDArrayDims& rhs) = default;
    *  @brief  Assignment operator
    *  @param[in] rhs  Object to assign from
    *  @return newly assigned object
    */
-  ArrayDims& operator=(const ArrayDims& rhs) = default;
+  NDArrayDims& operator=(const NDArrayDims& rhs) = default;
   
   /**
    *  @name   operator=
-   *  @fn     ArrayDims& operator=(ArrayDims&& rhs)
+   *  @fn     NDArrayDims& operator=(NDArrayDims&& rhs)
    *  @brief  Move-assignment operator
    *  @param[in] rhs  Object to move-assign from
    *  @return newly moved-assign object
    */
-  ArrayDims& operator=(ArrayDims&& rhs) = default;
+  NDArrayDims& operator=(NDArrayDims&& rhs) = default;
   
   /**
-   *  @name   ~ArrayDims
-   *  @fn     ~ArrayDims(void) = default
+   *  @name   ~NDArrayDims
+   *  @fn     ~NDArrayDims(void) = default
    *  @brief  Destructor
    */
-  ~ArrayDims(void) = default;
+  ~NDArrayDims(void) = default;
   
 #pragma mark -
 #pragma mark Usage
   
   /**
    *  @name   IsValid
-   *  @fn     static bool IsValid(const ArrayDimsProto& proto)
+   *  @fn     static bool IsValid(const NDArrayDimsProto& proto)
    *  @brief  Check if a given protobuf message is valid
    *  @param[in]  proto Message to check
    *  @return true if valid, false otherwise
    */
-  static bool IsValid(const ArrayDimsProto& proto);
+  static bool IsValid(const NDArrayDimsProto& proto);
   
   /**
    *  @name   ToProto
-   *  @fn     void ToProto(ArrayDimsProto* proto) const
+   *  @fn     void ToProto(NDArrayDimsProto* proto) const
    *  @brief  Export to a corresponding Protobuf object
    *  @param[out] proto Protobuf message object
    */
-  void ToProto(ArrayDimsProto* proto) const;
+  void ToProto(NDArrayDimsProto* proto) const;
   
   /**
    *  @name   FromProto
-   *  @fn     int FromProto(const ArrayDimsProto& proto)
+   *  @fn     int FromProto(const NDArrayDimsProto& proto)
    *  @brief  Initialize from protobuf message
    *  @param[in] proto  Message from which to initialize
    *  @return -1 if message is not valid, 0 otherwise
    */
-  int FromProto(const ArrayDimsProto& proto);
+  int FromProto(const NDArrayDimsProto& proto);
   
   /**
    *  @name   AddDim
@@ -218,7 +218,7 @@ class FK_EXPORTS ArrayDims {
   /** Maximum number of dimensions */
   static constexpr size_t kMaxDim = 4;
   /** Actual dimensions */
-  std::vector<size_t> dims_;
+  std::array<size_t, 5> dims_;
   /** Number of element in the array */
   size_t n_elem_;
 };

@@ -1,6 +1,6 @@
 /**
  *  @file   ut_array_dims.cpp
- *  @brief Unit test for ArrayDims
+ *  @brief Unit test for NDArrayDims
  *  @ingroup core
  *
  *  @author Christophe Ecabert
@@ -13,37 +13,37 @@
 
 #include "array_dims.pb.h"
 
-#include "facekit/core/array_dims.hpp"
+#include "facekit/core/nd_array_dims.hpp"
 
-TEST(ArrayDims, CTor) {
+TEST(NDArrayDims, CTor) {
   namespace FK = FaceKit;
   // Default
-  FK::ArrayDims d;
+  FK::NDArrayDims d;
   EXPECT_EQ(d.dims(), 0);
   EXPECT_EQ(d.n_elems(), 1);
   // Assignment
-  FK::ArrayDims d1({4, 20});
+  FK::NDArrayDims d1({4, 20});
   d = d1;
   EXPECT_EQ(d.dims(), 2);
   EXPECT_EQ(d.n_elems(), 80);
   // Copy
-  FK::ArrayDims d2(d1);
+  FK::NDArrayDims d2(d1);
   EXPECT_EQ(d2.dims(), 2);
   EXPECT_EQ(d2.n_elems(), 80);
   // Move assignment
-  FK::ArrayDims d3;
+  FK::NDArrayDims d3;
   d3 = std::move(d);
   EXPECT_EQ(d3.dims(), 2);
   EXPECT_EQ(d3.n_elems(), 80);
   // Move constructor
-  FK::ArrayDims d4(std::move(d2));
+  FK::NDArrayDims d4(std::move(d2));
   EXPECT_EQ(d3.dims(), 2);
   EXPECT_EQ(d3.n_elems(), 80);
 }
 
-TEST(ArrayDims, AddDimension) {
+TEST(NDArrayDims, AddDimension) {
   namespace FK = FaceKit;
-  FK::ArrayDims d;
+  FK::NDArrayDims d;
   
   // Add dim - 1
   d.AddDim(100);
@@ -67,9 +67,9 @@ TEST(ArrayDims, AddDimension) {
   EXPECT_EQ(d.n_elems(), 20000);
 }
 
-TEST(ArrayDims, RemoveDimension) {
+TEST(NDArrayDims, RemoveDimension) {
   namespace FK = FaceKit;
-  FK::ArrayDims d({5, 20, 30});
+  FK::NDArrayDims d({5, 20, 30});
   
   // Remove 2nd dimension -> {5, 30}
   d.RemoveDim(1);
@@ -84,9 +84,9 @@ TEST(ArrayDims, RemoveDimension) {
   EXPECT_EQ(d.n_elems(), 30);
 }
 
-TEST(ArrayDims, AddRemoveDimension) {
+TEST(NDArrayDims, AddRemoveDimension) {
   namespace FK = FaceKit;
-  FK::ArrayDims d({5, 20});
+  FK::NDArrayDims d({5, 20});
   
   // Add dimension -> {5, 20, 30}
   d.AddDim(30);
@@ -103,9 +103,9 @@ TEST(ArrayDims, AddRemoveDimension) {
   EXPECT_EQ(d.n_elems(), 600);
 }
 
-TEST(ArrayDims, SetDimension) {
+TEST(NDArrayDims, SetDimension) {
   namespace FK = FaceKit;
-  FK::ArrayDims d({25, 4});
+  FK::NDArrayDims d({25, 4});
   // Change first dimension
   d.set_dim(0, 100);
   EXPECT_EQ(d.dims(), 2);
@@ -118,17 +118,17 @@ TEST(ArrayDims, SetDimension) {
   EXPECT_EQ(d.n_elems(), 0);
 }
 
-TEST(ArrayDims, Proto) {
+TEST(NDArrayDims, Proto) {
   namespace FK = FaceKit;
   namespace pb = google::protobuf;
   
   
   // Create protobuf message from string
-  FK::ArrayDimsProto proto;
+  FK::NDArrayDimsProto proto;
   std::string in = "dims {\n size: 20\n}\n dims{\n size: 250\n}\n";
   EXPECT_TRUE(pb::TextFormat::ParseFromString(in, &proto));
-  // Create ArrayDims obj
-  FK::ArrayDims d(proto);
+  // Create NDArrayDims obj
+  FK::NDArrayDims d(proto);
   EXPECT_EQ(d.dims(), 2);
   EXPECT_EQ(d.dim_size(0), 20);
   EXPECT_EQ(d.dim_size(1), 250);
@@ -136,7 +136,7 @@ TEST(ArrayDims, Proto) {
   
   
   // Conversion to protobuf message
-  FK::ArrayDims d1({10, 5, 15});
+  FK::NDArrayDims d1({10, 5, 15});
   d1.ToProto(&proto);
   EXPECT_EQ(proto.dims_size(), 3);
   EXPECT_EQ(proto.dims(0).size(), 10);

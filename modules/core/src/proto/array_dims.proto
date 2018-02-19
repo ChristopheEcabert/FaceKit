@@ -8,7 +8,7 @@ option cc_enable_arenas = true;
 package FaceKit;
 
 // NDArray dimensions
-message ArrayDimsProto {
+message NDArrayDimsProto {
   // Single dimensions
   message Dim {
     // Size of the NDArray in that dimension.

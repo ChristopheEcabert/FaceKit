@@ -13,7 +13,7 @@
 // Protobuff
 #include "array_dims.pb.h"
 
-#include "facekit/core/array_dims.hpp"
+#include "facekit/core/nd_array_dims.hpp"
 
 
 /**
@@ -26,28 +26,28 @@ namespace FaceKit {
 #pragma mark Initialization
   
 /*
- *  @name   ArrayDims
- *  @fn     ArrayDims(void)
+ *  @name   NDArrayDims
+ *  @fn     NDArrayDims(void)
  *  @brief  Constructor
  */
-ArrayDims::ArrayDims(void) : dims_(kMaxDim + 1, 0), n_elem_(1) {}
+NDArrayDims::NDArrayDims(void) : dims_({0, 0, 0, 0,0 }), n_elem_(1) {}
   
 /*
- *  @name   ArrayDims
- *  @fn     explicit ArrayDims(const ArrayDimsProto& proto)
+ *  @name   NDArrayDims
+ *  @fn     explicit NDArrayDims(const NDArrayDimsProto& proto)
  *  @brief  Constructor from protobuf object
  */
-ArrayDims::ArrayDims(const ArrayDimsProto& proto) : ArrayDims() {
+NDArrayDims::NDArrayDims(const NDArrayDimsProto& proto) : NDArrayDims() {
   this->FromProto(proto);
 }
   
 /*
- *  @name   ArrayDims
- *  @fn     explicit ArrayDims(const std::initializer_list<size_t>& dims)
+ *  @name   NDArrayDims
+ *  @fn     explicit NDArrayDims(const std::initializer_list<size_t>& dims)
  *  @brief  Constructor
  *  @param[in] dims List of dimensions
  */
-ArrayDims::ArrayDims(const std::initializer_list<size_t>& dims) : ArrayDims() {
+NDArrayDims::NDArrayDims(const std::initializer_list<size_t>& dims) : NDArrayDims() {
   auto it = dims.begin();
   size_t i = 0;
   for (; it != dims.end() && i < kMaxDim; ++it, ++i) {
@@ -58,29 +58,29 @@ ArrayDims::ArrayDims(const std::initializer_list<size_t>& dims) : ArrayDims() {
 }
   
 // Static instance
-constexpr size_t ArrayDims::kMaxDim;
+constexpr size_t NDArrayDims::kMaxDim;
   
 #pragma mark -
 #pragma mark Usage
   
 /*
  *  @name   IsValid
- *  @fn     static bool IsValid(const ArrayDimsProto& proto)
+ *  @fn     static bool IsValid(const NDArrayDimsProto& proto)
  *  @brief  Check if a given protobuf message is valid
  *  @param[in]  proto Message to check
  *  @return true if valid, false otherwise
  */
-bool ArrayDims::IsValid(const ArrayDimsProto& proto) {
+bool NDArrayDims::IsValid(const NDArrayDimsProto& proto) {
   return proto.dims_size() < kMaxDim;
 }
   
 /*
  *  @name   ToProto
- *  @fn     void ToProto(ArrayDimsProto* proto) const
+ *  @fn     void ToProto(NDArrayDimsProto* proto) const
  *  @brief  Export to a corresponding Protobuf object
  *  @param[out] proto Protobuf message object
  */
-void ArrayDims::ToProto(ArrayDimsProto* proto) const {
+void NDArrayDims::ToProto(NDArrayDimsProto* proto) const {
   proto->Clear();
   for (size_t i = 0; i < dims_[kMaxDim]; ++i) {
     proto->add_dims()->set_size(dims_[i]);
@@ -89,12 +89,12 @@ void ArrayDims::ToProto(ArrayDimsProto* proto) const {
   
 /*
  *  @name   FromProto
- *  @fn     int FromProto(const ArrayDimsProto& proto)
+ *  @fn     int FromProto(const NDArrayDimsProto& proto)
  *  @brief  Initialize from protobuf message
  *  @param[in] proto  Message from which to initialize
  *  @return -1 if message is not valid, 0 otherwise
  */
-int ArrayDims::FromProto(const ArrayDimsProto& proto) {
+int NDArrayDims::FromProto(const NDArrayDimsProto& proto) {
   if (IsValid(proto)) {
     for(int i = 0; i < proto.dims_size(); ++i) {
       this->AddDim(proto.dims(i).size());
@@ -109,7 +109,7 @@ int ArrayDims::FromProto(const ArrayDimsProto& proto) {
  *  @fn void AddDim(const size_t& dim)
  *  @brief  Add dimension at the end
  */
-void ArrayDims::AddDim(const size_t& dim) {
+void NDArrayDims::AddDim(const size_t& dim) {
   size_t& d = dims_[kMaxDim];
   if(d < kMaxDim) {
     // There is some space left
@@ -126,7 +126,7 @@ void ArrayDims::AddDim(const size_t& dim) {
  *  @brief  Remove dimension along a given `axis`
  *  @param[in]  axis  Dimension to remove
  */
-void ArrayDims::RemoveDim(const size_t& axis) {
+void NDArrayDims::RemoveDim(const size_t& axis) {
   if (axis < kMaxDim) {
     std::vector<size_t> dim(kMaxDim + 1, 0);
     auto it = dim.begin();
@@ -150,8 +150,8 @@ void ArrayDims::RemoveDim(const size_t& axis) {
  *  @fn     void Clear(void)
  *  @brief  Clear dimensions stored
  */
-void ArrayDims::Clear(void) {
-  dims_.assign(kMaxDim + 1, 0);
+void NDArrayDims::Clear(void) {
+  dims_ = {0, 0, 0, 0, 0};
   n_elem_ = 1;
 }
   
@@ -165,7 +165,7 @@ void ArrayDims::Clear(void) {
  *  @param[in] axis Axis on which to set dimensions
  *  @param[in] dim  Dimension
  */
-void ArrayDims::set_dim(const size_t& axis, const size_t& dim) {
+void NDArrayDims::set_dim(const size_t& axis, const size_t& dim) {
   if (axis < dims_[kMaxDim]) {
     dims_[axis] = dim;
     this->ComputeNElement();
@@ -180,7 +180,7 @@ void ArrayDims::set_dim(const size_t& axis, const size_t& dim) {
  *  @fn     void ComputeNElement(void)
  *  @brief  Establish how many element are store in the array
  */
-void ArrayDims::ComputeNElement(void) {
+void NDArrayDims::ComputeNElement(void) {
   // TODO: If dimensions are too large this might overflow
   size_t n = 1;   //Rank 0 -> scalar -> 1 elements
   for (size_t i = 0; i < dims_[kMaxDim]; ++i) {
