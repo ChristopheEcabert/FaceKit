@@ -151,6 +151,15 @@ TEST(NDArrayDims, Proto) {
   EXPECT_EQ(d1.dim_size(1), 5);
   EXPECT_EQ(d1.dim_size(2), 15);
   EXPECT_EQ(d1.n_elems(), 750);
+  
+  // Check invalid proto
+  in += "dims{\n size: 2\n}\n dims{\n size: 3\n}\n dims{\n size: 4\n}\n";
+  EXPECT_TRUE(pb::TextFormat::ParseFromString(in, &proto));
+  d1.Clear();
+  int ret = d1.FromProto(proto);
+  EXPECT_EQ(ret, -1);
+  EXPECT_EQ(d1.dims(), 0);
+  EXPECT_EQ(d1.n_elems(), 1);
 }
 
 

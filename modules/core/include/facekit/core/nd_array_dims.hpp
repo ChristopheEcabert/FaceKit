@@ -8,8 +8,8 @@
  *  Copyright © 2018 Christophe Ecabert. All rights reserved.
  */
 
-#ifndef __FACEKIT_ARRAY_DIMS__
-#define __FACEKIT_ARRAY_DIMS__
+#ifndef __FACEKIT_ND_ARRAY_DIMS__
+#define __FACEKIT_ND_ARRAY_DIMS__
 
 #include <initializer_list>
 #include <array>
@@ -226,4 +226,4 @@ class FK_EXPORTS NDArrayDims {
   
   
 }  // namespace FaceKit
-#endif /* __FACEKIT_ARRAY_DIMS__ */
+#endif /* __FACEKIT_ND_ARRAY_DIMS__ */

@@ -368,8 +368,8 @@ macro(FACEKIT_ADD_TEST _name _exename)
                        gtest_disable_pthreads gtest_force_shared_crt gtest_hide_internal_symbols)
     ENDIF(NOT TARGET gtest)
     # Add include location for testing framework
-    include_directories(${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googletest/include)
-    include_directories(${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googlemock/include)
+    include_directories(SYSTEM ${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googletest/include)
+    include_directories(SYSTEM ${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googlemock/include)
     # Link extra library
     target_link_libraries(facekit_ut_${_exename} PRIVATE ${FACEKIT_ADD_TEST_LINK_WITH} gtest gmock ${CLANG_LIBRARIES})
     # Only link if needed

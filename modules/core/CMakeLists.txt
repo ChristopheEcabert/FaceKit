@@ -18,6 +18,7 @@ if(build)
     src/logger.cpp
     src/memory.cpp
     src/nd_array_dims.cpp
+    src/status.cpp
     src/string_util.cpp
     src/types.cpp)
   set(incs
@@ -30,6 +31,7 @@ if(build)
     include/facekit/${SUBSYS_NAME}/nd_array_dims.hpp
     include/facekit/${SUBSYS_NAME}/nd_array_map.hpp
     include/facekit/${SUBSYS_NAME}/refcounter.hpp
+    include/facekit/${SUBSYS_NAME}/status.hpp
     include/facekit/${SUBSYS_NAME}/string_util.hpp
     include/facekit/${SUBSYS_NAME}/thread_pool.hpp
     include/facekit/${SUBSYS_NAME}/types.hpp)
@@ -67,6 +69,7 @@ if(build)
   FACEKIT_ADD_TEST(ut_logger logger FILES test/ut_logger.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_refcounter refcounter FILES test/ut_refcounter.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "")
   FACEKIT_ADD_TEST(ut_types types FILES test/ut_types.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_status status FILES test/ut_status.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_allocator allocator FILES test/ut_allocator.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_nd_array_dims nd_array_dims FILES test/ut_nd_array_dims.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core ${Protobuf_LIBRARIES})
   FACEKIT_ADD_TEST(ut_nd_array_map nd_array_map FILES test/ut_nd_array_map.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)

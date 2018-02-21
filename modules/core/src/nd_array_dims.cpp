@@ -15,6 +15,8 @@
 
 #include "facekit/core/nd_array_dims.hpp"
 
+#include <dirent.h>
+
 
 /**
  *  @namespace  FaceKit
@@ -30,7 +32,7 @@ namespace FaceKit {
  *  @fn     NDArrayDims(void)
  *  @brief  Constructor
  */
-NDArrayDims::NDArrayDims(void) : dims_({0, 0, 0, 0,0 }), n_elem_(1) {}
+NDArrayDims::NDArrayDims(void) : dims_({0, 0, 0, 0, 0}), n_elem_(1) {}
   
 /*
  *  @name   NDArrayDims
@@ -71,7 +73,7 @@ constexpr size_t NDArrayDims::kMaxDim;
  *  @return true if valid, false otherwise
  */
 bool NDArrayDims::IsValid(const NDArrayDimsProto& proto) {
-  return proto.dims_size() < kMaxDim;
+  return proto.dims_size() <= kMaxDim;
 }
   
 /*
