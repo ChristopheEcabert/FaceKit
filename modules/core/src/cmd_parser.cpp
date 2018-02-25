@@ -51,7 +51,9 @@ bool CmdOptionExists(const char** begin,
  */
 CmdLineParser::CmdLineParser(void) {
   // Add help
-  argument_.push_back(new Args("-h",kOptional,"Print help for this executable"));
+  argument_.push_back(new Args("-h",
+                               kOptional,
+                               "Print help for this executable"));
 }
 
 /*

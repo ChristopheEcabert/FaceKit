@@ -8,10 +8,12 @@
  *  Copyright © 2018 Christophe Ecabert. All rights reserved.
  */
 
+#include <type_traits>
+
 #include "gtest/gtest.h"
 #include "google/protobuf/text_format.h"
 
-#include "array_dims.pb.h"
+#include "nd_array_dims.pb.h"
 
 #include "facekit/core/nd_array_dims.hpp"
 
@@ -156,8 +158,8 @@ TEST(NDArrayDims, Proto) {
   in += "dims{\n size: 2\n}\n dims{\n size: 3\n}\n dims{\n size: 4\n}\n";
   EXPECT_TRUE(pb::TextFormat::ParseFromString(in, &proto));
   d1.Clear();
-  int ret = d1.FromProto(proto);
-  EXPECT_EQ(ret, -1);
+  auto s = d1.FromProto(proto);
+  EXPECT_EQ(s.Code(), FK::Status::Type::kInvalidArgument);
   EXPECT_EQ(d1.dims(), 0);
   EXPECT_EQ(d1.n_elems(), 1);
 }

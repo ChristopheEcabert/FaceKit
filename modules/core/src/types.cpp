@@ -48,6 +48,8 @@ std::string DataTypeToString(const DataType& type) {
       return "size_t";
     case DataType::kBool:
       return "bool";
+    case DataType::kString:
+      return "string";
     default:
       FACEKIT_LOG_ERROR("unsupported data type");
       return "unsupported";
@@ -93,8 +95,48 @@ bool DataTypeFromString(const std::string& str, DataType* type) {
   } else if (str == "bool") {
     *type = DataType::kBool;
     return true;
+  } else if (str == "string") {
+    *type = DataType::kString;
+    return true;
   }
   return false;
+}
+  
+/*
+ *  @name   DataTypeDynamicSize
+ *  @fn     size_t DataTypeDynamicSize(const DataType& dtype)
+ *  @brief  Provide dynamically the size of a given type
+ */
+size_t DataTypeDynamicSize(const DataType& dtype) {
+  switch (dtype) {
+    case DataType::kUnknown:
+      return 0;
+    case DataType::kInt8:
+      return sizeof(int8_t);
+    case DataType::kUInt8:
+      return sizeof(uint8_t);
+    case DataType::kInt16:
+      return sizeof(int16_t);
+    case DataType::kUInt16:
+      return sizeof(uint16_t);
+    case DataType::kInt32:
+      return sizeof(int32_t);
+    case DataType::kUInt32:
+      return sizeof(uint32_t);
+    case DataType::kFloat:
+      return sizeof(float);
+    case DataType::kDouble:
+      return sizeof(double);
+    case DataType::kSize_t:
+      return sizeof(size_t);
+    case DataType::kBool:
+      return sizeof(bool);
+    case DataType::kString:
+      return sizeof(std::string);
+    default:
+      FACEKIT_LOG_ERROR("unsupported data type");
+      return std::numeric_limits<size_t>::max();
+  }
 }
   
   

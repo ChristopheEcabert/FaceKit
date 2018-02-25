@@ -8,6 +8,8 @@
  *  Copyright © 2018 Christophe Ecabert. All rights reserved.
  */
 
+#include <limits>
+
 #include "gtest/gtest.h"
 
 #include "facekit/core/types.hpp"
@@ -28,6 +30,7 @@ TEST(Types, DataTypeToString) {
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kDouble), "double");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kSize_t), "size_t");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kBool), "bool");
+  EXPECT_EQ(FK::DataTypeToString(FK::DataType::kString), "string");
   EXPECT_EQ(FK::DataTypeToString((FK::DataType)32), "unsupported");
 }
 
@@ -55,6 +58,8 @@ TEST(Types, DataTypeFromString) {
   EXPECT_EQ(type, FK::DataType::kSize_t);
   EXPECT_TRUE(FK::DataTypeFromString("bool", &type));
   EXPECT_EQ(type, FK::DataType::kBool);
+  EXPECT_TRUE(FK::DataTypeFromString("string", &type));
+  EXPECT_EQ(type, FK::DataType::kString);
   // Wrong entry
   type = FK::DataType::kUnknown;
   EXPECT_FALSE(FK::DataTypeFromString("char", &type));
@@ -74,6 +79,7 @@ TEST(Types, IsDataTypeValid) {
   EXPECT_TRUE((bool)FK::IsDataTypeValid<double>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<size_t>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<bool>::value);
+  EXPECT_TRUE((bool)FK::IsDataTypeValid<std::string>::value);
   // Invalid
   EXPECT_FALSE((bool)FK::IsDataTypeValid<long>::value);
   EXPECT_FALSE((bool)FK::IsDataTypeValid<long long>::value);
@@ -93,6 +99,7 @@ TEST(Types, DataTypeToEnum) {
   EXPECT_EQ((DType)FK::DataTypeToEnum<double>::value, DType::kDouble);
   EXPECT_EQ((DType)FK::DataTypeToEnum<size_t>::value, DType::kSize_t);
   EXPECT_EQ((DType)FK::DataTypeToEnum<bool>::value, DType::kBool);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<std::string>::value, DType::kString);
 }
 
 TEST(Types, DataTypeSize) {
@@ -109,9 +116,33 @@ TEST(Types, DataTypeSize) {
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kDouble>::value, sizeof(double));
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kSize_t>::value, sizeof(size_t));
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kBool>::value, sizeof(bool));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kString>::value, sizeof(std::string));
   // Invalid
   EXPECT_EQ((size_t)FK::DataTypeSize<(DType)20>::value, 0);
   EXPECT_EQ((size_t)FK::DataTypeSize<(DType)42>::value, 0);
+}
+
+TEST(Types, DataTypeDynamicSize) {
+  namespace FK = FaceKit;
+  using DType = FaceKit::DataType;
+  // Valid
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kUnknown), 0);
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kInt8), sizeof(int8_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kUInt8), sizeof(uint8_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kInt16), sizeof(int16_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kUInt16), sizeof(uint16_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kInt32), sizeof(int32_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kUInt32), sizeof(uint32_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kFloat), sizeof(float));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kDouble), sizeof(double));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kSize_t), sizeof(size_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kBool), sizeof(bool));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kString), sizeof(std::string));
+  // Invalid
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize((DType)20),
+            std::numeric_limits<size_t>::max());
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize((DType)42),
+            std::numeric_limits<size_t>::max());
 }
 
 

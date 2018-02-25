@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+// Apparently seems to be good practive based on google docs
+// https://developers.google.com/protocol-buffers/docs/reference/arenas#usage
+option cc_enable_arenas = true;
+
+// Define package name -> FaceKit (namespace in which class will be placed)
+package FaceKit;
+
+// Include
+import "types.proto";
+import "nd_array_dims.proto";
+
+// NDArray
+message NDArrayProto {
+  // Data type
+  DataType type = 1;
+  // Array dimension
+  NDArrayDimsProto dims = 2;
+  
+  // NDArray elements stored into int32 variable, support various type
+  // int{8,16,32} and uint{8, 16, 32} and bool
+  repeated int32 int_entry = 3 [packed=true];
+  
+  // Float buffer - 32bits
+  repeated float float_entry = 4 [packed=true];
+  
+  // Double buffer - 64bits
+  repeated double double_entry = 5 [packed=true];
+  
+  // Size_t, how to store them ???
+  //kSize_t = 9;
+};

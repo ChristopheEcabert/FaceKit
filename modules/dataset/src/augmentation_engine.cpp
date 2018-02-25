@@ -37,9 +37,8 @@ namespace FaceKit {
 AugmentationEngine::AugmentationEngine(const std::string& folder,
                                        const std::vector<std::string>& exts) {
   if (this->ScanForData(folder, exts) != 0) {
-    throw FKError(FKError::FKError::kGeneric,
-                  "No data found in " + folder,
-                  FUNC_NAME);
+    Status s(Status::Type::kInvalidArgument, "No data found in " + folder);
+    throw Error(s,FUNC_NAME);
   }
 }
   

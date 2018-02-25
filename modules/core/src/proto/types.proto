@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+// Apparently seems to be good practive based on google docs
+// https://developers.google.com/protocol-buffers/docs/reference/arenas#usage
+option cc_enable_arenas = true;
+
+// Define package name -> FaceKit (namespace in which class will be placed)
+package FaceKit;
+
+//
+//  @enum DataType
+//  @brief  List all supported types
+//  @ingroup core
+//
+enum DataType {
+  // Unknown
+  kUnknown = 0;
+  // Signed Int8
+  kInt8 = 1;
+  // Signed UInt8
+  kUInt8 = 2;
+  // Signed Int16
+  kInt16 = 3;
+  // Signed UInt16
+  kUInt16 = 4;
+  // Signed Int32
+  kInt32 = 5;
+  // Signed UInt32
+  kUInt32 = 6;
+  // Float - 32bits
+  kFloat = 7;
+  // Double - 64bits
+  kDouble = 8;
+  // Size_t
+  kSize_t = 9;
+  // Bool
+  kBool = 10;
+  // String
+  kString = 11;
+}

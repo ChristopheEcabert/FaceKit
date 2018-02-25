@@ -138,7 +138,7 @@ class CpuAllocator : public Allocator {
    *  @brief  Give allocator's name
    */
   std::string Name(void) const override {
-    return "default_cpu";
+    return "default_cpu_allocator";
   }
   
 #pragma mark -
@@ -218,10 +218,21 @@ class CpuAllocator : public Allocator {
  *  @return CPU Allocator
  */
 Allocator* DefaultCpuAllocator(void) {
-  return AllocatorFactory::Get().GetAllocator("default_cpu");
+  return AllocatorFactory::Get().GetAllocator("default_cpu_allocator");
+}
+  
+/*
+ *  @name   GetAllocator
+ *  @fn     Allocator* GetAllocator(const std::string& name)
+ *  @brief  Search for an allocator of a given name
+ *  @param[in] name Allocator's name
+ *  @return corresponding allocator or nullptr of it does not excist
+ */
+Allocator* GetAllocator(const std::string& name) {
+  return AllocatorFactory::Get().GetAllocator(name);
 }
   
 // Register CPU
-REGISTER_ALLOCATOR("default_cpu", CpuAllocator);
+REGISTER_ALLOCATOR("default_cpu_allocator", CpuAllocator);
   
 }  // namespace FaceKit

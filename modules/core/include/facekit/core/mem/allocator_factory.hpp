@@ -14,6 +14,7 @@
 #include <unordered_map>
 
 #include "facekit/core/library_export.hpp"
+#include "facekit/core/status.hpp"
 #include "facekit/core/mem/allocator.hpp"
 #include "facekit/core/logger.hpp"
 
@@ -136,8 +137,8 @@ class FK_EXPORTS AllocatorProxy {
    */
   AllocatorProxy(const std::string& name, Allocator* allocator) {
     if(AllocatorFactory::Get().Register(name, allocator)) {
-      FACEKIT_LOG_ERROR("Allocator with name '" << name <<
-                        "' is already registered");
+      Status s(Status::Type::kInvalidArgument,
+               "Allocator with name '" + name + "' is already registered");
     }
   }
 };

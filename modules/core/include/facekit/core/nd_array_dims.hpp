@@ -13,8 +13,10 @@
 
 #include <initializer_list>
 #include <array>
+#include <vector>
 
 #include "facekit/core/library_export.hpp"
+#include "facekit/core/status.hpp"
 
 /**
  *  @namespace  FaceKit
@@ -123,12 +125,12 @@ class FK_EXPORTS NDArrayDims {
   
   /**
    *  @name   FromProto
-   *  @fn     int FromProto(const NDArrayDimsProto& proto)
+   *  @fn     Status FromProto(const NDArrayDimsProto& proto)
    *  @brief  Initialize from protobuf message
    *  @param[in] proto  Message from which to initialize
    *  @return -1 if message is not valid, 0 otherwise
    */
-  int FromProto(const NDArrayDimsProto& proto);
+  Status FromProto(const NDArrayDimsProto& proto);
   
   /**
    *  @name   AddDim

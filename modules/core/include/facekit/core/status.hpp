@@ -13,6 +13,7 @@
 #define __FACEKIT_STATUS__
 
 #include <string>
+#include <iostream>
 
 #include "facekit/core/library_export.hpp"
 
@@ -132,6 +133,16 @@ class FK_EXPORTS Status {
   std::string ToString(void) const;
     
   /**
+   *  @name   Good
+   *  @fn     bool Good(void) const
+   *  @brief  Indicate if the status has error or not
+   *  @return True if no error, false otherwise
+   */
+  bool Good(void) const {
+    return err_ == Type::kOk;
+  }
+    
+  /**
    *  @name   Code
    *  @fn     const Type& Code(void) const
    *  @brief  Provide error code
@@ -142,14 +153,24 @@ class FK_EXPORTS Status {
   }
     
   /**
-   *  @name   get_message
-   *  @fn     const std::string& get_message(void) const
+   *  @name   Message
+   *  @fn     const std::string& Message(void) const
    *  @brief  Give messge associated with this Status.
    *  @return Error description
    */
-  const std::string& get_message(void) const {
+  const std::string& Message(void) const {
     return msg_;
   }
+    
+  /**
+   *  @name   operator<<
+   *  @fn     friend std::ostream& operator<<(std::ostream& os, const Status& status)
+   *  @brief  Dump status into an output stream
+   *  @param[in] os Output stream in which to write
+   *  @param[in] status Status to dump
+   *  @return Output stream
+   */
+  friend std::ostream& operator<<(std::ostream& os, const Status& status);
   
 #pragma mark -
 #pragma mark Private

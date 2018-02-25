@@ -18,7 +18,7 @@ TEST(Status, DefaultCtor) {
   namespace FK = FaceKit;
   FK::Status s;
   EXPECT_EQ(s.Code(), FK::Status::Type::kOk);
-  EXPECT_EQ(s.get_message(), "");
+  EXPECT_EQ(s.Message(), "");
 }
 
 TEST(Status, SpecificCtor) {
@@ -26,7 +26,7 @@ TEST(Status, SpecificCtor) {
   using Type = FK::Status::Type;
   FK::Status s(Type::kInternalError, "Internal Error");
   EXPECT_EQ(s.Code(), Type::kInternalError);
-  EXPECT_EQ(s.get_message(), "Internal Error");
+  EXPECT_EQ(s.Message(), "Internal Error");
 }
 
 TEST(Status, CopyCtor) {
@@ -35,7 +35,7 @@ TEST(Status, CopyCtor) {
   FK::Status s1(Type::kUnknown, "Unknown");
   FK::Status s2(s1);
   EXPECT_EQ(s1.Code(), s2.Code());
-  EXPECT_EQ(s1.get_message(), s2.get_message());
+  EXPECT_EQ(s1.Message(), s2.Message());
 }
 
 TEST(Status, Assignment) {
@@ -45,7 +45,7 @@ TEST(Status, Assignment) {
   FK::Status s2;
   s2 = s1;
   EXPECT_EQ(s1.Code(), s2.Code());
-  EXPECT_EQ(s1.get_message(), s2.get_message());
+  EXPECT_EQ(s1.Message(), s2.Message());
 }
 
 TEST(Status, Equals) {

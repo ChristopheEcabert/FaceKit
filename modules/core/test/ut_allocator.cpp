@@ -95,6 +95,34 @@ TEST(Allocator, CpuAllocatorTyped) {
   FK::EnableAllocatorStatistics(false);
 }
 
+TEST(Allocator, AllocateString) {
+  namespace FK = FaceKit;
+  // Enable statistics
+  FK::EnableAllocatorStatistics(true);
+  auto* a = FK::DefaultCpuAllocator();
+  // Do a bunch of typed allocation
+  std::string* p1 = a->Allocate<std::string>(10);
+  std::string* p2 = a->Allocate<std::string>(5);
+  // Check statistics
+  CheckStatistics(a,
+                  2,
+                  15 * sizeof(std::string),
+                  15 * sizeof(std::string),
+                  10 * sizeof(std::string));
+  // Deallocate
+  a->Deallocate<std::string>(10, p1);
+  a->Deallocate<std::string>(5, p2);
+  // Check statistics
+  CheckStatistics(a,
+                  2,
+                  0,
+                  15 * sizeof(std::string),
+                  10 * sizeof(std::string));
+  // Done
+  a->ClearStatistics();
+  FK::EnableAllocatorStatistics(false);
+}
+
 TEST(Allocator, CpuAllocatorMaxChunk) {
   namespace FK = FaceKit;
   // Enable statistics

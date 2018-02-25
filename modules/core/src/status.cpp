@@ -67,5 +67,18 @@ std::string Status::ToString(void) const {
   return str;
 }
   
+/*
+ *  @name   operator<<
+ *  @fn     friend std::ostream& operator<<(std::ostream& os, const Status& status)
+ *  @brief  Dump status into an output stream
+ *  @param[in] os Output stream in which to write
+ *  @param[in] status Status to dump
+ *  @return Output stream
+ */
+std::ostream& operator<<(std::ostream& os, const Status& status) {
+  os << status.ToString();
+  return os;
+}
+  
   
 }  // namespace FaceKit

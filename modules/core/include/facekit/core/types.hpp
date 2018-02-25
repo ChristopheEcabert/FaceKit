@@ -13,41 +13,13 @@
 
 #include <string>
 
+#include "types.pb.h"
+
 /**
  *  @namespace  FaceKit
  *  @brief      Development space
  */
 namespace FaceKit {
-  
-/**
- *  @enum DataType
- *  @brief  List all supported types
- *  @ingroup core
- */
-enum DataType {
-  /** Unknown */
-  kUnknown = 0,
-  /** Signed Int8 */
-  kInt8,
-  /** Signed UInt8 */
-  kUInt8,
-  /** Signed Int16 */
-  kInt16,
-  /** Signed UInt16 */
-  kUInt16,
-  /** Signed Int32 */
-  kInt32,
-  /** Signed UInt32 */
-  kUInt32,
-  /** Float - 32bits */
-  kFloat,
-  /** Double - 64bits */
-  kDouble,
-  /** Size_t */
-  kSize_t,
-  /** Bool */
-  kBool
-};
   
 /**
  *  @name DataTypeToString
@@ -67,6 +39,14 @@ std::string DataTypeToString(const DataType& type);
  *  @return true if conversion is successful, false otherwise
  */
 bool DataTypeFromString(const std::string& str, DataType* type);
+  
+/**
+ *  @name   DataTypeDynamicSize
+ *  @fn     size_t DataTypeDynamicSize(const DataType& dtype)
+ *  @brief  Provide dynamically the size of a given type
+ *  @param[in] dtype  Data type to query its size
+ */
+size_t DataTypeDynamicSize(const DataType& dtype);
   
 /**
  *  @struct  IsDataTypeValid
@@ -163,7 +143,9 @@ SPECIALIZE_TYPE_AND_ENUM(double, DataType::kDouble, sizeof(double));
 SPECIALIZE_TYPE_AND_ENUM(size_t, DataType::kSize_t, sizeof(size_t));
 /** bool Specialization */
 SPECIALIZE_TYPE_AND_ENUM(bool, DataType::kBool, sizeof(bool));
-
+/** string Specialization */
+SPECIALIZE_TYPE_AND_ENUM(std::string, DataType::kString, sizeof(std::string));
+  
 #undef SPECIALIZE_TYPE_AND_ENUM
   
 }  // namespace FaceKit

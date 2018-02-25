@@ -11,8 +11,9 @@
 #include <utility>
 
 // Protobuff
-#include "array_dims.pb.h"
+#include "nd_array_dims.pb.h"
 
+#include "facekit/core/error.hpp"
 #include "facekit/core/nd_array_dims.hpp"
 
 #include <dirent.h>
@@ -40,7 +41,10 @@ NDArrayDims::NDArrayDims(void) : dims_({0, 0, 0, 0, 0}), n_elem_(1) {}
  *  @brief  Constructor from protobuf object
  */
 NDArrayDims::NDArrayDims(const NDArrayDimsProto& proto) : NDArrayDims() {
-  this->FromProto(proto);
+  Status s = this->FromProto(proto);
+  if(!s.Good()) {
+    throw Error(s, FUNC_NAME);
+  }
 }
   
 /*
@@ -91,19 +95,20 @@ void NDArrayDims::ToProto(NDArrayDimsProto* proto) const {
   
 /*
  *  @name   FromProto
- *  @fn     int FromProto(const NDArrayDimsProto& proto)
+ *  @fn     Status FromProto(const NDArrayDimsProto& proto)
  *  @brief  Initialize from protobuf message
  *  @param[in] proto  Message from which to initialize
  *  @return -1 if message is not valid, 0 otherwise
  */
-int NDArrayDims::FromProto(const NDArrayDimsProto& proto) {
+Status NDArrayDims::FromProto(const NDArrayDimsProto& proto) {
   if (IsValid(proto)) {
     for(int i = 0; i < proto.dims_size(); ++i) {
       this->AddDim(proto.dims(i).size());
     }
-    return 0;
+    return Status();
   }
-  return -1;
+  return Status(Status::Type::kInvalidArgument,
+                "Invalid Protocol Buffer Object") ;
 }
   
 /*
@@ -184,7 +189,7 @@ void NDArrayDims::set_dim(const size_t& axis, const size_t& dim) {
  */
 void NDArrayDims::ComputeNElement(void) {
   // TODO: If dimensions are too large this might overflow
-  size_t n = 1;   //Rank 0 -> scalar -> 1 elements
+  size_t n = dims_[kMaxDim] == 0 ? 0 : 1;   //Rank 0 -> scalar -> 1 elements
   for (size_t i = 0; i < dims_[kMaxDim]; ++i) {
     n *= dims_[i];
   }

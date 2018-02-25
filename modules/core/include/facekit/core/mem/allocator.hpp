@@ -149,7 +149,11 @@ class FK_EXPORTS Allocator {
     } else {
       // Allocate memory block using allocator
       void* ptr = this->AllocateRaw(n_element * sizeof(T), alignment);
-      return reinterpret_cast<T*>(ptr);
+      T* t_ptr = reinterpret_cast<T*>(ptr);
+      if (t_ptr) {
+        CallCTor(n_element, t_ptr);
+      }
+      return t_ptr;
     }
   }
   
@@ -164,6 +168,7 @@ class FK_EXPORTS Allocator {
   template<typename T>
   void Deallocate(const size_t& n_element, T* ptr) {
     if (ptr) {
+      CallDTor<T>(n_element, ptr);
       this->DeallocateRaw(n_element * sizeof(T), ptr);
     }
   }
@@ -184,7 +189,56 @@ class FK_EXPORTS Allocator {
    *  @brief  Clear allocator's statistics
    */
   virtual void ClearStatistics(void) {}
+  
+#pragma mark -
+#pragma mark Private
+ private:
+  
+  /**
+   *  @name   CallCTor
+   *  @tparam T Object type being allocated
+   *  @fn     void CallCTor(const size_t& n_element, T* ptr)
+   *  @brief  Call constructor for specific type, this is mandatory with placed 
+   *          instantiation
+   *  @param[in] n_element  Number of element to constructor
+   *  @param[in,out]  ptr   Buffer where elements need to be constructed
+   */
+  template<typename T>
+  void CallCTor(const size_t& n_element, T* ptr) {
+    static_assert(std::is_trivial<T>::value,
+                  "Type T is not trivial, spcial constructor is needed");
+  }
+  
+  /**
+   *  @name   CallDTor
+   *  @tparam T Object type being allocated
+   *  @fn     void CallDTor(const size_t& n_element, T* ptr)
+   *  @brief  Call destructor for specific type, this is mandatory with placed
+   *          instantiation
+   *  @param[in] n_element  Number of element to destruct
+   *  @param[in,out]  ptr   Buffer where elements need to be destructed
+   */
+  template<typename T>
+  void CallDTor(const size_t& n_element, T* ptr) {}
 };
+  
+// String specialization
+template<>
+inline void Allocator::CallCTor(const size_t& n_element, std::string* t_ptr) {
+  for (size_t i = 0; i < n_element; ++i, ++t_ptr) {
+    new (t_ptr) std::string();
+  }
+}
+template<>
+inline void Allocator::CallDTor(const size_t& n_element, std::string* t_ptr) {
+  for (size_t i = 0; i < n_element; ++i, ++t_ptr) {
+    t_ptr->~basic_string();
+  }
+}
+  
+  
+  
+  
   
 /**
  *  @name   EnableAllocatorStatistics
@@ -201,6 +255,15 @@ void EnableAllocatorStatistics(const bool& enable);
  *  @return CPU Allocator
  */
 Allocator* DefaultCpuAllocator(void);
+  
+/**
+ *  @name   GetAllocator
+ *  @fn     Allocator* GetAllocator(const std::string& name)
+ *  @brief  Search for an allocator of a given name
+ *  @param[in] name Allocator's name
+ *  @return corresponding allocator or nullptr of it does not excist
+ */
+Allocator* GetAllocator(const std::string& name);
   
   
 }  // namespace FaceKit

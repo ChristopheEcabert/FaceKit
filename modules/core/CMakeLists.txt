@@ -16,8 +16,10 @@ if(build)
     src/error.cpp
     src/linear_algebra.cpp
     src/logger.cpp
+    src/map_allocator.cpp
     src/memory.cpp
     src/nd_array_dims.cpp
+    src/nd_array.cpp
     src/status.cpp
     src/string_util.cpp
     src/types.cpp)
@@ -30,6 +32,7 @@ if(build)
     include/facekit/${SUBSYS_NAME}/logger.hpp
     include/facekit/${SUBSYS_NAME}/nd_array_dims.hpp
     include/facekit/${SUBSYS_NAME}/nd_array_map.hpp
+    include/facekit/${SUBSYS_NAME}/nd_array.hpp
     include/facekit/${SUBSYS_NAME}/refcounter.hpp
     include/facekit/${SUBSYS_NAME}/status.hpp
     include/facekit/${SUBSYS_NAME}/string_util.hpp
@@ -44,9 +47,12 @@ if(build)
   set(incs_mem
     include/facekit/${SUBSYS_NAME}/mem/allocator_factory.hpp
     include/facekit/${SUBSYS_NAME}/mem/allocator.hpp
+    include/facekit/${SUBSYS_NAME}/mem/map_allocator.hpp
     include/facekit/${SUBSYS_NAME}/mem/memory.hpp)
   set(proto
-    src/proto/array_dims.proto)
+    src/proto/nd_array_dims.proto
+    src/proto/nd_array.proto
+    src/proto/types.proto)
   # Set library name
   set(LIB_NAME "facekit_${SUBSYS_NAME}")
   # Add include folder location
@@ -73,6 +79,7 @@ if(build)
   FACEKIT_ADD_TEST(ut_allocator allocator FILES test/ut_allocator.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_nd_array_dims nd_array_dims FILES test/ut_nd_array_dims.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core ${Protobuf_LIBRARIES})
   FACEKIT_ADD_TEST(ut_nd_array_map nd_array_map FILES test/ut_nd_array_map.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_nd_array nd_array FILES test/ut_nd_array.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
 
   # Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})
