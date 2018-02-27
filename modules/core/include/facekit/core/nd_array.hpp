@@ -65,12 +65,12 @@ class FK_EXPORTS NDArrayBuffer : public RefCounter {
   
   /**
    *  @name   root
-   *  @fn     virtual NDArrayBuffer* root(void) const = 0
+   *  @fn     virtual NDArrayBuffer* root(void) = 0
    *  @brief  Provide reference to the buffer interface, most of the time it 
    *          return the address of `this` however when the buffer is a
    *          subpart of another one, it will point to this one.
    */
-  virtual NDArrayBuffer* root(void) const = 0;
+  virtual NDArrayBuffer* root(void) = 0;
   
   /**
    *  @name   base
@@ -82,8 +82,6 @@ class FK_EXPORTS NDArrayBuffer : public RefCounter {
     return reinterpret_cast<T*>(data());
   }
 };
-  
-  
   
   
 /**
@@ -205,6 +203,16 @@ class FK_EXPORTS NDArray {
   
 #pragma mark -
 #pragma mark Usage
+  
+  /**
+   *  @name   IsInitialized
+   *  @fn     bool IsInitialized(void) const
+   *  @brief  Indicate if array as been initialized
+   *  @return True if initialized, false otherwise
+   */
+  bool IsInitialized(void) const {
+    return (buffer_ != nullptr) && (buffer_->data() != nullptr);
+  }
   
   /**
    *  @name   AsScalar
@@ -494,7 +502,7 @@ inline T* NDArray::Base(void) const {
 template<typename T>
 typename NDATypes<T>::Scalar NDArray::AsScalar(void) {
   assert(dims() == 0);
-  return typename NDATypes<T>::Scalar(Base<T>(), dims_);
+  return typename NDATypes<T>::Scalar(dims_, Base<T>());
 }
 
 /*
@@ -508,7 +516,7 @@ typename NDATypes<T>::Scalar NDArray::AsScalar(void) {
 template<typename T>
 typename NDATypes<T>::Vector NDArray::AsVector(void) {
   assert(dims() == 1);
-  return typename NDATypes<T>::Vector(Base<T>(), dims_);
+  return typename NDATypes<T>::Vector(dims_, Base<T>());
 }
 
 /*
@@ -522,7 +530,7 @@ typename NDATypes<T>::Vector NDArray::AsVector(void) {
 template<typename T>
 typename NDATypes<T>::Matrix NDArray::AsMatrix(void) {
   assert(dims() == 2);
-  return typename NDATypes<T>::Matrix(Base<T>(), dims_);
+  return typename NDATypes<T>::Matrix(dims_, Base<T>());
 }
 
 /*
@@ -537,7 +545,7 @@ typename NDATypes<T>::Matrix NDArray::AsMatrix(void) {
 template<typename T, size_t NDIMS>
 typename NDATypes<T, NDIMS>::NDArray NDArray::AsNDArray(void) {
   assert(dims() > 2);
-  return typename NDATypes<T, NDIMS>::NDArray(Base<T>(), dims_);
+  return typename NDATypes<T, NDIMS>::NDArray(dims_, Base<T>());
 }
 
 /*
@@ -563,7 +571,7 @@ typename NDATypes<T>::Flat NDArray::AsFlat(void) {
 template<typename T>
 typename NDATypes<T>::ConstScalar NDArray::AsScalar(void) const {
   assert(dims() == 0);
-  return typename NDATypes<T>::ConstScalar(Base<const T>(), dims_);
+  return typename NDATypes<T>::ConstScalar(dims_, Base<const T>());
 
 }
   
@@ -578,7 +586,7 @@ typename NDATypes<T>::ConstScalar NDArray::AsScalar(void) const {
 template<typename T>
 typename NDATypes<T>::ConstVector NDArray::AsVector(void) const {
   assert(dims() == 1);
-  return typename NDATypes<T>::ConstVector(Base<const T>(), dims_);
+  return typename NDATypes<T>::ConstVector(dims_, Base<const T>());
 }
   
 /*
@@ -592,7 +600,7 @@ typename NDATypes<T>::ConstVector NDArray::AsVector(void) const {
 template<typename T>
 typename NDATypes<T>::ConstMatrix NDArray::AsMatrix(void) const {
   assert(dims() == 2);
-  return typename NDATypes<T>::ConstMatrix(Base<const T>(), dims_);
+  return typename NDATypes<T>::ConstMatrix(dims_, Base<const T>());
 }
   
 /*
@@ -607,7 +615,7 @@ typename NDATypes<T>::ConstMatrix NDArray::AsMatrix(void) const {
 template<typename T, size_t NDIMS>
 typename NDATypes<T, NDIMS>::ConstNDArray NDArray::AsNDArray(void) const {
   assert(dims() > 2);
-  return typename NDATypes<T, NDIMS>::ConstNDArray(Base<const T>(), dims_);
+  return typename NDATypes<T, NDIMS>::ConstNDArray(dims_, Base<const T>());
 }
   
 /*

@@ -49,11 +49,11 @@ class FK_EXPORTS NDArrayDims {
   
   /**
    *  @name   NDArrayDims
-   *  @fn     explicit NDArrayDims(const std::initializer_list<size_t>& dims)
+   *  @fn     NDArrayDims(const std::initializer_list<size_t>& dims)
    *  @brief  Constructor
    *  @param[in] dims List of dimensions
    */
-  explicit NDArrayDims(const std::initializer_list<size_t>& dims);
+  NDArrayDims(const std::initializer_list<size_t>& dims);
   
   /**
    *  @name   NDArrayDims

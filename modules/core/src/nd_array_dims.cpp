@@ -189,7 +189,7 @@ void NDArrayDims::set_dim(const size_t& axis, const size_t& dim) {
  */
 void NDArrayDims::ComputeNElement(void) {
   // TODO: If dimensions are too large this might overflow
-  size_t n = dims_[kMaxDim] == 0 ? 0 : 1;   //Rank 0 -> scalar -> 1 elements
+  size_t n = 1;   //Rank 0 -> scalar -> 1 elements
   for (size_t i = 0; i < dims_[kMaxDim]; ++i) {
     n *= dims_[i];
   }

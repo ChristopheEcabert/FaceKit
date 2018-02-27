@@ -15,8 +15,6 @@
 
 int main(const int argc, const char** argv) {
   namespace FK = FaceKit;
-  
-  
   using TaskPriority = FK::ThreadPool::TaskPriority;
   
   // Define worker
@@ -30,7 +28,8 @@ int main(const int argc, const char** argv) {
   std::vector<std::future<void>> tasks;
   // Launch job
   for (int i = 0; i < 4; ++i) {
-    tasks.push_back(pool.Enqueue(TaskPriority::kNormal, worker, i));
+    auto res = pool.Enqueue(TaskPriority::kNormal, worker, i);
+    tasks.push_back(std::move(res));
   }
   
   // Wait till all jobs are done

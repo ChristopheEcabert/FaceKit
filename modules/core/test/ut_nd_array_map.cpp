@@ -9,22 +9,24 @@
  */
 
 #include <numeric>
+#include <vector>
+#include <string>
 
 #include "gtest/gtest.h"
 
 #include "facekit/core/nd_array_map.hpp"
 
 template<typename T>
-class NDArrayTest : public ::testing::Test {
+class NDArrayMapTest : public ::testing::Test {
  public:
 };
 
 // List all types to test + register test
 typedef ::testing::Types<int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, float, double, size_t> TypeToTest;
-TYPED_TEST_CASE(NDArrayTest, TypeToTest);
+TYPED_TEST_CASE(NDArrayMapTest, TypeToTest);
 
 /** CTOR + properties */
-TYPED_TEST(NDArrayTest, CTor) {
+TYPED_TEST(NDArrayMapTest, CTor) {
   namespace FK = FaceKit;
   typedef TypeParam T;
   // Simulate raw buffer + Map it
@@ -74,7 +76,7 @@ TYPED_TEST(NDArrayTest, CTor) {
 }
 
 /** Getter */
-TYPED_TEST(NDArrayTest, Getter) {
+TYPED_TEST(NDArrayMapTest, Getter) {
   namespace FK = FaceKit;
   typedef TypeParam T;
   // Simulate raw buffer + Map it
@@ -126,7 +128,7 @@ TYPED_TEST(NDArrayTest, Getter) {
 }
 
 /** Setter */
-TYPED_TEST(NDArrayTest, Setter) {
+TYPED_TEST(NDArrayMapTest, Setter) {
   namespace FK = FaceKit;
   typedef TypeParam T;
   // Simulate raw buffer + Map it

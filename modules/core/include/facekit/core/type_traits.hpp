@@ -53,17 +53,17 @@ struct NDATypes {
   /** Rank 1 - flatten NDArray of T type */
   using Flat = NDArrayMap<T, 1>;
   /** Rank 1 - flatten NDArray of const T type */
-  using ConstFlat = NDArrayMap<T, 1>;
+  using ConstFlat = NDArrayMap<const T, 1>;
   
   /** Rank 1 - Vector of T type */
   using Vector = NDArrayMap<T, 1>;
   /** Rank 1 - Vector of const T type */
-  using ConstVector = NDArrayMap<T, 1>;
+  using ConstVector = NDArrayMap<const T, 1>;
   
   /** Rank 2 - Matrix of T type */
   using Matrix = NDArrayMap<T, 2>;
   /** Rank 2 - Matrix of const T type */
-  using ConstMatrix = NDArrayMap<T, 2>;
+  using ConstMatrix = NDArrayMap<const T, 2>;
 };
 
 }  // namespace FaceKit

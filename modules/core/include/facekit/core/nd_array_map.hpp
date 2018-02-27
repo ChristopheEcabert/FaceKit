@@ -43,25 +43,10 @@ class FK_EXPORTS NDArrayMap {
 #pragma mark Type Definition
   
   /** Type */
-  using Type = std::remove_const<T>;
+  using Type = typename std::remove_const<T>::type;
   
 #pragma mark -
 #pragma mark Initialization
-  
-  /**
-   *  @name   NDArrayMap
-   *  @fn     NDArrayMap(T* ptr, const Dims&&... dims)
-   *  @brief  Constructor
-   *  @param[in] ptr  Pointer to the raw buffer to map
-   *  @param[in] dims NDArray's dimensions for each axis
-   *  @tparam Dims  List of dimensions
-   */
-  template<typename... Dims>
-  NDArrayMap(T* ptr, const Dims&&... dims) : n_dims_(NDIMS), n_elem_(1), data_(ptr),
-  dims_{std::forward<size_t>(dims)...} {
-    static_assert(sizeof...(dims) == NDIMS, "Dimensions does not match");
-    ComputeSteps();
-  }
   
   /**
    *  @name   NDArrayMap
@@ -70,11 +55,26 @@ class FK_EXPORTS NDArrayMap {
    *  @param[in] ptr  Pointer to the raw buffer to map
    *  @param[in] dims NDArray dimensions descriptor
    */
-  NDArrayMap(T* ptr, const NDArrayDims& dims) : n_dims_(NDIMS), n_elem_(1), data_(ptr) {
+  NDArrayMap(const NDArrayDims& dims, T* ptr) : n_dims_(NDIMS), n_elem_(1), data_(ptr) {
     assert(dims.dims() == n_dims_);
     for (size_t i = 0; i < dims.dims(); ++i) {
       dims_[i] = dims.dim_size(i);
     }
+    ComputeSteps();
+  }
+  
+  /**
+   *  @name   NDArrayMap
+   *  @fn     NDArrayMap(T* ptr, Dims&&... dims)
+   *  @brief  Constructor
+   *  @param[in] ptr  Pointer to the raw buffer to map
+   *  @param[in] dims NDArray's dimensions for each axis
+   *  @tparam Dims  List of dimensions
+   */
+  template<typename... Dims>
+  NDArrayMap(T* ptr, Dims&&... dims) : n_dims_(NDIMS), n_elem_(1), data_(ptr),
+  dims_{std::forward<size_t>(dims)...} {
+    static_assert(sizeof...(dims) == NDIMS, "Dimensions does not match");
     ComputeSteps();
   }
   
