@@ -165,8 +165,10 @@ class FK_EXPORTS ThreadPool {
   std::vector<std::thread> workers_;
   /** Task queue */
   PriorityQueue queue_;
-  /** Synchronization */
-  std::mutex lock_;
+  /** Synchronization - Enqueue task */
+  std::mutex queue_lock_;
+  /** Synchronization - Conditional signal */
+  std::mutex cond_lock_;
   /** Conditional variable */
   std::condition_variable cond_;
   /** Stop flag */
@@ -194,7 +196,7 @@ ThreadPool& ThreadPool::Get(const std::size_t& size /*= 4*/) {
  */
 ThreadPool::ThreadPool(const std::size_t& size) : stop_(false) {
   // Initialize workers
-  for (std::size_t i; i < size; ++i) {
+  for (std::size_t i = 0; i < size; ++i) {
     workers_.emplace_back([this](){
       // Loop forever
       while(true) {
@@ -202,7 +204,7 @@ ThreadPool::ThreadPool(const std::size_t& size) : stop_(false) {
         std::function<void()> task;
         // Wait till some tasks are pending or if we stop
         {
-          std::unique_lock<std::mutex> lock(this->lock_);
+          std::unique_lock<std::mutex> lock(this->cond_lock_);
           this->cond_.wait(lock, [this](void) {
             return this->stop_ || !this->queue_.empty();
           });
@@ -242,7 +244,7 @@ auto ThreadPool::Enqueue(const TaskPriority& priority, F&& f, Args&&... args)
   auto res = task->get_future();
   // Add to queue
   {
-    std::unique_lock<std::mutex> lock(this->lock_);
+    std::unique_lock<std::mutex> lock(this->queue_lock_);
     if (this->stop_) {
       throw std::runtime_error("Error, try to add task on stopped pool");
     }
@@ -262,7 +264,7 @@ auto ThreadPool::Enqueue(const TaskPriority& priority, F&& f, Args&&... args)
 ThreadPool::~ThreadPool(void) {
   // Stop queue
   {
-    std::unique_lock<std::mutex> lock(this->lock_);
+    std::unique_lock<std::mutex> lock(this->queue_lock_);
     this->stop_ = true;
   }
   // Signal all waiting thread to run

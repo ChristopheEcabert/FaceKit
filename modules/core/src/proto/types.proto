@@ -19,22 +19,24 @@ enum DataType {
   kInt8 = 1;
   // Signed UInt8
   kUInt8 = 2;
-  // Signed Int16
+  // Unsigned Int16
   kInt16 = 3;
-  // Signed UInt16
+  // Unigned Int16
   kUInt16 = 4;
   // Signed Int32
   kInt32 = 5;
-  // Signed UInt32
+  // Unsigned Int32
   kUInt32 = 6;
+  // Signed Int64
+  kInt64 = 7;
+  // Unsigned Int64
+  kUInt64 = 8;
   // Float - 32bits
-  kFloat = 7;
+  kFloat = 9;
   // Double - 64bits
-  kDouble = 8;
-  // Size_t
-  kSize_t = 9;
+  kDouble = 10;
   // Bool
-  kBool = 10;
+  kBool = 11;
   // String
-  kString = 11;
+  kString = 12;
 }

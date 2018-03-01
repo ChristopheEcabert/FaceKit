@@ -50,10 +50,10 @@ class FK_EXPORTS NDArrayMap {
   
   /**
    *  @name   NDArrayMap
-   *  @fn     NDArrayMap(T* ptr, const NDArrayDims& dims)
+   *  @fn     NDArrayMap(const NDArrayDims& dims, T* ptr)
    *  @brief  Constructor
-   *  @param[in] ptr  Pointer to the raw buffer to map
    *  @param[in] dims NDArray dimensions descriptor
+   *  @param[in] ptr  Pointer to the raw buffer to map
    */
   NDArrayMap(const NDArrayDims& dims, T* ptr) : n_dims_(NDIMS), n_elem_(1), data_(ptr) {
     assert(dims.dims() == n_dims_);
@@ -123,11 +123,11 @@ class FK_EXPORTS NDArrayMap {
   
   /**
    *  @name   dim
-   *  @fn     size_t dim(const size_t& axis) const
+   *  @fn     size_t dim_size(const size_t& axis) const
    *  @brief  Dimension for a given `axis`
    *  @return Axis dimension
    */
-  size_t dim(const size_t& axis) const {
+  size_t dim_size(const size_t& axis) const {
     return dims_[axis];
   }
   
@@ -184,9 +184,9 @@ class FK_EXPORTS NDArrayMap {
   
   /**
    *  @name   FlatIndex
-   *  @fn     template<typename... Indexes>
-              size_t FlatIndex(const size_t& axis, const size_t& index,
+   *  @fn     size_t FlatIndex(const size_t& axis, const size_t& index,
                                const Indexes... indexes) const
+   *  tparam  Indexes Packed parameters
    *  @brief  Compute flat index for the mapped raw buffer
    *  @param[in] axis   Axis of interest
    *  @param[in] index  Dimension's index for a given `axis`

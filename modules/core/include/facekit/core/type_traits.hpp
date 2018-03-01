@@ -39,10 +39,10 @@ namespace FaceKit {
  */
 template<typename T, size_t NDIMS = 1>
 struct NDATypes {
-  /** Rank <NDIMS> NDArray map of T type */
+  /** Rank-NDIMS NDArray map of T type */
   using NDArray = NDArrayMap<T, NDIMS>;
   
-  /** Rank <NDIMS> NDArray map ot const T type */
+  /** Rank-NDIMS NDArray map ot const T type */
   using ConstNDArray = NDArrayMap<const T, NDIMS>;
   
   /** Rank 0 - Scalar of T type */

@@ -1,5 +1,5 @@
 /**
- *  @file   string_util.hpp
+ *  @file   "utils/string.hpp"
  *  @brief  Utility function for string handling
  *  @ingroup core
  *

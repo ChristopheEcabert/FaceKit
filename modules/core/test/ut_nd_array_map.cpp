@@ -22,7 +22,7 @@ class NDArrayMapTest : public ::testing::Test {
 };
 
 // List all types to test + register test
-typedef ::testing::Types<int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, float, double, size_t> TypeToTest;
+typedef ::testing::Types<int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, int64_t, uint64_t, float, double> TypeToTest;
 TYPED_TEST_CASE(NDArrayMapTest, TypeToTest);
 
 /** CTOR + properties */
@@ -44,34 +44,34 @@ TYPED_TEST(NDArrayMapTest, CTor) {
     FK::NDArrayMap<const T, 1> map(buff.data(), 48);
     EXPECT_EQ(map.rank(), 1);
     EXPECT_EQ(map.size(), 48);
-    EXPECT_EQ(map.dim(0), 48);
+    EXPECT_EQ(map.dim_size(0), 48);
   }
   // Matrix
   {
     FK::NDArrayMap<const T, 2> map(buff.data(), 3, 16);
     EXPECT_EQ(map.rank(), 2);
     EXPECT_EQ(map.size(), 48);
-    EXPECT_EQ(map.dim(0), 3);
-    EXPECT_EQ(map.dim(1), 16);
+    EXPECT_EQ(map.dim_size(0), 3);
+    EXPECT_EQ(map.dim_size(1), 16);
   }
   // NDArray - 3
   {
     FK::NDArrayMap<const T, 3> map(buff.data(), 2, 8, 3);
     EXPECT_EQ(map.rank(), 3);
     EXPECT_EQ(map.size(), 48);
-    EXPECT_EQ(map.dim(0), 2);
-    EXPECT_EQ(map.dim(1), 8);
-    EXPECT_EQ(map.dim(2), 3);
+    EXPECT_EQ(map.dim_size(0), 2);
+    EXPECT_EQ(map.dim_size(1), 8);
+    EXPECT_EQ(map.dim_size(2), 3);
   }
   // NDArray - 4
   {
     FK::NDArrayMap<const T, 4> map(buff.data(), 2, 2, 4, 3);
     EXPECT_EQ(map.rank(), 4);
     EXPECT_EQ(map.size(), 48);
-    EXPECT_EQ(map.dim(0), 2);
-    EXPECT_EQ(map.dim(1), 2);
-    EXPECT_EQ(map.dim(2), 4);
-    EXPECT_EQ(map.dim(3), 3);
+    EXPECT_EQ(map.dim_size(0), 2);
+    EXPECT_EQ(map.dim_size(1), 2);
+    EXPECT_EQ(map.dim_size(2), 4);
+    EXPECT_EQ(map.dim_size(3), 3);
   }
 }
 

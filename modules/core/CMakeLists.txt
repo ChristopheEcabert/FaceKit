@@ -20,8 +20,9 @@ if(build)
     src/memory.cpp
     src/nd_array_dims.cpp
     src/nd_array.cpp
+    src/proto.cpp
     src/status.cpp
-    src/string_util.cpp
+    src/string.cpp
     src/types.cpp)
   set(incs
     
@@ -33,9 +34,9 @@ if(build)
     include/facekit/${SUBSYS_NAME}/nd_array_dims.hpp
     include/facekit/${SUBSYS_NAME}/nd_array_map.hpp
     include/facekit/${SUBSYS_NAME}/nd_array.hpp
+    include/facekit/${SUBSYS_NAME}/nd_array.inl.hpp
     include/facekit/${SUBSYS_NAME}/refcounter.hpp
     include/facekit/${SUBSYS_NAME}/status.hpp
-    include/facekit/${SUBSYS_NAME}/string_util.hpp
     include/facekit/${SUBSYS_NAME}/thread_pool.hpp
     include/facekit/${SUBSYS_NAME}/types.hpp)
   set(incs_math
@@ -49,6 +50,9 @@ if(build)
     include/facekit/${SUBSYS_NAME}/mem/allocator.hpp
     include/facekit/${SUBSYS_NAME}/mem/map_allocator.hpp
     include/facekit/${SUBSYS_NAME}/mem/memory.hpp)
+    set(incs_utils
+    include/facekit/${SUBSYS_NAME}/utils/proto.hpp
+    include/facekit/${SUBSYS_NAME}/utils/string.hpp)
   set(proto
     src/proto/nd_array_dims.proto
     src/proto/nd_array.proto
@@ -60,13 +64,13 @@ if(build)
 
   # Add library
   FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" 
-                      FILES ${srcs} ${incs} ${incs_math} ${incs_mem} 
+                      FILES ${srcs} ${incs} ${incs_math} ${incs_mem} ${incs_utils} 
                       PROTO_FILES ${proto} 
                       LINK_WITH ${OpenCV_LIBRARIES} ${BLAS_LIBRARIES} ${Protobuf_LIBRARIES})
 
   #EXAMPLES
   IF(WITH_EXAMPLES)
-      #LTS5_ADD_EXAMPLE(facekit_video_splitter FILES file LINK_WITH lib)
+    FACEKIT_ADD_EXAMPLE(thread_pool FILES example/ex_thread_pool.cpp LINK_WITH facekit_core)
   ENDIF(WITH_EXAMPLES)
 
   # TESTS
@@ -85,4 +89,5 @@ if(build)
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}/math" ${incs_math})
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}/mem" ${incs_mem})
+  FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}/utils" ${incs_utils})
 endif(build)

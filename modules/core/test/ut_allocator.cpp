@@ -74,22 +74,22 @@ TEST(Allocator, CpuAllocatorTyped) {
   auto* a = FK::DefaultCpuAllocator();
   // Do a bunch of typed allocation
   int16_t* p1 = a->Allocate<int16_t>(2048);
-  size_t* p2 = a->Allocate<size_t>(65536);
+  int64_t* p2 = a->Allocate<int64_t>(65536);
   // Check statistics
   CheckStatistics(a,
                   2,
                   2048 * sizeof(int16_t) + 65536 * sizeof(size_t),
-                  2048 * sizeof(int16_t) + 65536 * sizeof(size_t),
-                  65536 * sizeof(size_t));
+                  2048 * sizeof(int16_t) + 65536 * sizeof(int64_t),
+                  65536 * sizeof(int64_t));
   // Deallocate
   a->Deallocate<int16_t>(2048, p1);
-  a->Deallocate<size_t>(65536, p2);
+  a->Deallocate<int64_t>(65536, p2);
   // Check statistics
   CheckStatistics(a,
                   2,
                   0,
-                  2048 * sizeof(int16_t) + 65536 * sizeof(size_t),
-                  65536 * sizeof(size_t));
+                  2048 * sizeof(int16_t) + 65536 * sizeof(int64_t),
+                  65536 * sizeof(int64_t));
   // Done
   a->ClearStatistics();
   FK::EnableAllocatorStatistics(false);

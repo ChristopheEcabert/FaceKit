@@ -80,6 +80,13 @@ class FK_EXPORTS Allocator {
   static constexpr size_t kDefaultAlignment = 32;
   
   /**
+   *  @name   Allocator
+   *  @fn     Allocator(void)
+   *  @brief  Constructor
+   */
+  Allocator(void) : call_cdtor_(true) {}
+  
+  /**
    *  @name   ~Allocator
    *  @fn     virtual ~Allocator(void)
    *  @brief  Destructor
@@ -150,7 +157,7 @@ class FK_EXPORTS Allocator {
       // Allocate memory block using allocator
       void* ptr = this->AllocateRaw(n_element * sizeof(T), alignment);
       T* t_ptr = reinterpret_cast<T*>(ptr);
-      if (t_ptr) {
+      if (t_ptr && this->call_cdtor_) {
         CallCTor(n_element, t_ptr);
       }
       return t_ptr;
@@ -168,7 +175,9 @@ class FK_EXPORTS Allocator {
   template<typename T>
   void Deallocate(const size_t& n_element, T* ptr) {
     if (ptr) {
-      CallDTor<T>(n_element, ptr);
+      if (this->call_cdtor_) {
+        CallDTor<T>(n_element, ptr);
+      }
       this->DeallocateRaw(n_element * sizeof(T), ptr);
     }
   }
@@ -189,6 +198,12 @@ class FK_EXPORTS Allocator {
    *  @brief  Clear allocator's statistics
    */
   virtual void ClearStatistics(void) {}
+  
+#pragma mark -
+#pragma mark Protected
+ protected:
+  /** Indicate if constructor/destructor needs to be runned */
+  bool call_cdtor_;
   
 #pragma mark -
 #pragma mark Private

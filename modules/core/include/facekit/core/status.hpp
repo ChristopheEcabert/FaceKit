@@ -108,7 +108,7 @@ class FK_EXPORTS Status {
     
   /**
    *  @name   operator==
-   *  @fn     bool operator==(const Status& other) const
+   *  @fn     bool operator==(const Status& rhs) const
    *  @brief  Equality comparator
    *  @param[in] rhs  Object to compare against
    *  @return True if both object are equal, false otherwise
@@ -117,7 +117,7 @@ class FK_EXPORTS Status {
     
   /**
    *  @name   operator!=
-   *  @fn     bool operator!=(const Status& other) const
+   *  @fn     bool operator!=(const Status& rhs) const
    *  @brief  Inequality comparator
    *  @param[in] rhs  Object to compare against
    *  @return True if both object are different, false otherwise

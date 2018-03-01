@@ -16,7 +16,7 @@
 #include "opencv2/imgproc.hpp"
 
 #include "facekit/dataset/color_space_cell.hpp"
-#include "facekit/core/string_util.hpp"
+#include "facekit/core/utils/string.hpp"
 
 /**
  *  @namespace  FaceKit

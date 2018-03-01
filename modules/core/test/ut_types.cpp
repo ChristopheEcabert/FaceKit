@@ -26,9 +26,10 @@ TEST(Types, DataTypeToString) {
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kUInt16), "uint16");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kInt32), "int32");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kUInt32), "uint32");
+  EXPECT_EQ(FK::DataTypeToString(FK::DataType::kInt64), "int64");
+  EXPECT_EQ(FK::DataTypeToString(FK::DataType::kUInt64), "uint64");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kFloat), "float");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kDouble), "double");
-  EXPECT_EQ(FK::DataTypeToString(FK::DataType::kSize_t), "size_t");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kBool), "bool");
   EXPECT_EQ(FK::DataTypeToString(FK::DataType::kString), "string");
   EXPECT_EQ(FK::DataTypeToString((FK::DataType)32), "unsupported");
@@ -50,12 +51,14 @@ TEST(Types, DataTypeFromString) {
   EXPECT_EQ(type, FK::DataType::kInt32);
   EXPECT_TRUE(FK::DataTypeFromString("uint32", &type));
   EXPECT_EQ(type, FK::DataType::kUInt32);
+  EXPECT_TRUE(FK::DataTypeFromString("int64", &type));
+  EXPECT_EQ(type, FK::DataType::kInt64);
+  EXPECT_TRUE(FK::DataTypeFromString("uint64", &type));
+  EXPECT_EQ(type, FK::DataType::kUInt64);
   EXPECT_TRUE(FK::DataTypeFromString("float", &type));
   EXPECT_EQ(type, FK::DataType::kFloat);
   EXPECT_TRUE(FK::DataTypeFromString("double", &type));
   EXPECT_EQ(type, FK::DataType::kDouble);
-  EXPECT_TRUE(FK::DataTypeFromString("size_t", &type));
-  EXPECT_EQ(type, FK::DataType::kSize_t);
   EXPECT_TRUE(FK::DataTypeFromString("bool", &type));
   EXPECT_EQ(type, FK::DataType::kBool);
   EXPECT_TRUE(FK::DataTypeFromString("string", &type));
@@ -75,14 +78,15 @@ TEST(Types, IsDataTypeValid) {
   EXPECT_TRUE((bool)FK::IsDataTypeValid<uint16_t>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<int32_t>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<uint32_t>::value);
+  EXPECT_TRUE((bool)FK::IsDataTypeValid<int64_t>::value);
+  EXPECT_TRUE((bool)FK::IsDataTypeValid<uint64_t>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<float>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<double>::value);
-  EXPECT_TRUE((bool)FK::IsDataTypeValid<size_t>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<bool>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<std::string>::value);
   // Invalid
   EXPECT_FALSE((bool)FK::IsDataTypeValid<long>::value);
-  EXPECT_FALSE((bool)FK::IsDataTypeValid<long long>::value);
+  EXPECT_FALSE((bool)FK::IsDataTypeValid<size_t>::value);
 }
 
 TEST(Types, DataTypeToEnum) {
@@ -95,9 +99,10 @@ TEST(Types, DataTypeToEnum) {
   EXPECT_EQ((DType)FK::DataTypeToEnum<uint16_t>::value, DType::kUInt16);
   EXPECT_EQ((DType)FK::DataTypeToEnum<int32_t>::value, DType::kInt32);
   EXPECT_EQ((DType)FK::DataTypeToEnum<uint32_t>::value, DType::kUInt32);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<int64_t>::value, DType::kInt64);
+  EXPECT_EQ((DType)FK::DataTypeToEnum<uint64_t>::value, DType::kUInt64);
   EXPECT_EQ((DType)FK::DataTypeToEnum<float>::value, DType::kFloat);
   EXPECT_EQ((DType)FK::DataTypeToEnum<double>::value, DType::kDouble);
-  EXPECT_EQ((DType)FK::DataTypeToEnum<size_t>::value, DType::kSize_t);
   EXPECT_EQ((DType)FK::DataTypeToEnum<bool>::value, DType::kBool);
   EXPECT_EQ((DType)FK::DataTypeToEnum<std::string>::value, DType::kString);
 }
@@ -112,9 +117,10 @@ TEST(Types, DataTypeSize) {
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kUInt16>::value, sizeof(uint16_t));
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kInt32>::value, sizeof(int32_t));
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kUInt32>::value, sizeof(uint32_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kInt64>::value, sizeof(int64_t));
+  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kUInt64>::value, sizeof(uint64_t));
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kFloat>::value, sizeof(float));
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kDouble>::value, sizeof(double));
-  EXPECT_EQ((size_t)FK::DataTypeSize<DType::kSize_t>::value, sizeof(size_t));
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kBool>::value, sizeof(bool));
   EXPECT_EQ((size_t)FK::DataTypeSize<DType::kString>::value, sizeof(std::string));
   // Invalid
@@ -133,9 +139,10 @@ TEST(Types, DataTypeDynamicSize) {
   EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kUInt16), sizeof(uint16_t));
   EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kInt32), sizeof(int32_t));
   EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kUInt32), sizeof(uint32_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kInt64), sizeof(int64_t));
+  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kUInt64), sizeof(uint64_t));
   EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kFloat), sizeof(float));
   EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kDouble), sizeof(double));
-  EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kSize_t), sizeof(size_t));
   EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kBool), sizeof(bool));
   EXPECT_EQ((size_t)FK::DataTypeDynamicSize(DType::kString), sizeof(std::string));
   // Invalid

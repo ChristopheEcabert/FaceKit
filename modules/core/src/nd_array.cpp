@@ -9,11 +9,15 @@
  */
 
 #include <iostream>
+#include <type_traits>
 
 #include "nd_array.pb.h"
+#include "google/protobuf/repeated_field.h"
+#include "google/protobuf/stubs/port.h"
 
 #include "facekit/core/nd_array.hpp"
 #include "facekit/core/logger.hpp"
+#include "facekit/core/utils/proto.hpp"
 
 /**
  *  @namespace  FaceKit
@@ -142,7 +146,218 @@ Buffer<T>::~Buffer(void) {
     allocator_->Deallocate<T>(n_elem_, data_);
   }
 }
+  
+/**
+ *  @class  SubBuffer
+ *  @brief  Buffer representing only a sub region of a Buffer
+ *  @author Christophe Ecabert
+ *  @date   1.03.18
+ *  @ingroup core
+ *  @tparam T Data type
+ */
+template<typename T>
+class SubBuffer : public NDArrayBuffer {
+ public:
+  
+#pragma mark Initialization
+  
+  /**
+   *  @name   SubBuffer
+   *  @fn     SubBuffer(NDArrayBuffer* buff, const size_t& start,
+                        const size_t& n_elem)
+   *  @brief  Constructor
+   *  @param[in] buff   Original buffer
+   *  @param[in] start  Position where the sub-buffer starts. Should be 
+   *                    within buffer range[0, N]
+   *  @param[in] n_elem Number of element in the sub-buffer.
+   *                    start + n_elem <= N sould be true (N being the size
+   *                    of the complete buffer)
+   */
+  SubBuffer(NDArrayBuffer* buff,
+            const size_t& start,
+            const size_t& n_elem) : root_(buff->root()),
+                                    data_(buff->base<T>() + start),
+                                    n_elem_(n_elem) {
+    assert(buff->base<T>() <= this->base<T>());
+    T* root_end = buff->base<T>() + (buff->size() / sizeof(T));
+    assert(this->base<T>() <= root_end);
+    assert(this->base<T>() + n_elem <= root_end);
+    root_->Inc();
+  }
+  
+  /**
+   *  @name   SubBuffer
+   *  @fn     SubBuffer(const SubBuffer& other) = delete
+   *  @brief  Copy constructor
+   *  @param[in] other  Object to copy from
+   */
+  SubBuffer(const SubBuffer& other) = delete;
+  
+  /**
+   *  @name   operator=
+   *  @fn     SubBuffer& operator=(const SubBuffer& rhs) = delete
+   *  @brief  Assignment operator
+   *  @param[in] rhs  Object to assign from
+   *  @return Newly assigned object
+   */
+  SubBuffer& operator=(const SubBuffer& rhs) = delete;
+  
+#pragma mark Usage
+  
+  /**
+   *  @name   data
+   *  @fn     void* data(void) const override
+   *  @brief  Pointer to the buffer storing data of a given `size` in bytes
+   *  @return Buffer address
+   */
+  void* data(void) const override {
+    return data_;
+  }
+  
+  /**
+   *  @name   size
+   *  @fn     size_t size(void) const override
+   *  @brief  Buffer dimension in bytes
+   *  @return Number of bytes in the buffer
+   */
+  size_t size(void) const override {
+    return n_elem_ * sizeof(T);
+  }
+  
+  /**
+   *  @name   root
+   *  @fn     NDArrayBuffer* root(void) override
+   *  @brief  Provide reference to the buffer interface, most of the time it
+   *          return the address of `this` however when the buffer is a
+   *          subpart of another one, it will point to this one.
+   */
+  NDArrayBuffer* root(void) override {
+    return root_;
+  }
+  
+#pragma mark Private
+ private:
+  
+  /**
+   *  @name   ~SubBuffer
+   *  @fn     ~SubBuffer(void) override
+   *  @brief  Destructor
+   */
+  ~SubBuffer(void) override {
+    root_->Dec();
+  }
+  
+  /** Original buffer */
+  NDArrayBuffer* root_;
+  /** Data */
+  T* data_;
+  /** Size */
+  size_t n_elem_;
+};
+  
+#pragma mark -
+#pragma mark Proto utility function
+  
+/**
+ *  @struct  ProtoStream
+ *  @brief  Functor for reading/writing to NDArrayProto object (serialization)
+ *  @author Christophe Ecabert
+ *  @date   1.03.18
+ *  @ingroup core
+ *  @tparam T Data type
+ */
+template<typename T>
+struct ProtoStream {
+  // Ensure only supported type are used
+  static_assert(IsDataTypeValid<T>::value, "T is not a supported type");
+  static_assert(std::is_trivial<T>::value,
+                "T is not trivial, specialization needed");
 
+  /**
+   *  @name   Write
+   *  @fn     static void Write(const NDArrayBuffer* buffer, const size_t n, NDArrayProto* dst)
+   *  @brief  Dump a given buffer into a proto object
+   *  @param[in] buffer Data to write
+   *  @param[in] n      Number of element to write
+   *  @param[out] dst Protocol Buffer object to write into
+   */
+  static void Write(const NDArrayBuffer* buffer, const size_t& n, NDArrayProto* dst) {
+    assert(buffer->size() == n * sizeof(T));
+    // Copy data
+    dst->mutable_data()->assign(buffer->base<const char>(), buffer->size());
+  }
+  
+  /**
+   *  @name   Read
+   *  @fn     static NDArrayBuffer* Read(const NDArrayProto& src, const size_t& n, Allocator* alloc)
+   *  @brief  Create an NDArrayBuffer from agiven proto object
+   *  @param[in]  src Protocol Buffer Object
+   *  @param[in]  n   Number of element to read
+   *  @param[in]  alloc Allocator to use for creating the underlying buffer
+   *  @return An NDArrayBuffer if everything went well, nullptr otherwise.
+   */
+  static NDArrayBuffer* Read(const NDArrayProto& src, const size_t& n, Allocator* alloc) {
+    auto data = src.data();
+    if (data.size() != n * sizeof(T)) {
+      // Size miss match
+      FACEKIT_LOG_DEBUG("Dimensions miss-match: provided" << n * sizeof(T) << " actual " << data.size());
+      return nullptr;
+    }
+    // Create buffer
+    NDArrayBuffer* buffer = new Buffer<T>(n, alloc);
+    char* ptr = buffer->base<char>();
+    if (ptr == nullptr) {
+      // Allocation went wrong, release buffer
+      buffer->Dec();
+      return nullptr;
+    }
+    // Copy data to buffer
+    std::copy(data.begin(), data.end(), ptr);
+    return buffer;
+  }
+};
+  
+template<>
+struct ProtoStream<std::string> {
+  
+  /**
+   *  @name   Write
+   *  @fn     static void Write(const NDArrayBuffer* buffer, const size_t n, NDArrayProto* dst)
+   *  @brief  Dump a given buffer into a proto object
+   *  @param[in] buffer Data to write
+   *  @param[in] n      Number of element to write
+   *  @param[out] dst Protocol Buffer object to write into
+   */
+  static void Write(const NDArrayBuffer* buffer, const size_t& n, NDArrayProto* dst) {
+    // Write string list
+    const std::string* strings = buffer->base<const std::string>();
+    EncodeStringList(strings, n, dst->mutable_data());
+  }
+  
+  /**
+   *  @name   Read
+   *  @fn     static NDArrayBuffer* Read(const NDArrayProto& src, const size_t& n, Allocator* alloc)
+   *  @brief  Create an NDArrayBuffer from agiven proto object
+   *  @param[in]  src Protocol Buffer Object
+   *  @param[in]  n   Number of element to read
+   *  @param[in]  alloc Allocator to use for creating the underlying buffer
+   *  @return An NDArrayBuffer if everything went well, nullptr otherwise.
+   */
+  static NDArrayBuffer* Read(const NDArrayProto& src, const size_t& n, Allocator* alloc) {
+    auto data = src.data();
+    // Create buffer
+    NDArrayBuffer* buffer = new Buffer<std::string>(n, alloc);
+    std::string* ptr = buffer->base<std::string>();
+    // Read string list
+    if (ptr == nullptr || !DecodeStringList(src.data(), n, ptr)) {
+      // Allocation / Decoding went wrong, release buffer
+      buffer->Dec();
+      return nullptr;
+    }
+    return buffer;
+  }
+};
+  
 /** Forward args */
 #define ARG(...) __VA_ARGS__
 /** Define statement for on case of the switch */
@@ -161,9 +376,10 @@ Buffer<T>::~Buffer(void) {
     CASE(uint16_t, ARG(CCODE))                                  \
     CASE(int32_t, ARG(CCODE))                                   \
     CASE(uint32_t, ARG(CCODE))                                  \
+    CASE(int64_t, ARG(CCODE))                                   \
+    CASE(uint64_t, ARG(CCODE))                                  \
     CASE(float, ARG(CCODE))                                     \
     CASE(double, ARG(CCODE))                                    \
-    CASE(size_t, ARG(CCODE))                                    \
     CASE(bool, ARG(CCODE))                                      \
     CASE(std::string, ARG(CCODE))                               \
     case DataType::kUnknown:                                    \
@@ -282,9 +498,34 @@ void NDArray::Resize(const DataType& type, const NDArrayDims& dims) {
  */
 void NDArray::ToProto(NDArrayProto* proto) const {
   proto->Clear();
-  // Do conversion
+  if (IsInitialized()) {
+    // Do conversion
+    // Type
+    proto->set_type(type_);
+    // Shape
+    dims_.ToProto(proto->mutable_dims());
+    // Buffer if any
+    if (buffer_) {
+      // Fill proto object
+      SWITCH_WITH_DEFAULT(type_,
+                          ProtoStream<T>::Write(buffer_, dims_.n_elems(), proto),
+                          FACEKIT_LOG_ERROR("Unknown data type: " << type_),
+                          FACEKIT_LOG_ERROR("Data type not set"));
+    }
+  } else {
+    FACEKIT_LOG_DEBUG("Can not convert to protobuf object uninitialized array");
+  }
+}
   
-  
+/*
+ *  @name   FromProto
+ *  @fn     Status FromProto(const NDArrayProto& proto)
+ *  @brief  Fill this NDArray from a given Protocol Buffer Object.
+ *  @param[in] proto  Protobuf object holding NDArray
+ *  @return Operation status
+ */
+Status NDArray::FromProto(const NDArrayProto& proto) {
+  return FromProto(proto, DefaultCpuAllocator());
 }
 
 /*
@@ -293,12 +534,100 @@ void NDArray::ToProto(NDArrayProto* proto) const {
  *  @brief  Fill this NDArray from a given Protocol Buffer Object.
  *  @return Operation status
  */
-Status NDArray::FromProto(const NDArrayProto& proto) {
-  return Status(Status::Type::kUnimplemented,
-                "No conversion supported at the moment");
+Status NDArray::FromProto(const NDArrayProto& proto, Allocator* allocator) {
+  // Check type
+  auto type = proto.type();
+  if (type == DataType::kUnknown) {
+    return Status(Status::Type::kInvalidArgument,
+                  "Unknown data type in protobuf object");
+  }
+  // Check dimensions
+  if(!NDArrayDims::IsValid(proto.dims())) {
+    return Status(Status::Type::kInvalidArgument,
+                  "NDArray dimensions in protobuf object are not valid");
+  }
+  // Try to Load array
+  NDArrayDims dims(proto.dims());
+  size_t n_elem = dims.n_elems();
+  NDArrayBuffer* buff = nullptr;
+  if (n_elem > 0) {
+    bool err = false;
+    if (!proto.data().empty()) {
+      SWITCH_WITH_DEFAULT(type,
+                          buff = ProtoStream<T>::Read(proto, n_elem, allocator),
+                          err = true,
+                          err = true);
+    }
+    if (err || buff == nullptr) {
+      return Status(Status::Type::kInvalidArgument,
+                    "Error while reading array data from protobuf object");
+    }
+  }
+  // Reach here, data were read correctly -> Can init array content
+  dims_ = dims;
+  type_ = type;
+  allocator_ = allocator;
+  if (buffer_) {
+    buffer_->Dec();
+  }
+  buffer_ = buff;
+  return Status();
 }
   
+#pragma mark -
+#pragma mark Usage
   
+/*
+ *  @name   ShareBuffer
+ *  @fn     bool ShareBuffer(const NDArray& other) const
+ *  @brief  Check if two arrays share the same underlying buffer
+ */
+bool NDArray::ShareBuffer(const NDArray& other) const {
+  //assert(buffer_ != nullptr && other.buffer_ != nullptr);
+  if (buffer_ != nullptr || other.buffer_ != nullptr) {
+    return buffer_ == other.buffer_;
+  }
+  return false;
+}
+  
+/*
+ *  @name   Slice
+ *  @fn     NDArray Slice(const size_t& start, const size_t& stop) const
+ *  @brief  Create an array being a  subregion of this array.
+ *  @param[in] start  Begining of the subregion
+ *  @param[in] stop   End of the subregion algon first dimension (i.e. dim0)
+ *  @return Subregion's array.
+ */
+NDArray NDArray::Slice(const size_t& start, const size_t& stop) const {
+  assert(dims() >= 1);
+  assert(start >= 0);
+  size_t dim0 = dim_size(0);
+  assert(stop <= dim0);
+  // Ask for the whole array ? -> trivial case
+  if (start == 0 && stop == dim0) {
+    return *this;
+  }
+  
+  // Create new array
+  NDArray array;
+  array.type_ = type_;
+  array.dims_ = dims_;
+  array.buffer_ = nullptr;
+  if (dim0 > 0) {
+    const size_t elem_per_dim0 = n_elems() / dim0;
+    const size_t delta = start * elem_per_dim0;
+    dim0 = stop - start;
+    array.dims_.set_dim(0, dim0);
+    const size_t n_elem = dim0 * elem_per_dim0;
+    if (buffer_) {
+      SWITCH_WITH_DEFAULT(type_,
+                          array.buffer_ = new SubBuffer<T>(buffer_, delta, n_elem),
+                          FACEKIT_LOG_ERROR("Unknown data type: " << type_),
+                          FACEKIT_LOG_ERROR("Data type not set"));
+    }
+  }
+  return array;
+}
   
   
 }  // namespace FaceKit

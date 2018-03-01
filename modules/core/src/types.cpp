@@ -40,12 +40,14 @@ std::string DataTypeToString(const DataType& type) {
       return "int32";
     case DataType::kUInt32:
       return "uint32";
+    case DataType::kInt64:
+      return "int64";
+    case DataType::kUInt64:
+      return "uint64";
     case DataType::kFloat:
       return "float";
     case DataType::kDouble:
       return "double";
-    case DataType::kSize_t:
-      return "size_t";
     case DataType::kBool:
       return "bool";
     case DataType::kString:
@@ -83,14 +85,17 @@ bool DataTypeFromString(const std::string& str, DataType* type) {
   } else if (str == "uint32") {
     *type = DataType::kUInt32;
     return true;
+  } else if (str == "int64") {
+    *type = DataType::kInt64;
+    return true;
+  } else if (str == "uint64") {
+    *type = DataType::kUInt64;
+    return true;
   } else if (str == "float") {
     *type = DataType::kFloat;
     return true;
   } else if (str == "double") {
     *type = DataType::kDouble;
-    return true;
-  } else if (str == "size_t") {
-    *type = DataType::kSize_t;
     return true;
   } else if (str == "bool") {
     *type = DataType::kBool;
@@ -123,12 +128,14 @@ size_t DataTypeDynamicSize(const DataType& dtype) {
       return sizeof(int32_t);
     case DataType::kUInt32:
       return sizeof(uint32_t);
+    case DataType::kInt64:
+      return sizeof(int64_t);
+    case DataType::kUInt64:
+      return sizeof(uint64_t);
     case DataType::kFloat:
       return sizeof(float);
     case DataType::kDouble:
       return sizeof(double);
-    case DataType::kSize_t:
-      return sizeof(size_t);
     case DataType::kBool:
       return sizeof(bool);
     case DataType::kString:

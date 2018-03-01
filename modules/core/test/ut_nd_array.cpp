@@ -9,10 +9,15 @@
  */
 
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
+#include "nd_array.pb.h"
+
 #include "facekit/core/nd_array.hpp"
+#include "facekit/core/mem/map_allocator.hpp"
+#include "facekit/core/utils/proto.hpp"
 
 #pragma mark -
 #pragma mark Type definition
@@ -23,18 +28,21 @@ public:
 };
 
 // List all types to test + register test
-typedef ::testing::Types<int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, float, double, size_t, bool, std::string> TypeToTest;
+typedef ::testing::Types<int8_t, uint8_t, int16_t, uint16_t, int32_t, uint32_t, int64_t, uint64_t, float, double, bool, std::string> TypeToTest;
 TYPED_TEST_CASE(NDArrayTest, TypeToTest);
 
 #pragma mark -
 #pragma mark Utility function
 
 /**
- *  @name   FillIota
- *  @brief  Fill an initaliazed tensor with value from [0, ..., N]
+ *  @name   ConvertValue
+ *  @brief  Convert number to proper type
  */
 template<typename T>
-void FillIota(FaceKit::NDArray* array);
+T ConvertValue(const size_t& v);
+
+template<typename T>
+std::vector<T> ConvertValues(const std::initializer_list<size_t>& v);
 
 /**
  *  @name   CheckIota
@@ -42,6 +50,88 @@ void FillIota(FaceKit::NDArray* array);
  */
 template<typename T>
 void CheckIota(const FaceKit::NDArray& array);
+
+/**
+ *  @enum CompType
+ *  @brief  Type of comparision
+ */
+enum CompType {
+  kGreaterThan,
+  kLessThan,
+  kEqual
+};
+
+/**
+ *  @class  ArrayComparator
+ *  @brief  Compare content of NDArrays
+ *  @author Christophe Ecabert
+ *  @date   28.02.18
+ *  @ingroup core
+ */
+template<typename T, CompType COMP>
+struct ArrayComparator {
+  /**
+   *  @name   Compare
+   *  @brief  Compare two arrays
+   *  @param[in] a  First array
+   *  @param[in] b  Second array to compare against
+   */
+  static void Compare(const FaceKit::NDArray& a, const FaceKit::NDArray& b);
+};
+
+template<typename T>
+struct ArrayComparator<T, CompType::kGreaterThan> {
+  static void Compare(const FaceKit::NDArray& a, const FaceKit::NDArray& b) {
+    // Check type
+    EXPECT_EQ(a.type(), FaceKit::DataTypeToEnum<T>::v());
+    EXPECT_EQ(a.type(), b.type());
+    // dims
+    EXPECT_EQ(a.dims(), b.dims());
+    size_t N = a.dims();
+    const auto a_map = a.AsFlat<T>();
+    const auto b_map = b.AsFlat<T>();
+    // Compare elements
+    for (size_t k = 0; k < N; ++k) {
+      EXPECT_GT(a_map(k), b_map(k));
+    }
+  }
+};
+template<typename T>
+struct ArrayComparator<T, CompType::kLessThan> {
+  static void Compare(const FaceKit::NDArray& a, const FaceKit::NDArray& b) {
+    // Check type
+    EXPECT_EQ(a.type(), FaceKit::DataTypeToEnum<T>::v());
+    EXPECT_EQ(a.type(), b.type());
+    // dims
+    EXPECT_EQ(a.dims(), b.dims());
+    size_t N = a.dims();
+    const auto a_map = a.AsFlat<T>();
+    const auto b_map = b.AsFlat<T>();
+    // Compare elements
+    for (size_t k = 0; k < N; ++k) {
+      EXPECT_LT(a_map(k), b_map(k));
+    }
+  }
+};
+
+template<typename T>
+struct ArrayComparator<T, CompType::kEqual> {
+  static void Compare(const FaceKit::NDArray& a, const FaceKit::NDArray& b) {
+    // Check type
+    EXPECT_EQ(a.type(), FaceKit::DataTypeToEnum<T>::v());
+    EXPECT_EQ(a.type(), b.type());
+    // dims
+    EXPECT_EQ(a.dims(), b.dims());
+    size_t N = a.dims();
+    auto a_map = a.AsFlat<T>();
+    auto b_map = b.AsFlat<T>();
+    // Compare elements
+    for (size_t k = 0; k < N; ++k) {
+      EXPECT_EQ(a_map(k), b_map(k));
+    }
+  }
+};
+
 
 
 #pragma mark -
@@ -145,17 +235,281 @@ TYPED_TEST(NDArrayTest, CTor) {
   FK::EnableAllocatorStatistics(false);
 }
 
+TYPED_TEST(NDArrayTest, ConstructWithValues) {
+  namespace FK = FaceKit;
+  using T = TypeParam;
+  
+  { // Create scalar
+    T value = ConvertValue<T>(15);
+    FK::NDArray array = FK::NDArray::WithScalar(value);
+    auto map = array.AsScalar<T>();
+    EXPECT_EQ(map.size(), 1);
+    EXPECT_EQ(map.rank(), 0);
+    EXPECT_EQ(map(), value);
+  }
+  { // Vector
+    auto values = ConvertValues<T>({10, 5, 3, 9, 42, 0});
+    FK::NDArray array = FK::NDArray::WithValues(values);
+    auto map = array.AsVector<T>();
+    EXPECT_EQ(map.size(), 6);
+    EXPECT_EQ(map.rank(), 1);
+    EXPECT_EQ(map.dim_size(0), 6);
+    for (size_t k = 0; k < map.size(); ++k) {
+      EXPECT_EQ(map(k), values[k]);
+    }
+  }
+  { // NDArry
+    auto values = ConvertValues<T>({1, 9, 100, 42, 16, 68});
+    FK::NDArray array = FK::NDArray::WithValues(values, {3, 2});
+    auto map = array.AsMatrix<T>();
+    EXPECT_EQ(map.size(), 6);
+    EXPECT_EQ(map.rank(), 2);
+    EXPECT_EQ(map.dim_size(0), 3);
+    EXPECT_EQ(map.dim_size(1), 2);
+    for (size_t r = 0; r < 3; ++r) {
+      for (size_t c = 0; c < 2; ++c) {
+        EXPECT_EQ(map(r, c), values[r * 2 + c]);
+      }
+    }
+  }
+}
+
 TYPED_TEST(NDArrayTest, FillIota) {
   namespace FK = FaceKit;
   using T = TypeParam;
 
   // Create matrix
-  FK::DataType dt = FK::DataTypeToEnum<T>::value;
-  FK::NDArray array(dt, {2, 3});
-  // Fill
-  FillIota<T>(&array);
+  auto values = ConvertValues<T>({0, 1, 2, 3, 4, 5});
+  auto array = FK::NDArray::WithValues(values, {2, 3});
   // Check filled value
   CheckIota<T>(array);
+}
+
+TYPED_TEST(NDArrayTest, Assignment) {
+  namespace FK = FaceKit;
+  using T = TypeParam;
+  
+  auto values = ConvertValues<T>({1, 10, 42, 64, 38, 96});
+  { // Copy assignment
+    auto a = FK::NDArray::WithValues(values, {3, 2});
+    auto b = a;
+    ArrayComparator<T, CompType::kEqual>::Compare(a, b);
+  }
+  
+  { // Deep copy
+    auto a = FK::NDArray::WithValues(values, {3, 2});
+    FK::NDArray b;
+    a.DeepCopy(&b);
+    ArrayComparator<T, CompType::kEqual>::Compare(a, b);
+  }
+  
+  { // move assignment
+    auto a = FK::NDArray::WithValues(values, {3, 2});
+    FK::NDArray b;
+    a.DeepCopy(&b);
+    auto c = std::move(b);
+    ArrayComparator<T, CompType::kEqual>::Compare(a, c);
+  }
+}
+
+
+template<typename T>
+void MapAllocatorTestCase(void) {
+  namespace FK = FaceKit;
+  // Values
+  auto values = ConvertValues<T>({1, 10, 42, 64, 38, 96});
+  { // Map array to this buffer
+    FK::MapAllocator map_allocator(reinterpret_cast<void*>(values.data()));
+    FK::NDArray a(&map_allocator);
+    a.Resize(FK::DataTypeToEnum<T>::v(), {3, 2});
+    auto map = a.AsMatrix<T>();
+    for (size_t r = 0; r < 3; ++r) {
+      for (size_t c = 0; c < 2; ++c) {
+        EXPECT_EQ(map(r, c), values[r * 2 + c]);
+      }
+    }
+  }
+  { // Copy mapped array
+    FK::MapAllocator map_allocator(reinterpret_cast<void*>(values.data()));
+    FK::NDArray a(&map_allocator);
+    a.Resize(FK::DataTypeToEnum<T>::v(), {3, 2});
+    
+    FK::NDArray b;
+    a.DeepCopy(&b);
+    ArrayComparator<T, CompType::kEqual>::Compare(a, b);
+  }
+}
+template<>
+void MapAllocatorTestCase<bool>(void) {
+  // no-op
+  EXPECT_TRUE(true);
+}
+
+TYPED_TEST(NDArrayTest, MapAllocator) {
+  // Work around to cancel <bool> test case since vector<bool> does not have
+  // ::data() method since it is implemented as a bitfield.
+  MapAllocatorTestCase<TypeParam>();
+}
+
+TYPED_TEST(NDArrayTest, ShareBuffer) {
+  namespace FK = FaceKit;
+  using T = TypeParam;
+  
+  FK::NDArray a;
+  FK::NDArray b;
+  FK::NDArray a1(FK::DataTypeToEnum<T>::v(), {1});
+  FK::NDArray b1(FK::DataTypeToEnum<T>::v(), {1});
+  FK::NDArray c1 = a1;
+  FK::NDArray a2;
+  b1.DeepCopy(&a2);
+  
+  
+  // Check shared buffer
+  EXPECT_FALSE(a.ShareBuffer(a));
+  EXPECT_FALSE(b.ShareBuffer(b));
+  EXPECT_TRUE(a1.ShareBuffer(a1));
+  EXPECT_TRUE(b1.ShareBuffer(b1));
+  EXPECT_TRUE(a1.ShareBuffer(c1));
+  EXPECT_FALSE(b1.ShareBuffer(a2));
+}
+
+TYPED_TEST(NDArrayTest, Slice) {
+  namespace FK = FaceKit;
+  using T = TypeParam;
+  
+  // Create array
+  auto values = ConvertValues<T>({1, 35, 192, 37, 256, 1024});
+  auto array = FK::NDArray::WithValues(values, {3, 2});
+  
+  // Create slice
+  FK::NDArray slice = array.Slice(1, 2);
+  EXPECT_EQ(slice.dims(), 2);
+  EXPECT_EQ(slice.dim_size(0), 1);
+  EXPECT_EQ(slice.dim_size(1), 2);
+  // Check content
+  auto map = slice.AsMatrix<T>();
+  EXPECT_EQ(map(0, 0), values[2]);
+  EXPECT_EQ(map(0, 1), values[3]);
+}
+
+TEST(NDArrayTest, ProtoUtils) {
+  namespace FK = FaceKit;
+  
+  { // Samller than 2^7
+    std::string buffer;
+    // Encode
+    FK::AddVarInt32(42, &buffer);
+    EXPECT_EQ(buffer.size(), 1);
+    // Decode
+    uint32_t value;
+    EXPECT_TRUE(FK::RetrieveVarInt32(&buffer, &value));
+    EXPECT_EQ(value, 42);
+    EXPECT_EQ(buffer.size(), 0);
+  }
+  { // Samller than 2^14
+    std::string buffer;
+    // Encode
+    uint32_t v = (0x01 << 12);
+    FK::AddVarInt32(v, &buffer);
+    EXPECT_EQ(buffer.size(), 2);
+    // Decode
+    uint32_t value;
+    EXPECT_TRUE(FK::RetrieveVarInt32(&buffer, &value));
+    EXPECT_EQ(value, v);
+    EXPECT_EQ(buffer.size(), 0);
+  }
+  { // Samller than 2^21
+    std::string buffer;
+    // Encode
+    uint32_t v = (0x01 << 17);
+    FK::AddVarInt32(v, &buffer);
+    EXPECT_EQ(buffer.size(), 3);
+    // Decode
+    uint32_t value;
+    EXPECT_TRUE(FK::RetrieveVarInt32(&buffer, &value));
+    EXPECT_EQ(value, v);
+    EXPECT_EQ(buffer.size(), 0);
+  }
+  { // Samller than 2^28
+    std::string buffer;
+    // Encode
+    uint32_t v = (0x01 << 24);
+    FK::AddVarInt32(v, &buffer);
+    EXPECT_EQ(buffer.size(), 4);
+    // Decode
+    uint32_t value;
+    EXPECT_TRUE(FK::RetrieveVarInt32(&buffer, &value));
+    EXPECT_EQ(value, v);
+    EXPECT_EQ(buffer.size(), 0);
+  }
+  { // Samller than 2^32
+    std::string buffer;
+    // Encode
+    uint32_t v = (0x01 << 31);
+    FK::AddVarInt32(v, &buffer);
+    EXPECT_EQ(buffer.size(), 5);
+    // Decode
+    uint32_t value;
+    EXPECT_TRUE(FK::RetrieveVarInt32(&buffer, &value));
+    EXPECT_EQ(value, v);
+    EXPECT_EQ(buffer.size(), 0);
+  }
+  { // Add multiple value
+    std::string buffer;
+    // Encode
+    uint32_t v1 = (0x01 << 5);
+    uint32_t v2 = (0x01 << 13);
+    FK::AddVarInt32(v1, &buffer);
+    FK::AddVarInt32(v2, &buffer);
+    EXPECT_EQ(buffer.size(), 3);
+    // Decode
+    uint32_t value1;
+    uint32_t value2;
+    EXPECT_TRUE(FK::RetrieveVarInt32(&buffer, &value1));
+    EXPECT_EQ(value1, v1);
+    EXPECT_EQ(buffer.size(), 2);
+    EXPECT_TRUE(FK::RetrieveVarInt32(&buffer, &value2));
+    EXPECT_EQ(value2, v2);
+    EXPECT_EQ(buffer.size(), 0);
+  }
+  { // Encode/Decode array of string
+    std::string buffer;
+    std::vector<std::string> array = {"Hello", "World", "Lausanne", "42"};
+    FK::EncodeStringList(array.data(), array.size(), &buffer);
+    EXPECT_GT(buffer.size(), 0);
+    
+    // Decode
+    std::vector<std::string> decoded_array(array.size());
+    EXPECT_TRUE(FK::DecodeStringList(buffer,
+                                     array.size(),
+                                     decoded_array.data()));
+    EXPECT_EQ(decoded_array[0], "Hello");
+    EXPECT_EQ(decoded_array[1], "World");
+    EXPECT_EQ(decoded_array[2], "Lausanne");
+    EXPECT_EQ(decoded_array[3], "42");
+  }
+}
+
+TYPED_TEST(NDArrayTest, Proto) {
+  namespace FK = FaceKit;
+  using T = TypeParam;
+  
+  // Create array
+  auto values = ConvertValues<T>({1, 35, 192, 37, 256, 1024});
+  auto array = FK::NDArray::WithValues(values, {3, 2});
+  
+  // Convert array to proto
+  FK::NDArrayProto proto;
+  array.ToProto(&proto);
+  
+  // Convert back to array
+  FK::NDArray p_array;
+  EXPECT_TRUE(p_array.FromProto(proto).Good());
+  EXPECT_EQ(p_array.type(), FK::DataTypeToEnum<T>::v());
+  EXPECT_EQ(p_array.dims(), 2);
+  EXPECT_EQ(p_array.dim_size(0), 3);
+  EXPECT_EQ(p_array.dim_size(1), 2);
+  ArrayComparator<T, CompType::kEqual>::Compare(array, p_array);
 }
 
 int main(int argc, char* argv[]) {
@@ -166,25 +520,35 @@ int main(int argc, char* argv[]) {
 }
 
 /*
- *  @name   FillIota
- *  @brief  Fill an initaliazed tensor with value from [0, ..., N]
+ *  @name   ConvertValue
+ *  @brief  Convert number to proper type
  */
 template<typename T>
-void FillIota(FaceKit::NDArray* array) {
-  EXPECT_GT(array->dims(), 0);
-  auto map = array->AsFlat<T>();
-  for (size_t k = 0; k < map.size(); ++k) {
-    map(k) = T(k);
-  }
+T ConvertValue(const size_t& v) {
+  return T(v);
+}
+template<>
+std::string ConvertValue<std::string>(const size_t& v) {
+  return "str_" + std::to_string(v);
 }
 
-template<>
-void FillIota<std::string>(FaceKit::NDArray* array) {
-  EXPECT_GT(array->dims(), 0);
-  auto map = array->AsFlat<std::string>();
-  for (size_t k = 0; k < map.size(); ++k) {
-    map(k) = "str_" + std::to_string(k);
+template<typename T>
+std::vector<T> ConvertValues(const std::initializer_list<size_t>& v) {
+  std::vector<T> values(v.size());
+  auto v_it = values.begin();
+  for (auto it = v.begin(); it != v.end(); ++it, ++v_it) {
+    *v_it = T(*it);
   }
+  return values;
+}
+template<>
+std::vector<std::string> ConvertValues<std::string>(const std::initializer_list<size_t>& v) {
+  std::vector<std::string> values(v.size());
+  auto v_it = values.begin();
+  for (auto it = v.begin(); it != v.end(); ++it, ++v_it) {
+    *v_it = "str_" + std::to_string(*it);
+  }
+  return values;
 }
 
 /*

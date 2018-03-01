@@ -1,5 +1,5 @@
 /**
- *  @file   array_dims.hpp
+ *  @file   nd_array_dims.hpp
  *  @brief Representation for NDArray's dimensions. Inspired from Tensorflow
  *  @ingroup core
  *

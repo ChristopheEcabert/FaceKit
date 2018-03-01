@@ -116,6 +116,7 @@ struct DataTypeToEnum {
   };                                                \
   template<>                                        \
   struct DataTypeToEnum<TYPE> {                     \
+    static DataType v() { return ENUM; }            \
     static constexpr DataType value = ENUM;         \
   };                                                \
   template<>                                        \
@@ -133,14 +134,16 @@ SPECIALIZE_TYPE_AND_ENUM(int16_t, DataType::kInt16, sizeof(int16_t));
 SPECIALIZE_TYPE_AND_ENUM(uint16_t, DataType::kUInt16, sizeof(uint16_t));
 /** Int32 Specialization */
 SPECIALIZE_TYPE_AND_ENUM(int32_t, DataType::kInt32, sizeof(int32_t));
-/** UInt8 Specialization */
+/** UInt32 Specialization */
 SPECIALIZE_TYPE_AND_ENUM(uint32_t, DataType::kUInt32, sizeof(uint32_t));
+/** Int64 Specialization */
+SPECIALIZE_TYPE_AND_ENUM(int64_t, DataType::kInt64, sizeof(int64_t));
+/** UInt64 Specialization */
+SPECIALIZE_TYPE_AND_ENUM(uint64_t, DataType::kUInt64, sizeof(uint64_t));
 /** Float Specialization */
 SPECIALIZE_TYPE_AND_ENUM(float, DataType::kFloat, sizeof(float));
 /** Double Specialization */
 SPECIALIZE_TYPE_AND_ENUM(double, DataType::kDouble, sizeof(double));
-/** size_t Specialization */
-SPECIALIZE_TYPE_AND_ENUM(size_t, DataType::kSize_t, sizeof(size_t));
 /** bool Specialization */
 SPECIALIZE_TYPE_AND_ENUM(bool, DataType::kBool, sizeof(bool));
 /** string Specialization */

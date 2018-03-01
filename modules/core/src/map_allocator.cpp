@@ -23,7 +23,9 @@ namespace FaceKit {
  *  @brief  Constructor
  *  @param[in] ptr  Buffer to map
  */
-MapAllocator::MapAllocator(void* ptr) : buffer_(ptr) {}
+MapAllocator::MapAllocator(void* ptr) : buffer_(ptr) {
+  this->call_cdtor_ = false;
+}
   
 /*
  *  @name   AllocateRaw

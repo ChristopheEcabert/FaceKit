@@ -12,7 +12,7 @@
 #include "gtest/gtest.h"
 
 #include "facekit/core/logger.hpp"
-#include "facekit/core/string_util.hpp"
+#include "facekit/core/utils/string.hpp"
 
 #ifndef WIN32
 #define ERROR_STR " \033[31mERROR\033[0m "

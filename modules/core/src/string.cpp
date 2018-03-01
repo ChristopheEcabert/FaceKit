@@ -1,5 +1,5 @@
 /**
- *  @file   string_util.cpp
+ *  @file   string.cpp
  *  @brief  Utility function for string handling
  *
  *  @author Christophe Ecabert
@@ -7,7 +7,7 @@
  *  Copyright © 2016 Christophe Ecabert. All rights reserved.
  */
 
-#include "facekit/core/string_util.hpp"
+#include "facekit/core/utils/string.hpp"
 
 /**
  *  @namespace  FaceKit
@@ -26,8 +26,8 @@ namespace FaceKit {
  *  @param[out] parts     Splitted parts
  */
 void String::Split(const std::string& string,
-                       const std::string delimiter,
-                       std::vector<std::string>* parts) {
+                   const std::string delimiter,
+                   std::vector<std::string>* parts) {
   std::size_t from = 0;
   std::size_t idx;
   do {
@@ -50,9 +50,9 @@ void String::Split(const std::string& string,
  *  @param[out] ext   Extracted extension
  */
 void String::ExtractDirectory(const std::string& path,
-                                  std::string* dir,
-                                  std::string* file,
-                                  std::string* ext) {
+                              std::string* dir,
+                              std::string* file,
+                              std::string* ext) {
   auto pdir = path.rfind("/");
   if (pdir != std::string::npos) {
     pdir += 1;
@@ -91,6 +91,8 @@ template std::string String::LeadingZero(const int16_t, size_t);
 template std::string String::LeadingZero(const uint16_t, size_t);
 template std::string String::LeadingZero(const int32_t, size_t);
 template std::string String::LeadingZero(const uint32_t, size_t);
+template std::string String::LeadingZero(const int64_t, size_t);
+template std::string String::LeadingZero(const uint64_t, size_t);
 template std::string String::LeadingZero(const size_t, size_t);
   
 }  // namespace FaceKit

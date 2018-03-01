@@ -12,7 +12,7 @@
 #include "opencv2/imgcodecs.hpp"
 
 #include "facekit/dataset/flip_cell.hpp"
-#include "facekit/core/string_util.hpp"
+#include "facekit/core/utils/string.hpp"
 
 /**
  *  @namespace  FaceKit
