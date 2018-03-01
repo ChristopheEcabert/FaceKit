@@ -128,7 +128,7 @@ script:
 
 after_failure:
   - |
-    if [ -f $TRAVIS_BUILD_DIR/build/Testing/Temporary/LastTest.log ] then
+    if [ -f $TRAVIS_BUILD_DIR/build/Testing/Temporary/LastTest.log ]; then
       cat $TRAVIS_BUILD_DIR/build/Testing/Temporary/LastTest.log
     fi
 
