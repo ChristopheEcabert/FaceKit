@@ -126,6 +126,12 @@ script:
   # Build docs
   - $TRAVIS_BUILD_DIR/travis/build-doc.sh
 
+after_failure:
+  - |
+    if [ -f $TRAVIS_BUILD_DIR/build/Testing/Temporary/LastTest.log ] then
+      cat $TRAVIS_BUILD_DIR/build/Testing/Temporary/LastTest.log
+    fi
+
 # Setup SSH for deployment
 before_deploy:
   - |

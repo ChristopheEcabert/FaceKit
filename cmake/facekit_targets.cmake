@@ -407,6 +407,8 @@ macro(FACEKIT_ADD_EXAMPLE _name)
     if(WIN32 AND MSVC)
       set_target_properties(facekit_ex_${_name} PROPERTIES DEBUG_OUTPUT_NAME ${_name}${CMAKE_DEBUG_POSTFIX}
                                                            RELEASE_OUTPUT_NAME ${_name}${CMAKE_RELEASE_POSTFIX})
+    else(WIN32 AND MSVC)
+      target_link_libraries(facekit_ex_${_name} PRIVATE pthread)
     endif(WIN32 AND MSVC)
 endmacro(FACEKIT_ADD_EXAMPLE)
 
