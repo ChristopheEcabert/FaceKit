@@ -74,7 +74,10 @@ class FK_EXPORTS String {
    *  @tparam T Data type
    */
   template<typename T>
-  static std::string LeadingZero(const T number, const size_t N);
+  static std::string LeadingZero(const T number, const size_t N) {
+    std::string num = std::to_string(number);
+    return std::string(N - num.length(), '0') + num;
+  }
 };
   
 }  // namespace FaceKit

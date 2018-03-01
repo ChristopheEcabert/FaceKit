@@ -67,32 +67,5 @@ void String::ExtractDirectory(const std::string& path,
   } else {
     *file = path.substr(pdir);
   }
-}
-  
-/*
- *  @name   LeadingZero
- *  @fn     static std::string LeadingZero(const T number, const size_t N)
- *  @brief  Convert a number to string and complete it with leading zeros if
- *          needed
- *  @param[in]  number  Number to convert to string
- *  @param[in]  N       Number total of char wanted (i.e. N=3, number=12
- *                      -> 012)
- *  @tparam T Data type
- */
-template<typename T>
-std::string String::LeadingZero(const T number, const size_t N) {
-  std::string num = std::to_string(number);
-  return std::string(N - num.length(), '0') + num;
-}
-  
-template std::string String::LeadingZero(const int8_t, size_t);
-template std::string String::LeadingZero(const uint8_t, size_t);
-template std::string String::LeadingZero(const int16_t, size_t);
-template std::string String::LeadingZero(const uint16_t, size_t);
-template std::string String::LeadingZero(const int32_t, size_t);
-template std::string String::LeadingZero(const uint32_t, size_t);
-template std::string String::LeadingZero(const int64_t, size_t);
-template std::string String::LeadingZero(const uint64_t, size_t);
-template std::string String::LeadingZero(const size_t, size_t);
-  
+}  
 }  // namespace FaceKit
