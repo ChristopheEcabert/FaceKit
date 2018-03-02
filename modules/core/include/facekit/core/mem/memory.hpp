@@ -37,7 +37,10 @@ namespace Mem {
  *  @ingroup core
  */
 template<typename T>
-T* AlignPointer(const size_t& alignment, T* ptr);
+T* AlignPointer(const size_t& alignment, T* ptr) {
+  assert((alignment & (alignment-1)) == 0);
+  return (T*)(((size_t)ptr + alignment - 1) & -(int)alignment);
+}
   
 /**
  *  @name   MallocAligned
@@ -93,25 +96,6 @@ void* Realloc(const size_t& new_size, void* ptr);
  *  @ingroup core
  */
 void Free(void* ptr);
-  
-#pragma mark -
-#pragma mark Implementation
-  
-/*
- *  @name   AlignPointer
- *  @fn     void* AlignPointer(const size_t& alignment, void* ptr)
- *  @brief  Aligns a pointer to the specified number of bytes.
- *          Stripped from OpenCV
- *  @param[in] alignment Alignment size that must be a power of two.
- *  @param[in] ptr Aligned pointer.
- *  @return Aligned pointer
- *  @ingroup core
- */
-template<typename T>
-inline T* AlignPointer(const size_t& alignment, T* ptr) {
-  assert((alignment & (alignment-1)) == 0);
-  return (T*)(((size_t)ptr + alignment - 1) & -(int)alignment);
-}
   
 }  // namespace Mem
 }  // namespace FaceKit

@@ -37,7 +37,7 @@ int IdentityCell::Process(const std::vector<std::string>& input,
   for (size_t i = 0; i < input.size(); ++i) {
     // Get filename
     std::string dir, file, ext;
-    String::ExtractDirectory(input[i], &dir, &file, &ext);
+    Path::SplitComponent(input[i], &dir, &file, &ext);
     // Copy
     std::string dest = output.back() == '/' ? output : output + "/";
     dest += file + "_id." + ext;

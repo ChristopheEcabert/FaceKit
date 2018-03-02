@@ -27,30 +27,87 @@ namespace FaceKit {
  *  @brief      Utility functions for processing path
  */
 namespace Path {
+namespace internal {
+std::string JoinImpl(std::initializer_list<std::string> parts);
+}
   
-  /**
-   *  @name   Join
-   *  @fn     std::string Join(const T&&... parts)
-   *  @tparam T Pack strings to merge together
-   *  @brief  Merge filename component into a single valid path.
-   *  @param[in] parts  Packed parameters to aggregate together
-   *  @return Appended path
-   */
-  template<typename... T>
-  std::string Join(const T&&... parts);
+/**
+ *  @name   Join
+ *  @fn     std::string Join(const T&... parts)
+ *  @tparam T Pack strings to merge together
+ *  @brief  Merge filename component into a single valid path. Similar to 
+ *          python `os.path.join` method
+ *  @param[in] parts  Packed parameters to aggregate together
+ *  @return Appended path
+ */
+template<typename... T>
+std::string Join(const T&... parts) {
+  return internal::JoinImpl({parts...});
+}
+
+/**
+ *  @name   IsAbsolute
+ *  @fn     bool IsAbsolute(const std::string& path)
+ *  @brief  Check if a given `path`is absolute or not (i.e. start with '/').
+ *  @param[in] path Path to check
+ *  @return True if absolute, false otherwise.
+ */
+bool IsAbsolute(const std::string& path);
+
+/**
+ *  @name   Dirname
+ *  @fn     std::string Dirname(const std::string& path)
+ *  @brief  Return the part in front of the last '/' in `path`. If there is no
+ *          '/' give an empty string.
+ *          Similar to `os.path.dirname`
+ *  @param[in] path Path to file
+ *  @return Complete file's directory or empty string.
+ */
+std::string Dirname(const std::string& path);
+
+
+/**
+ *  @name   Basename
+ *  @fn     std::string Basename(const std::string& path)
+ *  @brief  Extract file name from path (i.e. part after last '/'). If there 
+ *          is no '/' it returns the same as the input.
+ *          Similar to `os.path.basename`
+ *  @param[in] path Path to file
+ *  @return File name
+ */
+std::string Basename(const std::string& path);
+
+/**
+ *  @name   Extension
+ *  @fn     std::string Extension(const std::string& path)
+ *  @brief  Extract file's extension (i.e part after the last '.'). If there
+ *          is not '.' return an empty string
+ *  @param[in] path Path to file
+ *  @return File's extension or empty string
+ */
+std::string Extension(const std::string& path);
   
-  /**
-   *  @name   IsAbsolute
-   *  @fn     bool IsAbsolute(const std::string& path)
-   *  @brief  Check if a given `path`is absolute or not (i.e. start with '/')
-   *  @param[in] path Path to check
-   *  @return True if absolute, false otherwise.
-   */
-  bool IsAbsolute(const std::string& path);
+/**
+ *  @name   Clean
+ *  @fn     std::string Clean(const std::string& path)
+ *  @brief  Remove duplicate, add ./
+ *  @param[in] path Path to clean
+ *  @return cleaned path
+ */
+std::string Clean(const std::string& path);
   
-  
-  
-  
+/**
+ *  @name SplitComponent
+ *  @fn void SplitComponent(const std::string& path, std::string* dir,
+                            std::string* file, std::string* ext)
+ *  @brief  Split path into directory + file + extension
+ *  @param[in]  path  Path where to extract data
+ *  @param[out] dir   Extracted directory, skipped if nullptr
+ *  @param[out] file  Extracted filename, skipped if nullptr
+ *  @param[out] ext   Extracted extension, skipped if nullptr
+ */
+void SplitComponent(const std::string& path, std::string* dir,
+                    std::string* file, std::string* ext);
   
 }  // namespace Path
 
@@ -90,29 +147,6 @@ std::string FK_EXPORTS LeadingZero(const T number, const size_t N) {
 }
   
 }  // namespace String
-  
-  
-  
-  
-  
-  /**
-   *  @name ExtractDirectory
-   *  @fn static void ExtractDirectory(const std::string& path,
-                                       std::string* dir,
-                                       std::string* file,
-                                       std::string* ext)
-   *  @brief  Split path into directory + extension
-   *  @param[in]  path  Path where to extract data
-   *  @param[out] dir   Extracted directory
-   *  @param[out] file  Extracted filename
-   *  @param[out] ext   Extracted extension
-   */
-  static void ExtractDirectory(const std::string& path,
-                               std::string* dir,
-                               std::string* file,
-                               std::string* ext);
-  
-  
   
 }  // namespace FaceKit
 #endif /* __FACEKIT_STRING_UTIL__ */
