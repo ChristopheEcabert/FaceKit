@@ -85,8 +85,10 @@ TEST(Types, IsDataTypeValid) {
   EXPECT_TRUE((bool)FK::IsDataTypeValid<bool>::value);
   EXPECT_TRUE((bool)FK::IsDataTypeValid<std::string>::value);
   // Invalid
-  EXPECT_FALSE((bool)FK::IsDataTypeValid<long>::value);
-  EXPECT_FALSE((bool)FK::IsDataTypeValid<size_t>::value);
+  struct MyStruct {
+    int a;
+  };
+  EXPECT_FALSE((bool)FK::IsDataTypeValid<MyStruct>::value);
 }
 
 TEST(Types, DataTypeToEnum) {
