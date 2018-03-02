@@ -15,6 +15,22 @@
  */
 namespace FaceKit {
   
+  
+  
+  
+  
+  
+  
+  
+  
+/**
+ *  @namespace  String
+ *  @brief      Utility functions for processing string
+ */
+namespace String {
+  
+}  // namespace String
+  
 /*
  *  @name Split
  *  @fn static void Split(const std::string& string,

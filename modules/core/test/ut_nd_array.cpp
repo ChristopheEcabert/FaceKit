@@ -310,9 +310,10 @@ TYPED_TEST(NDArrayTest, Assignment) {
     auto a = FK::NDArray::WithValues(values, {3, 2});
     FK::NDArray b;
     a.DeepCopy(&b);
-    auto c = std::move(b);
+    FK::NDArray c = std::move(b);
     ArrayComparator<T, CompType::kEqual>::Compare(a, c);
   }
+  std::cout << "[   INFO   ] Done" << std::endl;
 }
 
 
