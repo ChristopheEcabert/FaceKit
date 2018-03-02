@@ -291,12 +291,14 @@ TYPED_TEST(NDArrayTest, Assignment) {
   
   auto values = ConvertValues<T>({1, 10, 42, 64, 38, 96});
   { // Copy assignment
+    std::cout << "[   INFO   ] copy assignment" << std::endl;
     auto a = FK::NDArray::WithValues(values, {3, 2});
     auto b = a;
     ArrayComparator<T, CompType::kEqual>::Compare(a, b);
   }
   
   { // Deep copy
+    std::cout << "[   INFO   ] Deep copy" << std::endl;
     auto a = FK::NDArray::WithValues(values, {3, 2});
     FK::NDArray b;
     a.DeepCopy(&b);
@@ -304,6 +306,7 @@ TYPED_TEST(NDArrayTest, Assignment) {
   }
   
   { // move assignment
+    std::cout << "[   INFO   ] Move assignment" << std::endl;
     auto a = FK::NDArray::WithValues(values, {3, 2});
     FK::NDArray b;
     a.DeepCopy(&b);

@@ -81,6 +81,4 @@ class FK_EXPORTS String {
 };
   
 }  // namespace FaceKit
-
-
 #endif /* __FACEKIT_STRING_UTIL__ */
