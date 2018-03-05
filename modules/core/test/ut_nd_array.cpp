@@ -141,10 +141,10 @@ struct ArrayComparator<T, CompType::kEqual> {
 TYPED_TEST(NDArrayTest, CTor) {
   namespace FK = FaceKit;
   using T = TypeParam;
-  
+
   // Check for leaks
   FK::EnableAllocatorStatistics(true);
-  
+
   { // Default
     FK::NDArray array;
     EXPECT_EQ(array.dims(), 0);
@@ -226,7 +226,7 @@ TYPED_TEST(NDArrayTest, CTor) {
     EXPECT_EQ(array2.dim_size(1), 10);
     EXPECT_EQ(array2.dim_size(2), 1);
   }
-  
+
   // Check allocator statistics
   FK::AllocatorStatistic stats;
   auto* a = FK::DefaultCpuAllocator();
@@ -238,7 +238,7 @@ TYPED_TEST(NDArrayTest, CTor) {
 TYPED_TEST(NDArrayTest, ConstructWithValues) {
   namespace FK = FaceKit;
   using T = TypeParam;
-  
+
   { // Create scalar
     T value = ConvertValue<T>(15);
     FK::NDArray array = FK::NDArray::WithScalar(value);
@@ -288,35 +288,28 @@ TYPED_TEST(NDArrayTest, FillIota) {
 TYPED_TEST(NDArrayTest, Assignment) {
   namespace FK = FaceKit;
   using T = TypeParam;
-  
-  auto values = ConvertValues<T>({1, 10, 42, 64, 38, 96});
+
+  const auto values = ConvertValues<T>({1, 10, 42, 64, 38, 96});
   { // Copy assignment
-    std::cout << "[   INFO   ] Copy assignment" << std::endl;
     auto a = FK::NDArray::WithValues(values, {3, 2});
     auto b = a;
     ArrayComparator<T, CompType::kEqual>::Compare(a, b);
   }
-  
+
   { // Deep copy
-    std::cout << "[   INFO   ] Deep copy" << std::endl;
     auto a = FK::NDArray::WithValues(values, {3, 2});
     FK::NDArray b;
     a.DeepCopy(&b);
     ArrayComparator<T, CompType::kEqual>::Compare(a, b);
   }
-  
+
   { // move assignment
-    std::cout << "[   INFO   ] Move assignment" << std::endl;
     auto a = FK::NDArray::WithValues(values, {3, 2});
     FK::NDArray b;
-    std::cout << "Deep copy" << std::endl;
     a.DeepCopy(&b);
-    std::cout << "Move assignment" << std::endl;
     FK::NDArray c = std::move(b);
-    std::cout << "Compare" << std::endl;
     ArrayComparator<T, CompType::kEqual>::Compare(a, c);
   }
-  std::cout << "[   INFO   ] Done" << std::endl;
 }
 
 
@@ -340,7 +333,7 @@ void MapAllocatorTestCase(void) {
     FK::MapAllocator map_allocator(reinterpret_cast<void*>(values.data()));
     FK::NDArray a(&map_allocator);
     a.Resize(FK::DataTypeToEnum<T>::v(), {3, 2});
-    
+
     FK::NDArray b;
     a.DeepCopy(&b);
     ArrayComparator<T, CompType::kEqual>::Compare(a, b);
@@ -361,7 +354,7 @@ TYPED_TEST(NDArrayTest, MapAllocator) {
 TYPED_TEST(NDArrayTest, ShareBuffer) {
   namespace FK = FaceKit;
   using T = TypeParam;
-  
+
   FK::NDArray a;
   FK::NDArray b;
   FK::NDArray a1(FK::DataTypeToEnum<T>::v(), {1});
@@ -369,8 +362,8 @@ TYPED_TEST(NDArrayTest, ShareBuffer) {
   FK::NDArray c1 = a1;
   FK::NDArray a2;
   b1.DeepCopy(&a2);
-  
-  
+
+
   // Check shared buffer
   EXPECT_FALSE(a.ShareBuffer(a));
   EXPECT_FALSE(b.ShareBuffer(b));
@@ -383,11 +376,11 @@ TYPED_TEST(NDArrayTest, ShareBuffer) {
 TYPED_TEST(NDArrayTest, Slice) {
   namespace FK = FaceKit;
   using T = TypeParam;
-  
+
   // Create array
   auto values = ConvertValues<T>({1, 35, 192, 37, 256, 1024});
   auto array = FK::NDArray::WithValues(values, {3, 2});
-  
+
   // Create slice
   FK::NDArray slice = array.Slice(1, 2);
   EXPECT_EQ(slice.dims(), 2);
@@ -401,7 +394,7 @@ TYPED_TEST(NDArrayTest, Slice) {
 
 TEST(NDArrayTest, ProtoUtils) {
   namespace FK = FaceKit;
-  
+
   { // Samller than 2^7
     std::string buffer;
     // Encode
@@ -484,7 +477,7 @@ TEST(NDArrayTest, ProtoUtils) {
     std::vector<std::string> array = {"Hello", "World", "Lausanne", "42"};
     FK::EncodeStringList(array.data(), array.size(), &buffer);
     EXPECT_GT(buffer.size(), 0);
-    
+
     // Decode
     std::vector<std::string> decoded_array(array.size());
     EXPECT_TRUE(FK::DecodeStringList(buffer,
@@ -500,15 +493,15 @@ TEST(NDArrayTest, ProtoUtils) {
 TYPED_TEST(NDArrayTest, Proto) {
   namespace FK = FaceKit;
   using T = TypeParam;
-  
+
   // Create array
   auto values = ConvertValues<T>({1, 35, 192, 37, 256, 1024});
   auto array = FK::NDArray::WithValues(values, {3, 2});
-  
+
   // Convert array to proto
   FK::NDArrayProto proto;
   array.ToProto(&proto);
-  
+
   // Convert back to array
   FK::NDArray p_array;
   EXPECT_TRUE(p_array.FromProto(proto).Good());

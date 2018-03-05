@@ -14,6 +14,109 @@
 #include <algorithm>
 
 #pragma mark -
+#pragma mark Initializer Helper
+
+namespace internal {
+
+template<typename T>
+struct Initializer {
+
+  static_assert(std::is_trivial<T>::value,
+                "T is not trivial, specialization needed");
+
+  /*
+   * @name  FromArray
+   * @fn    static void FromArray(const T* src, const size_t& n_elem, T* dst)
+   * @brief Initialize array from another one
+   * @param[in] src     Array storing value to initialize with
+   * @param[in] n_elem  Number of element to copy
+   * @param[out] dst    Array where to copy
+   */
+  static void FromArray(const T* src, const size_t& n_elem, T* dst) {
+    std::copy_n(src, n_elem, dst);
+  }
+
+  /*
+   * @name  FromVector
+   * @fn    static void FromVector(const T* src, const size_t& n_elem, T* dst)
+   * @brief Initialize array from another one
+   * @param[in] src     Array storing value to initialize with
+   * @param[in] n_elem  Number of element to copy
+   * @param[out] dst    Array where to copy
+   */
+  static void FromVector(const std::vector<T>& src, T* dst) {
+    std::copy_n(src.begin(), src.size(), dst);
+  }
+};
+
+template<>
+struct Initializer<bool> {
+
+  /*
+   * @name  FromArray
+   * @fn    static void FromArray(const T* src, const size_t& n_elem, T* dst)
+   * @brief Initialize array from another one
+   * @param[in] src     Array storing value to initialize with
+   * @param[in] n_elem  Number of element to copy
+   * @param[out] dst    Array where to copy
+   */
+  static void FromArray(const bool* src, const size_t& n_elem, bool* dst) {
+    std::copy_n(src, n_elem, dst);
+  }
+
+  /*
+   * @name  FromVector
+   * @fn    static void FromVector(const T* src, const size_t& n_elem, T* dst)
+   * @brief Initialize array from another one
+   * @param[in] src     Array storing value to initialize with
+   * @param[in] n_elem  Number of element to copy
+   * @param[out] dst    Array where to copy
+   */
+  static void FromVector(const std::vector<bool>& src, bool* dst) {
+    for (size_t k = 0; k < src.size(); ++k, ++dst) {
+      *dst = src[k];
+    }
+  }
+};
+
+template<>
+struct Initializer<std::string> {
+  /*
+   * @name  FromArray
+   * @fn    static void FromArray(const std::string* src, const size_t& n_elem,
+   *                          std::string* dst)
+   * @brief Initialize array from another one
+   * @param[in] src     Array storing value to initialize with
+   * @param[in] n_elem  Number of element to copy
+   * @param[out] dst    Array where to copy
+   */
+  static void FromArray(const std::string* src,
+                    const size_t& n_elem,
+                    std::string* dst) {
+    for (int k = 0; k < n_elem; ++k, ++src, ++dst) {
+      *dst = *src;
+    }
+  }
+
+  /*
+   * @name  FromVector
+   * @fn    static void FromVector(const std::vector<std::string>& src, std::string* dst)
+   * @brief Initialize array from another one
+   * @param[in] src     Array storing value to initialize with
+   * @param[in] n_elem  Number of element to copy
+   * @param[out] dst    Array where to copy
+   */
+  static void FromVector(const std::vector<std::string>& src,
+                         std::string* dst) {
+    for (size_t k = 0; k < src.size(); ++k, ++dst) {
+      *dst = src[k];
+    }
+  }
+};
+
+}
+
+#pragma mark -
 #pragma mark Initialization
 
 /*
@@ -98,23 +201,6 @@ inline NDArray& NDArray::operator=(NDArray&& rhs) {
 }
 
 /*
- *  @name   DeepCopy
- *  @fn     void DeepCopy(NDArray* other) const
- *  @brief  Perform a deep copy into an `other` array. Underlying buffer will
- *          not be shared.
- *  @param[out] other Where to copy the array
- */
-inline void NDArray::DeepCopy(NDArray* other) const {
-  // Init target
-  other->Resize(type_, dims_);
-  // Copy data
-  auto src = this->Base<const uint8_t>();
-  auto dst = other->Base<uint8_t>();
-  size_t n = dims_.n_elems() * DataTypeDynamicSize(type_);
-  std::copy_n(src, n, dst);
-}
-
-/*
  *  @name   WithScalar
  *  @fn     static NDArray WithScalar(const T& value)
  *  @tparam T Data type
@@ -140,7 +226,7 @@ inline NDArray NDArray::WithScalar(const T &value) {
 template<typename T>
 inline NDArray NDArray::WithValues(const std::vector<T>& values) {
   NDArray array(DataTypeToEnum<T>::v(), {values.size()});
-  std::copy_n(values.begin(), values.size(), array.AsVector<T>().data());
+  internal::Initializer<T>::FromVector(values, array.AsVector<T>().data());
   return array;
 }
 
@@ -159,7 +245,7 @@ inline NDArray NDArray::WithValues(const std::vector<T>& values,
                                    const NDArrayDims& dims) {
   assert(dims.n_elems() == values.size());
   NDArray array(DataTypeToEnum<T>::v(), dims);
-  std::copy_n(values.begin(), values.size(), array.AsFlat<T>().data());
+  internal::Initializer<T>::FromVector(values, array.AsFlat<T>().data());
   return array;
 }
 
@@ -247,7 +333,7 @@ template<typename T>
 typename NDATypes<T>::ConstScalar NDArray::AsScalar(void) const {
   assert(dims() == 0);
   return typename NDATypes<T>::ConstScalar(dims_, Base<const T>());
-  
+
 }
 
 /*

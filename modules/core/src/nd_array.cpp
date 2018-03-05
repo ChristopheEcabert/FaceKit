@@ -10,6 +10,7 @@
 
 #include <iostream>
 #include <type_traits>
+#include <algorithm>
 
 #include "nd_array.pb.h"
 #include "google/protobuf/repeated_field.h"
@@ -24,11 +25,11 @@
  *  @brief      Development space
  */
 namespace FaceKit {
-  
-  
+
+
 #pragma mark -
 #pragma mark NDArrayBuffer
-  
+
 /**
  *  @class  Buffer
  *  @brief  Memory buffer
@@ -40,9 +41,9 @@ namespace FaceKit {
 template<typename T>
 class Buffer : public NDArrayBuffer {
  public:
-  
+
 #pragma mark Initialization
-  
+
   /**
    *  @name   Buffer
    *  @fn     Buffer(const size_t& n_element, Allocator* allocator)
@@ -51,7 +52,7 @@ class Buffer : public NDArrayBuffer {
    *  @param[in] allocator  Allocator to use for memory allocation
    */
   Buffer(const size_t& n_element, Allocator* allocator);
-  
+
   /**
    *  @name   Buffer
    *  @fn     Buffer(const Buffer& other) = delete
@@ -59,7 +60,7 @@ class Buffer : public NDArrayBuffer {
    *  @param[in] other  Object to copy from
    */
   Buffer(const Buffer& other) = delete;
-  
+
   /**
    *  @name   operator=
    *  @fn     Buffer& operator=(const Buffer& rhs) = delete
@@ -68,9 +69,9 @@ class Buffer : public NDArrayBuffer {
    *  @return Newly assigned object
    */
   Buffer& operator=(const Buffer& rhs) = delete;
-  
+
 #pragma mark Usage
-  
+
   /**
    *  @name   data
    *  @fn     void* data(void) const override
@@ -80,7 +81,7 @@ class Buffer : public NDArrayBuffer {
   void* data(void) const override {
     return data_;
   }
-  
+
   /**
    *  @name   size
    *  @fn     size_t size(void) const override
@@ -90,7 +91,7 @@ class Buffer : public NDArrayBuffer {
   size_t size(void) const override {
     return n_elem_ * sizeof(T);
   }
-  
+
   /**
    *  @name   root
    *  @fn     NDArrayBuffer* root(void) override
@@ -101,17 +102,17 @@ class Buffer : public NDArrayBuffer {
   NDArrayBuffer* root(void) override {
     return this;
   }
-  
+
 #pragma mark Private
  private:
-  
+
   /**
    *  @name   ~Buffer
    *  @fn     ~Buffer(void) override
    *  @brief  Destructor
    */
   ~Buffer(void) override;
-  
+
   /** Allocator */
   Allocator* const allocator_;
   /** Raw data array */
@@ -119,7 +120,7 @@ class Buffer : public NDArrayBuffer {
   /** Buffer size */
   size_t n_elem_;
 };
-  
+
 /*
  *  @name   Buffer
  *  @fn     Buffer(const size_t& n_element, Allocator* allocator)
@@ -146,7 +147,7 @@ Buffer<T>::~Buffer(void) {
     allocator_->Deallocate<T>(n_elem_, data_);
   }
 }
-  
+
 /**
  *  @class  SubBuffer
  *  @brief  Buffer representing only a sub region of a Buffer
@@ -158,16 +159,16 @@ Buffer<T>::~Buffer(void) {
 template<typename T>
 class SubBuffer : public NDArrayBuffer {
  public:
-  
+
 #pragma mark Initialization
-  
+
   /**
    *  @name   SubBuffer
    *  @fn     SubBuffer(NDArrayBuffer* buff, const size_t& start,
                         const size_t& n_elem)
    *  @brief  Constructor
    *  @param[in] buff   Original buffer
-   *  @param[in] start  Position where the sub-buffer starts. Should be 
+   *  @param[in] start  Position where the sub-buffer starts. Should be
    *                    within buffer range[0, N]
    *  @param[in] n_elem Number of element in the sub-buffer.
    *                    start + n_elem <= N sould be true (N being the size
@@ -184,7 +185,7 @@ class SubBuffer : public NDArrayBuffer {
     assert(this->base<T>() + n_elem <= root_end);
     root_->Inc();
   }
-  
+
   /**
    *  @name   SubBuffer
    *  @fn     SubBuffer(const SubBuffer& other) = delete
@@ -192,7 +193,7 @@ class SubBuffer : public NDArrayBuffer {
    *  @param[in] other  Object to copy from
    */
   SubBuffer(const SubBuffer& other) = delete;
-  
+
   /**
    *  @name   operator=
    *  @fn     SubBuffer& operator=(const SubBuffer& rhs) = delete
@@ -201,9 +202,9 @@ class SubBuffer : public NDArrayBuffer {
    *  @return Newly assigned object
    */
   SubBuffer& operator=(const SubBuffer& rhs) = delete;
-  
+
 #pragma mark Usage
-  
+
   /**
    *  @name   data
    *  @fn     void* data(void) const override
@@ -213,7 +214,7 @@ class SubBuffer : public NDArrayBuffer {
   void* data(void) const override {
     return data_;
   }
-  
+
   /**
    *  @name   size
    *  @fn     size_t size(void) const override
@@ -223,7 +224,7 @@ class SubBuffer : public NDArrayBuffer {
   size_t size(void) const override {
     return n_elem_ * sizeof(T);
   }
-  
+
   /**
    *  @name   root
    *  @fn     NDArrayBuffer* root(void) override
@@ -234,10 +235,10 @@ class SubBuffer : public NDArrayBuffer {
   NDArrayBuffer* root(void) override {
     return root_;
   }
-  
+
 #pragma mark Private
  private:
-  
+
   /**
    *  @name   ~SubBuffer
    *  @fn     ~SubBuffer(void) override
@@ -246,7 +247,7 @@ class SubBuffer : public NDArrayBuffer {
   ~SubBuffer(void) override {
     root_->Dec();
   }
-  
+
   /** Original buffer */
   NDArrayBuffer* root_;
   /** Data */
@@ -254,10 +255,10 @@ class SubBuffer : public NDArrayBuffer {
   /** Size */
   size_t n_elem_;
 };
-  
+
 #pragma mark -
 #pragma mark Proto utility function
-  
+
 /**
  *  @struct  ProtoStream
  *  @brief  Functor for reading/writing to NDArrayProto object (serialization)
@@ -286,7 +287,7 @@ struct ProtoStream {
     // Copy data
     dst->mutable_data()->assign(buffer->base<const char>(), buffer->size());
   }
-  
+
   /**
    *  @name   Read
    *  @fn     static NDArrayBuffer* Read(const NDArrayProto& src, const size_t& n, Allocator* alloc)
@@ -316,10 +317,10 @@ struct ProtoStream {
     return buffer;
   }
 };
-  
+
 template<>
 struct ProtoStream<std::string> {
-  
+
   /**
    *  @name   Write
    *  @fn     static void Write(const NDArrayBuffer* buffer, const size_t n, NDArrayProto* dst)
@@ -333,7 +334,7 @@ struct ProtoStream<std::string> {
     const std::string* strings = buffer->base<const std::string>();
     EncodeStringList(strings, n, dst->mutable_data());
   }
-  
+
   /**
    *  @name   Read
    *  @fn     static NDArrayBuffer* Read(const NDArrayProto& src, const size_t& n, Allocator* alloc)
@@ -357,7 +358,10 @@ struct ProtoStream<std::string> {
     return buffer;
   }
 };
-  
+
+
+#pragma mark Macro definition
+
 /** Forward args */
 #define ARG(...) __VA_ARGS__
 /** Define statement for on case of the switch */
@@ -393,7 +397,7 @@ struct ProtoStream<std::string> {
 
 #pragma mark -
 #pragma mark Initialization
-  
+
 /*
  *  @name   NDArray
  *  @fn     NDArray(void)
@@ -405,7 +409,7 @@ NDArray::NDArray(void) : buffer_(nullptr),
                          dims_({}),
                          type_(DataType::kUnknown) {
 }
-  
+
 /*
  *  @name   NDArray
  *  @fn     explicit NDArray(Allocator* allocator)
@@ -418,7 +422,7 @@ NDArray::NDArray(Allocator* allocator) : buffer_(nullptr),
                                          dims_({}),
                                          type_(DataType::kUnknown){
 }
-  
+
 /*
  *  @name   NDArray
  *  @fn     NDArray(const DataType& type, const NDArrayDims& dims)
@@ -434,7 +438,7 @@ NDArray::NDArray(const DataType& type,
                                             type_(type) {
   this->Resize(type_, dims_);
 }
-  
+
 /*
  *  @name   NDArray
  *  @fn     NDArray(const DataType& type, const NDArrayDims& dims)
@@ -453,7 +457,7 @@ NDArray::NDArray(const DataType& type,
                                          type_(type) {
   this->Resize(type_, dims_);
 }
-  
+
 /*
  *  @name   ~NDArray
  *  @fn     ~NDArray(void)
@@ -464,7 +468,26 @@ NDArray::~NDArray(void) {
     buffer_->Dec();
   }
 }
-  
+
+/*
+ *  @name   DeepCopy
+ *  @fn     void DeepCopy(NDArray* other) const
+ *  @brief  Perform a deep copy into an `other` array. Underlying buffer will
+ *          not be shared.
+ *  @param[out] other Where to copy the array
+ */
+void NDArray::DeepCopy(NDArray* other) const {
+  // Init target
+  other->Resize(type_, dims_);
+  // Copy data
+  SWITCH_WITH_DEFAULT(type_,
+                      internal::Initializer<T>::FromArray(this->Base<const T>(),
+                                                          dims_.n_elems(),
+                                                          other->Base<T>()),
+                      FACEKIT_LOG_ERROR("Unknown data type: " << type_),
+                      FACEKIT_LOG_ERROR("Data type not set"));
+}
+
 /*
  *  @name   Resize
  *  @fn     void Resize(const DataType& type, const NDArrayDims& dims)
@@ -516,7 +539,7 @@ void NDArray::ToProto(NDArrayProto* proto) const {
     FACEKIT_LOG_DEBUG("Can not convert to protobuf object uninitialized array");
   }
 }
-  
+
 /*
  *  @name   FromProto
  *  @fn     Status FromProto(const NDArrayProto& proto)
@@ -573,10 +596,10 @@ Status NDArray::FromProto(const NDArrayProto& proto, Allocator* allocator) {
   buffer_ = buff;
   return Status();
 }
-  
+
 #pragma mark -
 #pragma mark Usage
-  
+
 /*
  *  @name   ShareBuffer
  *  @fn     bool ShareBuffer(const NDArray& other) const
@@ -589,7 +612,7 @@ bool NDArray::ShareBuffer(const NDArray& other) const {
   }
   return false;
 }
-  
+
 /*
  *  @name   Slice
  *  @fn     NDArray Slice(const size_t& start, const size_t& stop) const
@@ -607,7 +630,7 @@ NDArray NDArray::Slice(const size_t& start, const size_t& stop) const {
   if (start == 0 && stop == dim0) {
     return *this;
   }
-  
+
   // Create new array
   NDArray array;
   array.type_ = type_;
@@ -628,7 +651,7 @@ NDArray NDArray::Slice(const size_t& start, const size_t& stop) const {
   }
   return array;
 }
-  
-  
+
+
 }  // namespace FaceKit
 
