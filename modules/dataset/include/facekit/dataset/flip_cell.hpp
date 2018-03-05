@@ -13,7 +13,7 @@
 
 #include "facekit/core/library_export.hpp"
 #include "facekit/dataset/augmentation_cell.hpp"
-#include "facekit/core/enum_bitmask_operator.hpp"
+#include "facekit/core/utils/enum_bitmask_operator.hpp"
 
 /**
  *  @namespace  FaceKit

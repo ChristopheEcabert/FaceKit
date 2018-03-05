@@ -14,20 +14,20 @@ if(build)
     src/allocator.cpp
     src/cmd_parser.cpp
     src/error.cpp
+    src/file_system.cpp
     src/linear_algebra.cpp
     src/logger.cpp
     src/map_allocator.cpp
     src/memory.cpp
     src/nd_array_dims.cpp
     src/nd_array.cpp
+    src/posix_file_system.cpp
     src/proto.cpp
     src/status.cpp
     src/string.cpp
     src/types.cpp)
   set(incs
-    
     include/facekit/${SUBSYS_NAME}/cmd_parser.hpp
-    include/facekit/${SUBSYS_NAME}/enum_bitmask_operator.hpp
     include/facekit/${SUBSYS_NAME}/error.hpp
     include/facekit/${SUBSYS_NAME}/library_export.hpp
     include/facekit/${SUBSYS_NAME}/logger.hpp
@@ -50,7 +50,11 @@ if(build)
     include/facekit/${SUBSYS_NAME}/mem/allocator.hpp
     include/facekit/${SUBSYS_NAME}/mem/map_allocator.hpp
     include/facekit/${SUBSYS_NAME}/mem/memory.hpp)
-    set(incs_utils
+  set(incs_sys
+    include/facekit/${SUBSYS_NAME}/sys/file_system.hpp
+    include/facekit/${SUBSYS_NAME}/sys/posix_file_system.hpp)  
+  set(incs_utils
+    include/facekit/${SUBSYS_NAME}/utils/enum_bitmask_operator.hpp
     include/facekit/${SUBSYS_NAME}/utils/proto.hpp
     include/facekit/${SUBSYS_NAME}/utils/string.hpp)
   set(proto
@@ -84,11 +88,13 @@ if(build)
   FACEKIT_ADD_TEST(ut_nd_array_dims nd_array_dims FILES test/ut_nd_array_dims.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core ${Protobuf_LIBRARIES})
   FACEKIT_ADD_TEST(ut_nd_array_map nd_array_map FILES test/ut_nd_array_map.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_nd_array nd_array FILES test/ut_nd_array.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
-  FACEKIT_ADD_TEST(ut_strings strings FILES test/ut_strings.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_paths paths FILES test/ut_path.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_filesystem posix_file_system FILES test/ut_file_system.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
 
   # Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}/math" ${incs_math})
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}/mem" ${incs_mem})
+  FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}/sys" ${incs_sys})
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}/utils" ${incs_utils})
 endif(build)

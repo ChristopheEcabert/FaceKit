@@ -1,6 +1,6 @@
 /**
- *  @file   ut_strings.cpp
- *  @brief Unit test for string
+ *  @file   ut_path.cpp
+ *  @brief Unit test for path manipulation
  *  @ingroup core
  *
  *  @author Christophe Ecabert

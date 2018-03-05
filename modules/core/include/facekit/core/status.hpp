@@ -103,6 +103,13 @@ class FK_EXPORTS Status {
    */
   ~Status(void) = default;
     
+  /**
+   *  @name   Clear
+   *  @fn     void Clear(void)
+   *  @brief  Reset a status
+   */
+  void Clear(void);
+    
 #pragma mark -
 #pragma mark Usage
     
@@ -213,6 +220,16 @@ inline Status& Status::operator=(const Status& other) {
     msg_ = other.msg_;
   }
   return *this;
+}
+  
+/*
+ *  @name   Clear
+ *  @fn     void Clear(void)
+ *  @brief  Reset a status
+ */
+inline void Status::Clear(void) {
+  err_ = Type::kOk;
+  msg_ = "";
 }
   
 /*
