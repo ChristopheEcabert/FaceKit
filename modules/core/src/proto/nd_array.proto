@@ -14,7 +14,7 @@ import "nd_array_dims.proto";
 // NDArray
 message NDArrayProto {
   // Data type
-  DataType type = 1;
+  ProtoDataType type = 1;
   // Array dimension
   NDArrayDimsProto dims = 2;
   // NDArray elements stored into an array of bytes

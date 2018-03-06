@@ -14,6 +14,7 @@ if(build)
     src/allocator.cpp
     src/cmd_parser.cpp
     src/error.cpp
+    src/file_system_factory.cpp
     src/file_system.cpp
     src/linear_algebra.cpp
     src/logger.cpp
@@ -25,7 +26,8 @@ if(build)
     src/proto.cpp
     src/status.cpp
     src/string.cpp
-    src/types.cpp)
+    src/types.cpp
+    src/windows_file_system.cpp)
   set(incs
     include/facekit/${SUBSYS_NAME}/cmd_parser.hpp
     include/facekit/${SUBSYS_NAME}/error.hpp
@@ -51,8 +53,10 @@ if(build)
     include/facekit/${SUBSYS_NAME}/mem/map_allocator.hpp
     include/facekit/${SUBSYS_NAME}/mem/memory.hpp)
   set(incs_sys
+    include/facekit/${SUBSYS_NAME}/sys/file_system_factory.hpp
     include/facekit/${SUBSYS_NAME}/sys/file_system.hpp
-    include/facekit/${SUBSYS_NAME}/sys/posix_file_system.hpp)  
+    include/facekit/${SUBSYS_NAME}/sys/posix_file_system.hpp
+    include/facekit/${SUBSYS_NAME}/sys/windows_file_system.hpp)  
   set(incs_utils
     include/facekit/${SUBSYS_NAME}/utils/enum_bitmask_operator.hpp
     include/facekit/${SUBSYS_NAME}/utils/proto.hpp

@@ -14,6 +14,7 @@
 #include "gmock/gmock.h"
 
 #include "facekit/core/sys/posix_file_system.hpp"
+#include "facekit/core/sys/file_system_factory.hpp"
 
 
 class FileSystemTest : public ::testing::Test {
@@ -289,6 +290,19 @@ TEST_F(FileSystemTest, CopyFile) {
   }
 }
 
+TEST(FileSystemFactory, Retrieve) {
+  namespace FK = FaceKit;
+  
+  // Check it is properly registered
+  FK::FileSystem* fs = FK::FileSystemFactory::Get().Retrieve("Posix");
+  EXPECT_NE(fs, nullptr);
+  // Check Win is registered
+  fs = FK::FileSystemFactory::Get().Retrieve("Windows");
+  EXPECT_NE(fs, nullptr);
+  // Check it is properly registered
+  fs = FK::FileSystemFactory::Get().Retrieve("NotExistingFileSystem");
+  EXPECT_EQ(fs, nullptr);
+}
 
 int main(int argc, char* argv[]) {
   // Init gtest framework

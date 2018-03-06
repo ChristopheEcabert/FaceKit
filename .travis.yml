@@ -60,6 +60,8 @@ addons:
       # Protobuf
       - curl
       - unzip
+      # Libjpeg
+      - nasm
 # Cache dependencies
 cache:
   directories:
@@ -93,6 +95,15 @@ install:
       $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
   
+  ############################################################################
+  # Install nasm for libjpeg turbo
+  ############################################################################
+  - |
+    if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
+      brew upgrade nasm || brew install nasm
+    fi
+    nasm -v && which nasm
+    
   ############################################################################
   # Install Protobuf
   ############################################################################

@@ -12,9 +12,10 @@
 #include <type_traits>
 #include <algorithm>
 
-#include "nd_array.pb.h"
 #include "google/protobuf/repeated_field.h"
 #include "google/protobuf/stubs/port.h"
+#include "nd_array.pb.h"
+#include "types.pb.h"
 
 #include "facekit/core/nd_array.hpp"
 #include "facekit/core/logger.hpp"
@@ -25,7 +26,7 @@
  *  @brief      Development space
  */
 namespace FaceKit {
-
+  
 
 #pragma mark -
 #pragma mark NDArrayBuffer
@@ -358,9 +359,64 @@ struct ProtoStream<std::string> {
     return buffer;
   }
 };
+  
+/**
+ *  @name   FromProtoToDataType
+ *  @fn     DataType FromProtoToDataType(const ProtoDataType& dtype)
+ *  @brief  Convert a ProtoDataType into the corresponding DataType
+ *  @return DataType value
+ */
+DataType FromProtoToDataType(const ProtoDataType& dtype) {
+  switch (dtype) {
+    case ProtoDataType::kUnknown: return DataType::kUnknown;
+    case ProtoDataType::kInt8: return DataType::kInt8;
+    case ProtoDataType::kUInt8: return DataType::kUInt8;
+    case ProtoDataType::kInt16: return DataType::kInt16;
+    case ProtoDataType::kUInt16: return DataType::kUInt16;
+    case ProtoDataType::kInt32: return DataType::kInt32;
+    case ProtoDataType::kUInt32: return DataType::kUInt32;
+    case ProtoDataType::kInt64: return DataType::kInt64;
+    case ProtoDataType::kUInt64: return DataType::kUInt64;
+    case ProtoDataType::kFloat: return DataType::kFloat;
+    case ProtoDataType::kDouble: return DataType::kDouble;
+    case ProtoDataType::kBool: return DataType::kBool;
+    case ProtoDataType::kString: return DataType::kString;
+    default: return DataType::kUnknown;
+  }
+  return DataType::kUnknown;
+}
 
+/**
+ *  @name   FromDataTypeToProto
+ *  @fn     ProtoDataType FromDataTypeToProto(const DataType& dtype)
+ *  @brief  Convert a DataType into the corresponding ProtoDataType
+ *  @return ProtoDataType value
+ */
+ProtoDataType FromDataTypeToProto(const DataType& dtype) {
+  switch (dtype) {
+    case DataType::kUnknown: return ProtoDataType::kUnknown;
+    case DataType::kInt8: return ProtoDataType::kInt8;
+    case DataType::kUInt8: return ProtoDataType::kUInt8;
+    case DataType::kInt16: return ProtoDataType::kInt16;
+    case DataType::kUInt16: return ProtoDataType::kUInt16;
+    case DataType::kInt32: return ProtoDataType::kInt32;
+    case DataType::kUInt32: return ProtoDataType::kUInt32;
+    case DataType::kInt64: return ProtoDataType::kInt64;
+    case DataType::kUInt64: return ProtoDataType::kUInt64;
+    case DataType::kFloat: return ProtoDataType::kFloat;
+    case DataType::kDouble: return ProtoDataType::kDouble;
+    case DataType::kBool: return ProtoDataType::kBool;
+    case DataType::kString: return ProtoDataType::kString;
+    default: return ProtoDataType::kUnknown;
+  }
+  return ProtoDataType::kUnknown;
+}
+  
+  
 
+#pragma mark -
 #pragma mark Macro definition
+  
 
 /** Forward args */
 #define ARG(...) __VA_ARGS__
@@ -484,7 +540,7 @@ void NDArray::DeepCopy(NDArray* other) const {
                       internal::Initializer<T>::FromArray(this->Base<const T>(),
                                                           dims_.n_elems(),
                                                           other->Base<T>()),
-                      FACEKIT_LOG_ERROR("Unknown data type: " << type_),
+                      FACEKIT_LOG_ERROR("Unknown data type: " << (int)type_),
                       FACEKIT_LOG_ERROR("Data type not set"));
 }
 
@@ -508,7 +564,7 @@ void NDArray::Resize(const DataType& type, const NDArrayDims& dims) {
     // Allocate buffer
     SWITCH_WITH_DEFAULT(type_,
                         buffer_ = new Buffer<T>(dims_.n_elems(), allocator_),
-                        FACEKIT_LOG_ERROR("Unknown data type: " << type_),
+                        FACEKIT_LOG_ERROR("Unknown data type: " << (int)type_),
                         FACEKIT_LOG_ERROR("Data type not set"));
   }
 }
@@ -524,7 +580,7 @@ void NDArray::ToProto(NDArrayProto* proto) const {
   if (IsInitialized()) {
     // Do conversion
     // Type
-    proto->set_type(type_);
+    proto->set_type(FromDataTypeToProto(type_));
     // Shape
     dims_.ToProto(proto->mutable_dims());
     // Buffer if any
@@ -532,7 +588,7 @@ void NDArray::ToProto(NDArrayProto* proto) const {
       // Fill proto object
       SWITCH_WITH_DEFAULT(type_,
                           ProtoStream<T>::Write(buffer_, dims_.n_elems(), proto),
-                          FACEKIT_LOG_ERROR("Unknown data type: " << type_),
+                          FACEKIT_LOG_ERROR("Unknown data type: " << (int)type_),
                           FACEKIT_LOG_ERROR("Data type not set"));
     }
   } else {
@@ -559,7 +615,7 @@ Status NDArray::FromProto(const NDArrayProto& proto) {
  */
 Status NDArray::FromProto(const NDArrayProto& proto, Allocator* allocator) {
   // Check type
-  auto type = proto.type();
+  auto type = FromProtoToDataType(proto.type());
   if (type == DataType::kUnknown) {
     return Status(Status::Type::kInvalidArgument,
                   "Unknown data type in protobuf object");
@@ -645,7 +701,7 @@ NDArray NDArray::Slice(const size_t& start, const size_t& stop) const {
     if (buffer_) {
       SWITCH_WITH_DEFAULT(type_,
                           array.buffer_ = new SubBuffer<T>(buffer_, delta, n_elem),
-                          FACEKIT_LOG_ERROR("Unknown data type: " << type_),
+                          FACEKIT_LOG_ERROR("Unknown data type: " << (int)type_),
                           FACEKIT_LOG_ERROR("Data type not set"));
     }
   }

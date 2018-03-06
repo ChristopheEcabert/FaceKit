@@ -8,11 +8,11 @@ option cc_enable_arenas = true;
 package FaceKit;
 
 //
-//  @enum DataType
+//  @enum ProtoDataType
 //  @brief  List all supported types
 //  @ingroup core
 //
-enum DataType {
+enum ProtoDataType {
   // Unknown
   kUnknown = 0;
   // Signed Int8

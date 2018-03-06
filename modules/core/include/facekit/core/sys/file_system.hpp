@@ -60,7 +60,6 @@ struct FK_EXPORTS FileProperty {
   ~FileProperty(void) = default;
 };
   
-
 /**
  *  @class  FileSystem
  *  @brief  A generic interface for accessing a file system
@@ -232,6 +231,46 @@ class FK_EXPORTS FileSystem {
    *  @return Status of the operation
    */
   virtual Status CopyFile(const std::string& src, const std::string& dst);
+};
+  
+/**
+ *  @class  FileSystemProxy
+ *  @brief  Proxy for registering/creating filesystems
+ *  @author Christophe Ecabert
+ *  @date   05.03.18
+ *  @ingroup core
+ */
+class FK_EXPORTS FileSystemProxy {
+ public:
+  /**
+   *  @name   FileSystemProxy
+   *  @fn     FileSystemProxy(void)
+   *  @brief  Constructor
+   */
+  FileSystemProxy(void);
+  
+  /**
+   *  @name   ~FileSystemProxy
+   *  @fn     virtual ~FileSystemProxy(void) = default
+   *  @brief  Destructor
+   */
+  virtual ~FileSystemProxy(void) = default;
+  
+  /**
+   *  @name   Create
+   *  @fn     virtual FileSystem* Create() const = 0
+   *  @brief  Create an instance of the FileSystem attached to this proxy
+   *  @return FileSystem instance
+   */
+  virtual FileSystem* Create() const = 0;
+  
+  /**
+   *  @name   Name
+   *  @fn     virtual const char* Name(void) const = 0
+   *  @brief  Name of the attached file system.
+   *  @return FileSystem's name
+   */
+  virtual const char* Name(void) const = 0;
 };
 
 }  // namespace FaceKit

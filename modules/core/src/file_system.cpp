@@ -14,6 +14,7 @@
 #include <algorithm>
 
 #include "facekit/core/sys/file_system.hpp"
+#include "facekit/core/sys/file_system_factory.hpp"
 #include "facekit/core/utils/string.hpp"
 
 /**
@@ -254,5 +255,19 @@ Status FileSystem::CopyFile(const std::string& src, const std::string& dst) {
   out.close();
   return status;
 }
+  
+#pragma mark -
+#pragma mark Proxy
+  
+/*
+ *  @name   FileSystemProxy
+ *  @fn     FileSystemProxy(void)
+ *  @brief  Constructor
+ */
+FileSystemProxy::FileSystemProxy(void) {
+  // Register
+  FileSystemFactory::Get().Register(this);
+}
+  
   
 }  // namespace FaceKit

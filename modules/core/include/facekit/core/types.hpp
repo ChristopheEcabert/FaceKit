@@ -13,13 +13,45 @@
 
 #include <string>
 
-#include "types.pb.h"
-
 /**
  *  @namespace  FaceKit
  *  @brief      Development space
  */
 namespace FaceKit {
+  
+/**
+ *  @enum DataType
+ *  @brief  List all supported types
+ *  @ingroup core
+ */
+enum class DataType : int {
+  /** Unknown */
+  kUnknown = 0,
+  /** Signed Int8 */
+  kInt8 = 1,
+  /** Signed UInt8 */
+  kUInt8 = 2,
+  /** Signed Int16 */
+  kInt16 = 3,
+  /** Signed UInt16 */
+  kUInt16 = 4,
+  /** Signed Int32 */
+  kInt32 = 5,
+  /** Signed UInt32 */
+  kUInt32 = 6,
+  /** Signed Int64 */
+  kInt64 = 7,
+  /** Signed UInt64 */
+  kUInt64 = 8,
+  /** Float - 32bits */
+  kFloat = 9,
+  /** Double - 64bits */
+  kDouble = 10,
+  /** Bool */
+  kBool = 11,
+  /** String */
+  kString = 12
+};
   
 /**
  *  @name DataTypeToString

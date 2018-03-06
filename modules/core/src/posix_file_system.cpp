@@ -9,13 +9,19 @@
  *  Copyright © 2018 Christophe Ecabert. All rights reserved.
  */
 
+#if defined(__APPLE__) || defined(__linux__)
+#define IS_POSIX
+// Posix system
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <dirent.h>
 
+#endif
+
 #include "facekit/core/utils/string.hpp"
 #include "facekit/core/sys/posix_file_system.hpp"
+#include "facekit/core/sys/file_system_factory.hpp"
 
 /**
  *  @namespace  FaceKit
@@ -31,12 +37,16 @@ namespace FaceKit {
  *  @return kGood of kNotFound
  */
 Status PosixFileSystem::FileExist(const std::string& filename) {
+#ifdef IS_POSIX
   std::string fname = NormalizePath(filename);
   if (access(fname.c_str(), F_OK) != 0) {
     // Does not exist
     return Status(Status::Type::kNotFound, fname + " not found");
   }
   return Status();
+#else
+  return Status(Status::Type::kUnimplemented, "Not supported");
+#endif
 }
   
 /*
@@ -50,6 +60,7 @@ Status PosixFileSystem::FileExist(const std::string& filename) {
  */
 Status PosixFileSystem::ListDir(const std::string& dir,
                                 std::vector<std::string>* files) {
+#ifdef IS_POSIX
   std::string fname = NormalizePath(dir);
   files->clear();
   // Try to access folder
@@ -69,6 +80,9 @@ Status PosixFileSystem::ListDir(const std::string& dir,
   // CLose
   closedir(dd);
   return Status();
+#else
+  return Status(Status::Type::kUnimplemented, "Not supported");
+#endif
 }
   
 /*
@@ -82,6 +96,7 @@ Status PosixFileSystem::ListDir(const std::string& dir,
  */
 Status PosixFileSystem::FileProp(const std::string& filename,
                                  FileProperty* prop) {
+#ifdef IS_POSIX
   std::string fname = NormalizePath(filename);
   struct stat sbuf;
   if (stat(fname.c_str(), &sbuf) != 0) {
@@ -92,6 +107,9 @@ Status PosixFileSystem::FileProp(const std::string& filename,
     prop->is_dir = S_ISDIR(sbuf.st_mode);
   }
   return Status();
+#else
+  return Status(Status::Type::kUnimplemented, "Not supported");
+#endif
 }
   
 /*
@@ -102,12 +120,16 @@ Status PosixFileSystem::FileProp(const std::string& filename,
  *  @return Status of the operation
  */
 Status PosixFileSystem::DeleteFile(const std::string& filename) {
+#ifdef IS_POSIX
   std::string fname = NormalizePath(filename);
   if (unlink(fname.c_str()) != 0) {
     return Status(Status::Type::kInternalError,
                   "Can not delete file: " + fname);
   }
   return Status();
+#else
+  return Status(Status::Type::kUnimplemented, "Not supported");
+#endif
 }
   
 /*
@@ -118,12 +140,16 @@ Status PosixFileSystem::DeleteFile(const std::string& filename) {
  *  @return Status of the operation
  */
 Status PosixFileSystem::CreateDir(const std::string& dir) {
+#ifdef IS_POSIX
   std::string fdir = NormalizePath(dir);
   if (mkdir(fdir.c_str(), 0755) != 0) {
     return Status(Status::Type::kInternalError,
                   "Can not create: " + fdir);
   }
   return Status();
+#else
+  return Status(Status::Type::kUnimplemented, "Not supported");
+#endif
 }
   
 /*
@@ -134,12 +160,16 @@ Status PosixFileSystem::CreateDir(const std::string& dir) {
  *  @return Status of the operation
  */
 Status PosixFileSystem::DeleteDir(const std::string& dir) {
+#ifdef IS_POSIX
   auto fdir = NormalizePath(dir);
   if (rmdir(fdir.c_str()) != 0) {
     return Status(Status::Type::kInternalError,
                   "Can not delete: " + fdir);
   }
   return Status();
+#else
+  return Status(Status::Type::kUnimplemented, "Not supported");
+#endif
 }
   
 /*
@@ -153,6 +183,7 @@ Status PosixFileSystem::DeleteDir(const std::string& dir) {
  */
 Status PosixFileSystem::RenameFile(const std::string& src,
                                    const std::string& dst) {
+#ifdef IS_POSIX
   auto fsrc = NormalizePath(src);
   auto fdst = NormalizePath(dst);
   if (rename(fsrc.c_str(), fdst.c_str()) != 0) {
@@ -160,6 +191,9 @@ Status PosixFileSystem::RenameFile(const std::string& src,
                   "Can not rename: " + fsrc);
   }
   return Status();
+#else
+  return Status(Status::Type::kUnimplemented, "Not supported");
+#endif
 }
   
 /*
@@ -172,6 +206,7 @@ Status PosixFileSystem::RenameFile(const std::string& src,
  */
 Status PosixFileSystem::QueryFileSize(const std::string& filename,
                                       size_t* size) {
+#ifdef IS_POSIX
   auto fname = NormalizePath(filename);
   // Gather stat
   struct stat sbuf;
@@ -182,6 +217,13 @@ Status PosixFileSystem::QueryFileSize(const std::string& filename,
   }
   *size = sbuf.st_size;
   return Status();
+#else
+  return Status(Status::Type::kUnimplemented, "Not supported");
+#endif
 }
+  
+// Register file system
+REGISTER_FILE_SYSTEM("Posix", PosixFileSystem);
+  
   
 }  // namespace FaceKit
