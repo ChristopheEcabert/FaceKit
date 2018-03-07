@@ -26,7 +26,7 @@ matrix:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++
+            - g++-5
         
     # Linux - Clang
     - os: linux
