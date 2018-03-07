@@ -21,12 +21,6 @@ matrix:
       env: 
         - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
       compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-5
         
     # Linux - Clang
     - os: linux
@@ -34,12 +28,6 @@ matrix:
       env: 
         - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz
       compiler: clang
-      addons:
-        apt:
-          packages:
-            # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
-            - libc++1
-            - libc++-dev
     
     # OSX 10.13 - Clang
     - os: osx
@@ -61,16 +49,18 @@ matrix:
       env: 
         - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz  MATRIX_EVAL="CC=gcc-5 && CXX=g++-5" DOCUMENTATION=TRUE NSTRIP=1 DOXYGEN_URL=http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.linux.bin.tar.gz CMAKE_OPTIONS="${CMAKE_OPTIONS} -DWITH_DOCS=ON"
       compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-5
+
 # Add packages
 addons:
   apt:
+    sources:
+      - ubuntu-toolchain-r-test
     packages:
+      # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
+      - libc++1
+      - libc++-dev
+      # Update gcc
+      - g++-5
       - gfortran
       # Doxygen
       - graphviz
