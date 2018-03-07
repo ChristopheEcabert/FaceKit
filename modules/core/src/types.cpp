@@ -8,6 +8,8 @@
  *  Copyright © 2018 Christophe Ecabert. All rights reserved.
  */
 
+#include <limits>
+
 #include "facekit/core/types.hpp"
 #include "facekit/core/logger.hpp"
 

@@ -48,11 +48,11 @@ if(build)
   ADD_DEPENDENCIES("${LIB_NAME}" libpng libjpeg)
   #EXAMPLES
   IF(WITH_EXAMPLES)
+    FACEKIT_ADD_EXAMPLE(image_loader FILES example/ex_image_loader.cpp LINK_WITH facekit_core facekit_io)
   ENDIF(WITH_EXAMPLES)
 
   # TESTS
-  #FACEKIT_ADD_TEST(cmd_parser oglkit_test_cmd_parser FILES test/test_cmd_parser.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH oglkit_core)
-
+  
   # Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})
 endif(build)

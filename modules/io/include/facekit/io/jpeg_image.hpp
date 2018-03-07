@@ -35,10 +35,10 @@ class FK_EXPORTS JPEGImage : public Image {
   
   /**
    *  @name JPEGImage
-   *  @fn JPEGImage(void)
+   *  @fn JPEGImage(void) = default
    *  @brief  Constructor
    */
-  JPEGImage(void);
+  JPEGImage(void) = default;
   
   /**
    *  @name JPEGImage
@@ -59,10 +59,10 @@ class FK_EXPORTS JPEGImage : public Image {
   
   /**
    *  @name ~JPEGImage
-   *  @fn ~JPEGImage(void)
+   *  @fn ~JPEGImage(void) override = default
    *  @brief  Destructor
    */
-  ~JPEGImage(void) override;
+  ~JPEGImage(void) override = default;
   
   /**
    *  @name Load

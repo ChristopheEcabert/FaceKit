@@ -1,17 +1,15 @@
 /**
- *  @file   png_image.hpp
- *  @brief PNG Image object
+ *  @file   bitmap_image.hpp
+ *  @brief Bitmap Image Object
  *  @ingroup io
  *
  *  @author Christophe Ecabert
- *  @date   06.03.18
- *  Copyright © 2018 Christophe Ecabert. All rights reserved.
+ *  @date   07.03.18
+ *    Copyright © 2018 Christophe Ecabert. All rights reserved.
  */
 
-#ifndef __FACEKIT_PNG_IMAGE__
-#define __FACEKIT_PNG_IMAGE__
-
-#include <iostream>
+#ifndef __FACEKIT_BITMAP_IMAGE__
+#define __FACEKIT_BITMAP_IMAGE__
 
 #include "facekit/core/library_export.hpp"
 #include "facekit/io/image.hpp"
@@ -22,49 +20,52 @@
  */
 namespace FaceKit {
   
+/** Forward BMPHeader */
+class BMPHeader;
+  
 /**
- *  @class  PNGImage
- *  @brief  PNG Image object
+ *  @class  BMPImage
+ *  @brief  Bitmap Image object
  *  @author Christophe Ecabert
- *  @date   05.03.18
+ *  @date   07.03.18
  *  @ingroup io
  */
-class FK_EXPORTS PNGImage : public Image {
+class BMPImage : public Image {
  public:
   
 #pragma mark -
 #pragma mark Initialization
   
   /**
-   *  @name PNGImage
-   *  @fn PNGImage(void) = default
+   *  @name BMPImage
+   *  @fn BMPImage(void)
    *  @brief  Constructor
    */
-  PNGImage(void) = default;
+  BMPImage(void);
   
   /**
-   *  @name PNGImage
-   *  @fn PNGImage(const PNGImage& other) = delete
+   *  @name BMPImage
+   *  @fn BMPImage(const BMPImage& other) = delete
    *  @brief  Copy Constructor
    *  @param[in]  other Object to copy
    */
-  PNGImage(const PNGImage& other) = delete;
+  BMPImage(const BMPImage& other) = delete;
   
   /**
    *  @name operator=
-   *  @fn PNGImage& operator=(const PNGImage& rhs) = delete
+   *  @fn BMPImage& operator=(const BMPImage& rhs) = delete
    *  @brief  Assignment operator
    *  @param[in]  rhs Object to assign form
    *  @return Newly assign object
    */
-  PNGImage& operator=(const PNGImage& rhs) = delete;
+  BMPImage& operator=(const BMPImage& rhs) = delete;
   
   /**
-   *  @name ~PNGImage
-   *  @fn ~PNGImage(void) override = default
+   *  @name ~BMPImage
+   *  @fn ~BMPImage(void)
    *  @brief  Destructor
    */
-  ~PNGImage(void) override = default;
+  ~BMPImage(void) override;
   
   /**
    *  @name Load
@@ -83,9 +84,15 @@ class FK_EXPORTS PNGImage : public Image {
    *  @return Operation status
    */
   Status Save(std::ostream& stream) const override;
+  
+#pragma mark -
+#pragma mark Private
+ private:
+  /** Header */
+  BMPHeader* header_;
+  
 };
   
   
-  
 }  // namespace FaceKit
-#endif /* __FACEKIT_PNG_IMAGE__ */
+#endif /* __FACEKIT_BITMAP_IMAGE__ */

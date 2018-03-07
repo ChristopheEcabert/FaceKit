@@ -57,26 +57,6 @@ void ErrorExit(j_common_ptr cinfo) {
 #pragma mark Initialization
   
 /*
- *  @name JPEGImage
- *  @fn JPEGImage(void)
- *  @brief  Constructor
- */
-JPEGImage::JPEGImage(void) {
-  this->data_ = new NDArray();
-}
-
-/*
- *  @name ~JPEGImage
- *  @fn ~JPEGImage(void)
- *  @brief  Destructor
- */
-JPEGImage::~JPEGImage(void) {
-  if (this->data_) {
-    delete this->data_;
-  }
-}
-  
-/*
  *  @name Load
  *  @fn Status Load(std::istream& stream) override
  *  @brief  Load image from dist
@@ -137,8 +117,8 @@ Status JPEGImage::Load(std::istream& stream) {
         this->width_ = cinfo.output_width;
         this->height_ = cinfo.output_height;
         this->format_ = static_cast<Image::Format>(cinfo.output_components);
-        this->data_->Resize(DataType::kUInt8,
-                            {this->height_, this->width_, this->format_});
+        this->buffer_.Resize(DataType::kUInt8,
+                             {this->height_, this->width_, this->format_});
         // Single row buffer
         JSAMPARRAY work_buffer;
         work_buffer = (*cinfo.mem->alloc_sarray)((j_common_ptr) &cinfo,
@@ -149,7 +129,7 @@ Status JPEGImage::Load(std::istream& stream) {
         //           jpeg_read_scanlines(...);
         // Here we use the library's state variable cinfo.output_scanline as the
         // loop counter, so that we don't have to keep track ourselves.
-        int8_t* ptr = this->data_->AsFlat<int8_t>().data();
+        auto* ptr = this->data();
         int i = 0;
         while (cinfo.output_scanline < cinfo.output_height) {
           // jpeg_read_scanlines expects an array of pointers to scanlines.
@@ -186,7 +166,7 @@ Status JPEGImage::Load(std::istream& stream) {
  */
 Status JPEGImage::Save(std::ostream& stream) const {
   Status status;
-  if (stream.good() && this->data_) {
+  if (stream.good() && this->data() != nullptr) {
     int err = -1;
     // This struct contains the JPEG compression parameters and pointers to
     // working space (which is allocated as needed by the JPEG library).
@@ -247,7 +227,7 @@ Status JPEGImage::Save(std::ostream& stream) const {
     // more if you wish, though.
     // JSAMPLEs per row in image_buffer
     row_stride = cinfo.image_width * cinfo.input_components;
-    auto* ptr = this->data_->AsFlat<uint8_t>().data();
+    auto* ptr = const_cast<uint8_t*>(this->data());
     while (cinfo.next_scanline < cinfo.image_height) {
       // jpeg_write_scanlines expects an array of pointers to scanlines.
       // Here the array is only one element long, but you could pass

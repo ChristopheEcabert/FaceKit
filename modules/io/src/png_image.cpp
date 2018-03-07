@@ -118,26 +118,6 @@ int PNGColorTypeConverter(const Image::Format& format) {
 #pragma mark Initialization
   
 /*
- *  @name PNGImage
- *  @fn PNGImage(void) = default
- *  @brief  Constructor
- */
-PNGImage::PNGImage(void) {
-  data_ = new NDArray();
-}
-  
-/*
- *  @name ~PNGImage
- *  @fn ~PNGImage(void)
- *  @brief  Destructor
- */
-PNGImage::~PNGImage(void) {
-  if (data_) {
-    delete data_;
-  }
-}
-  
-/*
  *  @name Load
  *  @fn Status Load(std::istream& stream) override
  *  @brief  Load image from dist
@@ -194,11 +174,11 @@ Status PNGImage::Load(std::istream& stream) {
             this->height_ = static_cast<size_t>(height);
             this->format_ = PNGFormatConverter(colorType);
             // Allocate
-            this->data_->Resize(DataType::kUInt8,
-                                {this->height_, this->width_, this->format_});
+            this->buffer_.Resize(DataType::kUInt8,
+                                 {this->height_, this->width_, this->format_});
             // Read info + one line at a time
             const size_t bytesPerRow = png_get_rowbytes(png_ptr, info_ptr);
-            uint8_t* ptr = this->data_->AsFlat<uint8_t>().data();
+            auto* ptr = this->data();
             for (size_t r = 0; r < this->height_; ++r) {
               png_read_row(png_ptr, &ptr[r * bytesPerRow], nullptr);
             }
@@ -228,7 +208,7 @@ Status PNGImage::Load(std::istream& stream) {
  */
 Status PNGImage::Save(std::ostream& stream) const {
   Status status;
-  if (stream.good() && this->data_) {
+  if (stream.good() && this->data() != nullptr) {
     int err = -1;
     png_structp png_ptr = nullptr;
     png_infop info_ptr = nullptr;
@@ -254,7 +234,7 @@ Status PNGImage::Save(std::ostream& stream) const {
         
         // Write image data, one row at a time
         size_t byte_per_row = this->width_ * this->format_;
-        auto* ptr = this->data_->AsFlat<uint8_t>().data();
+        auto* ptr = this->data();
         for (size_t r = 0; r < this->height_; ++r) {
           png_write_row(png_ptr, &(ptr[r * byte_per_row]));
         }

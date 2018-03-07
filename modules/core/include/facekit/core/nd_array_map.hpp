@@ -40,12 +40,6 @@ class FK_EXPORTS NDArrayMap {
  public:
   
 #pragma mark -
-#pragma mark Type Definition
-  
-  /** Type */
-  using Type = typename std::remove_const<T>::type;
-  
-#pragma mark -
 #pragma mark Initialization
   
   /**
@@ -147,7 +141,7 @@ class FK_EXPORTS NDArrayMap {
    *  @brief  Access to the mapped raw buffer
    *  @return Mapped pointer
    */
-  Type* data(void) {
+  T* data(void) {
     return data_;
   }
   
@@ -157,7 +151,7 @@ class FK_EXPORTS NDArrayMap {
    *  @brief  Access to the mapped raw buffer
    *  @return Mapped pointer
    */
-  const Type* data(void) const {
+  T* data(void) const {
     return data_;
   }
   

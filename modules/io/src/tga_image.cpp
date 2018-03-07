@@ -226,9 +226,7 @@ struct TGAHeader {
  *  @fn TGAImage(void)
  *  @brief  Constructor
  */
-TGAImage::TGAImage(void) {
-  header_ = new TGAHeader();
-  this->data_ = new NDArray();
+TGAImage::TGAImage(void) : header_(new TGAHeader()) {
 }
   
 /*
@@ -239,9 +237,6 @@ TGAImage::TGAImage(void) {
 TGAImage::~TGAImage(void) {
   if (header_) {
     delete header_;
-  }
-  if (this->data_) {
-    delete this->data_;
   }
 }
   
@@ -265,24 +260,26 @@ Status TGAImage::Load(std::istream& stream) {
       this->height_ = static_cast<size_t>(header_->image_spec.height);
       this->format_ = static_cast<Format>(header_->image_spec.pixel_depth / 8);
       // Allocate buffer
-      this->data_->Resize(DataType::kUInt8,
-                          {this->height_, this->width_, this->format_});
+      this->buffer_.Resize(DataType::kUInt8,
+                           {this->height_, this->width_, this->format_});
       // Read data
       int bpp = (header_->image_spec.pixel_depth + 7) / 8;
       const size_t sz = (this->width_  * this->height_ * bpp);
-      auto* ptr = this->data_->AsFlat<uint8_t>().data();
+      auto* ptr = this->data();
       stream.read(reinterpret_cast<char*>(ptr), sz);
-      // Convert image pixel format (BGR -> RGB or BGRA -> RGBA)
-      auto* src = ptr;
-      auto* dst = &src[2];
-      uint8_t tmp;
-      const size_t n_elem = this->width_ * this->height_;
-      for (size_t n = 0; n < n_elem; ++n) {
-        tmp = *src;
-        *src = *dst;
-        *dst = tmp;
-        src += bpp;
-        dst += bpp;
+      if (this->format_ != Format::kGrayscale) {
+        // Convert image pixel format (BGR -> RGB or BGRA -> RGBA)
+        auto* src = ptr;
+        auto* dst = &src[2];
+        uint8_t tmp;
+        const size_t n_elem = this->width_ * this->height_;
+        for (size_t n = 0; n < n_elem; ++n) {
+          tmp = *src;
+          *src = *dst;
+          *dst = tmp;
+          src += bpp;
+          dst += bpp;
+        }
       }
       // Sanity check
       err = stream.good() ? 0 : -1;
@@ -305,24 +302,26 @@ Status TGAImage::Load(std::istream& stream) {
  */
 Status TGAImage::Save(std::ostream& stream) const {
   Status status;
-  if (stream.good() && this->data_) {
+  if (stream.good() && this->data() != nullptr) {
     // Write header
     stream << header_;
     // Convert image pixel format (RGB -> BGR or RGBA -> BGRA)
     // Do copy since the method is marked as 'const'
     size_t bpp = static_cast<size_t>(this->format_);
     size_t n_pixel = this->width_ * this->height_;
-    auto* ptr = this->data_->AsFlat<uint8_t>().data();
+    auto* ptr = this->data();
     std::vector<uint8_t> buffer(ptr, ptr + (n_pixel * bpp));
-    auto* src = buffer.data();
-    auto* dst = &src[2];
-    uint8_t tmp = 0;
-    for (size_t n = 0; n < n_pixel; ++n) {
-      tmp = *src;
-      *src = *dst;
-      *dst = tmp;
-      src += bpp;
-      dst += bpp;
+    if (this->format_ != Format::kGrayscale) {
+      auto* src = buffer.data();
+      auto* dst = &src[2];
+      uint8_t tmp = 0;
+      for (size_t n = 0; n < n_pixel; ++n) {
+        tmp = *src;
+        *src = *dst;
+        *dst = tmp;
+        src += bpp;
+        dst += bpp;
+      }
     }
     // Write
     stream.write(reinterpret_cast<const char*>(buffer.data()),

@@ -60,7 +60,16 @@ class Image {
    *  @fn Image(void)
    *  @brief  Constructor
    */
-  Image(void) : format_(kGrayscale), width_(0), height_(0), data_(nullptr) {}
+  Image(void) : format_(kGrayscale), width_(0), height_(0) {}
+  
+  /**
+   *  @name   Image
+   *  @fn     explicit Image(Allocator* alloc)
+   *  @brief  Constructor
+   *  @param[in] alloc  Allocator to use for the underlying image buffer
+   */
+  explicit Image(Allocator* alloc) : format_(kGrayscale),
+                                     width_(0), height_(0), buffer_(alloc) {}
   
   /**
    *  @name ~Image
@@ -140,12 +149,22 @@ class Image {
   
   /**
    *  @name   data
-   *  @fn     const NDArray* data(void) const
+   *  @fn     const uint8_t* data(void) const
    *  @brief  Provide image data
    *  @return Image data
    */
-  const NDArray* data(void) const {
-    return data_;
+  const uint8_t* data(void) const {
+    return buffer_.AsFlat<uint8_t>().data();
+  }
+  
+  /**
+   *  @name   data
+   *  @fn     uint8_t* data(void)
+   *  @brief  Provide image data
+   *  @return Image data
+   */
+  uint8_t* data(void) {
+    return buffer_.AsFlat<uint8_t>().data();
   }
   
  protected:
@@ -156,7 +175,7 @@ class Image {
   /** Image height */
   size_t height_;
   /** Image buffer */
-  NDArray* data_;
+  NDArray buffer_;
 };
   
   
