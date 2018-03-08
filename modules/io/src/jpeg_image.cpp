@@ -10,6 +10,7 @@
 
 #include <setjmp.h>
 #include <vector>
+#include <cstdio> // In order to have size_t define in jpeglib.h
 
 #include "jpeglib.h"
 
