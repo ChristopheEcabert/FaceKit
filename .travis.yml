@@ -19,7 +19,7 @@ matrix:
     - os: linux
       dist: trusty
       env: 
-        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && FC=gfortran-5"
       compiler: gcc
       addons:
         apt:
@@ -27,7 +27,7 @@ matrix:
             - ubuntu-toolchain-r-test
           packages:
             - g++-5
-            - gfortran
+            - gfortran-5
             # Protobuf
             - curl
             - unzip
@@ -38,7 +38,7 @@ matrix:
     - os: linux
       dist: trusty
       env: 
-        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz
+        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz MATRIX_EVAL="FC=gfortran-5"
       compiler: clang
       addons:
         apt:
@@ -47,7 +47,7 @@ matrix:
             # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
             - libc++1
             - libc++-dev
-            - gfortran
+            - gfortran-5
             # Protobuf
             - curl
             - unzip
@@ -72,14 +72,14 @@ matrix:
     - os: linux
       dist: trusty
       env: 
-        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz  MATRIX_EVAL="CC=gcc-5 && CXX=g++-5" DOCUMENTATION=TRUE NSTRIP=1 DOXYGEN_URL=http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.linux.bin.tar.gz CMAKE_OPTIONS="${CMAKE_OPTIONS} -DWITH_DOCS=ON"
+        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz  MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && FC=gfortran-5" DOCUMENTATION=TRUE NSTRIP=1 DOXYGEN_URL=http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.linux.bin.tar.gz CMAKE_OPTIONS="${CMAKE_OPTIONS} -DWITH_DOCS=ON"
       compiler: gcc
       addons:
         apt:
           sources: *sources
           packages:
             - g++-5
-            - gfortran
+            - gfortran-5
             # Doxygen
             - graphviz
             - flex
