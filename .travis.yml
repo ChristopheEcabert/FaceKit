@@ -53,25 +53,25 @@ matrix:
 # Add packages
 addons:
   apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
-      - libc++1
-      - libc++-dev
-      # Update gcc
-      - g++-5
-      - gfortran
-      # Doxygen
-      - graphviz
-      - flex
-      - bison
-      - libiconv-hook*
-      # Protobuf
-      - curl
-      - unzip
-      # Libjpeg
-      - nasm
+  sources:
+    - ubuntu-toolchain-r-test
+  packages:
+    # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
+    - libc++1
+    - libc++-dev
+    # Update gcc
+    - g++-5
+    - gfortran
+    # Doxygen
+    - graphviz
+    - flex
+    - bison
+    - libiconv-hook*
+    # Protobuf
+    - curl
+    - unzip
+    # Libjpeg
+    - nasm
 # Cache dependencies
 cache:
   directories:
@@ -87,6 +87,8 @@ before_install:
   - eval "${MATRIX_EVAL}"
   
 install:
+  # Check gcc version is properly update to 5.x
+  - $CC --version
   ############################################################################
   # All the dependencies are installed in ${TRAVIS_BUILD_DIR}/deps/
   ############################################################################
