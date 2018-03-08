@@ -11,8 +11,6 @@
 #ifndef __FACEKIT_ND_ARRAY_INL__
 #define __FACEKIT_ND_ARRAY_INL__
 
-#include <algorithm>
-
 #pragma mark -
 #pragma mark Initializer Helper
 

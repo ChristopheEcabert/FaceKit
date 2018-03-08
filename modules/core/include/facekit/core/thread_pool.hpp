@@ -19,6 +19,7 @@
 #include <queue>
 #include <deque>
 #include <memory>
+#include <utility>
 
 #include "facekit/core/library_export.hpp"
 
@@ -27,7 +28,7 @@
  *  @brief      Development space
  */
 namespace FaceKit {
-  
+
 /**
  *  @class  ThreaedPool
  *  @brief  Lightweight thread pool
@@ -37,10 +38,10 @@ namespace FaceKit {
  */
 class FK_EXPORTS ThreadPool {
  public:
-  
+
 #pragma mark -
 #pragma mark Type Definition
-  
+
   /**
    *  @enum   TaskPriority
    *  @brief  Possible task's priority
@@ -53,17 +54,17 @@ class FK_EXPORTS ThreadPool {
     /** High Priority */
     kHigh
   };
-  
+
 #pragma mark -
 #pragma mark Initialization
-  
+
   /**
    *  @name   Get
    *  @fn     static ThreadPool& Get(const std::size_t& size = 4)
    *  @brief  Singleton accessor
    */
   static ThreadPool& Get(const std::size_t& size = 4);
-    
+
   /**
    *  @name   ThreadPool
    *  @fn     ThreadPool(const ThreadPool& other) = delete
@@ -79,7 +80,7 @@ class FK_EXPORTS ThreadPool {
    *  @param[in] other  Object to move from
    */
   ThreadPool(ThreadPool&& other) = delete;
-    
+
   /**
    *  @name   operator=
    *  @fn     ThreadPool& operator=(const ThreadPool& rhs) = delete;
@@ -88,7 +89,7 @@ class FK_EXPORTS ThreadPool {
    *  @return Newly assigned object
    */
   ThreadPool& operator=(const ThreadPool& rhs) = delete;
-  
+
   /**
    *  @name   operator=
    *  @fn     ThreadPool& operator=(ThreadPool&& rhs) = delete;
@@ -97,37 +98,37 @@ class FK_EXPORTS ThreadPool {
    *  @return Newly moved-assign object
    */
   ThreadPool& operator=(ThreadPool&& rhs) = delete;
-    
+
   /**
    *  @name   ~ThreadPool
    *  @fn     ~ThreadPool(void) = default
    *  @brief  Destructor
    */
   ~ThreadPool(void);
-    
+
 #pragma mark -
 #pragma mark Usage
-    
+
   /**
    *  @name
    *  @brief  Add job to the processing queue
    *  @param[in] priority Task's priority
    *  @param[in] f        Function to call
    *  @param[in] args     Function's argument
-   *  @return std::future object holding the return value of the task's 
+   *  @return std::future object holding the return value of the task's
    *          function
    */
   template<typename F, typename... Args>
   auto Enqueue(const TaskPriority& priority, F&& f, Args&&... args)
   -> std::future<typename std::result_of<F(Args...)>::type>;
-  
+
 #pragma mark -
 #pragma mark Private
  private:
-    
+
   /** Task type */
   using Task = std::pair<TaskPriority, std::function<void()>>;
-  
+
   /**
    *  @struct  TaskComparator
    *  @brief  Functor sorting task by priority
@@ -136,7 +137,7 @@ class FK_EXPORTS ThreadPool {
    *  @ingroup core
    */
   struct TaskComparator {
-    
+
     /**
      *  @name   operator()
      *  @fn     bool operator()(const TaskPriority& lhs,
@@ -147,12 +148,12 @@ class FK_EXPORTS ThreadPool {
       return lhs.first > rhs.first;
     }
   };
-    
+
   /** Priority queue type */
   using PriorityQueue = std::priority_queue<Task,
                                             std::deque<Task>,
                                             ThreadPool::TaskComparator>;
-  
+
   /**
    *  @name   ThreadPool
    *  @fn     ThreadPool(const std::size_t& size)
@@ -160,7 +161,7 @@ class FK_EXPORTS ThreadPool {
    *  @param[in]  size  Pool size
    */
   ThreadPool(const std::size_t& size);
-    
+
   /** Workers */
   std::vector<std::thread> workers_;
   /** Task queue */
@@ -174,10 +175,10 @@ class FK_EXPORTS ThreadPool {
   /** Stop flag */
   bool stop_;
 };
-  
+
 #pragma mark -
 #pragma mark Implementation
-  
+
 /*
  *  @name   Get
  *  @fn     static ThreadPool& Get(const std::size_t& size = 4)
@@ -187,7 +188,7 @@ ThreadPool& ThreadPool::Get(const std::size_t& size /*= 4*/) {
   static ThreadPool pool(size);
   return pool;
 }
-  
+
 /*
  *  @name   ThreadPool
  *  @fn     ThreadPool(const std::size_t& size)
@@ -222,7 +223,7 @@ ThreadPool::ThreadPool(const std::size_t& size) : stop_(false) {
     });
   }
 }
-  
+
 /*
  *  @name
  *  @brief  Add job to the processing queue
@@ -255,7 +256,7 @@ auto ThreadPool::Enqueue(const TaskPriority& priority, F&& f, Args&&... args)
   // Return future object
   return res;
 }
-  
+
 /*
  *  @name   ~ThreadPool
  *  @fn     ~ThreadPool(void)
@@ -274,6 +275,6 @@ ThreadPool::~ThreadPool(void) {
     thr.join();
   }
 }
-  
+
 }  // namespace FaceKit
 #endif /* __FACEKIT_THREAD_POOL__ */

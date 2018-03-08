@@ -8,7 +8,7 @@ FACEKIT_SUBSYS_OPTION(build "${SUBSYS_NAME}" "${SUBSYS_DESC}" ON)
 #Add dependencies as well as external dependencies
 FACEKIT_SUBSYS_DEPEND(build "${SUBSYS_NAME}" DEPS ${SUBSYS_DEPS} EXT_DEPS opencv blas protobuf)
 if(build)
-  # Add sources 
+  # Add sources
   set(srcs
     src/allocator_factory.cpp
     src/allocator.cpp
@@ -56,7 +56,7 @@ if(build)
     include/facekit/${SUBSYS_NAME}/sys/file_system_factory.hpp
     include/facekit/${SUBSYS_NAME}/sys/file_system.hpp
     include/facekit/${SUBSYS_NAME}/sys/posix_file_system.hpp
-    include/facekit/${SUBSYS_NAME}/sys/windows_file_system.hpp)  
+    include/facekit/${SUBSYS_NAME}/sys/windows_file_system.hpp)
   set(incs_utils
     include/facekit/${SUBSYS_NAME}/utils/enum_bitmask_operator.hpp
     include/facekit/${SUBSYS_NAME}/utils/proto.hpp
@@ -71,9 +71,9 @@ if(build)
   include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
   # Add library
-  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" 
-                      FILES ${srcs} ${incs} ${incs_math} ${incs_mem} ${incs_utils} 
-                      PROTO_FILES ${proto} 
+  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}"
+                      FILES ${srcs} ${incs} ${incs_math} ${incs_mem} ${incs_utils}
+                      PROTO_FILES ${proto}
                       LINK_WITH ${OpenCV_LIBRARIES} ${BLAS_LIBRARIES} ${Protobuf_LIBRARIES})
 
   #EXAMPLES

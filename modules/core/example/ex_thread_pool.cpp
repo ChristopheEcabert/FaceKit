@@ -12,12 +12,11 @@
 #include <vector>
 
 #include "facekit/core/thread_pool.hpp"
-#include "facekit/core/nd_array.hpp"
 
 int main(const int argc, const char** argv) {
   namespace FK = FaceKit;
   using TaskPriority = FK::ThreadPool::TaskPriority;
-  
+
   // Define worker
   auto worker = [](const int& i) -> int {
     return i * i;
@@ -32,7 +31,7 @@ int main(const int argc, const char** argv) {
     tasks.push_back(pool.Enqueue(TaskPriority::kNormal, worker, i));
   }
   std::cout << "There is: " << tasks.size() << " tasks started" << std::endl;
-  
+
   // Wait till all jobs are done
   size_t i = 0;
   for (auto& f : tasks) {

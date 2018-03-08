@@ -12,6 +12,10 @@
 #define __FACEKIT_ND_ARRAY__
 
 #include <cassert>
+#include <vector>
+#include <type_traits>
+#include <string>
+#include <algorithm>
 
 #include "facekit/core/library_export.hpp"
 #include "facekit/core/types.hpp"
@@ -25,11 +29,11 @@
  *  @brief      Development space
  */
 namespace FaceKit {
-  
+
 /** NDArrayProto */
 class NDArrayProto;
-  
-  
+
+
 /**
  *  @class  NDArrayBuffer
  *  @brief  Storage space interface for NDArray container
@@ -39,14 +43,14 @@ class NDArrayProto;
  */
 class FK_EXPORTS NDArrayBuffer : public RefCounter {
  public:
-  
+
   /**
    *  @name   ~NDArrayBuffer
    *  @fn     ~NDArrayBuffer(void)
    *  @brief  Destructor
    */
   ~NDArrayBuffer(void) override {};
-  
+
   /**
    *  @name   data
    *  @fn     virtual void* data(void) const = 0
@@ -54,7 +58,7 @@ class FK_EXPORTS NDArrayBuffer : public RefCounter {
    *  @return Buffer address
    */
   virtual void* data(void) const = 0;
-  
+
   /**
    *  @name   size
    *  @fn     virtual size_t size(void) const = 0
@@ -62,16 +66,16 @@ class FK_EXPORTS NDArrayBuffer : public RefCounter {
    *  @return Number of bytes in the buffer
    */
   virtual size_t size(void) const = 0;
-  
+
   /**
    *  @name   root
    *  @fn     virtual NDArrayBuffer* root(void) = 0
-   *  @brief  Provide reference to the buffer interface, most of the time it 
+   *  @brief  Provide reference to the buffer interface, most of the time it
    *          return the address of `this` however when the buffer is a
    *          subpart of another one, it will point to this one.
    */
   virtual NDArrayBuffer* root(void) = 0;
-  
+
   /**
    *  @name   base
    *  @fn     T* base(void) const
@@ -82,11 +86,11 @@ class FK_EXPORTS NDArrayBuffer : public RefCounter {
     return reinterpret_cast<T*>(data());
   }
 };
-  
-  
+
+
 /**
  *  @class  NDArray
- *  @brief  Representation of a n-dimension array storing values of a 
+ *  @brief  Representation of a n-dimension array storing values of a
  *          given types.
  *  @author Christophe Ecabert
  *  @date   23.02.18
@@ -94,18 +98,18 @@ class FK_EXPORTS NDArrayBuffer : public RefCounter {
  */
 class FK_EXPORTS NDArray {
  public:
-  
+
 #pragma mark -
 #pragma mark Initialization
-  
+
   /**
    *  @name   NDArray
    *  @fn     NDArray(void)
-   *  @brief  Constructor, create an empty NDArray container with 0 element 
+   *  @brief  Constructor, create an empty NDArray container with 0 element
    *          inside.
    */
   NDArray(void);
-  
+
   /**
    *  @name   NDArray
    *  @fn     explicit NDArray(Allocator* allocator)
@@ -114,7 +118,7 @@ class FK_EXPORTS NDArray {
    *  @param[in] allocator  Allocator to use when create internal buffer
    */
   explicit NDArray(Allocator* allocator);
-  
+
   /**
    *  @name   NDArray
    *  @fn     NDArray(const DataType& type, const NDArrayDims& dims)
@@ -124,19 +128,19 @@ class FK_EXPORTS NDArray {
    *  @param[in] dims Array dimensions
    */
   NDArray(const DataType& type, const NDArrayDims& dims);
-  
+
   /**
    *  @name   NDArray
    *  @fn     NDArray(const DataType& type, const NDArrayDims& dims, Allocator* allocator)
    *  @brief  Constructor, create a container of a specific type with given
-   *          dimensions. The buffer is allocated with a given allocator 
+   *          dimensions. The buffer is allocated with a given allocator
    *          (should last longer than the lifetime of this container).
    *  @param[in] type Data type to store
    *  @param[in] dims Array dimensions
    *  @param[in] allocator  Allocator to use to instantiate buffer.
    */
   NDArray(const DataType& type, const NDArrayDims& dims, Allocator* allocator);
-  
+
   /**
    *  @name   NDArray
    *  @fn     NDArray(const NDArray& other)
@@ -144,7 +148,7 @@ class FK_EXPORTS NDArray {
    *  @param[in] other  Object to copy from
    */
   NDArray(const NDArray& other);
-  
+
   /**
    *  @name   NDArray
    *  @fn     NDArray(NDArray&& other)
@@ -152,7 +156,7 @@ class FK_EXPORTS NDArray {
    *  @param[in] other  Object to move from
    */
   NDArray(NDArray&& other);
-  
+
   /**
    *  @name   operator=
    *  @fn     NDArray& operator=(const NDArray& rhs)
@@ -170,30 +174,30 @@ class FK_EXPORTS NDArray {
    *  @return Newly moved assign object
    */
   NDArray& operator=(NDArray&& rhs);
-  
+
   /**
    *  @name   ~NDArray
    *  @fn     ~NDArray(void)
    *  @brief  Destructor
    */
   ~NDArray(void);
-  
+
   /**
    *  @name   Resize
    *  @fn     void Resize(const DataType& type, const NDArrayDims& dims)
    *  @brief  Resize the NDArray to new dimensions/type
    */
   void Resize(const DataType& type, const NDArrayDims& dims);
-  
+
   /**
    *  @name   DeepCopy
    *  @fn     void DeepCopy(NDArray* other) const
-   *  @brief  Perform a deep copy into an `other` array. Underlying buffer will 
+   *  @brief  Perform a deep copy into an `other` array. Underlying buffer will
    *          not be shared.
    *  @param[out] other Where to copy the array
    */
   void DeepCopy(NDArray* other) const;
-  
+
   /**
    *  @name   ToProto
    *  @fn     void ToProto(NDArrayProto* proto) const
@@ -201,7 +205,7 @@ class FK_EXPORTS NDArray {
    *  @param[out] proto Protocol Buffer Object to write into
    */
   void ToProto(NDArrayProto* proto) const;
-  
+
   /**
    *  @name   FromProto
    *  @fn     Status FromProto(const NDArrayProto& proto)
@@ -210,7 +214,7 @@ class FK_EXPORTS NDArray {
    *  @return Operation status
    */
   Status FromProto(const NDArrayProto& proto);
-  
+
   /**
    *  @name   FromProto
    *  @fn     Status FromProto(const NDArrayProto& proto, Allocator* allocator)
@@ -220,7 +224,7 @@ class FK_EXPORTS NDArray {
    *  @return Operation status
    */
   Status FromProto(const NDArrayProto& proto, Allocator* allocator);
-  
+
   /**
    *  @name   WithScalar
    *  @fn     static NDArray WithScalar(const T& value)
@@ -231,7 +235,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   static NDArray WithScalar(const T& value);
-  
+
   /**
    *  @name   WithValues
    *  @fn     static NDArray WithValues(const std::vector<T>& values)
@@ -242,7 +246,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   static NDArray WithValues(const std::vector<T>& values);
-  
+
   /**
    *  @name   WithValues
    *  @fn     static NDArray WithValues(const std::vector<T>& values,
@@ -256,10 +260,10 @@ class FK_EXPORTS NDArray {
   template<typename T>
   static NDArray WithValues(const std::vector<T>& values,
                             const NDArrayDims& dims);
-  
+
 #pragma mark -
 #pragma mark Usage
-  
+
   /**
    *  @name   IsInitialized
    *  @fn     bool IsInitialized(void) const
@@ -269,14 +273,14 @@ class FK_EXPORTS NDArray {
   bool IsInitialized(void) const {
     return (buffer_ != nullptr) && (buffer_->data() != nullptr);
   }
-  
+
   /**
    *  @name   ShareBuffer
    *  @fn     bool ShareBuffer(const NDArray& other) const
    *  @brief  Check if two arrays share the same underlying buffer
    */
   bool ShareBuffer(const NDArray& other) const;
-  
+
   /**
    *  @name   Slice
    *  @fn     NDArray Slice(const size_t& start, const size_t& stop) const
@@ -286,18 +290,18 @@ class FK_EXPORTS NDArray {
    *  @return Subregion's array.
    */
   NDArray Slice(const size_t& start, const size_t& stop) const;
-  
+
   /**
    *  @name   AsScalar
    *  @tparam T Data type
    *  @fn     typename NDATypes<T>::Scalar AsScalar(void)
-   *  @brief  Access the array's data as a scalar. Used when dimensions and 
+   *  @brief  Access the array's data as a scalar. Used when dimensions and
    *          type of the array is known
    *  @return Array mapped as a scalar
    */
   template<typename T>
   typename NDATypes<T>::Scalar AsScalar(void);
-  
+
   /**
    *  @name   AsVector
    *  @tparam T Data type
@@ -308,7 +312,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   typename NDATypes<T>::Vector AsVector(void);
-  
+
   /**
    *  @name   AsMatrix
    *  @tparam T Data type
@@ -319,7 +323,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   typename NDATypes<T>::Matrix AsMatrix(void);
-  
+
   /**
    *  @name   AsNDArray
    *  @tparam T Data type
@@ -331,7 +335,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T, size_t NDIMS>
   typename NDATypes<T, NDIMS>::NDArray AsNDArray(void);
-  
+
   /**
    *  @name   AsFlat
    *  @tparam T Data type
@@ -341,7 +345,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   typename NDATypes<T>::Flat AsFlat(void);
-  
+
   /**
    *  @name   AsScalar
    *  @tparam T Data type
@@ -352,7 +356,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   typename NDATypes<T>::ConstScalar AsScalar(void) const;
-  
+
   /**
    *  @name   AsVector
    *  @tparam T Data type
@@ -363,7 +367,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   typename NDATypes<T>::ConstVector AsVector(void) const;
-  
+
   /**
    *  @name   AsMatrix
    *  @tparam T Data type
@@ -374,7 +378,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   typename NDATypes<T>::ConstMatrix AsMatrix(void) const;
-  
+
   /**
    *  @name   AsNDArray
    *  @tparam T Data type
@@ -386,7 +390,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T, size_t NDIMS>
   typename NDATypes<T, NDIMS>::ConstNDArray AsNDArray(void) const;
-  
+
   /**
    *  @name   AsFlat
    *  @tparam T Data type
@@ -396,10 +400,10 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   typename NDATypes<T>::ConstFlat AsFlat(void) const;
-  
+
 #pragma mark -
 #pragma mark Accessors
-  
+
   /**
    *  @name   type
    *  @fn     DataType type(void) const
@@ -409,7 +413,7 @@ class FK_EXPORTS NDArray {
   DataType type(void) const {
     return type_;
   }
-  
+
   /**
    *  @name   dimensions
    *  @fn     const NDArrayDims& dimensions(void) const
@@ -419,7 +423,7 @@ class FK_EXPORTS NDArray {
   const NDArrayDims& dimensions(void) const {
     return dims_;
   }
-  
+
   /**
    *  @name   dims
    *  @fn     size_t dims(void) const
@@ -429,7 +433,7 @@ class FK_EXPORTS NDArray {
   size_t dims(void) const {
     return dims_.dims();
   }
-  
+
   /**
    *  @name   dim_size
    *  @fn     size_t dim_size(const size_t axis) const
@@ -439,7 +443,7 @@ class FK_EXPORTS NDArray {
   size_t dim_size(const size_t axis) const {
     return dims_.dim_size(axis);
   }
-  
+
   /**
    *  @name   n_elems
    *  @fn     size_t n_elems(void) const
@@ -449,12 +453,12 @@ class FK_EXPORTS NDArray {
   size_t n_elems(void) const {
     return dims_.n_elems();
   }
-  
+
 #pragma mark -
 #pragma mark Private
-  
+
  private:
-  
+
   /**
    *  @name   Base
    *  @fn     T* Base(void) const
@@ -464,7 +468,7 @@ class FK_EXPORTS NDArray {
    */
   template<typename T>
   T* Base(void) const;
-  
+
   /** Buffer*/
   NDArrayBuffer* buffer_;
   /** Allocator */
@@ -474,9 +478,9 @@ class FK_EXPORTS NDArray {
   /** Data type */
   DataType type_;
 };
-  
+
 // Add implementation
 #include "facekit/core/nd_array.inl.hpp"
-  
+
 }  // namespace FaceKit
 #endif /* __FACEKIT_ND_ARRAY__ */
