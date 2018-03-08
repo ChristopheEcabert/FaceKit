@@ -15,8 +15,8 @@ INSTALL_DIR=`readlink -f $1`
 if [ -d "$INSTALL_DIR" ] && ls $INSTALL_DIR/lib/*.so >/dev/null 2>&1; then
   echo "Using cached build at $INSTALL_DIR ..."
 else
-  $CC -v
-  $FC -v
+  echo `$CC -v`
+  echo `$FC --version``
   rm -rf $INSTALL_DIR
   git clone --depth 1 https://github.com/xianyi/OpenBLAS.git ${INSTALL_DIR}/source 
   cd $INSTALL_DIR/source

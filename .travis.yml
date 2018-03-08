@@ -126,6 +126,7 @@ install:
   ############################################################################
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
+      $FC --version
       $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
   
