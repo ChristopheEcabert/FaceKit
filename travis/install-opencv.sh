@@ -19,6 +19,8 @@ case "$OSTYPE" in
   linux*)   
     echo "LINUX"
     EXT=".so"
+    # Linux has some issue with assembly code -> http://answers.opencv.org/question/185307/dnn-build-error-via-mingw64/
+    EXTRA_CMAKE_OPTION=-DCPU_DISPATCH=""
     ;;
   msys*)    
     echo "WINDOWS"
@@ -47,7 +49,7 @@ else
       COMPILER_FLAGS="-DCMAKE_CXX_FLAGS=-stdlib=libc++ -DCMAKE_EXE_LINKER_FLAGS=-stdlib=libc++"
     fi
     echo "cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF $COMPILER_FLAGS  .."
-    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF $COMPILER_FLAGS  ..
+    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DBUILD_PERF_TESTS=OFF $EXTRA_CMAKE_OPTION $COMPILER_FLAGS  ..
     #make -j8 >$LOG_FILE 2>&1 || (cat $LOG_FILE && false)
     make -j8
     make install

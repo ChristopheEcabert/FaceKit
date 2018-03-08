@@ -363,7 +363,7 @@ macro(FACEKIT_ADD_TEST _name _exename)
     IF(NOT TARGET gtest)
       SET(INSTALL_GTEST OFF)
       SET(INSTALL_GMOCK OFF)
-      ADD_SUBDIRECTORY(${FACEKIT_SOURCE_DIR}/3rdparty/googletest ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/googletest)
+      ADD_SUBDIRECTORY(${FACEKIT_SOURCE_DIR}/3rdparty/googletest ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/googletest EXCLUDE_FROM_ALL)
       MARK_AS_ADVANCED(BUILD_GMOCK BUILD_GTEST BUILD_SHARED_LIBS INSTALL_GTEST INSTALL_GMOCK gmock_build_tests gtest_build_samples gtest_build_tests
                        gtest_disable_pthreads gtest_force_shared_crt gtest_hide_internal_symbols)
     ENDIF(NOT TARGET gtest)
