@@ -107,6 +107,7 @@ before_install:
 install:
   # Check gcc version is properly update to 5.x
   - $CC --version
+  
   ############################################################################
   # All the dependencies are installed in ${TRAVIS_BUILD_DIR}/deps/
   ############################################################################
@@ -125,7 +126,6 @@ install:
   ############################################################################
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      $FC --version
       . $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
   
@@ -141,19 +141,19 @@ install:
   ############################################################################
   # Install Protobuf
   ############################################################################
-  - $TRAVIS_BUILD_DIR/travis/install-protobuf.sh $PROTOBUF_ROOT
+  - . $TRAVIS_BUILD_DIR/travis/install-protobuf.sh $PROTOBUF_ROOT
   
   ############################################################################
   # Install OpenCV
   ############################################################################
-  - $TRAVIS_BUILD_DIR/travis/install-opencv.sh $OPENCV_ROOT
+  - . $TRAVIS_BUILD_DIR/travis/install-opencv.sh $OPENCV_ROOT
   
   ############################################################################
   # Install a recent Doxygen
   ############################################################################
   - |
     if [[ "$DOCUMENTATION" == "TRUE" ]]; then
-      $TRAVIS_BUILD_DIR/travis/install-doxygen.sh $DOXYGEN_ROOT
+      . $TRAVIS_BUILD_DIR/travis/install-doxygen.sh $DOXYGEN_ROOT
     fi
 
 before_script:
@@ -165,11 +165,11 @@ before_script:
   
 # Compilation scripts start here
 script:
-  - $TRAVIS_BUILD_DIR/travis/build-library.sh
+  - . $TRAVIS_BUILD_DIR/travis/build-library.sh
   # Run UnitTest
-  - $TRAVIS_BUILD_DIR/travis/test-library.sh
+  - . $TRAVIS_BUILD_DIR/travis/test-library.sh
   # Build docs
-  - $TRAVIS_BUILD_DIR/travis/build-doc.sh
+  - . $TRAVIS_BUILD_DIR/travis/build-doc.sh
 
 after_failure:
   - |
@@ -189,7 +189,7 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: $TRAVIS_BUILD_DIR/travis/deploy-doc.sh
+  script: . $TRAVIS_BUILD_DIR/travis/deploy-doc.sh
   on:
     branch: develop
   
