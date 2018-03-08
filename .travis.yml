@@ -21,57 +21,76 @@ matrix:
       env: 
         - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
       compiler: gcc
-        
+      addons:
+        apt:
+          sources: &sources
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+            - gfortran
+            # Protobuf
+            - curl
+            - unzip
+            # Libjpeg
+            - nasm
+
     # Linux - Clang
     - os: linux
       dist: trusty
       env: 
         - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz
       compiler: clang
-    
+      addons:
+        apt:
+          sources: *sources
+          packages:
+            # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
+            - libc++1
+            - libc++-dev
+            - gfortran
+            # Protobuf
+            - curl
+            - unzip
+            # Libjpeg
+            - nasm
+
     # OSX 10.13 - Clang
     - os: osx
       osx_image: xcode9.2
       env: 
         - NSTRIP=3 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Darwin-x86_64.tar.gz
       compiler: clang
-      
+
     # OSX 10.12 - Clang
     - os: osx
       osx_image: xcode8.3
       env: 
         - NSTRIP=3 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Darwin-x86_64.tar.gz
       compiler: clang
-      
+
     # Doc Generator
     - os: linux
       dist: trusty
       env: 
         - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz  MATRIX_EVAL="CC=gcc-5 && CXX=g++-5" DOCUMENTATION=TRUE NSTRIP=1 DOXYGEN_URL=http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.linux.bin.tar.gz CMAKE_OPTIONS="${CMAKE_OPTIONS} -DWITH_DOCS=ON"
       compiler: gcc
-
-# Add packages
-addons:
-  apt:
-  sources:
-    - ubuntu-toolchain-r-test
-  packages:
-    # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
-    - libc++1
-    - libc++-dev
-    # Update gcc
-    - g++-5
-    - gfortran
-    # Doxygen
-    - graphviz
-    - flex
-    - bison
-    - libiconv-hook*
-    # Protobuf
-    - curl
-    - unzip
-    # Libjpeg
-    - nasm
+      addons:
+        apt:
+          sources: *sources
+          packages:
+            - g++-5
+            - gfortran
+            # Doxygen
+            - graphviz
+            - flex
+            - bison
+            - libiconv-hook*
+            # Protobuf
+            - curl
+            - unzip
+            # Libjpeg
+            - nasm
+    
 # Cache dependencies
 cache:
   directories:
