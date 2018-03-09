@@ -66,8 +66,8 @@ class FK_EXPORTS NDArrayMap {
    *  @tparam Dims  List of dimensions
    */
   template<typename... Dims>
-  NDArrayMap(T* ptr, Dims&&... dims) : n_dims_(NDIMS), n_elem_(1), data_(ptr),
-  dims_{std::forward<size_t>(dims)...} {
+  NDArrayMap(T* ptr, Dims&&... dims) : dims_{std::forward<size_t>(dims)...},
+    n_dims_(NDIMS), n_elem_(1), data_(ptr) {
     static_assert(sizeof...(dims) == NDIMS, "Dimensions does not match");
     ComputeSteps();
   }

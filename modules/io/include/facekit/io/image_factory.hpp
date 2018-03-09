@@ -23,7 +23,7 @@
 namespace FaceKit {
   
 /**
- *  @class  ImageLoader
+ *  @class  ImageFactory
  *  @brief  Singleton helper for image create. New image type can be added with 
  *          registration mechanism
  *  @author Christophe Ecabert
