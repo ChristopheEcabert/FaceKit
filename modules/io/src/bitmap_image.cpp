@@ -155,7 +155,9 @@ void DIBHeader::LoadHdr40(std::istream& is) {
   is.read(reinterpret_cast<char*>(&dummy4), sizeof(dummy4));
   this->n_important_color = dummy4;
   // Indicate loading went file
-  this->success = ((this->bpp == 24) || (this->bpp == 32)) && this->comp == kRGB;
+  this->success = (((this->bpp == 4) || (this->bpp == 8) ||
+                    (this->bpp == 24) || (this->bpp == 32))
+                   && this->comp == kRGB);
 }
   
 /** Write to stream - Save size 40 only */
@@ -218,6 +220,39 @@ void DIBHeader::Clear(void) {
   success = false;
 }
   
+/**
+ *  @name   IsColorTableGray
+ *  @fn     bool IsColorTableGray(const std::vector<uint>& table)
+ *  @brief  Check if a given color table is in grayscale or not
+ *  @return True if grayscale, false otherwise
+ */
+bool IsColorTableGray(const std::vector<uint>& table) {
+  for (size_t k = 0; k < table.size(); ++k) {
+    uint32_t v = table[k];
+    if ((((v & 0x00FF0000) >> 16) != (v & 0x000000FF)) ||
+        (((v & 0x0000FF00) >> 8) != (v & 0x000000FF))) {
+      return false;
+    }
+  }
+  return true;
+}
+ 
+/**
+ *  @name   GenerateGrayColorTable
+ *  @fn     void GenerateGrayColorTable(const size_t& bpp, std::vector<uint32_t>* table)
+ *  @brief  Generate grayscale color table
+ */
+void GenerateGrayColorTable(const size_t& bpp, std::vector<uint32_t>* table) {
+  table->clear();
+  int len = 0x01 << bpp;
+  int xor_mask = 0;
+  table->resize(len);
+  for (int k = 0; k < len; ++k) {
+    int v = ((k * 255/(len - 1)) ^ xor_mask) & 0x000000FF;
+    // Combine value
+    table->at(k) = (v << 16) | (v << 8) | v;
+  }
+}
 
 /**
  *  @class  BMPHeader
@@ -238,6 +273,8 @@ class BMPHeader {
   DIBHeader dib;
   /** Color table - BGRx */
   std::vector<uint32_t> table;
+  /** Color / Grayscale */
+  bool color;
   
   /** Read */
   Status Load(std::istream& is);
@@ -264,15 +301,22 @@ Status BMPHeader::Load(std::istream& is) {
     this->dib.Load(is);
     // So far so good ?
     if (this->dib.success) {
+      // Assume color by default, can change later on
+      this->color = true;
       // Check color table
       if (this->dib.bpp <= 8) {
         this->table.resize(this->dib.n_color_palette);
         uint32_t color;
         for (int32_t k = 0; k < this->dib.n_color_palette; ++k) {
-          // Read entry B G R A -> Not clear what format is used
+          // Read entry xRGB (uint32) little-endian
+          // v[0] = B, v[1] = G, v[2] = R, v[3] = x
           is.read(reinterpret_cast<char*>(&color), sizeof(color));
-          this->table[k] = (color & 0xFFFFFFFF);
+          // Swap R <-> B
+          color = (((color & 0x00FF0000) >> 16) | (color & 0x0000FF00) |
+                   ((color & 0x000000FF) << 16));
+          this->table[k] = color;
         }
+        this->color = !IsColorTableGray(this->table);
       }
     } else {
       status = Status(Status::Type::kInternalError,
@@ -320,6 +364,8 @@ void BMPHeader::Clear(void) {
   dib.Clear();
   /** Color table - BGRx */
   table.clear();
+  /** Color falg */
+  color = false;
 }
   
 /** 3bytes pixel */
@@ -366,9 +412,92 @@ struct ConvertToGray {
 #undef CV_DESCALE
 };
   
-  struct ConvertRGB565 {
-    
-  };
+/**
+ *  @def  WRITE_PIXEL
+ *  @brief Set pixel value `v` at position `add`
+ */
+#define WRITE_PIXEL(add, v)         \
+  add[0] = (v & 0x000000FF);        \
+  add[1] = (v & 0x0000FF00) >> 8;   \
+  add[2] = (v & 0x00FF0000) >> 16
+  
+/**
+ *  @name   FillRow4
+ *  @brief  Convert Bitmap from index to color table value
+ *  @param[in] hdr  Bitmap header
+ *  @param[in] width  Image width in pixels
+ *  @param[in] idx  List of color table's index (from file)
+ *  @param[out] data  Decoded pixel's value
+ */
+void FillRow4(const BMPHeader& hdr,
+              const size_t& width,
+              const uint8_t* idx,
+              uint8_t* data) {
+  uint8_t* end = hdr.color ? data + width * 3 : data + width;
+  uint8_t step = hdr.color ? 6 : 2;
+  uint8_t hstep = step / 2;
+  
+  if (hdr.color) {
+    // Color entry
+    while ((data += step) < end) {
+      int cidx = *idx++;
+      *((uint32_t*)(data - step)) = hdr.table[cidx >> 4];
+      *((uint32_t*)(data - hstep)) = hdr.table[cidx & 0x0F];
+    }
+    int cidx = idx[0];  // Add last element of the row
+    *((uint32_t*)(data - step)) = hdr.table[cidx >> 4];
+    if (data == end) {
+      uint8_t* ptr = data - hstep;
+      auto& c = hdr.table[cidx & 0x0F];
+      WRITE_PIXEL(ptr, c);
+    }
+  } else {
+    // Grayscale entry
+    while ((data += step) < end) {
+      int cidx = *idx++;
+      *((uint8_t*)(data - step)) = hdr.table[cidx >> 4] & 0x000000FF;
+      *((uint8_t*)(data - hstep)) = hdr.table[cidx & 0x0F] & 0x000000FF;
+    }
+    int cidx = idx[0];  // Add last element of the row
+    *((uint8_t*)(data - step)) = hdr.table[cidx >> 4] & 0x000000FF;
+    if (data == end) {
+      uint8_t* ptr = data - hstep;
+      *ptr = hdr.table[cidx & 0x0F] & 0x000000FF;
+    }
+  }
+}
+  
+/**
+ *  @name   FillRow8
+ *  @brief  Convert Bitmap from index to color table value
+ *  @param[in] hdr  Bitmap header
+ *  @param[in] width  Image width in pixels
+ *  @param[in] idx  List of color table's index (from file)
+ *  @param[out] data  Decoded pixel's value
+ */
+void FillRow8(const BMPHeader& hdr,
+              const size_t& width,
+              const uint8_t* idx,
+              uint8_t* data) {
+  uint8_t* end = hdr.color ? data + width * 3 : data + width;
+  uint8_t step = hdr.color ? 3 : 1;
+  if (hdr.color) {
+    // Color entry
+    while ((data += step) < end) {
+      int cidx = *idx++;
+      *((uint32_t*)(data - step)) = hdr.table[cidx >> 4];
+    }
+    // Add last element of the row
+    uint8_t* ptr = data - step;
+    uint32_t c = hdr.table[idx[0]];
+    WRITE_PIXEL(ptr, c);
+  } else {
+    // Grayscale entry
+    for (size_t k = 0; k < width; ++k) {
+      data[k] = hdr.table[idx[k]] & 0xFF;
+    }
+  }
+}
   
 #pragma mark -
 #pragma mark Initialization
@@ -411,7 +540,9 @@ Status BMPImage::Load(std::istream& stream) {
       auto bpp = header_->dib.bpp;
       this->width_ = header_->dib.width;
       this->height_ = std::abs(header_->dib.height);
-      this->format_ = bpp == 32 ? Format::kRGBA : Format::kRGB;
+      this->format_ = (header_->color ?
+                       bpp == 32 ? Format::kRGBA : Format::kRGB  :
+                       Format::kGrayscale);
       // Allocate buffer
       buffer_.Resize(DataType::kUInt8,
                      {this->height_, this->width_, this->format_});
@@ -431,6 +562,30 @@ Status BMPImage::Load(std::istream& stream) {
       // Start decoding
       std::vector<uint8_t> buff(src_pitch);
       switch (bpp) {
+        // 4 bits per pixel
+        case 4: {
+          // Read rows
+          for (size_t k = 0; k < this->height_; ++k, ptr += step) {
+            // Read data to buffer
+            stream.read(reinterpret_cast<char*>(buff.data()), src_pitch);
+            // Fill
+            FillRow4(*header_, this->width_, buff.data(), ptr);
+          }
+        }
+          break;
+          
+        // 8 bits per pixel
+        case 8: {
+          // Read rows
+          for (size_t k = 0; k < this->height_; ++k, ptr += step) {
+            // Read data to buffer
+            stream.read(reinterpret_cast<char*>(buff.data()), src_pitch);
+            // Fill
+            FillRow8(*header_, this->width_, buff.data(), ptr);
+          }
+        }
+          break;
+          
         // 24 bit per pixel
         case 24: {
           auto* bptr = reinterpret_cast<Pixel3*>(buff.data());
@@ -518,10 +673,10 @@ Status BMPImage::Save(std::ostream& stream) const {
     dib.n_important_color = 0;  // all are important
     //TODO: (Christophe) Handle color table HERE
     header_->table.clear();
-  
-    
-    
-    
+    if (format_ == Format::kGrayscale) {
+      // Generate table color [0-255]
+      GenerateGrayColorTable(dib.bpp, &header_->table);
+    }
     // Add DIB to header
     header_->dib = dib;
     // Dump to stream
@@ -533,11 +688,9 @@ Status BMPImage::Save(std::ostream& stream) const {
     for (int k = (int)this->height_ - 1; k >= 0; --k, ptr -= step) {
       std::vector<uint8_t> buff(ptr, ptr + step);
       if (this->format_ == Format::kGrayscale) {
-        void(0);
-        // TODO: (Christophe) Handle grayscale + color table here
-        
-        
-        
+        // Grayscale, pixel value is also the color table index, so just copy
+        // one row to the buffer
+        std::copy(ptr, ptr + step, buff.begin());
       } else {
         auto* src = buff.data();
         auto* dst = &src[2];
