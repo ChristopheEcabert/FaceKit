@@ -12,7 +12,7 @@
 #include "gtest/gtest.h"
 
 #include "facekit/core/logger.hpp"
-#include "facekit/core/string_util.hpp"
+#include "facekit/core/utils/string.hpp"
 
 #ifndef WIN32
 #define ERROR_STR " \033[31mERROR\033[0m "
@@ -32,7 +32,7 @@
 
 static std::ostringstream stream;
 
-TEST(LoggerDebug, Logger) {
+TEST(Logger, LoggerDebug) {
   stream.str("");
   // Log
   FACEKIT_LOG_DEBUG("This is a debug entry");
@@ -47,7 +47,7 @@ TEST(LoggerDebug, Logger) {
   EXPECT_EQ(log_part[3], " This is a debug entry\n");
 }
 
-TEST(LoggerInfo, Logger) {
+TEST(Logger, LoggerInfo) {
   stream.str("");
   // Log
   FACEKIT_LOG_INFO("This is an info entry");
@@ -62,7 +62,7 @@ TEST(LoggerInfo, Logger) {
   EXPECT_EQ(log_part[3], " This is an info entry\n");
 }
 
-TEST(LoggerWarning, Logger) {
+TEST(Logger, LoggerWarning) {
   stream.str("");
   // Log
   FACEKIT_LOG_WARNING("This is a warning entry");
@@ -77,7 +77,7 @@ TEST(LoggerWarning, Logger) {
   EXPECT_EQ(log_part[3], " This is a warning entry\n");
 }
 
-TEST(LoggerError, Logger) {
+TEST(Logger, LoggerError) {
   stream.str("");
   // Log
   FACEKIT_LOG_ERROR("This is an error entry with value " << 42);
@@ -92,7 +92,7 @@ TEST(LoggerError, Logger) {
   EXPECT_EQ(log_part[3], " This is an error entry with value 42\n");
 }
 
-TEST(LoggerDebugLvl1, Logger) {
+TEST(Logger, LoggerDebugLvl1) {
   stream.str("");
   FaceKit::Logger::Instance().set_log_level(FaceKit::Logger::Level::kDebug2);
   // Log
@@ -108,7 +108,7 @@ TEST(LoggerDebugLvl1, Logger) {
   EXPECT_EQ(log_part[3], " \tThis is a level 1 debug entry\n");
 }
 
-TEST(LoggerDebugLvl2, Logger) {
+TEST(Logger, LoggerDebugLvl2) {
   stream.str("");
   FaceKit::Logger::Instance().set_log_level(FaceKit::Logger::Level::kDebug2);
   // Log
@@ -124,7 +124,7 @@ TEST(LoggerDebugLvl2, Logger) {
   EXPECT_EQ(log_part[3], " \t\tThis is a level 2 debug entry\n");
 }
 
-TEST(LoggerDisable, Logger) {
+TEST(Logger, LoggerDisable) {
   stream.str("");
   FaceKit::Logger::Instance().Disable();
   // Log
@@ -135,7 +135,7 @@ TEST(LoggerDisable, Logger) {
   FaceKit::Logger::Instance().Enable();
 }
 
-TEST(LoggerFilter, Logger) {
+TEST(Logger, LoggerFilter) {
   stream.str("");
   FaceKit::Logger::Instance().set_log_level(FaceKit::Logger::Level::kDebug);
   // Log

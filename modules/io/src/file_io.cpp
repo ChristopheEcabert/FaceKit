@@ -314,8 +314,8 @@ int IO::StreamContent(std::istream& stream,
  *          extension
  */
 void IO::SearchInFolder(const std::string& root,
-                       const std::string& ext,
-                       std::vector<std::string>* files) {
+                        const std::string& ext,
+                        std::vector<std::string>* files) {
   std::stack<std::string> stack;
   stack.push(root);
   tinydir_dir dir;

@@ -62,9 +62,8 @@ void ObjectManager::Register(const ObjectProxy* proxy) {
     // Already in, throw execption
     std::string msg = "Object with ID: " + std::to_string(id);
     msg += " has already been registered, please choose a different ID";
-    throw FKError(FKError::Type::kGeneric,
-                  msg,
-                  FUNC_NAME);
+    Status s(Status::Type::kAlreadyExists, msg);
+    throw Error(s, FUNC_NAME);
   }
 }
   

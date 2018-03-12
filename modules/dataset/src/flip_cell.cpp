@@ -12,7 +12,7 @@
 #include "opencv2/imgcodecs.hpp"
 
 #include "facekit/dataset/flip_cell.hpp"
-#include "facekit/core/string_util.hpp"
+#include "facekit/core/utils/string.hpp"
 
 /**
  *  @namespace  FaceKit
@@ -53,7 +53,7 @@ int ImgFlipCell::Process(const std::vector<std::string>& input,
   for (size_t i = 0; i < input.size(); ++i) {
     // Get filename
     std::string dir, file, ext;
-    String::ExtractDirectory(input[i], &dir, &file, &ext);
+    Path::SplitComponent(input[i], &dir, &file, &ext);
     // Load image
     cv::Mat img = cv::imread(input[i], cv::ImreadModes::IMREAD_COLOR);
     if (!img.empty()) {

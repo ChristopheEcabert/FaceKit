@@ -33,6 +33,7 @@ namespace FaceKit {
  *  @author Chrisotphe Ecabert
  *  @date   30/07/16
  *  @ingroup core
+ *  @tparam T Data type
  */
 template<typename T>
 struct FK_EXPORTS Vector2 {
@@ -316,6 +317,7 @@ struct FK_EXPORTS Vector2 {
  *  @brief  Vector of dimension 3
  *  @author Chrisotphe Ecabert
  *  @date   30/07/16
+ *  @tparam T Data type
  *  @ingroup core
  */
 template<typename T>
@@ -614,6 +616,7 @@ struct FK_EXPORTS Vector3 {
  *  @brief  Vector of dimension 4
  *  @author Chrisotphe Ecabert
  *  @date   30/07/16
+ *  @tparam T Data type
  *  @ingroup core
  */
 template<typename T>

@@ -34,7 +34,7 @@ if(build)
   #EXAMPLES
   IF(WITH_EXAMPLES)
     # Data Augmentation sample
-    FACEKIT_ADD_EXAMPLE(data_augmentation FILES example/augmentation_engine_ex.cpp LINK_WITH facekit_core facekit_dataset)
+    FACEKIT_ADD_EXAMPLE(data_augmentation FILES example/ex_augmentation_engine.cpp LINK_WITH facekit_core facekit_dataset)
   ENDIF(WITH_EXAMPLES)
 
   # TESTS

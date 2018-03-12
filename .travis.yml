@@ -8,6 +8,7 @@ env:
   global:
     - DEPS_ROOT=~/deps
     - OPENBLAS_ROOT=$DEPS_ROOT/openblas
+    - PROTOBUF_ROOT=$DEPS_ROOT/protobuf
     - OPENCV_ROOT=$DEPS_ROOT/opencv
     - DOXYGEN_ROOT=$DEPS_ROOT/doyxgen
     - CMAKE_OPTIONS=-DWITH_EXAMPLES=ON
@@ -17,50 +18,96 @@ matrix:
     # Linux - GCC
     - os: linux
       dist: trusty
-      env: NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.tar.gz
+      env: 
+        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && FC=gfortran-5"
       compiler: gcc
-    
+      addons:
+        apt:
+          sources: &sources
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-5
+            - gfortran-5
+            # Protobuf
+            - curl
+            - unzip
+            # Libjpeg
+            - nasm
+
     # Linux - Clang
     - os: linux
       dist: trusty
-      env: NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.4/cmake-3.4.3-Linux-x86_64.tar.gz 
+      env: 
+        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz MATRIX_EVAL="FC=gfortran"
       compiler: clang
-    
-    # OSX - Clang
+      addons:
+        apt:
+          packages:
+            # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
+            - libc++1
+            - libc++-dev
+            - gfortran
+            # Protobuf
+            - curl
+            - unzip
+            # Libjpeg
+            - nasm
+
+    # OSX 10.13 - Clang
+    - os: osx
+      osx_image: xcode9.2
+      env: 
+        - NSTRIP=3 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Darwin-x86_64.tar.gz
+      compiler: clang
+
+    # OSX 10.12 - Clang
     - os: osx
       osx_image: xcode8.3
-      env: NSTRIP=3 CMAKE_URL=https://cmake.org/files/v3.4/cmake-3.4.3-Darwin-x86_64.tar.gz
+      env: 
+        - NSTRIP=3 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Darwin-x86_64.tar.gz
       compiler: clang
-      
+
     # Doc Generator
     - os: linux
       dist: trusty
-      env: DOCUMENTATION=TRUE NSTRIP=1 DOXYGEN_URL=http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.linux.bin.tar.gz CMAKE_OPTIONS="${CMAKE_OPTIONS} -DWITH_DOCS=ON"
+      env: 
+        - NSTRIP=1 CMAKE_URL=https://cmake.org/files/v3.8/cmake-3.8.0-Linux-x86_64.tar.gz  MATRIX_EVAL="CC=gcc-5 && CXX=g++-5 && FC=gfortran-5" DOCUMENTATION=TRUE NSTRIP=1 DOXYGEN_URL=http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.13.linux.bin.tar.gz CMAKE_OPTIONS="${CMAKE_OPTIONS} -DWITH_DOCS=ON"
       compiler: gcc
-# Add packages
-addons:
-  apt:
-    packages:
-      # Add libc++ https://github.com/mapbox/mapbox-gl-native/issues/287
-      - libc++1
-      - libc++-dev
-      - gfortran
-      # Doxygen
-      - graphviz
-      - flex
-      - bison
-      - libiconv-hook*
+      addons:
+        apt:
+          sources: *sources
+          packages:
+            - g++-5
+            - gfortran-5
+            # Doxygen
+            - graphviz
+            - flex
+            - bison
+            - libiconv-hook*
+            # Protobuf
+            - curl
+            - unzip
+            # Libjpeg
+            - nasm
+    
 # Cache dependencies
 cache:
   directories:
     - $OPENBLAS_ROOT
+    - $PROTOBUF_ROOT
     - $OPENCV_ROOT
     - $DOXYGEN_ROOT
 # Limit cloning depth
 git:
-  depth: 3
+  depth: 1
 # Install dependencies needed by library
+before_install:
+  - eval "${MATRIX_EVAL}"
+  
 install:
+  # Check gcc version is properly update to 5.x
+  - $CC --version
+  
   ############################################################################
   # All the dependencies are installed in ${TRAVIS_BUILD_DIR}/deps/
   ############################################################################
@@ -79,9 +126,23 @@ install:
   ############################################################################
   - |
     if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then
-      $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
+      source $TRAVIS_BUILD_DIR/travis/install-openblas.sh $OPENBLAS_ROOT
     fi
+  
+  ############################################################################
+  # Install nasm for libjpeg turbo
+  ############################################################################
+  - |
+    if [[ "${TRAVIS_OS_NAME}" == "osx" ]]; then
+      brew upgrade nasm || brew install nasm
+    fi
+    nasm -v && which nasm
     
+  ############################################################################
+  # Install Protobuf
+  ############################################################################
+  - $TRAVIS_BUILD_DIR/travis/install-protobuf.sh $PROTOBUF_ROOT
+  
   ############################################################################
   # Install OpenCV
   ############################################################################
@@ -94,7 +155,7 @@ install:
     if [[ "$DOCUMENTATION" == "TRUE" ]]; then
       $TRAVIS_BUILD_DIR/travis/install-doxygen.sh $DOXYGEN_ROOT
     fi
-  
+
 before_script:
   ############################################################################
   # Set the git identity (for pushing the documentation and the benchmarks)
@@ -109,6 +170,12 @@ script:
   - $TRAVIS_BUILD_DIR/travis/test-library.sh
   # Build docs
   - $TRAVIS_BUILD_DIR/travis/build-doc.sh
+
+after_failure:
+  - |
+    if [ -f $TRAVIS_BUILD_DIR/build/Testing/Temporary/LastTest.log ]; then
+      cat $TRAVIS_BUILD_DIR/build/Testing/Temporary/LastTest.log
+    fi
 
 # Setup SSH for deployment
 before_deploy:

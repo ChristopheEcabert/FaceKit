@@ -193,18 +193,39 @@ endmacro(FACEKIT_ADD_INCLUDES)
 # 
 # ARGN:
 #   FILES       The source files for the library.
+#   PROTO_FILES The protobuf files that need to be generated
 #   LINK_WITH   List if library to link against
 macro(FACEKIT_ADD_LIBRARY _name _component)
   # parse arguments
   SET(options)
   SET(oneValueArgs)
-  SET(multiValueArgs FILES LINK_WITH)
+  SET(multiValueArgs FILES PROTO_FILES LINK_WITH)
   cmake_parse_arguments(FACEKIT_ADD_LIBRARY "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
+  # Check if protobuf class need to be generated
+  SET(PROTO_GEN_FILES)
+  IF(FACEKIT_ADD_LIBRARY_PROTO_FILES)
+    # Generate files
+    PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS ${FACEKIT_ADD_LIBRARY_PROTO_FILES})
+    # Copy to <build>/proto
+    SET(PROTO_GEN_FILES)
+    INCLUDE_DIRECTORIES(${FACEKIT_OUTPUT_PROTO_DIR})
+    FOREACH(_f ${PROTO_SRCS} ${PROTO_HDRS})
+      GET_FILENAME_COMPONENT(_fname ${_f} NAME)
+      GET_FILENAME_COMPONENT(_folder ${_f} DIRECTORY)
+      SET(_dest_file "${FACEKIT_OUTPUT_PROTO_DIR}/${_fname}")
+      ADD_CUSTOM_COMMAND(OUTPUT ${_dest_file}
+                         COMMAND ${CMAKE_COMMAND} -E copy ${_f} ${_dest_file}
+                         DEPENDS ${_f}
+                         COMMENT "Copying generated protobuf file ${_fname}"
+                         VERBATIM)
+                         SET(PROTO_GEN_FILES ${PROTO_GEN_FILES} ${_dest_file})
+    ENDFOREACH()
+  ENDIF()
   # Create libbrary
-  ADD_LIBRARY(${_name} ${FACEKIT_LIB_TYPE} ${FACEKIT_ADD_LIBRARY_FILES})
+  ADD_LIBRARY(${_name} ${FACEKIT_LIB_TYPE} ${FACEKIT_ADD_LIBRARY_FILES} ${PROTO_GEN_FILES})
   # Add link
   TARGET_LINK_LIBRARIES(${_name} PRIVATE ${FACEKIT_ADD_LIBRARY_LINK_WITH})
-  
+
   IF((UNIX AND NOT ANDROID) OR MINGW)
     TARGET_LINK_LIBRARIES(${_name} PRIVATE m)
   ENDIF()
@@ -216,8 +237,8 @@ macro(FACEKIT_ADD_LIBRARY _name _component)
     TARGET_LINK_LIBRARIES(${_name} PRIVATE delayimp.lib)  # because delay load is enabled for openmp.dll
   ENDIF()
 
-  SET_TARGET_PROPERTIES(${_name} PROPERTIES 
-    VERSION ${FACEKIT_VERSION} 
+  SET_TARGET_PROPERTIES(${_name} PROPERTIES
+    VERSION ${FACEKIT_VERSION}
     SOVERSION ${FACEKIT_MAJOR_VERSION}.${FACEKIT_MINOR_VERSION})
 
   install(TARGETS ${_name}
@@ -273,7 +294,7 @@ endmacro(FACEKIT_ADD_EXECUTABLE)
 # Add an executable target as a bundle when available and required
 # _name The executable name.
 # _component The part of FACEKIT that this library belongs to.
-# _bundle 
+# _bundle
 # ARGN the source files for the library.
 macro(FACEKIT_ADD_EXECUTABLE_OPT_BUNDLE _name _component)
 if(APPLE AND VTK_USE_COCOA)
@@ -297,7 +318,7 @@ if(APPLE AND VTK_USE_COCOA)
 #     add_custom_command(TARGET ${_name}
 #                         POST_BUILD
 #                         COMMAND ${CMAKE_COMMAND} -E create_symlink ${FACEKIT_OUTPUT_BIN_DIR}/${_name}.app/Contents/MacOS/${_name} ${FACEKIT_OUTPUT_BIN_DIR}/${_name}
-# #			WORKING_DIRECTORY 
+# #			WORKING_DIRECTORY
 #                         COMMENT "Creating an alias for ${_name}.app to ${_name}")
     install(TARGETS ${_name} BUNDLE DESTINATION ${BIN_INSTALL_DIR} COMPONENT facekit_${_component})
 else(APPLE AND VTK_USE_COCOA)
@@ -342,13 +363,13 @@ macro(FACEKIT_ADD_TEST _name _exename)
     IF(NOT TARGET gtest)
       SET(INSTALL_GTEST OFF)
       SET(INSTALL_GMOCK OFF)
-      ADD_SUBDIRECTORY(${FACEKIT_SOURCE_DIR}/3rdparty/googletest ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/googletest)
+      ADD_SUBDIRECTORY(${FACEKIT_SOURCE_DIR}/3rdparty/googletest ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/googletest EXCLUDE_FROM_ALL)
       MARK_AS_ADVANCED(BUILD_GMOCK BUILD_GTEST BUILD_SHARED_LIBS INSTALL_GTEST INSTALL_GMOCK gmock_build_tests gtest_build_samples gtest_build_tests
                        gtest_disable_pthreads gtest_force_shared_crt gtest_hide_internal_symbols)
     ENDIF(NOT TARGET gtest)
     # Add include location for testing framework
-    include_directories(${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googletest/include)
-    include_directories(${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googlemock/include)
+    include_directories(SYSTEM ${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googletest/include)
+    include_directories(SYSTEM ${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googlemock/include)
     # Link extra library
     target_link_libraries(facekit_ut_${_exename} PRIVATE ${FACEKIT_ADD_TEST_LINK_WITH} gtest gmock ${CLANG_LIBRARIES})
     # Only link if needed
@@ -386,6 +407,8 @@ macro(FACEKIT_ADD_EXAMPLE _name)
     if(WIN32 AND MSVC)
       set_target_properties(facekit_ex_${_name} PROPERTIES DEBUG_OUTPUT_NAME ${_name}${CMAKE_DEBUG_POSTFIX}
                                                            RELEASE_OUTPUT_NAME ${_name}${CMAKE_RELEASE_POSTFIX})
+    else(WIN32 AND MSVC)
+      target_link_libraries(facekit_ex_${_name} PRIVATE pthread)
     endif(WIN32 AND MSVC)
 endmacro(FACEKIT_ADD_EXAMPLE)
 
@@ -456,8 +479,8 @@ macro(FACEKIT_MAKE_PKGCONFIG _name _component _desc _facekit_deps _ext_deps _int
 endmacro(FACEKIT_MAKE_PKGCONFIG)
 
 ###############################################################################
-# Make a pkg-config file for a header-only library. 
-# Essentially a duplicate of FACEKIT_MAKE_PKGCONFIG, but 
+# Make a pkg-config file for a header-only library.
+# Essentially a duplicate of FACEKIT_MAKE_PKGCONFIG, but
 # ensures that no -L or l flags will be created
 # Do not include general FACEKIT stuff in the
 # arguments; they will be added automaticaly.
@@ -599,7 +622,7 @@ endmacro(FACEKIT_GET_SUBSUBSYS_STATUS)
 # _dependee Dependant subsystem.
 # _status AUTO_OFF to disable AUTO_ON to enable
 # ARGN[0] Reason for not building.
-macro(FACEKIT_SET_SUBSYS_HYPERSTATUS _name _dependee _status) 
+macro(FACEKIT_SET_SUBSYS_HYPERSTATUS _name _dependee _status)
     SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_HYPERSTATUS ${_name}_${_dependee} ${_status})
     if(${ARGC} EQUAL 4)
         SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_REASONS ${_dependee} ${ARGV3})
@@ -635,7 +658,7 @@ endmacro(FACEKIT_UNSET_SUBSYS_HYPERSTATUS)
 ###############################################################################
 # Set the include directory name of a subsystem.
 # _name Subsystem name.
-# _includedir Name of subdirectory for includes 
+# _includedir Name of subdirectory for includes
 # ARGN[0] Reason for not building.
 macro(FACEKIT_SET_SUBSYS_INCLUDE_DIR _name _includedir)
     SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_INCLUDE ${_name} ${_includedir})
@@ -705,8 +728,8 @@ endmacro(FACEKIT_WRITE_STATUS_REPORT)
 ##############################################################################
 # Collect subdirectories from dirname that contains filename and store them in
 #  varname.
-# WARNING If extra arguments are given then they are considered as exception 
-# list and varname will contain subdirectories of dirname that contains 
+# WARNING If extra arguments are given then they are considered as exception
+# list and varname will contain subdirectories of dirname that contains
 # fielename but doesn't belong to exception list.
 # dirname IN parent directory
 # filename IN file name to look for in each subdirectory of parent directory
@@ -727,7 +750,7 @@ macro(collect_subproject_directory_names dirname filename names dirs)
         foreach(file ${globbed})
             get_filename_component(dir ${file} PATH)
             set(${dirs} ${${dirs}} ${dir})
-        endforeach(file)      
+        endforeach(file)
     endif(${ARGC} GREATER 4)
     foreach(subdir ${${dirs}})
         file(STRINGS ${dirname}/${subdir}/CMakeLists.txt name REGEX "[setSET ]+\\(.*SUBSYS_NAME .*\\)$")
@@ -800,12 +823,12 @@ macro (FACEKIT_ADD_DOC _subsys)
     endif(DOXYGEN_DOT_EXECUTABLE)
     if(NOT "${dependencies}" STREQUAL "")
       set(STRIPPED_HEADERS "${FACEKIT_SOURCE_DIR}/${dependencies}/include")
-      string(REPLACE ";" "/include \\\n\t\t\t\t\t\t\t\t\t\t\t\t ${FACEKIT_SOURCE_DIR}/" 
+      string(REPLACE ";" "/include \\\n\t\t\t\t\t\t\t\t\t\t\t\t ${FACEKIT_SOURCE_DIR}/"
              STRIPPED_HEADERS "${STRIPPED_HEADERS}")
     endif(NOT "${dependencies}" STREQUAL "")
     set(DOC_SOURCE_DIR "\"${CMAKE_CURRENT_SOURCE_DIR}\"\\")
     foreach(dep ${dependencies})
-      set(DOC_SOURCE_DIR 
+      set(DOC_SOURCE_DIR
           "${DOC_SOURCE_DIR}\n\t\t\t\t\t\t\t\t\t\t\t\t \"${FACEKIT_SOURCE_DIR}/${dep}\"\\")
     endforeach(dep)
     file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/html")

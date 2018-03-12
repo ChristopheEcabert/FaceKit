@@ -19,36 +19,22 @@ namespace FaceKit {
 #pragma mark Initialization
 
 /*
- *  @name FKError
- *  @fn FKError(void)
+ *  @name Error
+ *  @fn Error(const Status& status, const std::string& fcn_name)
  *  @brief  Constructor
+ *  @param[in]  status  Status code that generate the exception
+ *  @param[in]  fcn_name Name of the function that trigger the exception
  */
-FKError::FKError(void) : msg_("") {
+Error::Error(const Status& status, const std::string& fcn_name) {
+  msg_ = fcn_name + ";Error with " + status.ToString();
 }
 
 /*
- *  @name FKError
- *  @fn FKError(const Type err_code,
-                const std::string& message,
-                const std::string& function_name)
- *  @brief  Constructor
- *  @param[in]  err_code      Error code
- *  @param[in]  message       Error message
- *  @param[in]  function_name Name of the function that trigger the exception
- */
-FKError::FKError(const Type err_code,
-                 const std::string& message,
-                 const std::string& function_name) {
-  msg_ = function_name + " gives error : " + std::to_string(err_code) +
-         " with the following message : " + message;
-}
-
-/*
- *  @name ~FKError
- *  @fn virtual ~FKError(void) throw()
+ *  @name ~Error
+ *  @fn virtual ~Error(void) throw()
  *  @brief  Destructor
  */
-FKError::~FKError(void) throw() {
+Error::~Error(void) throw() {
 }
 
 #pragma mark -
@@ -59,7 +45,7 @@ FKError::~FKError(void) throw() {
 *  @fn virtual const char *what() const throw()
 *  @brief  Return description and context of the error
 */
-const char* FKError::what() const throw() {
+const char* Error::what() const throw() {
   return msg_.c_str();
 }
 

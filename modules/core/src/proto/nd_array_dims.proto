@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+// Apparently seems to be good practive based on google docs
+// https://developers.google.com/protocol-buffers/docs/reference/arenas#usage
+option cc_enable_arenas = true;
+
+// Define package name -> FaceKit (namespace in which class will be placed)
+package FaceKit;
+
+// NDArray dimensions
+message NDArrayDimsProto {
+  // Single dimensions
+  message Dim {
+    // Size of the NDArray in that dimension.
+    int64 size = 1;
+    // Name
+    string name = 2;
+  };
+  
+  // Dimensions of a NDArray with row-major layout.
+  repeated Dim dims = 2;
+};

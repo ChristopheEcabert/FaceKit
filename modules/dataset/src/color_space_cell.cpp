@@ -16,7 +16,7 @@
 #include "opencv2/imgproc.hpp"
 
 #include "facekit/dataset/color_space_cell.hpp"
-#include "facekit/core/string_util.hpp"
+#include "facekit/core/utils/string.hpp"
 
 /**
  *  @namespace  FaceKit
@@ -60,7 +60,7 @@ int HSVScalingCell::Process(const std::vector<std::string>& input,
   for (size_t i = 0; i < input.size(); ++i) {
     // Get filename
     std::string dir, file, ext;
-    String::ExtractDirectory(input[i], &dir, &file, &ext);
+    Path::SplitComponent(input[i], &dir, &file, &ext);
     // Load image + convert to hsv
     cv::Mat img = cv::imread(input[i], cv::ImreadModes::IMREAD_COLOR);
     cv::Mat imgf, hsv_imgf;
