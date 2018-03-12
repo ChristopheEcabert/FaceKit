@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="FaceKit"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="facekit-style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -54,22 +55,48 @@ $(function() {
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_n"></a>- n -</h3><ul>
+<li>n_alloc
+: <a class="el" href="class_face_kit_1_1_allocator_statistic.html#a78f37ff1d56782cf9cdfab7f68ba1633">FaceKit::AllocatorStatistic</a>
+</li>
 <li>n_channels_
 : <a class="el" href="class_face_kit_1_1_p_c_a_model.html#abcf00030c690da62f8d1e3860571aa07">FaceKit::PCAModel&lt; T &gt;</a>
+</li>
+<li>n_elems()
+: <a class="el" href="class_face_kit_1_1_n_d_array.html#ac3bcaf0489a0e28d000928dc2b087814">FaceKit::NDArray</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_dims.html#ae9159c923b7d93c2cf4cc93ccf122b3d">FaceKit::NDArrayDims</a>
 </li>
 <li>n_principle_component_
 : <a class="el" href="class_face_kit_1_1_p_c_a_model.html#a198d9b29dbb238d4f84c1be666bb3b73">FaceKit::PCAModel&lt; T &gt;</a>
 </li>
+<li>Name()
+: <a class="el" href="class_face_kit_1_1_allocator.html#a011b9455390bfbb2444cc55537697df1">FaceKit::Allocator</a>
+</li>
 <li>name()
 : <a class="el" href="class_face_kit_1_1_augmentation_cell.html#acf7b6ae5c92a3c7b882febb9bdaa7845">FaceKit::AugmentationCell</a>
-, <a class="el" href="class_face_kit_1_1_h_s_v_scaling_cell.html#af302bc0eec057ef24a1df66c9576ddad">FaceKit::HSVScalingCell</a>
+</li>
+<li>Name()
+: <a class="el" href="class_face_kit_1_1_file_system_proxy.html#aac8515d751c5de6f81aba646a75e0cd4">FaceKit::FileSystemProxy</a>
+</li>
+<li>name()
+: <a class="el" href="class_face_kit_1_1_h_s_v_scaling_cell.html#af302bc0eec057ef24a1df66c9576ddad">FaceKit::HSVScalingCell</a>
 , <a class="el" href="class_face_kit_1_1_identity_cell.html#a4ee1e98f056955a28165218ff067b846">FaceKit::IdentityCell</a>
 , <a class="el" href="class_face_kit_1_1_image_crop_cell.html#a1c7ed90c1cab5ede7550261bc5b23f74">FaceKit::ImageCropCell</a>
 , <a class="el" href="class_face_kit_1_1_img_flip_cell.html#a6f20cf440f94e45d798a2ad428dab672">FaceKit::ImgFlipCell</a>
 , <a class="el" href="class_face_kit_1_1_img_in_plane_rotation_cell.html#ad505e30837c7b330ebba92b1b9349d72">FaceKit::ImgInPlaneRotationCell</a>
 </li>
 <li>Name()
-: <a class="el" href="class_face_kit_1_1_p_c_a_model_proxy.html#a9cd99f12908239e617b784cc66043a5b">FaceKit::PCAModelProxy&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_map_allocator.html#a64ac6596fc540acda52a12fe174ddce5">FaceKit::MapAllocator</a>
+, <a class="el" href="class_face_kit_1_1_p_c_a_model_proxy.html#a9cd99f12908239e617b784cc66043a5b">FaceKit::PCAModelProxy&lt; T &gt;</a>
+</li>
+<li>NDArray()
+: <a class="el" href="class_face_kit_1_1_n_d_array.html#a840bf77203f787d89ec623861a81909b">FaceKit::NDArray</a>
+, <a class="el" href="struct_face_kit_1_1_n_d_a_types.html#a176f52d9bc4da99daf981e3fd7b813cd">FaceKit::NDATypes&lt; T, NDIMS &gt;</a>
+</li>
+<li>NDArrayDims()
+: <a class="el" href="class_face_kit_1_1_n_d_array_dims.html#ae5911feb7e410603cae9c99d64d13258">FaceKit::NDArrayDims</a>
+</li>
+<li>NDArrayMap()
+: <a class="el" href="class_face_kit_1_1_n_d_array_map.html#aa7d17555b494025444ab844e5122067b">FaceKit::NDArrayMap&lt; T, NDIMS &gt;</a>
 </li>
 <li>Norm()
 : <a class="el" href="class_face_kit_1_1_quaternion.html#a23cf879c39e0776989b0b562e544b2c5">FaceKit::Quaternion&lt; T &gt;</a>
@@ -89,11 +116,15 @@ $(function() {
 , <a class="el" href="struct_face_kit_1_1_vector3.html#ac030848c2657040afc368e7eae97f5b7">FaceKit::Vector3&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector4.html#a3835775d7fb72b7b3a419f33f3341646">FaceKit::Vector4&lt; T &gt;</a>
 </li>
+<li>NormalizePath()
+: <a class="el" href="class_face_kit_1_1_file_system.html#aa9430be7b7de6d992faa0da425969010">FaceKit::FileSystem</a>
+, <a class="el" href="class_face_kit_1_1_windows_file_system.html#a2b77de208083721564e856179089fd08">FaceKit::WindowsFileSystem</a>
+</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 6 2018 10:12:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 12 2018 10:10:50 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

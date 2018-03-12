@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="FaceKit"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="facekit-style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -53,7 +54,8 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#files">Files</a>  </div>
+<a href="#files">Files</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
 <div class="title">Core</div>  </div>
 </div><!--header-->
@@ -70,11 +72,8 @@ Requirements</h1>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">FaceKit::EnableBitMaskOperators&lt; Enum &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicate if bitmask operator are enabled for a specific enum type.  <a href="struct_face_kit_1_1_enable_bit_mask_operators.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_f_k_error.html">FaceKit::FKError</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error class.  <a href="class_face_kit_1_1_f_k_error.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_error.html">FaceKit::Error</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_face_kit_1_1_error.html" title="Error class. ">Error</a> class.  <a href="class_face_kit_1_1_error.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_logger.html">FaceKit::Logger</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging tool Based on : <a href="http://stackoverflow.com/questions/19415845/">http://stackoverflow.com/questions/19415845/</a>.  <a href="class_face_kit_1_1_logger.html#details">More...</a><br /></td></tr>
@@ -103,21 +102,81 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_vector4.html">FaceKit::Vector4&lt; T &gt;</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of dimension 4.  <a href="struct_face_kit_1_1_vector4.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator_statistic.html">FaceKit::AllocatorStatistic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gather statistics for an allocator.  <a href="class_face_kit_1_1_allocator_statistic.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator.html">FaceKit::Allocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory allocator interface.  <a href="class_face_kit_1_1_allocator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator_factory.html">FaceKit::AllocatorFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory where available allocator are stored.  <a href="class_face_kit_1_1_allocator_factory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator_proxy.html">FaceKit::AllocatorProxy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy for registering allocator with factory.  <a href="class_face_kit_1_1_allocator_proxy.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_map_allocator.html">FaceKit::MapAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_face_kit_1_1_allocator.html" title="Memory allocator interface. ">Allocator</a> acting as a ghost allocator in order to map existing raw buffer for <a class="el" href="class_face_kit_1_1_n_d_array.html" title="Representation of a n-dimension array storing values of a given types. ">NDArray</a> container.  <a href="class_face_kit_1_1_map_allocator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_n_d_array_buffer.html">FaceKit::NDArrayBuffer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage space interface for <a class="el" href="class_face_kit_1_1_n_d_array.html" title="Representation of a n-dimension array storing values of a given types. ">NDArray</a> container.  <a href="class_face_kit_1_1_n_d_array_buffer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_n_d_array.html">FaceKit::NDArray</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of a n-dimension array storing values of a given types.  <a href="class_face_kit_1_1_n_d_array.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_n_d_array_dims.html">FaceKit::NDArrayDims</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions representation for <a class="el" href="class_face_kit_1_1_n_d_array.html" title="Representation of a n-dimension array storing values of a given types. ">NDArray</a>.  <a href="class_face_kit_1_1_n_d_array_dims.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_n_d_array_map.html">FaceKit::NDArrayMap&lt; T, NDIMS &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw buffer interface for convenient element access.  <a href="class_face_kit_1_1_n_d_array_map.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_ref_counter.html">FaceKit::RefCounter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference counting mechanism.  <a href="class_face_kit_1_1_ref_counter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_string.html">FaceKit::String</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function for string handling.  <a href="class_face_kit_1_1_string.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_status.html">FaceKit::Status</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator of success or failure of functions.  <a href="class_face_kit_1_1_status.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_file_property.html">FaceKit::FileProperty</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hold file properties.  <a href="struct_face_kit_1_1_file_property.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_file_system.html">FaceKit::FileSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic interface for accessing a file system.  <a href="class_face_kit_1_1_file_system.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_file_system_proxy.html">FaceKit::FileSystemProxy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy for registering/creating filesystems.  <a href="class_face_kit_1_1_file_system_proxy.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_file_system_factory.html">FaceKit::FileSystemFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mechanism to store file systems implementations.  <a href="class_face_kit_1_1_file_system_factory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_posix_file_system.html">FaceKit::PosixFileSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A POSIX interface for accessing a file system.  <a href="class_face_kit_1_1_posix_file_system.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_windows_file_system.html">FaceKit::WindowsFileSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Windows interface for accessing a file system.  <a href="class_face_kit_1_1_windows_file_system.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_threaed_pool.html">ThreaedPool</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lightweight thread pool.  <a href="class_threaed_pool.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_n_d_a_types.html">FaceKit::NDATypes&lt; T, NDIMS &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper structure defining common <a class="el" href="class_face_kit_1_1_n_d_array.html" title="Representation of a n-dimension array storing values of a given types. ">NDArray</a> sub-types.  <a href="struct_face_kit_1_1_n_d_a_types.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_is_data_type_valid.html">FaceKit::IsDataTypeValid&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicate if T is a valid DataType or not.  <a href="struct_face_kit_1_1_is_data_type_valid.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_data_type_from_enum.html">FaceKit::DataTypeFromEnum&lt; ENUM &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a DataType to the underlying type (i.e.  <a href="struct_face_kit_1_1_data_type_from_enum.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_data_type_size.html">FaceKit::DataTypeSize&lt; ENUM &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide the size in bytes for a given DataType (i.e.  <a href="struct_face_kit_1_1_data_type_size.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_data_type_to_enum.html">FaceKit::DataTypeToEnum&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deduce a DataType from the underlying type (i.e.  <a href="struct_face_kit_1_1_data_type_to_enum.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">FaceKit::EnableBitMaskOperators&lt; Enum &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicate if bitmask operator are enabled for a specific enum type.  <a href="struct_face_kit_1_1_enable_bit_mask_operators.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="files"></a>
 Files</h2></td></tr>
-<tr class="memitem:enum__bitmask__operator_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enum__bitmask__operator_8hpp.html">enum_bitmask_operator.hpp</a></td></tr>
-<tr class="memdesc:enum__bitmask__operator_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow <code>enum class</code> to be used with bitmask operation. <br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:error_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="error_8hpp.html">error.hpp</a></td></tr>
 <tr class="memdesc:error_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error class. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -142,20 +201,395 @@ Files</h2></td></tr>
 <tr class="memitem:vector_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="vector_8hpp.html">vector.hpp</a></td></tr>
 <tr class="memdesc:vector_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vector of size 2/3/4. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:allocator_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="allocator_8hpp.html">allocator.hpp</a></td></tr>
+<tr class="memdesc:allocator_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory allocator interface. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:allocator__factory_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="allocator__factory_8hpp.html">allocator_factory.hpp</a></td></tr>
+<tr class="memdesc:allocator__factory_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mechanism to register various type of allocator usabe for container. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:map__allocator_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="map__allocator_8hpp.html">map_allocator.hpp</a></td></tr>
+<tr class="memdesc:map__allocator_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocator acting as a ghost allocator in order to map existing raw buffer for NDArray container. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:memory_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="memory_8hpp.html">memory.hpp</a></td></tr>
+<tr class="memdesc:memory_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low level allocation helper tools. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:nd__array_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nd__array_8hpp.html">nd_array.hpp</a></td></tr>
+<tr class="memdesc:nd__array_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class for ND-Array implementation. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:nd__array_8inl_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nd__array_8inl_8hpp.html">nd_array.inl.hpp</a></td></tr>
+<tr class="memdesc:nd__array_8inl_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inline implementation of NDArray. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:nd__array__dims_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nd__array__dims_8hpp.html">nd_array_dims.hpp</a></td></tr>
+<tr class="memdesc:nd__array__dims_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation for NDArray's dimensions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:nd__array__map_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="nd__array__map_8hpp.html">nd_array_map.hpp</a></td></tr>
+<tr class="memdesc:nd__array__map_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface with NDArray from raw buffers, similar to <code>Eigen::Map()</code>. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:refcounter_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="refcounter_8hpp.html">refcounter.hpp</a></td></tr>
 <tr class="memdesc:refcounter_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference counting mechanism. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:string__util_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string__util_8hpp.html">string_util.hpp</a></td></tr>
-<tr class="memdesc:string__util_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function for string handling. <br /></td></tr>
+<tr class="memitem:status_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="status_8hpp.html">status.hpp</a></td></tr>
+<tr class="memdesc:status_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator of success or failure of functions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:file__system_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system_8hpp.html">file_system.hpp</a></td></tr>
+<tr class="memdesc:file__system_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to access file system (check if file/dir exist, ...). <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:file__system__factory_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="file__system__factory_8hpp.html">file_system_factory.hpp</a></td></tr>
+<tr class="memdesc:file__system__factory_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">File system factory. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:posix__file__system_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="posix__file__system_8hpp.html">posix_file_system.hpp</a></td></tr>
+<tr class="memdesc:posix__file__system_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to access POSIX file system (check if file/dir exist, ...). <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:windows__file__system_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="windows__file__system_8hpp.html">windows_file_system.hpp</a></td></tr>
+<tr class="memdesc:windows__file__system_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to access Windows file system (check if file/dir exist, ...). <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:thread__pool_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="thread__pool_8hpp.html">thread_pool.hpp</a></td></tr>
 <tr class="memdesc:thread__pool_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lightweight thread pool implementation using C++11. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:type__traits_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="type__traits_8hpp.html">type_traits.hpp</a></td></tr>
+<tr class="memdesc:type__traits_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Templated traits. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:types_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="types_8hpp.html">types.hpp</a></td></tr>
+<tr class="memdesc:types_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type definitions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:enum__bitmask__operator_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="enum__bitmask__operator_8hpp.html">enum_bitmask_operator.hpp</a></td></tr>
+<tr class="memdesc:enum__bitmask__operator_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allow <code>enum class</code> to be used with bitmask operation. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:proto_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="proto_8hpp.html">proto.hpp</a></td></tr>
+<tr class="memdesc:proto_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function for dealing with protocol buffer object. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:string_8hpp"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string_8hpp.html">string.hpp</a></td></tr>
+<tr class="memdesc:string_8hpp"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function for string handling. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gab77bda899b4b7470a755dcddb7727faa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">FaceKit::DataType</a> : int { <br />
+&#160;&#160;<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa25c2dc47991b3df171ed5192bcf70390">FaceKit::DataType::kUnknown</a> = 0, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaaf112965031ccac10c07073b4e7430107">FaceKit::DataType::kInt8</a> = 1, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa03b6a6936bd3f59a6831d44621f2ce20">FaceKit::DataType::kUInt8</a> = 2, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa6698ae5a05a12d36333200ae5e8f4f95">FaceKit::DataType::kInt16</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa8be17b92102f36087af254263f8adebb">FaceKit::DataType::kUInt16</a> = 4, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa10c09f8bff3c372f21cd8a13e01ae941">FaceKit::DataType::kInt32</a> = 5, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa4bf87890715e83a097260207f87ff364">FaceKit::DataType::kUInt32</a> = 6, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa22c776007533004e22da8e6bdd888b33">FaceKit::DataType::kInt64</a> = 7, 
+<br />
+&#160;&#160;<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa9d7d7531674526183d7468d826dfec5e">FaceKit::DataType::kUInt64</a> = 8, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa8425cd882e78bc9251db970b8a1da20e">FaceKit::DataType::kFloat</a> = 9, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa7fb3efa35444cd88d5a31dc125ca9c28">FaceKit::DataType::kDouble</a> = 10, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa18268c9f691ba5a5f650049d9d0da8dc">FaceKit::DataType::kBool</a> = 11, 
+<br />
+&#160;&#160;<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa302e56d566a2561033b27c13680ea4b2">FaceKit::DataType::kString</a> = 12
+<br />
+ }</td></tr>
+<tr class="memdesc:gab77bda899b4b7470a755dcddb7727faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all supported types.  <a href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">More...</a><br /></td></tr>
+<tr class="separator:gab77bda899b4b7470a755dcddb7727faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+MallocAligned</h2></td></tr>
+<tr class="memitem:gad0023dcbae2065e38e0991c3c12e6443"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#gad0023dcbae2065e38e0991c3c12e6443">FaceKit::Mem::MallocAligned</a> (const size_t &amp;size, const size_t &amp;alignment)</td></tr>
+<tr class="memdesc:gad0023dcbae2065e38e0991c3c12e6443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory of a given size with a specific alignement, <code>alignment</code> must be a power of two and at least of sizeof(void*).  <a href="group__core.html#gad0023dcbae2065e38e0991c3c12e6443">More...</a><br /></td></tr>
+<tr class="separator:gad0023dcbae2065e38e0991c3c12e6443"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+FreeAligned</h2></td></tr>
+<tr class="memitem:ga202c622b13bfdf488db17a15e77e2c82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#ga202c622b13bfdf488db17a15e77e2c82">FaceKit::Mem::FreeAligned</a> (void *ptr)</td></tr>
+<tr class="memdesc:ga202c622b13bfdf488db17a15e77e2c82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Release memory block pointed by <code>ptr</code>  <a href="group__core.html#ga202c622b13bfdf488db17a15e77e2c82">More...</a><br /></td></tr>
+<tr class="separator:ga202c622b13bfdf488db17a15e77e2c82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Malloc</h2></td></tr>
+<tr class="memitem:ga0676f967e2812c5c181e6f88024863fc"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#ga0676f967e2812c5c181e6f88024863fc">FaceKit::Mem::Malloc</a> (const size_t &amp;size, const size_t &amp;alignment)</td></tr>
+<tr class="memdesc:ga0676f967e2812c5c181e6f88024863fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory of a given size with a given alignment requirement (Done by hand)  <a href="group__core.html#ga0676f967e2812c5c181e6f88024863fc">More...</a><br /></td></tr>
+<tr class="separator:ga0676f967e2812c5c181e6f88024863fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Realloc</h2></td></tr>
+<tr class="memitem:gabb6b89e4ba34dcab1a97af5935a77bd3"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#gabb6b89e4ba34dcab1a97af5935a77bd3">FaceKit::Mem::Realloc</a> (const size_t &amp;new_size, void *ptr)</td></tr>
+<tr class="memdesc:gabb6b89e4ba34dcab1a97af5935a77bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the size of the memory block pointed to by <code>ptr</code>.  <a href="group__core.html#gabb6b89e4ba34dcab1a97af5935a77bd3">More...</a><br /></td></tr>
+<tr class="separator:gabb6b89e4ba34dcab1a97af5935a77bd3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Free</h2></td></tr>
+<tr class="memitem:gac7bdbf2032ca9c8d1a56cfbf1e2b2668"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#gac7bdbf2032ca9c8d1a56cfbf1e2b2668">FaceKit::Mem::Free</a> (void *ptr)</td></tr>
+<tr class="memdesc:gac7bdbf2032ca9c8d1a56cfbf1e2b2668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocated a block of memory pointed by <code>ptr</code>  <a href="group__core.html#gac7bdbf2032ca9c8d1a56cfbf1e2b2668">More...</a><br /></td></tr>
+<tr class="separator:gac7bdbf2032ca9c8d1a56cfbf1e2b2668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+EncodeStringList</h2></td></tr>
+<tr class="memitem:ga2d15903a5d44671277351cba18f27bab"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#ga2d15903a5d44671277351cba18f27bab">FaceKit::EncodeStringList</a> (const std::string *list, const size_t &amp;n, std::string *str)</td></tr>
+<tr class="memdesc:ga2d15903a5d44671277351cba18f27bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert array of strings into a single string that can be saved into a protobuf object.  <a href="group__core.html#ga2d15903a5d44671277351cba18f27bab">More...</a><br /></td></tr>
+<tr class="separator:ga2d15903a5d44671277351cba18f27bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="gab77bda899b4b7470a755dcddb7727faa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab77bda899b4b7470a755dcddb7727faa">&#9670;&nbsp;</a></span>DataType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">FaceKit::DataType</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>List all supported types. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa25c2dc47991b3df171ed5192bcf70390"></a>kUnknown&#160;</td><td class="fielddoc"><p class="">Unknown. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaaf112965031ccac10c07073b4e7430107"></a>kInt8&#160;</td><td class="fielddoc"><p class="">Signed Int8. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa03b6a6936bd3f59a6831d44621f2ce20"></a>kUInt8&#160;</td><td class="fielddoc"><p class="">Signed UInt8. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa6698ae5a05a12d36333200ae5e8f4f95"></a>kInt16&#160;</td><td class="fielddoc"><p class="">Signed Int16. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa8be17b92102f36087af254263f8adebb"></a>kUInt16&#160;</td><td class="fielddoc"><p class="">Signed UInt16. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa10c09f8bff3c372f21cd8a13e01ae941"></a>kInt32&#160;</td><td class="fielddoc"><p class="">Signed Int32. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa4bf87890715e83a097260207f87ff364"></a>kUInt32&#160;</td><td class="fielddoc"><p class="">Signed UInt32. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa22c776007533004e22da8e6bdd888b33"></a>kInt64&#160;</td><td class="fielddoc"><p class="">Signed Int64. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa9d7d7531674526183d7468d826dfec5e"></a>kUInt64&#160;</td><td class="fielddoc"><p class="">Signed UInt64. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa8425cd882e78bc9251db970b8a1da20e"></a>kFloat&#160;</td><td class="fielddoc"><p class="">Float - 32bits. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa7fb3efa35444cd88d5a31dc125ca9c28"></a>kDouble&#160;</td><td class="fielddoc"><p class="">Double - 64bits. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa18268c9f691ba5a5f650049d9d0da8dc"></a>kBool&#160;</td><td class="fielddoc"><p class="">Bool. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gab77bda899b4b7470a755dcddb7727faaa302e56d566a2561033b27c13680ea4b2"></a>kString&#160;</td><td class="fielddoc"><p class=""><a class="el" href="namespace_face_kit_1_1_string.html">String</a>. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ga2d15903a5d44671277351cba18f27bab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2d15903a5d44671277351cba18f27bab">&#9670;&nbsp;</a></span>EncodeStringList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FaceKit::EncodeStringList </td>
+          <td>(</td>
+          <td class="paramtype">const std::string *&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert array of strings into a single string that can be saved into a protobuf object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">list</td><td>Array of string to convert </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Array dimension </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">str</td><td>Encoded string </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="gac7bdbf2032ca9c8d1a56cfbf1e2b2668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gac7bdbf2032ca9c8d1a56cfbf1e2b2668">&#9670;&nbsp;</a></span>Free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FaceKit::Mem::Free </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Deallocated a block of memory pointed by <code>ptr</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptr</td><td>Pointer to a memory block previously allocated </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga202c622b13bfdf488db17a15e77e2c82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga202c622b13bfdf488db17a15e77e2c82">&#9670;&nbsp;</a></span>FreeAligned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FaceKit::Mem::FreeAligned </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Release memory block pointed by <code>ptr</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptr</td><td>Memory block to release </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga0676f967e2812c5c181e6f88024863fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0676f967e2812c5c181e6f88024863fc">&#9670;&nbsp;</a></span>Malloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * FaceKit::Mem::Malloc </td>
+          <td>(</td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>alignment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate a block of memory of a given size with a given alignment requirement (Done by hand) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes needed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alignment</td><td>Desired alignment </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory or nullptr if failed </dd></dl>
+
+</div>
+</div>
+<a id="gad0023dcbae2065e38e0991c3c12e6443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad0023dcbae2065e38e0991c3c12e6443">&#9670;&nbsp;</a></span>MallocAligned()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * FaceKit::Mem::MallocAligned </td>
+          <td>(</td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>alignment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Allocate a block of memory of a given size with a specific alignement, <code>alignment</code> must be a power of two and at least of sizeof(void*). </p>
+<p class="">If alignment requirement are not met, fall back to unaligned malloc. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Number of bytes needed </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">alignment</td><td>Desired alignment </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory or nullptr if failed </dd></dl>
+
+</div>
+</div>
+<a id="gabb6b89e4ba34dcab1a97af5935a77bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabb6b89e4ba34dcab1a97af5935a77bd3">&#9670;&nbsp;</a></span>Realloc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FaceKit::Mem::Realloc </td>
+          <td>(</td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>new_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>ptr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Changes the size of the memory block pointed to by <code>ptr</code>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">new_size</td><td>New size for the memory block, in bytes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ptr</td><td>Pointer to a memory block previously allocated </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the reallocated memory block </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 6 2018 10:12:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 12 2018 10:10:49 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="FaceKit"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="facekit-style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -97,6 +98,9 @@ $(function() {
 <li>k_work
 : <a class="el" href="struct_face_kit_1_1_linear_algebra_1_1_lapack_1_1lin__solver__params.html#aa8e00ad23ff5cd6d6c1f0ffad96703d4">FaceKit::LinearAlgebra&lt; T &gt;::Lapack::lin_solver_params</a>
 </li>
+<li>kBufferSize
+: <a class="el" href="class_face_kit_1_1_file_system.html#a603fdee311866162915ef659cbdf25e8">FaceKit::FileSystem</a>
+</li>
 <li>kDebug
 : <a class="el" href="class_face_kit_1_1_logger.html#abf7d286112a15d307661b39e9224271ea5d6ae4da50ff07e0176c60b69a21f111">FaceKit::Logger</a>
 </li>
@@ -106,17 +110,17 @@ $(function() {
 <li>kDebug2
 : <a class="el" href="class_face_kit_1_1_logger.html#abf7d286112a15d307661b39e9224271ea4379a5a42b607971967c98651eafae85">FaceKit::Logger</a>
 </li>
+<li>kDefaultAlignment
+: <a class="el" href="class_face_kit_1_1_allocator.html#a2287295b5182da42d1c4a0c5e85717fa">FaceKit::Allocator</a>
+</li>
 <li>kError
 : <a class="el" href="class_face_kit_1_1_logger.html#abf7d286112a15d307661b39e9224271ea82a66891e577f377db0237af9ae79ee2">FaceKit::Logger</a>
 </li>
 <li>key
 : <a class="el" href="struct_face_kit_1_1_cmd_line_parser_1_1_args.html#a388dd7350846decf35c0e07b7165b679">FaceKit::CmdLineParser::Args</a>
 </li>
-<li>kFileOpening
-: <a class="el" href="class_face_kit_1_1_f_k_error.html#a0aa3b32824fb89c6d44831a61a9d3922a2d438e253676f04f9e2b9a1cf46cb919">FaceKit::FKError</a>
-</li>
-<li>kGeneric
-: <a class="el" href="class_face_kit_1_1_f_k_error.html#a0aa3b32824fb89c6d44831a61a9d3922af2a27189a7c06555821c7574ac9acff5">FaceKit::FKError</a>
+<li>kGrayscale
+: <a class="el" href="class_face_kit_1_1_image.html#a426b17fb45dcd92edb1aa1321eec7513a4ba63b4c5473e49736aed278e7379c19">FaceKit::Image</a>
 </li>
 <li>kInfo
 : <a class="el" href="class_face_kit_1_1_logger.html#abf7d286112a15d307661b39e9224271ead87cecedd8ad7a2b089c8be342509553">FaceKit::Logger</a>
@@ -133,8 +137,11 @@ $(function() {
 <li>kPly
 : <a class="el" href="class_face_kit_1_1_mesh.html#a6d92226b2a60ee4a041e9ddeaf9278eba0cd213be0a2a0c07eee366bf26745389">FaceKit::Mesh&lt; T &gt;</a>
 </li>
-<li>kReadingData
-: <a class="el" href="class_face_kit_1_1_f_k_error.html#a0aa3b32824fb89c6d44831a61a9d3922af34e744f0f7eb1431496e5eb97d7038b">FaceKit::FKError</a>
+<li>kRGB
+: <a class="el" href="class_face_kit_1_1_image.html#a426b17fb45dcd92edb1aa1321eec7513a4b25fb7e39a64bfd8e795bfaa82788ed">FaceKit::Image</a>
+</li>
+<li>kRGBA
+: <a class="el" href="class_face_kit_1_1_image.html#a426b17fb45dcd92edb1aa1321eec7513a4fc5ab5f43db84bb9cbe7cd796fa0f3a">FaceKit::Image</a>
 </li>
 <li>kUndef
 : <a class="el" href="class_face_kit_1_1_mesh.html#a6d92226b2a60ee4a041e9ddeaf9278eba2253625c7041a1d8812126d167e61732">FaceKit::Mesh&lt; T &gt;</a>
@@ -155,7 +162,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 6 2018 10:12:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 12 2018 10:10:50 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

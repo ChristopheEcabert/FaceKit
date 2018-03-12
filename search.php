@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="FaceKit"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="facekit-style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -55,7 +56,7 @@ main();
 </script>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 6 2018 10:12:59 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 12 2018 10:10:50 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

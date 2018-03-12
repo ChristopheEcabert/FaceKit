@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="FaceKit"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="facekit-style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -68,6 +69,7 @@ $(function() {
 </li>
 <li>operator!=()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#a4b374b7c1509a0722d644567906ae3ea">FaceKit::AABB&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_status.html#a67c03ff5f54eaa32d15f51b6a0557f9a">FaceKit::Status</a>
 , <a class="el" href="class_face_kit_1_1_t_comparator.html#a994e28db0a7507bdbacbb64822bee05f">FaceKit::TComparator&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_t_comparator_3_01double_01_4.html#aadb17d00f9aa3758acd82cd9c42b1fec">FaceKit::TComparator&lt; double &gt;</a>
 , <a class="el" href="class_face_kit_1_1_t_comparator_3_01float_01_4.html#a760cf0e939366ec310b99a5cb6f44899">FaceKit::TComparator&lt; float &gt;</a>
@@ -79,9 +81,10 @@ $(function() {
 : <a class="el" href="class_face_kit_1_1_camera.html#ad09da9dad2a198287ff46cd450efbc96">FaceKit::Camera&lt; T, ProjType &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix3.html#a32f17df3996d298a7e538dee087992ec">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a56332d719db728cc20002cc3917e0f9f">FaceKit::Matrix4&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#a26d958c3beac738e4db0052841d74def">FaceKit::OrthographicProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_map.html#abefce1803094ea5ef4f6fa33f97965ef">FaceKit::NDArrayMap&lt; T, NDIMS &gt;</a>
+, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#a1991b1866ede3499c0a02a12ec319a84">FaceKit::OrthographicProjection&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_perspective_projection.html#a5f25f411231645bbefa16537659ccbe2">FaceKit::PerspectiveProjection&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_weak_projection.html#a860928d6e5beff3eee94c5f0fe5cc56a">FaceKit::WeakProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_weak_projection.html#ad5bab33161ffff5ae55bda97ceffb330">FaceKit::WeakProjection&lt; T &gt;</a>
 </li>
 <li>operator*()
 : <a class="el" href="class_face_kit_1_1_matrix3.html#ae54f5674bd47d657e14d112cbf27d75a">FaceKit::Matrix3&lt; T &gt;</a>
@@ -112,7 +115,7 @@ $(function() {
 </li>
 <li>operator-=()
 : <a class="el" href="struct_face_kit_1_1_vector2.html#ab98029cfb77d4e53eab2b25ee4d66bb2">FaceKit::Vector2&lt; T &gt;</a>
-, <a class="el" href="struct_face_kit_1_1_vector3.html#a98ef53455805a55f6bd032b2a0bed403">FaceKit::Vector3&lt; T &gt;</a>
+, <a class="el" href="struct_face_kit_1_1_vector3.html#af65ecc8a120bd2ebbd1a8b949662c224">FaceKit::Vector3&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector4.html#a049c4191783bb72fc8ecc505b526d450">FaceKit::Vector4&lt; T &gt;</a>
 </li>
 <li>operator/=()
@@ -126,23 +129,35 @@ $(function() {
 , <a class="el" href="class_face_kit_1_1_matrix3.html#ac17a9639e72fbfbf27b902027901b538">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a938b9a26809f0e0d7d2a6ece3050fb43">FaceKit::Matrix4&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_object_header.html#ac501bf8376ef5bcadcf17976c0d6f02d">FaceKit::ObjectHeader</a>
+, <a class="el" href="class_face_kit_1_1_status.html#a0565532ceae67d123832d5fc7b49a29b">FaceKit::Status</a>
 , <a class="el" href="struct_face_kit_1_1_vector2.html#aebc07df3da08c145c9256f1439478633">FaceKit::Vector2&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector3.html#a4b4f90d1574719d72e58f24085d86484">FaceKit::Vector3&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector4.html#a6786bd82414c0e4d33d186e75d72486e">FaceKit::Vector4&lt; T &gt;</a>
 </li>
 <li>operator=()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#ad5b47d578db1ed151b875477012f497f">FaceKit::AABB&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_allocator_factory.html#aa31e2c96fcf0207f8ddb5ba89243a269">FaceKit::AllocatorFactory</a>
 , <a class="el" href="class_face_kit_1_1_augmentation_engine.html#a2f9f92d22ee26dcc3c7a3df51d7c5748">FaceKit::AugmentationEngine</a>
+, <a class="el" href="class_face_kit_1_1_b_m_p_image.html#a373431fd95a0c6c9c609be7c88583212">FaceKit::BMPImage</a>
 , <a class="el" href="class_face_kit_1_1_camera.html#a0dd057d848509d42d4eb5ec3125458b0">FaceKit::Camera&lt; T, ProjType &gt;</a>
+, <a class="el" href="class_face_kit_1_1_file_system_factory.html#abbf8f8ac06ec934ed3481e8b4fdd9a16">FaceKit::FileSystemFactory</a>
+, <a class="el" href="class_face_kit_1_1_image_factory.html#ad0796e10c5900b75ad9e7736fddb5a2a">FaceKit::ImageFactory</a>
+, <a class="el" href="class_face_kit_1_1_j_p_e_g_image.html#a09b6fd6231691cec0a7c5109e67b10f2">FaceKit::JPEGImage</a>
+, <a class="el" href="class_face_kit_1_1_map_allocator.html#a9b0526cc61d52ce6a8e0ac0ec1b783a8">FaceKit::MapAllocator</a>
 , <a class="el" href="class_face_kit_1_1_matrix3.html#a807ae944baad594b4e8e53f01a6e6a88">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#a2e4cce8723212ca427fb1b009c8c2024">FaceKit::Matrix4&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_mesh.html#a2a25de5f8b5c520d660cb4327832d0fa">FaceKit::Mesh&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_object_manager.html#ad20c5aa2cdd214584fb62e306ea56299">FaceKit::ObjectManager</a>
-, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#a5c077b1fc77e3694eacdb1746a938fb0">FaceKit::OrthographicProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array.html#adfab2c20ae4dc8fc7c2fa1b17ca2228a">FaceKit::NDArray</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_dims.html#a40328c9bf6ddf1f0e323069eb83970e2">FaceKit::NDArrayDims</a>
+, <a class="el" href="class_face_kit_1_1_object_manager.html#a7795c868230398e859fc7e88b983b888">FaceKit::ObjectManager</a>
+, <a class="el" href="class_face_kit_1_1_orthographic_projection.html#afd1cb84a81ee129140f346bdce01bc91">FaceKit::OrthographicProjection&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_p_c_a_model_factory.html#a4d3c7681cbb673608d5482ba3f62a820">FaceKit::PCAModelFactory&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_perspective_projection.html#ad00a5119d2d33a56fe0dd6059436afdc">FaceKit::PerspectiveProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_perspective_projection.html#a2ef493a7f3e2e271a911869fd7e266cf">FaceKit::PerspectiveProjection&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_p_n_g_image.html#a839c110c928c1768bbb678c6b07e2b30">FaceKit::PNGImage</a>
 , <a class="el" href="class_face_kit_1_1_quaternion.html#a964f018bd8a18a4300e897a797c93a74">FaceKit::Quaternion&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_ref_counter.html#a0523c0ca752ec549731921ec8b96f9b7">FaceKit::RefCounter</a>
+, <a class="el" href="class_face_kit_1_1_status.html#a7afd3bec3096cad5d1b4ef333b428dae">FaceKit::Status</a>
+, <a class="el" href="class_face_kit_1_1_t_g_a_image.html#acf6c32b90a6cda59d8589a4ffbc664a5">FaceKit::TGAImage</a>
 , <a class="el" href="class_face_kit_1_1_thread_pool.html#ac4a746c7d8db1b138735592151c535ca">FaceKit::ThreadPool</a>
 , <a class="el" href="struct_face_kit_1_1_vector2.html#a5fbfca8d0cc1b85c46776a2ef923382f">FaceKit::Vector2&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector3.html#a7dc8a2eb595790b7aca07255a542f611">FaceKit::Vector3&lt; T &gt;</a>
@@ -151,11 +166,12 @@ $(function() {
 </li>
 <li>operator==()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#ab92a3cd3e3c26a833796924a48dc1ac8">FaceKit::AABB&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_t_comparator.html#a738b3cdc57bef34bdc371fd1776bedf4">FaceKit::TComparator&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_status.html#a2cf4268405afa53e2025531b58a2f371">FaceKit::Status</a>
+, <a class="el" href="class_face_kit_1_1_t_comparator.html#a8527431b7904a34861769a9b26ef29bd">FaceKit::TComparator&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_t_comparator_3_01double_01_4.html#ac387cf00a68a10694f475d897fe57a60">FaceKit::TComparator&lt; double &gt;</a>
 , <a class="el" href="class_face_kit_1_1_t_comparator_3_01float_01_4.html#a97e883c5461262c641d694c94724e91b">FaceKit::TComparator&lt; float &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector2.html#a4bae155d88f184738cd05e1d4e9ef571">FaceKit::Vector2&lt; T &gt;</a>
-, <a class="el" href="struct_face_kit_1_1_vector3.html#a56b1b59de9f14712b28d669ed1f5595a">FaceKit::Vector3&lt; T &gt;</a>
+, <a class="el" href="struct_face_kit_1_1_vector3.html#a09970a441077c68f68ca8ae4bd38e996">FaceKit::Vector3&lt; T &gt;</a>
 , <a class="el" href="struct_face_kit_1_1_vector4.html#a082860ee095dab7d6374ade06ddb015e">FaceKit::Vector4&lt; T &gt;</a>
 </li>
 <li>operator&gt;&gt;
@@ -166,10 +182,10 @@ $(function() {
 </li>
 <li>operator[]()
 : <a class="el" href="class_face_kit_1_1_matrix3.html#a3a621714c6fc4b601dcba9c6bad0d5dd">FaceKit::Matrix3&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_matrix4.html#abe7e804503e6a57f27bc764f8e5a6c5c">FaceKit::Matrix4&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_matrix4.html#aa65a644d4e4ea092a6778eb41fb5989f">FaceKit::Matrix4&lt; T &gt;</a>
 </li>
 <li>OrthographicProjection()
-: <a class="el" href="class_face_kit_1_1_orthographic_projection.html#a907436ef044be774f2656f36b703477d">FaceKit::OrthographicProjection&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_orthographic_projection.html#aeb9b484f316dee95a651ce08a50417b9">FaceKit::OrthographicProjection&lt; T &gt;</a>
 </li>
 <li>Overlap()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#a8b31cda6550303ecb4f99795ab135ef3">FaceKit::AABB&lt; T &gt;</a>
@@ -178,7 +194,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 6 2018 10:12:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 12 2018 10:10:50 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

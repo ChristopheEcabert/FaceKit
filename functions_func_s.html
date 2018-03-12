@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="FaceKit"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="facekit-style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -55,15 +56,20 @@ $(function() {
 
 <h3><a id="index_s"></a>- s -</h3><ul>
 <li>Save()
-: <a class="el" href="class_face_kit_1_1_mesh.html#acf556e760bfe80d13b68abefca3e52c0">FaceKit::Mesh&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_b_m_p_image.html#a605d2806db99b1a35535994419bdaed5">FaceKit::BMPImage</a>
+, <a class="el" href="class_face_kit_1_1_image.html#ad5494adb27c74d202f703f4025dbb925">FaceKit::Image</a>
+, <a class="el" href="class_face_kit_1_1_j_p_e_g_image.html#a65aabff8ef419efa11f03069649aa7fc">FaceKit::JPEGImage</a>
+, <a class="el" href="class_face_kit_1_1_mesh.html#acf556e760bfe80d13b68abefca3e52c0">FaceKit::Mesh&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_p_c_a_model.html#a772bafff9aa1d592079b8417ce29e923">FaceKit::PCAModel&lt; T &gt;</a>
-, <a class="el" href="class_face_kit_1_1_serializable.html#a965c6f02d608ecaf215c498bf89f66f9">FaceKit::Serializable</a>
+, <a class="el" href="class_face_kit_1_1_p_n_g_image.html#adb7d4b4d5f66f299164dfc13c4571422">FaceKit::PNGImage</a>
+, <a class="el" href="class_face_kit_1_1_serializable.html#a033451dba8afe4296469b34d9a2de9de">FaceKit::Serializable</a>
+, <a class="el" href="class_face_kit_1_1_t_g_a_image.html#a1badec166e8e0b685e0e1f6f6b5e32f6">FaceKit::TGAImage</a>
 </li>
 <li>SaveMat()
 : <a class="el" href="class_face_kit_1_1_i_o.html#ae5021c198858fe4276c76388eaf8400e">FaceKit::IO</a>
 </li>
 <li>SaveTypedMat()
-: <a class="el" href="class_face_kit_1_1_i_o.html#a319e19dafa1c1beee5da2334e35ae522">FaceKit::IO</a>
+: <a class="el" href="class_face_kit_1_1_i_o.html#ab6c8d20833b8d328db2c20517bd83784">FaceKit::IO</a>
 </li>
 <li>Sbmv()
 : <a class="el" href="class_face_kit_1_1_linear_algebra.html#abdf770f52e3c89b760442bc651199707">FaceKit::LinearAlgebra&lt; T &gt;</a>
@@ -80,15 +86,25 @@ $(function() {
 <li>set_axis_inversion()
 : <a class="el" href="class_face_kit_1_1_camera.html#ad1aca52b6034fd16b9bacc5d85d53840">FaceKit::Camera&lt; T, ProjType &gt;</a>
 </li>
+<li>set_dim()
+: <a class="el" href="class_face_kit_1_1_n_d_array_dims.html#a6ba0edd0621da6c137673d335af0fcb3">FaceKit::NDArrayDims</a>
+</li>
 <li>set_log_level()
 : <a class="el" href="class_face_kit_1_1_logger.html#a585fb0567265f57e750bdbd5786db6b7">FaceKit::Logger</a>
+</li>
+<li>ShareBuffer()
+: <a class="el" href="class_face_kit_1_1_n_d_array.html#ab2c80a9b23b26797a5eaf3fced78ebf3">FaceKit::NDArray</a>
+</li>
+<li>size()
+: <a class="el" href="class_face_kit_1_1_n_d_array_buffer.html#ac0e7b71fa3dc657245ab7b444337aaf5">FaceKit::NDArrayBuffer</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_map.html#ad44d187bc6cf0c433d6642854d4d7f2a">FaceKit::NDArrayMap&lt; T, NDIMS &gt;</a>
+</li>
+<li>Slice()
+: <a class="el" href="class_face_kit_1_1_n_d_array.html#af91d1d09564aa5c5e6f5bc5b7cc58d18">FaceKit::NDArray</a>
 </li>
 <li>Solve()
 : <a class="el" href="class_face_kit_1_1_linear_algebra_1_1_linear_solver.html#a139249bf2d40b1110ec2fa7a95ad4637">FaceKit::LinearAlgebra&lt; T &gt;::LinearSolver</a>
 , <a class="el" href="class_face_kit_1_1_linear_algebra_1_1_square_linear_solver.html#a06ef2119108d0078aa85f49cd891afaf">FaceKit::LinearAlgebra&lt; T &gt;::SquareLinearSolver</a>
-</li>
-<li>Split()
-: <a class="el" href="class_face_kit_1_1_string.html#a3f4958b59f0ff63f365fe037a8cb4550">FaceKit::String</a>
 </li>
 <li>SquaredDistanceToPoint()
 : <a class="el" href="class_face_kit_1_1_a_a_b_b.html#af21b64497ff4fdd7fc75676f74b0c0cf">FaceKit::AABB&lt; T &gt;</a>
@@ -102,6 +118,9 @@ $(function() {
 <li>SquareLinearSolverCall()
 : <a class="el" href="class_face_kit_1_1_linear_algebra_1_1_lapack.html#a03480e0e8a8ad1e0ad8d1e1bcc26ed87">FaceKit::LinearAlgebra&lt; T &gt;::Lapack</a>
 </li>
+<li>Status()
+: <a class="el" href="class_face_kit_1_1_status.html#a521863a6c374605c00b2976b75cd739b">FaceKit::Status</a>
+</li>
 <li>StreamContent()
 : <a class="el" href="class_face_kit_1_1_i_o.html#a4da93dc53fb71cb4a6a9ac105844a587">FaceKit::IO</a>
 </li>
@@ -112,7 +131,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 6 2018 10:12:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 12 2018 10:10:50 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

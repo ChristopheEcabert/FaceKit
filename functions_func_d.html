@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="FaceKit"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="facekit-style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -55,15 +56,56 @@ $(function() {
 
 <h3><a id="index_d"></a>- d -</h3><ul>
 <li>data()
-: <a class="el" href="class_face_kit_1_1_matrix3.html#a34e55e82d6dbf2df86232d91c0225e31">FaceKit::Matrix3&lt; T &gt;</a>
+: <a class="el" href="class_face_kit_1_1_image.html#ac1551eeea00d0bb9c34bd5aa6636f215">FaceKit::Image</a>
+, <a class="el" href="class_face_kit_1_1_matrix3.html#a34e55e82d6dbf2df86232d91c0225e31">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#ac56b56aab122a57cced202ad87bb9cb4">FaceKit::Matrix4&lt; T &gt;</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_buffer.html#ab4fe0aa1a3f88661b80ac58295538e58">FaceKit::NDArrayBuffer</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_map.html#aef7f4282a1b8e71fe8d11c04e7a72394">FaceKit::NDArrayMap&lt; T, NDIMS &gt;</a>
+</li>
+<li>Deallocate()
+: <a class="el" href="class_face_kit_1_1_allocator.html#aa5606092e73c5b6aba72e68d5a75c3eb">FaceKit::Allocator</a>
+</li>
+<li>DeallocateRaw()
+: <a class="el" href="class_face_kit_1_1_allocator.html#a1b57d76d49971b84f412489923b1575f">FaceKit::Allocator</a>
+, <a class="el" href="class_face_kit_1_1_map_allocator.html#afdefed1566a7dca59cd76a72e5ad25f2">FaceKit::MapAllocator</a>
 </li>
 <li>Dec()
 : <a class="el" href="class_face_kit_1_1_ref_counter.html#a795e7092dcd270a3bc04752947ce83bf">FaceKit::RefCounter</a>
 </li>
+<li>DeepCopy()
+: <a class="el" href="class_face_kit_1_1_n_d_array.html#a9c00cb44a018fdddf34ca5cf1dda3900">FaceKit::NDArray</a>
+</li>
+<li>DeleteDir()
+: <a class="el" href="class_face_kit_1_1_file_system.html#aba873617e589374aa16923da559bdce0">FaceKit::FileSystem</a>
+, <a class="el" href="class_face_kit_1_1_posix_file_system.html#a28c71d2ac7449bcb9844a4b72e8bd4b7">FaceKit::PosixFileSystem</a>
+, <a class="el" href="class_face_kit_1_1_windows_file_system.html#ac96b0d4b75e34ce639779e4bc582f6fb">FaceKit::WindowsFileSystem</a>
+</li>
+<li>DeleteDirRecursively()
+: <a class="el" href="class_face_kit_1_1_file_system.html#a3789e431fd1866c75336a7d183affc3e">FaceKit::FileSystem</a>
+</li>
+<li>DeleteFile()
+: <a class="el" href="class_face_kit_1_1_file_system.html#ad49022357d06e932cb8bdf2a3c37e14a">FaceKit::FileSystem</a>
+, <a class="el" href="class_face_kit_1_1_posix_file_system.html#ad59c1083d2d2d91e1d5bfcb1fc0f40b0">FaceKit::PosixFileSystem</a>
+, <a class="el" href="class_face_kit_1_1_windows_file_system.html#a66c6028deeacb0939b1a86f03b38a23d">FaceKit::WindowsFileSystem</a>
+</li>
 <li>Determinent()
 : <a class="el" href="class_face_kit_1_1_matrix3.html#aa09a42a36bae8b3798100328fc8a0c4d">FaceKit::Matrix3&lt; T &gt;</a>
 , <a class="el" href="class_face_kit_1_1_matrix4.html#ad414f655edd7462ab1f16045ced3ff75">FaceKit::Matrix4&lt; T &gt;</a>
+</li>
+<li>dim_size()
+: <a class="el" href="class_face_kit_1_1_n_d_array.html#a36223454690798a8329425a169f54168">FaceKit::NDArray</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_dims.html#a655c71823771020dde3563db22b259a3">FaceKit::NDArrayDims</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_map.html#a77c9b8d2a60f03049f150963d64c1ea5">FaceKit::NDArrayMap&lt; T, NDIMS &gt;</a>
+</li>
+<li>dim_sizes()
+: <a class="el" href="class_face_kit_1_1_n_d_array_dims.html#a3966b8b327fa2733d0d3cf6e0fc37c91">FaceKit::NDArrayDims</a>
+</li>
+<li>dimensions()
+: <a class="el" href="class_face_kit_1_1_n_d_array.html#aea7eb513ee5cdfd96354824b9843e6e4">FaceKit::NDArray</a>
+</li>
+<li>dims()
+: <a class="el" href="class_face_kit_1_1_n_d_array.html#a7a417370956dcff2e2ae240aab8c3b7b">FaceKit::NDArray</a>
+, <a class="el" href="class_face_kit_1_1_n_d_array_dims.html#accd799f0755d73fda62aae018bf8ec8f">FaceKit::NDArrayDims</a>
 </li>
 <li>Disable()
 : <a class="el" href="class_face_kit_1_1_logger.html#a6e845e067e1595466a4fe412c32e3f3b">FaceKit::Logger</a>
@@ -75,7 +117,7 @@ $(function() {
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 6 2018 10:12:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 12 2018 10:10:50 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

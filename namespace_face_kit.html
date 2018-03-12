@@ -13,6 +13,7 @@
 <script type="text/javascript" src="search/search.js"></script>
 <link rel="search" href="search_opensearch.php?v=opensearch.xml" type="application/opensearchdescription+xml" title="FaceKit"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="facekit-style.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -52,7 +53,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">FaceKit Namespace Reference</div>  </div>
@@ -62,10 +65,31 @@ $(function() {
 <p>Development space.  
 <a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:namespace_face_kit_1_1_mem"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit_1_1_mem.html">Mem</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_face_kit_1_1_path"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit_1_1_path.html">Path</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespace_face_kit_1_1_string"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit_1_1_string.html">String</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_a_a_b_b.html">AABB</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Axis Aligned Bouding Box.  <a href="class_face_kit_1_1_a_a_b_b.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator.html">Allocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory allocator interface.  <a href="class_face_kit_1_1_allocator.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator_factory.html">AllocatorFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory where available allocator are stored.  <a href="class_face_kit_1_1_allocator_factory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator_proxy.html">AllocatorProxy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy for registering allocator with factory.  <a href="class_face_kit_1_1_allocator_proxy.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator_statistic.html">AllocatorStatistic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gather statistics for an allocator.  <a href="class_face_kit_1_1_allocator_statistic.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_augmentation_cell.html">AugmentationCell</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for various augementation cells.  <a href="class_face_kit_1_1_augmentation_cell.html#details">More...</a><br /></td></tr>
@@ -73,25 +97,58 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_augmentation_engine.html">AugmentationEngine</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pipeline for standardized data augmentation process.  <a href="class_face_kit_1_1_augmentation_engine.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_b_m_p_image.html">BMPImage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bitmap <a class="el" href="class_face_kit_1_1_image.html" title="Image abstraction layer. ">Image</a> object.  <a href="class_face_kit_1_1_b_m_p_image.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_camera.html">Camera</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_face_kit_1_1_camera.html" title="Camera behaviour abstraction. ">Camera</a> behaviour abstraction.  <a href="class_face_kit_1_1_camera.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_cmd_line_parser.html">CmdLineParser</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility class to parse command line argument.  <a href="class_face_kit_1_1_cmd_line_parser.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_data_type_from_enum.html">DataTypeFromEnum</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a DataType to the underlying type (i.e.  <a href="struct_face_kit_1_1_data_type_from_enum.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_data_type_size.html">DataTypeSize</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide the size in bytes for a given DataType (i.e.  <a href="struct_face_kit_1_1_data_type_size.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_data_type_to_enum.html">DataTypeToEnum</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deduce a DataType from the underlying type (i.e.  <a href="struct_face_kit_1_1_data_type_to_enum.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicate if bitmask operator are enabled for a specific enum type.  <a href="struct_face_kit_1_1_enable_bit_mask_operators.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_f_k_error.html">FKError</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error class.  <a href="class_face_kit_1_1_f_k_error.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_error.html">Error</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_face_kit_1_1_error.html" title="Error class. ">Error</a> class.  <a href="class_face_kit_1_1_error.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_file_property.html">FileProperty</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hold file properties.  <a href="struct_face_kit_1_1_file_property.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_file_system.html">FileSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generic interface for accessing a file system.  <a href="class_face_kit_1_1_file_system.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_file_system_factory.html">FileSystemFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mechanism to store file systems implementations.  <a href="class_face_kit_1_1_file_system_factory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_file_system_proxy.html">FileSystemProxy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Proxy for registering/creating filesystems.  <a href="class_face_kit_1_1_file_system_proxy.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_h_s_v_scaling_cell.html">HSVScalingCell</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_identity_cell.html">IdentityCell</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic augmentation bloc, where input is copied to output locations.  <a href="class_face_kit_1_1_identity_cell.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_image.html">Image</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_face_kit_1_1_image.html" title="Image abstraction layer. ">Image</a> abstraction layer.  <a href="class_face_kit_1_1_image.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_image_crop_cell.html">ImageCropCell</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract region from the corner/middle of the images.  <a href="class_face_kit_1_1_image_crop_cell.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_image_factory.html">ImageFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Singleton helper for image create.  <a href="class_face_kit_1_1_image_factory.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_image_proxy.html">ImageProxy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for registration mechanism for <a class="el" href="class_face_kit_1_1_image.html" title="Image abstraction layer. ">Image</a> type.  <a href="class_face_kit_1_1_image_proxy.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_img_flip_cell.html">ImgFlipCell</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform flip into horizontal/vertical direction.  <a href="class_face_kit_1_1_img_flip_cell.html#details">More...</a><br /></td></tr>
@@ -102,11 +159,20 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_i_o.html">IO</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle reading/writing from various file.  <a href="class_face_kit_1_1_i_o.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_is_data_type_valid.html">IsDataTypeValid</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicate if T is a valid DataType or not.  <a href="struct_face_kit_1_1_is_data_type_valid.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_j_p_e_g_image.html">JPEGImage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">JPEG <a class="el" href="class_face_kit_1_1_image.html" title="Image abstraction layer. ">Image</a> object.  <a href="class_face_kit_1_1_j_p_e_g_image.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_linear_algebra.html">LinearAlgebra</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blas/Lapack wrapper for common linear algebra operation.  <a href="class_face_kit_1_1_linear_algebra.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_logger.html">Logger</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging tool Based on : <a href="http://stackoverflow.com/questions/19415845/">http://stackoverflow.com/questions/19415845/</a>.  <a href="class_face_kit_1_1_logger.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_map_allocator.html">MapAllocator</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_face_kit_1_1_allocator.html" title="Memory allocator interface. ">Allocator</a> acting as a ghost allocator in order to map existing raw buffer for <a class="el" href="class_face_kit_1_1_n_d_array.html" title="Representation of a n-dimension array storing values of a given types. ">NDArray</a> container.  <a href="class_face_kit_1_1_map_allocator.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_matrix3.html">Matrix3</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">3x3 matrix class  <a href="class_face_kit_1_1_matrix3.html#details">More...</a><br /></td></tr>
@@ -116,6 +182,21 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_mesh.html">Mesh</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">3D <a class="el" href="class_face_kit_1_1_mesh.html" title="3D Mesh container ">Mesh</a> container  <a href="class_face_kit_1_1_mesh.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_n_d_array.html">NDArray</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of a n-dimension array storing values of a given types.  <a href="class_face_kit_1_1_n_d_array.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_n_d_array_buffer.html">NDArrayBuffer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage space interface for <a class="el" href="class_face_kit_1_1_n_d_array.html" title="Representation of a n-dimension array storing values of a given types. ">NDArray</a> container.  <a href="class_face_kit_1_1_n_d_array_buffer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_n_d_array_dims.html">NDArrayDims</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dimensions representation for <a class="el" href="class_face_kit_1_1_n_d_array.html" title="Representation of a n-dimension array storing values of a given types. ">NDArray</a>.  <a href="class_face_kit_1_1_n_d_array_dims.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_n_d_array_map.html">NDArrayMap</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw buffer interface for convenient element access.  <a href="class_face_kit_1_1_n_d_array_map.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_face_kit_1_1_n_d_a_types.html">NDATypes</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper structure defining common <a class="el" href="class_face_kit_1_1_n_d_array.html" title="Representation of a n-dimension array storing values of a given types. ">NDArray</a> sub-types.  <a href="struct_face_kit_1_1_n_d_a_types.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_object_header.html">ObjectHeader</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object Descriptor stored in file to handle "navigation" between consecutive stored object.  <a href="class_face_kit_1_1_object_header.html#details">More...</a><br /></td></tr>
@@ -141,6 +222,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_perspective_projection.html">PerspectiveProjection</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction for orthographic geometric projection.  <a href="class_face_kit_1_1_perspective_projection.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_p_n_g_image.html">PNGImage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">PNG <a class="el" href="class_face_kit_1_1_image.html" title="Image abstraction layer. ">Image</a> object.  <a href="class_face_kit_1_1_p_n_g_image.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_posix_file_system.html">PosixFileSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A POSIX interface for accessing a file system.  <a href="class_face_kit_1_1_posix_file_system.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_quaternion.html">Quaternion</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_face_kit_1_1_quaternion.html" title="Quaternion abstraction. ">Quaternion</a> abstraction.  <a href="class_face_kit_1_1_quaternion.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,8 +237,8 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_serializable.html">Serializable</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface definition for object that can be saved/loaded into file.  <a href="class_face_kit_1_1_serializable.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_string.html">String</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function for string handling.  <a href="class_face_kit_1_1_string.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_status.html">Status</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicator of success or failure of functions.  <a href="class_face_kit_1_1_status.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_t_comparator.html">TComparator</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to compare floating number.  <a href="class_face_kit_1_1_t_comparator.html#details">More...</a><br /></td></tr>
@@ -159,6 +246,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_t_comparator_3_01double_01_4.html">TComparator&lt; double &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_t_comparator_3_01float_01_4.html">TComparator&lt; float &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_t_g_a_image.html">TGAImage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">TGA <a class="el" href="class_face_kit_1_1_image.html" title="Image abstraction layer. ">Image</a> object.  <a href="class_face_kit_1_1_t_g_a_image.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_thread_pool.html">ThreadPool</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -174,6 +264,33 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_weak_projection.html">WeakProjection</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstraction for orthographic geometric projection.  <a href="class_face_kit_1_1_weak_projection.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_windows_file_system.html">WindowsFileSystem</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Windows interface for accessing a file system.  <a href="class_face_kit_1_1_windows_file_system.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gab77bda899b4b7470a755dcddb7727faa"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">DataType</a> : int { <br />
+&#160;&#160;<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa25c2dc47991b3df171ed5192bcf70390">DataType::kUnknown</a> = 0, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaaf112965031ccac10c07073b4e7430107">DataType::kInt8</a> = 1, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa03b6a6936bd3f59a6831d44621f2ce20">DataType::kUInt8</a> = 2, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa6698ae5a05a12d36333200ae5e8f4f95">DataType::kInt16</a> = 3, 
+<br />
+&#160;&#160;<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa8be17b92102f36087af254263f8adebb">DataType::kUInt16</a> = 4, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa10c09f8bff3c372f21cd8a13e01ae941">DataType::kInt32</a> = 5, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa4bf87890715e83a097260207f87ff364">DataType::kUInt32</a> = 6, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa22c776007533004e22da8e6bdd888b33">DataType::kInt64</a> = 7, 
+<br />
+&#160;&#160;<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa9d7d7531674526183d7468d826dfec5e">DataType::kUInt64</a> = 8, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa8425cd882e78bc9251db970b8a1da20e">DataType::kFloat</a> = 9, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa7fb3efa35444cd88d5a31dc125ca9c28">DataType::kDouble</a> = 10, 
+<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa18268c9f691ba5a5f650049d9d0da8dc">DataType::kBool</a> = 11, 
+<br />
+&#160;&#160;<a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faaa302e56d566a2561033b27c13680ea4b2">DataType::kString</a> = 12
+<br />
+ }</td></tr>
+<tr class="memdesc:gab77bda899b4b7470a755dcddb7727faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">List all supported types.  <a href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">More...</a><br /></td></tr>
+<tr class="separator:gab77bda899b4b7470a755dcddb7727faa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -261,6 +378,66 @@ Functions</h2></td></tr>
 <tr class="separator:a076d2665489d93d680d93d41a80de15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8221cbbe33ef5eeeb0e2da18b8173e61"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a8221cbbe33ef5eeeb0e2da18b8173e61">ENABLE_BITMASK_OPERATORS</a> (<a class="el" href="class_face_kit_1_1_img_flip_cell.html#aa405dd4f4474fd1ea0e29b941d30eaaf">ImgFlipCell::Direction</a>)</td></tr>
 <tr class="separator:a8221cbbe33ef5eeeb0e2da18b8173e61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">EnableAllocatorStatistics</div></td></tr>
+<tr class="memitem:af7c69c38580a9af5a4df8aab1a02cd47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#af7c69c38580a9af5a4df8aab1a02cd47">EnableAllocatorStatistics</a> (const bool &amp;enable)</td></tr>
+<tr class="memdesc:af7c69c38580a9af5a4df8aab1a02cd47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Toggle allocation statistics.  <a href="#af7c69c38580a9af5a4df8aab1a02cd47">More...</a><br /></td></tr>
+<tr class="separator:af7c69c38580a9af5a4df8aab1a02cd47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">DefaultCpuAllocator</div></td></tr>
+<tr class="memitem:a0a373832da9141998644a91bc014fff6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_face_kit_1_1_allocator.html">Allocator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a0a373832da9141998644a91bc014fff6">DefaultCpuAllocator</a> (void)</td></tr>
+<tr class="memdesc:a0a373832da9141998644a91bc014fff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide default allocator for CPU usage.  <a href="#a0a373832da9141998644a91bc014fff6">More...</a><br /></td></tr>
+<tr class="separator:a0a373832da9141998644a91bc014fff6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">GetAllocator</div></td></tr>
+<tr class="memitem:af76ca29ab2010c57d9906d63a599b0ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_face_kit_1_1_allocator.html">Allocator</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#af76ca29ab2010c57d9906d63a599b0ae">GetAllocator</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:af76ca29ab2010c57d9906d63a599b0ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for an allocator of a given name.  <a href="#af76ca29ab2010c57d9906d63a599b0ae">More...</a><br /></td></tr>
+<tr class="separator:af76ca29ab2010c57d9906d63a599b0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">DataTypeToString</div></td></tr>
+<tr class="memitem:a50d9b823d81aac024323f5d12fe88be7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a50d9b823d81aac024323f5d12fe88be7">DataTypeToString</a> (const <a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">DataType</a> &amp;type)</td></tr>
+<tr class="memdesc:a50d9b823d81aac024323f5d12fe88be7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a given <code>type</code> into string.  <a href="#a50d9b823d81aac024323f5d12fe88be7">More...</a><br /></td></tr>
+<tr class="separator:a50d9b823d81aac024323f5d12fe88be7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">DataTypeFromString</div></td></tr>
+<tr class="memitem:a36eb8727e2b009dd0948c1a8ef034bc8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a36eb8727e2b009dd0948c1a8ef034bc8">DataTypeFromString</a> (const std::string &amp;str, <a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">DataType</a> *type)</td></tr>
+<tr class="memdesc:a36eb8727e2b009dd0948c1a8ef034bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a given <code>str</code> into the corresponding DataType.  <a href="#a36eb8727e2b009dd0948c1a8ef034bc8">More...</a><br /></td></tr>
+<tr class="separator:a36eb8727e2b009dd0948c1a8ef034bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">DataTypeDynamicSize</div></td></tr>
+<tr class="memitem:a25cedbce11e102d5b5d0512b9db0bf93"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a25cedbce11e102d5b5d0512b9db0bf93">DataTypeDynamicSize</a> (const <a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">DataType</a> &amp;dtype)</td></tr>
+<tr class="memdesc:a25cedbce11e102d5b5d0512b9db0bf93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provide dynamically the size of a given type.  <a href="#a25cedbce11e102d5b5d0512b9db0bf93">More...</a><br /></td></tr>
+<tr class="separator:a25cedbce11e102d5b5d0512b9db0bf93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af467272fdf9daf59772dd5ee0a93d843"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#af467272fdf9daf59772dd5ee0a93d843">SPECIALIZE_TYPE_AND_ENUM</a> (int8_t, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaaf112965031ccac10c07073b4e7430107">DataType::kInt8</a>, sizeof(int8_t))</td></tr>
+<tr class="memdesc:af467272fdf9daf59772dd5ee0a93d843"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int8 Specialization.  <a href="#af467272fdf9daf59772dd5ee0a93d843">More...</a><br /></td></tr>
+<tr class="separator:af467272fdf9daf59772dd5ee0a93d843"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a475c1d415f61fc68ed40f74086566eb1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a475c1d415f61fc68ed40f74086566eb1">SPECIALIZE_TYPE_AND_ENUM</a> (uint8_t, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa03b6a6936bd3f59a6831d44621f2ce20">DataType::kUInt8</a>, sizeof(uint8_t))</td></tr>
+<tr class="memdesc:a475c1d415f61fc68ed40f74086566eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">UInt8 Specialization.  <a href="#a475c1d415f61fc68ed40f74086566eb1">More...</a><br /></td></tr>
+<tr class="separator:a475c1d415f61fc68ed40f74086566eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afac49828cfdb718d87e662a2ba00002c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#afac49828cfdb718d87e662a2ba00002c">SPECIALIZE_TYPE_AND_ENUM</a> (int16_t, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa6698ae5a05a12d36333200ae5e8f4f95">DataType::kInt16</a>, sizeof(int16_t))</td></tr>
+<tr class="memdesc:afac49828cfdb718d87e662a2ba00002c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int16 Specialization.  <a href="#afac49828cfdb718d87e662a2ba00002c">More...</a><br /></td></tr>
+<tr class="separator:afac49828cfdb718d87e662a2ba00002c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a883abd8596c6bd68ba9754e6e4c65eeb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a883abd8596c6bd68ba9754e6e4c65eeb">SPECIALIZE_TYPE_AND_ENUM</a> (uint16_t, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa8be17b92102f36087af254263f8adebb">DataType::kUInt16</a>, sizeof(uint16_t))</td></tr>
+<tr class="memdesc:a883abd8596c6bd68ba9754e6e4c65eeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">UInt16 Specialization.  <a href="#a883abd8596c6bd68ba9754e6e4c65eeb">More...</a><br /></td></tr>
+<tr class="separator:a883abd8596c6bd68ba9754e6e4c65eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab70a4ded8f0c5be31c0dbd0ee9cad8b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#aab70a4ded8f0c5be31c0dbd0ee9cad8b">SPECIALIZE_TYPE_AND_ENUM</a> (int32_t, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa10c09f8bff3c372f21cd8a13e01ae941">DataType::kInt32</a>, sizeof(int32_t))</td></tr>
+<tr class="memdesc:aab70a4ded8f0c5be31c0dbd0ee9cad8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int32 Specialization.  <a href="#aab70a4ded8f0c5be31c0dbd0ee9cad8b">More...</a><br /></td></tr>
+<tr class="separator:aab70a4ded8f0c5be31c0dbd0ee9cad8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa09c45b9e3b2ce1252b132a3f32db650"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#aa09c45b9e3b2ce1252b132a3f32db650">SPECIALIZE_TYPE_AND_ENUM</a> (uint32_t, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa4bf87890715e83a097260207f87ff364">DataType::kUInt32</a>, sizeof(uint32_t))</td></tr>
+<tr class="memdesc:aa09c45b9e3b2ce1252b132a3f32db650"><td class="mdescLeft">&#160;</td><td class="mdescRight">UInt32 Specialization.  <a href="#aa09c45b9e3b2ce1252b132a3f32db650">More...</a><br /></td></tr>
+<tr class="separator:aa09c45b9e3b2ce1252b132a3f32db650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac293cad290af8c0d4406bbd75345ed5b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#ac293cad290af8c0d4406bbd75345ed5b">SPECIALIZE_TYPE_AND_ENUM</a> (int64_t, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa22c776007533004e22da8e6bdd888b33">DataType::kInt64</a>, sizeof(int64_t))</td></tr>
+<tr class="memdesc:ac293cad290af8c0d4406bbd75345ed5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Int64 Specialization.  <a href="#ac293cad290af8c0d4406bbd75345ed5b">More...</a><br /></td></tr>
+<tr class="separator:ac293cad290af8c0d4406bbd75345ed5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b48247d385b71f66826e65f0c52511e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a0b48247d385b71f66826e65f0c52511e">SPECIALIZE_TYPE_AND_ENUM</a> (uint64_t, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa9d7d7531674526183d7468d826dfec5e">DataType::kUInt64</a>, sizeof(uint64_t))</td></tr>
+<tr class="memdesc:a0b48247d385b71f66826e65f0c52511e"><td class="mdescLeft">&#160;</td><td class="mdescRight">UInt64 Specialization.  <a href="#a0b48247d385b71f66826e65f0c52511e">More...</a><br /></td></tr>
+<tr class="separator:a0b48247d385b71f66826e65f0c52511e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fcfd53da096e014e2478536d5079253"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a8fcfd53da096e014e2478536d5079253">SPECIALIZE_TYPE_AND_ENUM</a> (float, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa8425cd882e78bc9251db970b8a1da20e">DataType::kFloat</a>, sizeof(float))</td></tr>
+<tr class="memdesc:a8fcfd53da096e014e2478536d5079253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Float Specialization.  <a href="#a8fcfd53da096e014e2478536d5079253">More...</a><br /></td></tr>
+<tr class="separator:a8fcfd53da096e014e2478536d5079253"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ddf9484b256328da8ab2cef938cb83f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a0ddf9484b256328da8ab2cef938cb83f">SPECIALIZE_TYPE_AND_ENUM</a> (double, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa7fb3efa35444cd88d5a31dc125ca9c28">DataType::kDouble</a>, sizeof(double))</td></tr>
+<tr class="memdesc:a0ddf9484b256328da8ab2cef938cb83f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Double Specialization.  <a href="#a0ddf9484b256328da8ab2cef938cb83f">More...</a><br /></td></tr>
+<tr class="separator:a0ddf9484b256328da8ab2cef938cb83f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a621c291768943437f3478b79af69a9d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a621c291768943437f3478b79af69a9d0">SPECIALIZE_TYPE_AND_ENUM</a> (bool, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa18268c9f691ba5a5f650049d9d0da8dc">DataType::kBool</a>, sizeof(bool))</td></tr>
+<tr class="memdesc:a621c291768943437f3478b79af69a9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">bool Specialization  <a href="#a621c291768943437f3478b79af69a9d0">More...</a><br /></td></tr>
+<tr class="separator:a621c291768943437f3478b79af69a9d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a4c54171d350dc62348b6febe2522f7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a3a4c54171d350dc62348b6febe2522f7">SPECIALIZE_TYPE_AND_ENUM</a> (std::string, <a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa302e56d566a2561033b27c13680ea4b2">DataType::kString</a>, sizeof(std::string))</td></tr>
+<tr class="memdesc:a3a4c54171d350dc62348b6febe2522f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">string Specialization  <a href="#a3a4c54171d350dc62348b6febe2522f7">More...</a><br /></td></tr>
+<tr class="separator:a3a4c54171d350dc62348b6febe2522f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">operator|</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p class="">OR-operator </p>
 </div></td></tr>
@@ -286,18 +463,228 @@ Functions</h2></td></tr>
 <tr class="memitem:a7f7468a529bb0a7b96ea5af7aed17340"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a7f7468a529bb0a7b96ea5af7aed17340">operator|=</a> (Enum &amp;lhs, Enum &amp;rhs)</td></tr>
 <tr class="separator:a7f7468a529bb0a7b96ea5af7aed17340"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">operator&amp;=</div></td></tr>
-<tr class="memitem:a67d310e0b1629530dbb49ba4caaccbc8"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
-<tr class="memitem:a67d310e0b1629530dbb49ba4caaccbc8"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a67d310e0b1629530dbb49ba4caaccbc8">operator &amp;=</a> (Enum &amp;lhs, Enum &amp;rhs)</td></tr>
-<tr class="separator:a67d310e0b1629530dbb49ba4caaccbc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6f00e3eb0cd1e73e12baa7ef75c0b18"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
+<tr class="memitem:ab6f00e3eb0cd1e73e12baa7ef75c0b18"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#ab6f00e3eb0cd1e73e12baa7ef75c0b18">operator&amp;=</a> (Enum &amp;lhs, Enum &amp;rhs)</td></tr>
+<tr class="separator:ab6f00e3eb0cd1e73e12baa7ef75c0b18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">operator^=</div></td></tr>
 <tr class="memitem:a1b69b859f22ad8ba60b8e558a2071020"><td class="memTemplParams" colspan="2">template&lt;typename Enum &gt; </td></tr>
 <tr class="memitem:a1b69b859f22ad8ba60b8e558a2071020"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; <a class="el" href="struct_face_kit_1_1_enable_bit_mask_operators.html">EnableBitMaskOperators</a>&lt; Enum &gt;::enable, Enum &gt;::type <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a1b69b859f22ad8ba60b8e558a2071020">operator^=</a> (Enum &amp;lhs, Enum &amp;rhs)</td></tr>
 <tr class="separator:a1b69b859f22ad8ba60b8e558a2071020"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">AddVarInt32</div></td></tr>
+<tr class="memitem:aaa6979a935f613e0ed9d6fb48f5c7694"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#aaa6979a935f613e0ed9d6fb48f5c7694">AddVarInt32</a> (const uint32_t &amp;value, std::string *str)</td></tr>
+<tr class="memdesc:aaa6979a935f613e0ed9d6fb48f5c7694"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a given value into its varint representation and add it to a given string.  <a href="#aaa6979a935f613e0ed9d6fb48f5c7694">More...</a><br /></td></tr>
+<tr class="separator:aaa6979a935f613e0ed9d6fb48f5c7694"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">RetrieveVarInt32</div></td></tr>
+<tr class="memitem:a6ec7f1094811597afcc216558774a773"><td class="memItemLeft" align="right" valign="top">bool <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a6ec7f1094811597afcc216558774a773">RetrieveVarInt32</a> (std::string *str, uint32_t *value)</td></tr>
+<tr class="memdesc:a6ec7f1094811597afcc216558774a773"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract a value from its varint representation stored in a given array.  <a href="#a6ec7f1094811597afcc216558774a773">More...</a><br /></td></tr>
+<tr class="separator:a6ec7f1094811597afcc216558774a773"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">EncodeStringList</div></td></tr>
+<tr class="memitem:ga2d15903a5d44671277351cba18f27bab"><td class="memItemLeft" align="right" valign="top">void <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__core.html#ga2d15903a5d44671277351cba18f27bab">EncodeStringList</a> (const std::string *list, const size_t &amp;n, std::string *str)</td></tr>
+<tr class="memdesc:ga2d15903a5d44671277351cba18f27bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert array of strings into a single string that can be saved into a protobuf object.  <a href="group__core.html#ga2d15903a5d44671277351cba18f27bab">More...</a><br /></td></tr>
+<tr class="separator:ga2d15903a5d44671277351cba18f27bab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">DecodeStringList</div></td></tr>
+<tr class="memitem:a68670c3ff3283b9bfb646a0348482180"><td class="memItemLeft" align="right" valign="top">bool <a class="el" href="library__export_8hpp.html#aafd7d7a5c23f0d709398385d919382c1">FK_EXPORTS</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_face_kit.html#a68670c3ff3283b9bfb646a0348482180">DecodeStringList</a> (const std::string &amp;in, const size_t &amp;n, std::string *str)</td></tr>
+<tr class="memdesc:a68670c3ff3283b9bfb646a0348482180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split a given string <code>str</code> into the corresponding piece stored as array.  <a href="#a68670c3ff3283b9bfb646a0348482180">More...</a><br /></td></tr>
+<tr class="separator:a68670c3ff3283b9bfb646a0348482180"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p class="">Development space. </p>
 <p class="">Devlopment space. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aaa6979a935f613e0ed9d6fb48f5c7694"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa6979a935f613e0ed9d6fb48f5c7694">&#9670;&nbsp;</a></span>AddVarInt32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FaceKit::AddVarInt32 </td>
+          <td>(</td>
+          <td class="paramtype">const uint32_t &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a given value into its varint representation and add it to a given string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Value to convert to add </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">str</td><td>Buffer in which to add representation </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a25cedbce11e102d5b5d0512b9db0bf93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25cedbce11e102d5b5d0512b9db0bf93">&#9670;&nbsp;</a></span>DataTypeDynamicSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t FaceKit::DataTypeDynamicSize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">DataType</a> &amp;&#160;</td>
+          <td class="paramname"><em>dtype</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Provide dynamically the size of a given type. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">dtype</td><td>Data type to query its size </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a36eb8727e2b009dd0948c1a8ef034bc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36eb8727e2b009dd0948c1a8ef034bc8">&#9670;&nbsp;</a></span>DataTypeFromString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FaceKit::DataTypeFromString </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">DataType</a> *&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a given <code>str</code> into the corresponding DataType. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">str</td><td><a class="el" href="namespace_face_kit_1_1_string.html">String</a> to convert to data type </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">type</td><td>Data type corresponding </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if conversion is successful, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a50d9b823d81aac024323f5d12fe88be7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50d9b823d81aac024323f5d12fe88be7">&#9670;&nbsp;</a></span>DataTypeToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string FaceKit::DataTypeToString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="group__core.html#gab77bda899b4b7470a755dcddb7727faa">DataType</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert a given <code>type</code> into string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">type</td><td>Data type to convert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Data type converted to string </dd></dl>
+
+</div>
+</div>
+<a id="a68670c3ff3283b9bfb646a0348482180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68670c3ff3283b9bfb646a0348482180">&#9670;&nbsp;</a></span>DecodeStringList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FaceKit::DecodeStringList </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const size_t &amp;&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>str</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Split a given string <code>str</code> into the corresponding piece stored as array. </p>
+<p class="">Concatenated comes from protobuf object </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">in</td><td>Concatenated string </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>Number of string to store in the array </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">str</td><td>Array of strings </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if successfully decoded, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a0a373832da9141998644a91bc014fff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a373832da9141998644a91bc014fff6">&#9670;&nbsp;</a></span>DefaultCpuAllocator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_face_kit_1_1_allocator.html">Allocator</a> * FaceKit::DefaultCpuAllocator </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Provide default allocator for CPU usage. </p>
+<dl class="section return"><dt>Returns</dt><dd>CPU <a class="el" href="class_face_kit_1_1_allocator.html" title="Memory allocator interface. ">Allocator</a> </dd></dl>
+
+</div>
+</div>
 <a id="a8221cbbe33ef5eeeb0e2da18b8173e61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8221cbbe33ef5eeeb0e2da18b8173e61">&#9670;&nbsp;</a></span>ENABLE_BITMASK_OPERATORS()</h2>
 
@@ -313,6 +700,59 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="af7c69c38580a9af5a4df8aab1a02cd47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7c69c38580a9af5a4df8aab1a02cd47">&#9670;&nbsp;</a></span>EnableAllocatorStatistics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void FaceKit::EnableAllocatorStatistics </td>
+          <td>(</td>
+          <td class="paramtype">const bool &amp;&#160;</td>
+          <td class="paramname"><em>enable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Toggle allocation statistics. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>Indicate if statistics are filled or not </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af76ca29ab2010c57d9906d63a599b0ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af76ca29ab2010c57d9906d63a599b0ae">&#9670;&nbsp;</a></span>GetAllocator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_face_kit_1_1_allocator.html">Allocator</a> * FaceKit::GetAllocator </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Search for an allocator of a given name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td><a class="el" href="class_face_kit_1_1_allocator.html" title="Memory allocator interface. ">Allocator</a>'s name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>corresponding allocator or nullptr of it does not excist </dd></dl>
 
 </div>
 </div>
@@ -346,8 +786,8 @@ template&lt;typename Enum &gt; </div>
 
 </div>
 </div>
-<a id="a67d310e0b1629530dbb49ba4caaccbc8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67d310e0b1629530dbb49ba4caaccbc8">&#9670;&nbsp;</a></span>operator &amp;=()</h2>
+<a id="ab6f00e3eb0cd1e73e12baa7ef75c0b18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6f00e3eb0cd1e73e12baa7ef75c0b18">&#9670;&nbsp;</a></span>operator&amp;=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1253,10 +1693,480 @@ template&lt;typename Enum &gt; </div>
 
 </div>
 </div>
+<a id="a6ec7f1094811597afcc216558774a773"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ec7f1094811597afcc216558774a773">&#9670;&nbsp;</a></span>RetrieveVarInt32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool FaceKit::RetrieveVarInt32 </td>
+          <td>(</td>
+          <td class="paramtype">std::string *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extract a value from its varint representation stored in a given array. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">str</td><td>Array storing the varints representation </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Extracted value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if conversion was successfull, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="af467272fdf9daf59772dd5ee0a93d843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af467272fdf9daf59772dd5ee0a93d843">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[1/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaaf112965031ccac10c07073b4e7430107">DataType::kInt8</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(int8_t)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Int8 Specialization. </p>
+
+</div>
+</div>
+<a id="a475c1d415f61fc68ed40f74086566eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a475c1d415f61fc68ed40f74086566eb1">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[2/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa03b6a6936bd3f59a6831d44621f2ce20">DataType::kUInt8</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(uint8_t)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UInt8 Specialization. </p>
+
+</div>
+</div>
+<a id="afac49828cfdb718d87e662a2ba00002c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afac49828cfdb718d87e662a2ba00002c">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[3/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa6698ae5a05a12d36333200ae5e8f4f95">DataType::kInt16</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(int16_t)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Int16 Specialization. </p>
+
+</div>
+</div>
+<a id="a883abd8596c6bd68ba9754e6e4c65eeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a883abd8596c6bd68ba9754e6e4c65eeb">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[4/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa8be17b92102f36087af254263f8adebb">DataType::kUInt16</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(uint16_t)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UInt16 Specialization. </p>
+
+</div>
+</div>
+<a id="aab70a4ded8f0c5be31c0dbd0ee9cad8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab70a4ded8f0c5be31c0dbd0ee9cad8b">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[5/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa10c09f8bff3c372f21cd8a13e01ae941">DataType::kInt32</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(int32_t)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Int32 Specialization. </p>
+
+</div>
+</div>
+<a id="aa09c45b9e3b2ce1252b132a3f32db650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa09c45b9e3b2ce1252b132a3f32db650">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[6/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa4bf87890715e83a097260207f87ff364">DataType::kUInt32</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(uint32_t)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UInt32 Specialization. </p>
+
+</div>
+</div>
+<a id="ac293cad290af8c0d4406bbd75345ed5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac293cad290af8c0d4406bbd75345ed5b">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[7/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa22c776007533004e22da8e6bdd888b33">DataType::kInt64</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(int64_t)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Int64 Specialization. </p>
+
+</div>
+</div>
+<a id="a0b48247d385b71f66826e65f0c52511e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b48247d385b71f66826e65f0c52511e">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[8/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa9d7d7531674526183d7468d826dfec5e">DataType::kUInt64</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(uint64_t)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>UInt64 Specialization. </p>
+
+</div>
+</div>
+<a id="a8fcfd53da096e014e2478536d5079253"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fcfd53da096e014e2478536d5079253">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[9/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa8425cd882e78bc9251db970b8a1da20e">DataType::kFloat</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(float)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Float Specialization. </p>
+
+</div>
+</div>
+<a id="a0ddf9484b256328da8ab2cef938cb83f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ddf9484b256328da8ab2cef938cb83f">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[10/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa7fb3efa35444cd88d5a31dc125ca9c28">DataType::kDouble</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(double)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Double Specialization. </p>
+
+</div>
+</div>
+<a id="a621c291768943437f3478b79af69a9d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a621c291768943437f3478b79af69a9d0">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[11/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa18268c9f691ba5a5f650049d9d0da8dc">DataType::kBool</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(bool)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>bool Specialization </p>
+
+</div>
+</div>
+<a id="a3a4c54171d350dc62348b6febe2522f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a4c54171d350dc62348b6febe2522f7">&#9670;&nbsp;</a></span>SPECIALIZE_TYPE_AND_ENUM() <span class="overload">[12/12]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FaceKit::SPECIALIZE_TYPE_AND_ENUM </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespace_face_kit.html#gab77bda899b4b7470a755dcddb7727faaa302e56d566a2561033b27c13680ea4b2">DataType::kString</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">sizeof(std::string)&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>string Specialization </p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 6 2018 10:12:58 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Mon Mar 12 2018 10:10:49 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

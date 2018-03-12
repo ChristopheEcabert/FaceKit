@@ -1,0 +1,100 @@
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,600|Yanone+Kaffeesatz:400');
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+
+/** Font for H1,H2,H3 title */
+h1, .h1, h2, .h2, h3, .h3 {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-weight: normal;
+  font-size: 150%;
+  color:rgb(57, 105, 60);
+}
+
+/** Title */
+title, .title {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-weight: bold;
+  font-size: 200%;
+  color:rgb(57, 105, 60);
+}
+
+/** Font for slides content */
+/*body, .body { 
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}*/
+
+body, table, div, p, dl {
+	/*font: 400 14px/22px Roboto,sans-serif;*/
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+p.reference, p.definition {
+	/**font: 400 14px/22px Roboto,sans-serif;*/
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+table.directory {
+    /**font: 400 14px Roboto,sans-serif;*/
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+
+
+
+#projectname
+{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-weight: bold;
+  font-size: 350%;
+  color:rgb(57, 105, 60);
+	/**font: 300% Tahoma, Arial,sans-serif;*/
+	margin: 0px;
+	padding: 2px 0px;
+}
+    
+#projectbrief
+{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-weight: normal;
+	/**font: 120% Tahoma, Arial,sans-serif;*/
+	margin: 0px;
+	padding: 0px;
+}
+
+#projectnumber
+{
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-weight: bold;
+  font-size: 50%;
+  color:rgb(57, 105, 60);
+	/**font: 50% Tahoma, Arial,sans-serif;*/
+	margin: 0px;
+	padding: 0px;
+}
+
+.sm-dox a, .sm-dox a:focus, .sm-dox a:hover, .sm-dox a:active {
+    padding: 0 12px;
+    padding-right: 43px;
+    /**font-family: "Lucida Grande", "Geneva", "Helvetica", Arial, sans-serif;*/
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 36px;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+    /**color: #283a5d;*/
+    color:rgb(57, 105, 60);
+    outline: 0
+}
+
+.sm-dox a:hover {
+    background-image: url("tab_a.png");
+    background-repeat: repeat-x;
+    color: white;
+    text-shadow: 0 1px 1px black
+}
