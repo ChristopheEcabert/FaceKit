@@ -45,7 +45,7 @@ if(build)
                       ${JPEG_INCLUDE_DIRS})
   # Add library
   FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} LINK_WITH facekit_core ${OpenCV_LIBS} ${PNG_LIBRARIES} ${JPEG_LIBRARIES})
-  ADD_DEPENDENCIES("${LIB_NAME}" libpng libjpeg)
+  ADD_DEPENDENCIES("${LIB_NAME}" libpng libjpeg) 
   #EXAMPLES
   IF(WITH_EXAMPLES)
     FACEKIT_ADD_EXAMPLE(image_loader FILES example/ex_image_loader.cpp LINK_WITH facekit_core facekit_io)

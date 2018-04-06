@@ -30,7 +30,7 @@
 namespace FaceKit {
 
 /**
- *  @class  ThreaedPool
+ *  @class  ThreadPool
  *  @brief  Lightweight thread pool
  *  @author Christophe Ecabert
  *  @date   17.12.17
@@ -110,7 +110,9 @@ class FK_EXPORTS ThreadPool {
 #pragma mark Usage
 
   /**
-   *  @name
+   *  @name Enqueue
+   *  @fn auto Enqueue(const TaskPriority& priority, F&& f, Args&&... args)
+            -> std::future<typename std::result_of<F(Args...)>::type>
    *  @brief  Add job to the processing queue
    *  @param[in] priority Task's priority
    *  @param[in] f        Function to call
