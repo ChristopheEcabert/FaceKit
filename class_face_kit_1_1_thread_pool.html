@@ -60,9 +60,12 @@ $(function() {
 <a href="class_face_kit_1_1_thread_pool-members.html">List of all members</a> &#124;
 <a href="#pub-types">Public Types</a>  </div>
   <div class="headertitle">
-<div class="title">FaceKit::ThreadPool Class Reference</div>  </div>
+<div class="title">FaceKit::ThreadPool Class Reference<div class="ingroups"><a class="el" href="group__core.html">Core</a></div></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Lightweight thread pool.  
+ <a href="class_face_kit_1_1_thread_pool.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="thread__pool_8hpp_source.html">modules/core/include/facekit/core/thread_pool.hpp</a>&gt;</code></p>
 <table class="memberdecls">
@@ -104,22 +107,19 @@ ThreadPool</h2></td></tr>
 <tr class="memitem:a5904160fb224f4e40d7cb83e9839bfcc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_thread_pool.html#a5904160fb224f4e40d7cb83e9839bfcc">ThreadPool</a> (<a class="el" href="class_face_kit_1_1_thread_pool.html">ThreadPool</a> &amp;&amp;other)=delete</td></tr>
 <tr class="memdesc:a5904160fb224f4e40d7cb83e9839bfcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <a href="#a5904160fb224f4e40d7cb83e9839bfcc">More...</a><br /></td></tr>
 <tr class="separator:a5904160fb224f4e40d7cb83e9839bfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td class="ititle" colspan="2"><p class=""><a class="anchor" id="amgrp01747264fe7bf50731df0522c351974e"></a>Add job to the processing queue</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>Task's priority </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>Function to call </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Function's argument </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::future object holding the return value of the task's function </dd></dl>
-</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
+Enqueue</h2></td></tr>
 <tr class="memitem:a507d97f76ce13b9f7d9622f63892584b"><td class="memTemplParams" colspan="2">template&lt;typename F , typename... Args&gt; </td></tr>
 <tr class="memitem:a507d97f76ce13b9f7d9622f63892584b"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_thread_pool.html#a507d97f76ce13b9f7d9622f63892584b">Enqueue</a> (const <a class="el" href="class_face_kit_1_1_thread_pool.html#a65dc980c7764fdb208bff4a60aab6216">TaskPriority</a> &amp;priority, F &amp;&amp;f, Args &amp;&amp;... args) -&gt; std::future&lt; typename std::result_of&lt; F(Args...)&gt;::type &gt;</td></tr>
+<tr class="memdesc:a507d97f76ce13b9f7d9622f63892584b"><td class="mdescLeft">&#160;</td><td class="mdescRight">-&gt; std::future&lt;typename std::result_of&lt;F(Args...)&gt;::type&gt;  <a href="#a507d97f76ce13b9f7d9622f63892584b">More...</a><br /></td></tr>
 <tr class="separator:a507d97f76ce13b9f7d9622f63892584b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p class="">Lightweight thread pool. </p>
+<dl class="section author"><dt>Author</dt><dd>Christophe Ecabert </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>17.12.17 </dd></dl>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a65dc980c7764fdb208bff4a60aab6216"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a65dc980c7764fdb208bff4a60aab6216">&#9670;&nbsp;</a></span>TaskPriority</h2>
 
@@ -276,6 +276,17 @@ template&lt;typename F , typename... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>-&gt; std::future&lt;typename std::result_of&lt;F(Args...)&gt;::type&gt; </p>
+<p class="">Add job to the processing queue </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">priority</td><td>Task's priority </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>Function to call </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">args</td><td>Function's argument </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::future object holding the return value of the task's function </dd></dl>
+
 </div>
 </div>
 <a id="a4e4efe032891b3bbc9c409941ed9b923"></a>
@@ -382,7 +393,7 @@ template&lt;typename F , typename... Args&gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Mar 20 2018 10:16:16 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Apr 6 2018 10:01:01 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

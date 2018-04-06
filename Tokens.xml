@@ -1316,17 +1316,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ThreaedPool</Name>
-      <APILanguage>c</APILanguage>
-      <Type>cl</Type>
-      <Scope>ThreaedPool</Scope>
-    </TokenIdentifier>
-    <Path>class_threaed_pool.html</Path>
-    <Abstract>Lightweight thread pool. </Abstract>
-    <DeclaredIn>modules/core/include/facekit/core/thread_pool.hpp</DeclaredIn>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>FaceKit</Name>
       <APILanguage>c</APILanguage>
       <Type>ns</Type>
@@ -11375,6 +11364,7 @@
       <Scope>FaceKit::ThreadPool</Scope>
     </TokenIdentifier>
     <Path>class_face_kit_1_1_thread_pool.html</Path>
+    <Abstract>Lightweight thread pool. </Abstract>
     <DeclaredIn>modules/core/include/facekit/core/thread_pool.hpp</DeclaredIn>
   </Token>
   <Token>
@@ -11458,6 +11448,7 @@
     </TokenIdentifier>
     <Path>class_face_kit_1_1_thread_pool.html</Path>
     <Anchor>a507d97f76ce13b9f7d9622f63892584b</Anchor>
+    <Abstract>-&gt; std::future&lt;typename std::result_of&lt;F(Args...)&gt;::type&gt; </Abstract>
     <DeclaredIn>thread_pool.hpp</DeclaredIn>
   </Token>
   <Token>

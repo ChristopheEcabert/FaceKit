@@ -2246,8 +2246,67 @@
             </Subnodes>
            </Node>
            <Node>
-            <Name>ThreaedPool</Name>
-            <Path>class_threaed_pool.html</Path>
+            <Name>ThreadPool</Name>
+            <Path>class_face_kit_1_1_thread_pool.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>TaskPriority</Name>
+              <Path>class_face_kit_1_1_thread_pool.html</Path>
+              <Anchor>a65dc980c7764fdb208bff4a60aab6216</Anchor>
+              <Subnodes>
+               <Node>
+                <Name>kLow</Name>
+                <Path>class_face_kit_1_1_thread_pool.html</Path>
+                <Anchor>a65dc980c7764fdb208bff4a60aab6216acd8fe42741a3bbc973bbf1d404afeff4</Anchor>
+               </Node>
+               <Node>
+                <Name>kNormal</Name>
+                <Path>class_face_kit_1_1_thread_pool.html</Path>
+                <Anchor>a65dc980c7764fdb208bff4a60aab6216a07fa7a19aa722c635a15e94cb7f50416</Anchor>
+               </Node>
+               <Node>
+                <Name>kHigh</Name>
+                <Path>class_face_kit_1_1_thread_pool.html</Path>
+                <Anchor>a65dc980c7764fdb208bff4a60aab6216aa022f15e910eb36278094efb6e808a07</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>ThreadPool</Name>
+              <Path>class_face_kit_1_1_thread_pool.html</Path>
+              <Anchor>abc20b49b589da695f5d48f5ab40521aa</Anchor>
+             </Node>
+             <Node>
+              <Name>ThreadPool</Name>
+              <Path>class_face_kit_1_1_thread_pool.html</Path>
+              <Anchor>a5904160fb224f4e40d7cb83e9839bfcc</Anchor>
+             </Node>
+             <Node>
+              <Name>~ThreadPool</Name>
+              <Path>class_face_kit_1_1_thread_pool.html</Path>
+              <Anchor>a95678919bdb268a973e0754d2e533ecd</Anchor>
+             </Node>
+             <Node>
+              <Name>Enqueue</Name>
+              <Path>class_face_kit_1_1_thread_pool.html</Path>
+              <Anchor>a507d97f76ce13b9f7d9622f63892584b</Anchor>
+             </Node>
+             <Node>
+              <Name>Get</Name>
+              <Path>class_face_kit_1_1_thread_pool.html</Path>
+              <Anchor>a4e4efe032891b3bbc9c409941ed9b923</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_thread_pool.html</Path>
+              <Anchor>a333882c912acbfd0d1c581de18b657ee</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_thread_pool.html</Path>
+              <Anchor>ac4a746c7d8db1b138735592151c535ca</Anchor>
+             </Node>
+            </Subnodes>
            </Node>
            <Node>
             <Name>NDATypes</Name>
@@ -8787,10 +8846,6 @@
              </Node>
             </Subnodes>
            </Node>
-           <Node>
-            <Name>ThreaedPool</Name>
-            <Path>class_threaed_pool.html</Path>
-           </Node>
           </Subnodes>
          </Node>
          <Node>
@@ -9106,10 +9161,6 @@
            <Node>
             <Name>FaceKit::ThreadPool</Name>
             <Path>class_face_kit_1_1_thread_pool.html</Path>
-           </Node>
-           <Node>
-            <Name>ThreaedPool</Name>
-            <Path>class_threaed_pool.html</Path>
            </Node>
            <Node>
             <Name>FaceKit::Vector2&lt; T &gt;</Name>
