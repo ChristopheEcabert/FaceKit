@@ -10,8 +10,6 @@ IF(NOT CMAKE_BUILD_TYPE)
       "Choose the type of build. Options are: None, Debug, Release, RelWithDebInfo, MinSizeRel"
       FORCE)
 ENDIF(NOT CMAKE_BUILD_TYPE)
-# Get NASM path
-EXECUTE_PROCESS(COMMAND which nasm OUTPUT_VARIABLE NASM_PATH OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 # Add libjpeg-turbo
 ExternalProject_Add(libjpeg_project
@@ -40,7 +38,7 @@ ExternalProject_Add(libjpeg_project
 
 # Specify include dir
 ExternalProject_Get_Property(libjpeg_project source_dir)
-SET(PEG_INCLUDE_DIRS ${source_dir}/include PARENT_SCOPE)
+SET(JPEG_INCLUDE_DIRS ${source_dir}/include PARENT_SCOPE)
 # Library
 ExternalProject_Get_Property(libjpeg_project binary_dir)
 SET(LIBJPEG_LIBRARY_PATH ${binary_dir}/${CMAKE_STATIC_LIBRARY_PREFIX}jpeg.a)

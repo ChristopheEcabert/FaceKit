@@ -1,0 +1,12 @@
+/**
+
+  \addtogroup optimisation Optimisation
+
+  \section secoptimisationOverview Overview
+
+  Module dedicated to optimisation
+	
+  \section secoptimisationRequirement Requirements
+	- core
+
+*/
