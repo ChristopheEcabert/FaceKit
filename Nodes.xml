@@ -4420,6 +4420,285 @@
            </Node>
           </Subnodes>
          </Node>
+         <Node>
+          <Name>Optimisation</Name>
+          <Path>group__optimisation.html</Path>
+          <Subnodes>
+           <Node>
+            <Name>Chromosome</Name>
+            <Path>class_face_kit_1_1_chromosome.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Chromosome</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>ad317d2cbb0c9f4b88635f8060421f2cd</Anchor>
+             </Node>
+             <Node>
+              <Name>Chromosome</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a5e1be1067a4de62d3e88e041f0983c8c</Anchor>
+             </Node>
+             <Node>
+              <Name>~Chromosome</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a961bc764f8bf42ab71ffb0f60a17770b</Anchor>
+             </Node>
+             <Node>
+              <Name>at</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>abebf5a5abae315fee488f619adea2f0b</Anchor>
+             </Node>
+             <Node>
+              <Name>at</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a649040d5b85328b44ab6ddea155df4ea</Anchor>
+             </Node>
+             <Node>
+              <Name>Fitness</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>aad622fe77f813a58ec95cbad013114d0</Anchor>
+             </Node>
+             <Node>
+              <Name>Init</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a835a9d701ae428ab710330e6b64bbfd3</Anchor>
+             </Node>
+             <Node>
+              <Name>Mutate</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a052d1a45c303728418a034917b60cc72</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a3c9f34b9f4b8b4471a27fdaa4b6d5f3b</Anchor>
+             </Node>
+             <Node>
+              <Name>Save</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a8d85c93f171f890edf7bc15d2893d48d</Anchor>
+             </Node>
+             <Node>
+              <Name>size</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a941921f620d968267ea118ebcb8a0dec</Anchor>
+             </Node>
+             <Node>
+              <Name>state_</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Anchor>a8c143c1bfc9da3d144afb84c9e391efb</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Parameters</Name>
+            <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>Parameters</Name>
+              <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+              <Anchor>a489eef8b40538d8592499776eb4b7cb0</Anchor>
+             </Node>
+             <Node>
+              <Name>fitness_target</Name>
+              <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+              <Anchor>a647b0aeeace50bd9fdb5bb46c2d5cbc8</Anchor>
+             </Node>
+             <Node>
+              <Name>max_generation</Name>
+              <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+              <Anchor>a851c098b18557382e456eb9ff01fde45</Anchor>
+             </Node>
+             <Node>
+              <Name>n_max_fitness_generation</Name>
+              <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+              <Anchor>a07f8b82acfddda1edac96161580a3d7d</Anchor>
+             </Node>
+             <Node>
+              <Name>p_crossover</Name>
+              <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+              <Anchor>a0fb63200eaa07fa53c40aa9911c8dbf6</Anchor>
+             </Node>
+             <Node>
+              <Name>p_mutation</Name>
+              <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+              <Anchor>a7fc5e4b53a6f9d35eb665a51dac5d382</Anchor>
+             </Node>
+             <Node>
+              <Name>percentage_fitness</Name>
+              <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+              <Anchor>acccc35c8703a7bdcb8e62242f108659f</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>GeneticSolver</Name>
+            <Path>class_face_kit_1_1_genetic_solver.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>ChromosomeCtor</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>a92a588a760896a4c7cf0616bcc54f944</Anchor>
+             </Node>
+             <Node>
+              <Name>ChromosomeType</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>a3225a2ea35a2747fb18483b38ee6ddcb</Anchor>
+             </Node>
+             <Node>
+              <Name>ConvergenceType</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>a56169cbaf276de337f8ed98421a5397f</Anchor>
+              <Subnodes>
+               <Node>
+                <Name>kReachMaxGeneration</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a56169cbaf276de337f8ed98421a5397fa07d829b6bdd41f397d2e1a75ad40a7d5</Anchor>
+               </Node>
+               <Node>
+                <Name>kConverged</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a56169cbaf276de337f8ed98421a5397fae5e4a18d9d872870db8c99663ec9b3a6</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>GeneticSolver</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>ac8f17943ba5fb2f19e04d2bf7010749d</Anchor>
+             </Node>
+             <Node>
+              <Name>GeneticSolver</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>a01d1ccb6198a71b46f116539a74349de</Anchor>
+             </Node>
+             <Node>
+              <Name>~GeneticSolver</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>a43e35f65c03837673c3c2fe4db5e0b32</Anchor>
+             </Node>
+             <Node>
+              <Name>BestFitness</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>a0259a577f6e11f027c80bdd3b65369bb</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>a7e58a93638084dcf13117d7d60d8f9cb</Anchor>
+             </Node>
+             <Node>
+              <Name>Solve</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Anchor>a1312278f4d6a3670fa0ee172ead44138</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>Population</Name>
+            <Path>class_face_kit_1_1_population.html</Path>
+            <Subnodes>
+             <Node>
+              <Name>ChromosomeCtor</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a168f57b0d8d42f220962279de89e642b</Anchor>
+             </Node>
+             <Node>
+              <Name>ChromosomeType</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a490824988d401c8cc53334b2099c6993</Anchor>
+             </Node>
+             <Node>
+              <Name>Population</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>ac03ffd004ab057dc884f63fdda5cb832</Anchor>
+             </Node>
+             <Node>
+              <Name>Population</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>ac419f31037a7fb8e5d603e25e0cef6c6</Anchor>
+             </Node>
+             <Node>
+              <Name>~Population</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a2eed3f2b98d5dc2b1b6bbd53eabf7514</Anchor>
+             </Node>
+             <Node>
+              <Name>at</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a4dba4391a9f154347966daa13b99fd11</Anchor>
+             </Node>
+             <Node>
+              <Name>at</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a21ab68c97f3b8b1452538c03d657c6d6</Anchor>
+             </Node>
+             <Node>
+              <Name>Create</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a98a3b3938f1f3fe383f8a3a012b9c7a6</Anchor>
+             </Node>
+             <Node>
+              <Name>CrossOver</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a25924ad1ae27c9792dc0262d1c2f16bb</Anchor>
+             </Node>
+             <Node>
+              <Name>Fitness</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>aa4608e5d714fbb52522e7a53861c6b13</Anchor>
+             </Node>
+             <Node>
+              <Name>maximum_fitness</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a1dcb839d0944ea91697e70ba92db3653</Anchor>
+             </Node>
+             <Node>
+              <Name>maximum_fitness_index</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a31c26f9f85b0f1628c2abed449747f32</Anchor>
+             </Node>
+             <Node>
+              <Name>Mutate</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a4f7eb4bdbf06d0e4df981ee88b150816</Anchor>
+             </Node>
+             <Node>
+              <Name>operator=</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a645beafbc15c99cfc3da0bcbd08c0533</Anchor>
+             </Node>
+             <Node>
+              <Name>operator[]</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a08efe781e4f93bfd3fdfed577b47a790</Anchor>
+             </Node>
+             <Node>
+              <Name>operator[]</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a66aba69be7735597dddf2cc403086ffb</Anchor>
+             </Node>
+             <Node>
+              <Name>size</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Anchor>a3ceeff4f81f25ccca46fb10199fab432</Anchor>
+             </Node>
+            </Subnodes>
+           </Node>
+           <Node>
+            <Name>chromosome.hpp</Name>
+            <Path>chromosome_8hpp.html</Path>
+           </Node>
+           <Node>
+            <Name>genetic_solver.hpp</Name>
+            <Path>genetic__solver_8hpp.html</Path>
+           </Node>
+           <Node>
+            <Name>population.hpp</Name>
+            <Path>population_8hpp.html</Path>
+           </Node>
+          </Subnodes>
+         </Node>
         </Subnodes>
        </Node>
        <Node>
@@ -5097,6 +5376,72 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>Chromosome</Name>
+              <Path>class_face_kit_1_1_chromosome.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>Chromosome</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>ad317d2cbb0c9f4b88635f8060421f2cd</Anchor>
+               </Node>
+               <Node>
+                <Name>Chromosome</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a5e1be1067a4de62d3e88e041f0983c8c</Anchor>
+               </Node>
+               <Node>
+                <Name>~Chromosome</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a961bc764f8bf42ab71ffb0f60a17770b</Anchor>
+               </Node>
+               <Node>
+                <Name>at</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>abebf5a5abae315fee488f619adea2f0b</Anchor>
+               </Node>
+               <Node>
+                <Name>at</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a649040d5b85328b44ab6ddea155df4ea</Anchor>
+               </Node>
+               <Node>
+                <Name>Fitness</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>aad622fe77f813a58ec95cbad013114d0</Anchor>
+               </Node>
+               <Node>
+                <Name>Init</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a835a9d701ae428ab710330e6b64bbfd3</Anchor>
+               </Node>
+               <Node>
+                <Name>Mutate</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a052d1a45c303728418a034917b60cc72</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a3c9f34b9f4b8b4471a27fdaa4b6d5f3b</Anchor>
+               </Node>
+               <Node>
+                <Name>Save</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a8d85c93f171f890edf7bc15d2893d48d</Anchor>
+               </Node>
+               <Node>
+                <Name>size</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a941921f620d968267ea118ebcb8a0dec</Anchor>
+               </Node>
+               <Node>
+                <Name>state_</Name>
+                <Path>class_face_kit_1_1_chromosome.html</Path>
+                <Anchor>a8c143c1bfc9da3d144afb84c9e391efb</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>CmdLineParser</Name>
               <Path>class_face_kit_1_1_cmd_line_parser.html</Path>
               <Subnodes>
@@ -5422,6 +5767,69 @@
                 <Name>Name</Name>
                 <Path>class_face_kit_1_1_file_system_proxy.html</Path>
                 <Anchor>aac8515d751c5de6f81aba646a75e0cd4</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
+              <Name>GeneticSolver</Name>
+              <Path>class_face_kit_1_1_genetic_solver.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>ChromosomeCtor</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a92a588a760896a4c7cf0616bcc54f944</Anchor>
+               </Node>
+               <Node>
+                <Name>ChromosomeType</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a3225a2ea35a2747fb18483b38ee6ddcb</Anchor>
+               </Node>
+               <Node>
+                <Name>ConvergenceType</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a56169cbaf276de337f8ed98421a5397f</Anchor>
+                <Subnodes>
+                 <Node>
+                  <Name>kReachMaxGeneration</Name>
+                  <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                  <Anchor>a56169cbaf276de337f8ed98421a5397fa07d829b6bdd41f397d2e1a75ad40a7d5</Anchor>
+                 </Node>
+                 <Node>
+                  <Name>kConverged</Name>
+                  <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                  <Anchor>a56169cbaf276de337f8ed98421a5397fae5e4a18d9d872870db8c99663ec9b3a6</Anchor>
+                 </Node>
+                </Subnodes>
+               </Node>
+               <Node>
+                <Name>GeneticSolver</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>ac8f17943ba5fb2f19e04d2bf7010749d</Anchor>
+               </Node>
+               <Node>
+                <Name>GeneticSolver</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a01d1ccb6198a71b46f116539a74349de</Anchor>
+               </Node>
+               <Node>
+                <Name>~GeneticSolver</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a43e35f65c03837673c3c2fe4db5e0b32</Anchor>
+               </Node>
+               <Node>
+                <Name>BestFitness</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a0259a577f6e11f027c80bdd3b65369bb</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a7e58a93638084dcf13117d7d60d8f9cb</Anchor>
+               </Node>
+               <Node>
+                <Name>Solve</Name>
+                <Path>class_face_kit_1_1_genetic_solver.html</Path>
+                <Anchor>a1312278f4d6a3670fa0ee172ead44138</Anchor>
                </Node>
               </Subnodes>
              </Node>
@@ -7697,6 +8105,97 @@
               </Subnodes>
              </Node>
              <Node>
+              <Name>Population</Name>
+              <Path>class_face_kit_1_1_population.html</Path>
+              <Subnodes>
+               <Node>
+                <Name>ChromosomeCtor</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a168f57b0d8d42f220962279de89e642b</Anchor>
+               </Node>
+               <Node>
+                <Name>ChromosomeType</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a490824988d401c8cc53334b2099c6993</Anchor>
+               </Node>
+               <Node>
+                <Name>Population</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>ac03ffd004ab057dc884f63fdda5cb832</Anchor>
+               </Node>
+               <Node>
+                <Name>Population</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>ac419f31037a7fb8e5d603e25e0cef6c6</Anchor>
+               </Node>
+               <Node>
+                <Name>~Population</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a2eed3f2b98d5dc2b1b6bbd53eabf7514</Anchor>
+               </Node>
+               <Node>
+                <Name>at</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a4dba4391a9f154347966daa13b99fd11</Anchor>
+               </Node>
+               <Node>
+                <Name>at</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a21ab68c97f3b8b1452538c03d657c6d6</Anchor>
+               </Node>
+               <Node>
+                <Name>Create</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a98a3b3938f1f3fe383f8a3a012b9c7a6</Anchor>
+               </Node>
+               <Node>
+                <Name>CrossOver</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a25924ad1ae27c9792dc0262d1c2f16bb</Anchor>
+               </Node>
+               <Node>
+                <Name>Fitness</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>aa4608e5d714fbb52522e7a53861c6b13</Anchor>
+               </Node>
+               <Node>
+                <Name>maximum_fitness</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a1dcb839d0944ea91697e70ba92db3653</Anchor>
+               </Node>
+               <Node>
+                <Name>maximum_fitness_index</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a31c26f9f85b0f1628c2abed449747f32</Anchor>
+               </Node>
+               <Node>
+                <Name>Mutate</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a4f7eb4bdbf06d0e4df981ee88b150816</Anchor>
+               </Node>
+               <Node>
+                <Name>operator=</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a645beafbc15c99cfc3da0bcbd08c0533</Anchor>
+               </Node>
+               <Node>
+                <Name>operator[]</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a08efe781e4f93bfd3fdfed577b47a790</Anchor>
+               </Node>
+               <Node>
+                <Name>operator[]</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a66aba69be7735597dddf2cc403086ffb</Anchor>
+               </Node>
+               <Node>
+                <Name>size</Name>
+                <Path>class_face_kit_1_1_population.html</Path>
+                <Anchor>a3ceeff4f81f25ccca46fb10199fab432</Anchor>
+               </Node>
+              </Subnodes>
+             </Node>
+             <Node>
               <Name>PosixFileSystem</Name>
               <Path>class_face_kit_1_1_posix_file_system.html</Path>
               <Subnodes>
@@ -8921,6 +9420,10 @@
             <Path>class_face_kit_1_1_camera.html</Path>
            </Node>
            <Node>
+            <Name>FaceKit::Chromosome&lt; T &gt;</Name>
+            <Path>class_face_kit_1_1_chromosome.html</Path>
+           </Node>
+           <Node>
             <Name>FaceKit::CmdLineParser</Name>
             <Path>class_face_kit_1_1_cmd_line_parser.html</Path>
            </Node>
@@ -8975,6 +9478,10 @@
            <Node>
             <Name>FaceKit::FileSystemProxy</Name>
             <Path>class_face_kit_1_1_file_system_proxy.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::GeneticSolver&lt; T &gt;</Name>
+            <Path>class_face_kit_1_1_genetic_solver.html</Path>
            </Node>
            <Node>
             <Name>FaceKit::Image</Name>
@@ -9099,6 +9606,10 @@
             <Path>class_face_kit_1_1_orthographic_projection.html</Path>
            </Node>
            <Node>
+            <Name>FaceKit::GeneticSolver&lt; T &gt;::Parameters</Name>
+            <Path>struct_face_kit_1_1_genetic_solver_1_1_parameters.html</Path>
+           </Node>
+           <Node>
             <Name>FaceKit::PCAModelFactory&lt; T &gt;</Name>
             <Path>class_face_kit_1_1_p_c_a_model_factory.html</Path>
            </Node>
@@ -9109,6 +9620,10 @@
            <Node>
             <Name>FaceKit::PerspectiveProjection&lt; T &gt;</Name>
             <Path>class_face_kit_1_1_perspective_projection.html</Path>
+           </Node>
+           <Node>
+            <Name>FaceKit::Population&lt; T &gt;</Name>
+            <Path>class_face_kit_1_1_population.html</Path>
            </Node>
            <Node>
             <Name>FaceKit::Quaternion&lt; T &gt;</Name>
