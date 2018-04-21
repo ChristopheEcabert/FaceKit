@@ -40,9 +40,9 @@ class FK_EXPORTS Population {
 #pragma mark Type definition
   
   /** Chromosome */
-  using Chromosome = Chromosome<T>;
+  using ChromosomeType = Chromosome<T>;
   /** Chromosome constructor */
-  using ChromosomeCtor = std::function<Chromosome*(const size_t&)>;
+  using ChromosomeCtor = std::function<ChromosomeType*(const size_t&)>;
  
 #pragma mark -
 #pragma mark Initialisation
@@ -102,7 +102,7 @@ class FK_EXPORTS Population {
   
   /**
    *  @name   CrossOver
-   *  @fn     void CrossOver(const T& rate, Chromosome* f_sibling, Chromosome* s_sibling)
+   *  @fn     void CrossOver(const T& rate, ChromosomeType* f_sibling, ChromosomeType* s_sibling)
    *  @brief  Perform crossover on this population based on each chromosomes 
    *          fitness. The selection of the parents are done with a "Roulette
    *          Wheel".
@@ -110,7 +110,7 @@ class FK_EXPORTS Population {
    *  @param[out] f_sibling First sibling to be generrate by the crossover
    *  @param[out] s_sibling Second sibling generated, if nullptr not used.
    */
-  void CrossOver(const T& rate, Chromosome* f_sibling, Chromosome* s_sibling);
+  void CrossOver(const T& rate, ChromosomeType* f_sibling, ChromosomeType* s_sibling);
   
   /**
    *  @name   Mutate
@@ -155,45 +155,45 @@ class FK_EXPORTS Population {
   
   /**
    *  @name   at
-   *  @fn     const Chromosome* at(const size_t& i) const
+   *  @fn     const ChromosomeType* at(const size_t& i) const
    *  @brief  Access chromosome at the ith position
    *  @param[in] i  Position to select
    *  @return Chromosome instance
    */
-  const Chromosome* at(const size_t& i) const {
+  const ChromosomeType* at(const size_t& i) const {
     return popultation_[i];
   }
   
   /**
    *  @name   at
-   *  @fn     Chromosome* at(const size_t& i)105
+   *  @fn     ChromosomeType* at(const size_t& i)105
    *  @brief  Access chromosome at the ith position
    *  @param[in] i  Position to select
    *  @return Chromosome instance
    */
-  Chromosome* at(const size_t& i) {
+  ChromosomeType* at(const size_t& i) {
     return popultation_[i];
   }
   
   /**
    *  @name   operator[]
-   *  @fn     Chromosome* operator[](size_t i)
+   *  @fn     ChromosomeType* operator[](size_t i)
    *  @brief  Access chromosome at the ith position
    *  @param[in] i  Position to select
    *  @return Chromosome instance
    */
-  Chromosome* operator[](size_t i) {
+  ChromosomeType* operator[](size_t i) {
     return popultation_[i];
   }
   
   /**
    *  @name   operator[]
-   *  @fn     const Chromosome* operator[](size_t i) const
+   *  @fn     const ChromosomeType* operator[](size_t i) const
    *  @brief  Access chromosome at the ith position
    *  @param[in] i  Position to select
    *  @return Chromosome instance
    */
-  const Chromosome* operator[](size_t i) const {
+  const ChromosomeType* operator[](size_t i) const {
     return popultation_[i];
   }
   
@@ -213,7 +213,7 @@ class FK_EXPORTS Population {
   void RouletteWheel(size_t* p1, size_t* p2);
   
   /** List of chromosomes */
-  std::vector<Chromosome*> popultation_;
+  std::vector<ChromosomeType*> popultation_;
   /** Chromosome's fitness */
   std::vector<T> fitness_;
   /** Maximum fitness for the current population */

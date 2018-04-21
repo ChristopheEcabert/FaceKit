@@ -103,8 +103,8 @@ T Population<T>::Fitness(void) {
   
 /*
  *  @name   CrossOver
- *  @fn     void CrossOver(const T& rate, Chromosome* f_signling,
- *                         Chromosome* s_sibling) const
+ *  @fn     void CrossOver(const T& rate, ChromosomeType* f_signling,
+ *                         ChromosomeType* s_sibling) const
  *  @brief  Perform crossover on this population based on each chromosomes
  *          fitness. The selection of the parents are done with a "Roulette
  *          Wheel".
@@ -114,8 +114,8 @@ T Population<T>::Fitness(void) {
  */
 template<typename T>
 void Population<T>::CrossOver(const T& rate,
-                              Chromosome* f_sibling,
-                              Chromosome* s_sibling) {
+                              ChromosomeType* f_sibling,
+                              ChromosomeType* s_sibling) {
   // Select parents - Roulette wheel
   size_t p1 = 0, p2 = 0;
   this->RouletteWheel(&p1, &p2);

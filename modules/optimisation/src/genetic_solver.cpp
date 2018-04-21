@@ -69,6 +69,9 @@ GeneticSolver<T>::~GeneticSolver(void) {
  */
 template<typename T>
 typename GeneticSolver<T>::ConvergenceType GeneticSolver<T>::Solve(const Parameters& params) {
+  
+  std::ofstream stream("log.txt");
+  
   // Compute fitness
   curr_population_->Fitness();
   size_t n_gen = 0;
@@ -103,12 +106,12 @@ typename GeneticSolver<T>::ConvergenceType GeneticSolver<T>::Solve(const Paramet
   
 /*
  *  @name   BestFitness
- *  @fn     Chromosome* BestFitness(void) const
+ *  @fn     ChromosomeType* BestFitness(void) const
  *  @brief  Give the chromosome with the best fitness
  *  @return Chromosome with solution
  */
 template<typename T>
-typename GeneticSolver<T>::Chromosome* GeneticSolver<T>::BestFitness(void) const {
+typename GeneticSolver<T>::ChromosomeType* GeneticSolver<T>::BestFitness(void) const {
   // Get best fitness index
   size_t k = curr_population_->maximum_fitness_index();
   return curr_population_->at(k);

@@ -39,7 +39,7 @@ class FK_EXPORTS GeneticSolver {
 #pragma mark Type Definition
   
   /** Chromosome */
-  using Chromosome = typename Population<T>::Chromosome;
+  using ChromosomeType = typename Population<T>::ChromosomeType;
   /** Chromosome constructor callback */
   using ChromosomeCtor = typename Population<T>::ChromosomeCtor;
   
@@ -136,11 +136,11 @@ class FK_EXPORTS GeneticSolver {
   
   /**
    *  @name   BestFitness
-   *  @fn     Chromosome* BestFitness(void) const
+   *  @fn     ChromosomeType* BestFitness(void) const
    *  @brief  Give the chromosome with the best fitness
    *  @return Chromosome with solution
    */
-  Chromosome* BestFitness(void) const;
+  ChromosomeType* BestFitness(void) const;
   
 #pragma mark -
 #pragma mark Accessors
