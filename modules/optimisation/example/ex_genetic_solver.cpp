@@ -65,11 +65,11 @@ class BinaryString : public FK::Chromosome<T> {
    *  @return Status of the operation
    */
   FK::Status Save(std::ostream& stream) override {
-    std::cout << "Solution found:" << std::endl;
+    stream << "Solution found:" << std::endl;
     for (size_t k = 0; k < this->size(); ++k) {
-      std::cout << this->state_[k] << " ";
+      stream << this->state_[k] << " ";
     }
-    std::cout << std::endl;
+    stream << std::endl;
     return FK::Status();
   }
   
@@ -218,15 +218,15 @@ template<typename T>
 class Knapsack : public FK::Chromosome<T> {
  public:
   /** Data */
-  using KnapsackData = KnapsackData<T>;
+  using KnapsackDataType = KnapsackData<T>;
   
   /**
    *  @name   Knapsack
-   *  @fn     Knapsack(const KnapsackData* data)
+   *  @fn     Knapsack(const KnapsackDataType* data)
    *  @brief  Constructor
    *  @param[in] data Knapsack items
    */
-  Knapsack(const KnapsackData* data) : FK::Chromosome<T>::Chromosome(data->size()), data_(data) {}
+  Knapsack(const KnapsackDataType* data) : FK::Chromosome<T>::Chromosome(data->size()), data_(data) {}
   
   /**
    *  @name   ~Knapsack
@@ -258,12 +258,12 @@ class Knapsack : public FK::Chromosome<T> {
    *  @return Status of the operation
    */
   FK::Status Save(std::ostream& stream) override {
-    std::cout << "*** Solution found ***" << std::endl;
-    std::cout << "Selection:" << std::endl;
+    stream << "*** Solution found ***" << std::endl;
+    stream << "Selection:" << std::endl;
     for (size_t k = 0; k < this->size(); ++k) {
-      std::cout << this->state_[k] << " ";
+      stream << this->state_[k] << " ";
     }
-    std::cout << std::endl;
+    stream << std::endl;
     return FK::Status();
   }
   
@@ -306,7 +306,7 @@ class Knapsack : public FK::Chromosome<T> {
   
  private:
   /** Data */
-  const KnapsackData* data_;
+  const KnapsackDataType* data_;
 };
 
 

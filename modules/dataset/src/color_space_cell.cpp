@@ -65,7 +65,7 @@ int HSVScalingCell::Process(const std::vector<std::string>& input,
     cv::Mat img = cv::imread(input[i], cv::ImreadModes::IMREAD_COLOR);
     cv::Mat imgf, hsv_imgf;
     img.convertTo(imgf, CV_64F);
-    cv::cvtColor(imgf, hsv_imgf, CV_BGR2HSV);
+    cv::cvtColor(imgf, hsv_imgf, cv::COLOR_BGR2HSV);
     
     if (!imgf.empty()) {
       // Create distribution
@@ -83,7 +83,7 @@ int HSVScalingCell::Process(const std::vector<std::string>& input,
         
         
         
-        cv::cvtColor(hsv_scaled, sample, CV_HSV2BGR);
+        cv::cvtColor(hsv_scaled, sample, cv::COLOR_HSV2BGR);
         // Save
         std::string dest = output.back() == '/' ? output : output + "/";
         dest += file + "_hsv" + String::LeadingZero(i, 3) +"." + ext;
