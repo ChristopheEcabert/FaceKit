@@ -101,13 +101,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a011b9455390bfbb2444cc55537697df1"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator.html#a011b9455390bfbb2444cc55537697df1">Name</a> (void) const =0</td></tr>
 <tr class="memdesc:a011b9455390bfbb2444cc55537697df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Give allocator's name.  <a href="#a011b9455390bfbb2444cc55537697df1">More...</a><br /></td></tr>
 <tr class="separator:a011b9455390bfbb2444cc55537697df1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr><td colspan="2"><div class="groupHeader">AllocateRaw</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p class=""><br />
- </p>
-</div></td></tr>
-<tr class="memitem:a0cd379572c68f8f4d431990fc1f76326"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator.html#a0cd379572c68f8f4d431990fc1f76326">AllocateRaw</a> (const size_t &amp;size, const size_t &amp;alignment)=0</td></tr>
-<tr class="memdesc:a0cd379572c68f8f4d431990fc1f76326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory of a given size with specific alignment.  <a href="#a0cd379572c68f8f4d431990fc1f76326">More...</a><br /></td></tr>
-<tr class="separator:a0cd379572c68f8f4d431990fc1f76326"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04f6b473aa9b36799101dadf3cad1bf1"><td class="memItemLeft" align="right" valign="top">virtual void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator.html#a04f6b473aa9b36799101dadf3cad1bf1">AllocateRaw</a> (const size_t &amp;size, const size_t &amp;alignment)=0</td></tr>
+<tr class="memdesc:a04f6b473aa9b36799101dadf3cad1bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate a block of memory of a given size with specific alignment. Alignment must be a power of 2 and minimum of sizeof(void*)  <a href="#a04f6b473aa9b36799101dadf3cad1bf1">More...</a><br /></td></tr>
+<tr class="separator:a04f6b473aa9b36799101dadf3cad1bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">DeallocateRaw</div></td></tr>
 <tr class="memitem:a1b57d76d49971b84f412489923b1575f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_face_kit_1_1_allocator.html#a1b57d76d49971b84f412489923b1575f">DeallocateRaw</a> (const size_t &amp;size, void *ptr)=0</td></tr>
 <tr class="memdesc:a1b57d76d49971b84f412489923b1575f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Release a block of memory pointed by <code>ptr</code>  <a href="#a1b57d76d49971b84f412489923b1575f">More...</a><br /></td></tr>
@@ -305,8 +301,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a0cd379572c68f8f4d431990fc1f76326"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cd379572c68f8f4d431990fc1f76326">&#9670;&nbsp;</a></span>AllocateRaw()</h2>
+<a id="a04f6b473aa9b36799101dadf3cad1bf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04f6b473aa9b36799101dadf3cad1bf1">&#9670;&nbsp;</a></span>AllocateRaw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -315,7 +311,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void * FaceKit::Allocator::AllocateRaw </td>
+          <td class="memname">virtual void* FaceKit::Allocator::AllocateRaw </td>
           <td>(</td>
           <td class="paramtype">const size_t &amp;&#160;</td>
           <td class="paramname"><em>size</em>, </td>
@@ -339,8 +335,10 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Allocate a block of memory of a given size with specific alignment. </p>
-<p class="">Alignment must be a power of 2 and minimum of sizeof(void*) </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Allocate a block of memory of a given size with specific alignment. Alignment must be a power of 2 and minimum of sizeof(void*) </p>
+<pre class="fragment">@name   AllocateRaw
+@fn     virtual void* AllocateRaw(const size_t&amp; size,
+</pre><p> const size_t&amp; alignment) = 0 </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Size of the memory block in bytes </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">alignment</td><td>Desired memory alignment </td></tr>
@@ -676,7 +674,7 @@ template&lt;typename T &gt; </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 8 2018 10:21:29 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 15 2018 10:45:00 for FaceKit by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.15
 </small></address>

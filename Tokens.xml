@@ -2346,8 +2346,8 @@
       <Scope>FaceKit::Allocator</Scope>
     </TokenIdentifier>
     <Path>class_face_kit_1_1_allocator.html</Path>
-    <Anchor>a0cd379572c68f8f4d431990fc1f76326</Anchor>
-    <Abstract>Allocate a block of memory of a given size with specific alignment. </Abstract>
+    <Anchor>a04f6b473aa9b36799101dadf3cad1bf1</Anchor>
+    <Abstract>Allocate a block of memory of a given size with specific alignment. Alignment must be a power of 2 an...</Abstract>
     <DeclaredIn>allocator.hpp</DeclaredIn>
   </Token>
   <Token>
