@@ -246,8 +246,10 @@ class Knapsack : public FK::Chromosome<T> {
     for (size_t k = 0; k < this->size(); ++k) {
       T v = dist(gen);
       // Take 1% of objects
-      this->state_[k] = v < T(0.01) ? T(1.0) : T(0.0);
+      this->state_[k] = v < T(0.001) ? T(1.0) : T(0.0);
+      this->state_[k] = 0.0;
     }
+    this->state_[3] = 1.0;
   }
   
   /**
@@ -285,7 +287,7 @@ class Knapsack : public FK::Chromosome<T> {
         fitness += item.value;
       }
     }
-    fitness /= static_cast<T>(data.size() * 100);
+    fitness /= static_cast<T>(data.size());
     fitness = std::pow(fitness, 3.0);
     if (weights > capacity) { // Loose 90% of the fitness if the weights overflow the capacity
       fitness = 0.01;
@@ -355,8 +357,8 @@ int main(const int argc, const char** argv) {
     } else if (prob_type == "Knapsack") {
       // Load knapscak data
       KnapsackData<T> data;
-      //data.Load(FK::Path::Join(folder, "ks_10000_0.txt"));
-      data.Load(FK::Path::Join(folder, "ks_100_0.txt"));
+      data.Load(FK::Path::Join(folder, "ks_10000_0.txt"));
+      //data.Load(FK::Path::Join(folder, "ks_100_0.txt"));
       //data.Load(FK::Path::Join(folder, "ks_4_0.txt"));
       
       // Callback for chromosome creation
@@ -366,12 +368,12 @@ int main(const int argc, const char** argv) {
       
       // Create solver
       FK::GeneticSolver<T>::Parameters params;
-      params.p_mutation = 0.02;
+      params.p_mutation = 0.0001;
       params.p_crossover = 0.8;
       params.max_generation = 100;
-      params.fitness_target = 1e6;
+      params.fitness_target = 1e8;
       params.n_max_fitness_generation = 5;
-      params.percentage_fitness = 0.01;
+      params.percentage_fitness = 0.0;
       FK::GeneticSolver<T> solver(50, data.size(), fcn);
       solver.Solve(params);
 

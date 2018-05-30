@@ -199,20 +199,24 @@ void Population<T>::RouletteWheel(size_t* p1, size_t* p2) {
     fit_prop[k] = (fitness_[k] / sum) + fit_prop[k-1];
   }
   // Select parents
-  T first = dist_(generator_);
-  T second = dist_(generator_);
-  bool p1_set = false, p2_set = false;
-  // Find matching index
-  for (size_t k = 0; k < fitness_.size(); ++k) {
-    if (first <= fit_prop[k] && ! p1_set) {
-      *p1 = k;
-      p1_set = true;
+  int cnt = -1;
+  do {
+    T first = dist_(generator_);
+    T second = dist_(generator_);
+    bool p1_set = false, p2_set = false;
+    // Find matching index
+    for (size_t k = 0; k < fitness_.size(); ++k) {
+      if (!p1_set && first <= fit_prop[k]) {
+        *p1 = k;
+        p1_set = true;
+      }
+      if (!p2_set && second <= fit_prop[k]) {
+        *p2 = k;
+        p2_set = true;
+      }
     }
-    if (second <= fit_prop[k] && !p2_set) {
-      *p2 = k;
-      p2_set = true;
-    }
-  }
+    cnt++;
+  } while (*p1 == *p2 && cnt < 5);
 }
   
 #pragma mark -

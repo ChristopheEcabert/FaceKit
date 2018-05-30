@@ -73,7 +73,7 @@ typename GeneticSolver<T>::ConvergenceType GeneticSolver<T>::Solve(const Paramet
   std::ofstream stream("log.txt");
   
   // Compute fitness
-  curr_population_->Fitness();
+  T avg_fit_begin = curr_population_->Fitness();
   size_t n_gen = 0;
   T prev_max_fit = 0.0;
   T max_max_fit = 0.0;
@@ -100,6 +100,9 @@ typename GeneticSolver<T>::ConvergenceType GeneticSolver<T>::Solve(const Paramet
         hist_max_fit_cnt = 0;
       }
     }
+    
+    stream << avg_fit_next << "," << next_max_fit << std::endl;
+    
   }
   return n_gen == params.max_generation ? ConvergenceType::kReachMaxGeneration : ConvergenceType::kConverged;
 }

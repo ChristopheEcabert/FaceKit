@@ -27,6 +27,7 @@ namespace FaceKit {
  *  @brief      Utility functions for processing path
  */
 namespace Path {
+  
 namespace internal {
 std::string JoinImpl(std::initializer_list<std::string> parts);
 }

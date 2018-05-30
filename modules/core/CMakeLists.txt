@@ -24,6 +24,7 @@ if(build)
     src/nd_array.cpp
     src/posix_file_system.cpp
     src/proto.cpp
+    src/scanner.cpp
     src/status.cpp
     src/string.cpp
     src/types.cpp
@@ -60,6 +61,7 @@ if(build)
   set(incs_utils
     include/facekit/${SUBSYS_NAME}/utils/enum_bitmask_operator.hpp
     include/facekit/${SUBSYS_NAME}/utils/proto.hpp
+    include/facekit/${SUBSYS_NAME}/utils/scanner.hpp
     include/facekit/${SUBSYS_NAME}/utils/string.hpp)
   set(proto
     src/proto/nd_array_dims.proto
@@ -94,6 +96,7 @@ if(build)
   FACEKIT_ADD_TEST(ut_nd_array nd_array FILES test/ut_nd_array.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_paths paths FILES test/ut_path.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_filesystem posix_file_system FILES test/ut_file_system.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_scanner scanner FILES test/ut_scanner.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
 
   # Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})
