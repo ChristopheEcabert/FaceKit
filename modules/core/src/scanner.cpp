@@ -30,11 +30,11 @@ namespace String {
  *  @name   Scanner
  *  @fn     explicit Scanner(const std::string& str)
  *  @brief  Constructor
- *  @param[in] str  String to parse, should outlive the lifespan of the
- *                  scanner
+ *  @param[in] str  String to parse
  */
-Scanner::Scanner(const std::string& str) : begin_(str.data()),
-                                           end_(begin_ + str.size()),
+Scanner::Scanner(const std::string& str) : str_(str),
+                                           begin_(str_.data()),
+                                           end_(begin_ + str_.size()),
                                            start_(nullptr),
                                            stop_(nullptr),
                                            error_(false) {

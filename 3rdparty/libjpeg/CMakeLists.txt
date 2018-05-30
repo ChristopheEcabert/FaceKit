@@ -24,21 +24,13 @@ ExternalProject_Add(libjpeg_project
         CMAKE_CACHE_ARGS -DCMAKE_C_FLAGS:STRING=-fPIC
         # Folder destination
         PREFIX ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/libjpeg
-        TMP_DIR ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/libjpeg/tmp
-        STAMP_DIR ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/libjpeg/stamp
-        DOWNLOAD_DIR ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/libjpeg/download
-        SOURCE_DIR ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/libjpeg/src
-        BINARY_DIR ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/libjpeg/build
         # Disable install step
         INSTALL_COMMAND cmake -E echo "Skipping install step."
         # Wrap download, configure and build steps in a script to log output
         LOG_DOWNLOAD ON
         LOG_CONFIGURE ON
         LOG_BUILD ON)
-
-# Specify include dir
-ExternalProject_Get_Property(libjpeg_project source_dir)
-SET(JPEG_INCLUDE_DIRS ${source_dir}/include PARENT_SCOPE)
+        
 # Library
 ExternalProject_Get_Property(libjpeg_project binary_dir)
 SET(LIBJPEG_LIBRARY_PATH ${binary_dir}/${CMAKE_STATIC_LIBRARY_PREFIX}jpeg.a)
@@ -47,3 +39,6 @@ SET_PROPERTY(TARGET libjpeg PROPERTY IMPORTED_LOCATION ${LIBJPEG_LIBRARY_PATH})
 ADD_DEPENDENCIES(libjpeg libjpeg_project)
 # Export libraries
 SET(JPEG_LIBRARIES libjpeg PARENT_SCOPE)
+# Specify include dir
+ExternalProject_Get_Property(libjpeg_project source_dir)
+SET(JPEG_INCLUDE_DIRS ${source_dir} ${binary_dir} PARENT_SCOPE)

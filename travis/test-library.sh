@@ -2,7 +2,7 @@
 echo "Call Unit Test"
 cd $TRAVIS_BUILD_DIR
 cd build
-if make test; then
+if make test > /dev/null; then
   exit 0
 fi
 exit -1

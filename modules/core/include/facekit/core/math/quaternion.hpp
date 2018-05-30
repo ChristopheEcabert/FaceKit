@@ -133,8 +133,8 @@ class FK_EXPORTS Quaternion {
    *  @return Multiply result
    */
   Quaternion operator*(const Quaternion& rhs) {
-    return Quaternion(q_ * rhs.q_ + v_ * rhs.v_,
-                      v_ ^ rhs.v_ + rhs.v_ * q_ + v_ * rhs.q_);
+    return Quaternion((q_ * rhs.q_) + (v_ * rhs.v_),
+                      (v_ ^ rhs.v_) + (rhs.v_ * q_) + (v_ * rhs.q_));
   }
   
 #pragma mark -

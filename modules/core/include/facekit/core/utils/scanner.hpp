@@ -89,8 +89,7 @@ class Scanner {
    *  @name   Scanner
    *  @fn     explicit Scanner(const std::string& str)
    *  @brief  Constructor
-   *  @param[in] str  String to parse, should outlive the lifespan of the 
-   *                  scanner
+   *  @param[in] str  String to parse
    */
   explicit Scanner(const std::string& str);
   
@@ -323,6 +322,8 @@ class Scanner {
    */
   static bool Matches(const CharType& type, const char& c);
 
+  /** String to be scanned */
+  std::string str_;
   /** Begining of the scanning region */
   const char* begin_;
   /** End of the scanning region */
