@@ -80,7 +80,8 @@ if(build)
       $<INSTALL_INTERFACE:include>
       $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     PRIVATE
-      ${CMAKE_CURRENT_SOURCE_DIR}/include)
+      ${CMAKE_CURRENT_SOURCE_DIR}/include
+      ${Protobuf_INCLUDE_DIRS})
   #EXAMPLES
   IF(WITH_EXAMPLES)
     FACEKIT_ADD_EXAMPLE(thread_pool FILES example/ex_thread_pool.cpp LINK_WITH facekit_core)
