@@ -7,42 +7,33 @@
 MESSAGE(STATUS "Look for openblas")
 
 FILE(TO_CMAKE_PATH "$ENV{OpenBLAS_HOME}" OpenBLAS_WIN_ROOT)
-SET(Open_BLAS_INCLUDE_SEARCH_PATHS
-  /usr/include
-  /usr/include/openblas-base
-  /usr/local/include
-  /usr/local/include/openblas-base
-  /opt/OpenBLAS/include
-  $ENV{OPENBLAS_ROOT}/include
-  $ENV{OpenBLAS_WIN_ROOT}
-  $ENV{OpenBLAS_WIN_ROOT}/include
-)
-
-SET(Open_BLAS_LIB_SEARCH_PATHS
-        /lib/
-        /lib/openblas-base
-        /lib64/
-        /usr/lib
-        /usr/lib/openblas-base
-        /usr/lib64
-        /usr/local/lib
-        /usr/local/lib64
-        /opt/OpenBLAS/lib
-        $ENV{OpenBLAS}
-        $ENV{OPENBLAS_ROOT}/lib
-        $ENV{OpenBLAS_WIN_ROOT}/lib
-        $ENV{OpenBLAS_WIN_ROOT}
-        $ENV{OpenBLAS_WIN_ROOT}/lib
- )
-
+SET(OPENBLAS_INCLUDE_SEARCH_PATHS /usr/include
+                                  /usr/include/openblas-base
+                                  /usr/local/include
+                                  /usr/local/include/openblas-base
+                                  /opt/OpenBLAS/include
+                                  $ENV{OPENBLAS_ROOT}/include
+                                  $ENV{OpenBLAS_WIN_ROOT}
+                                  $ENV{OpenBLAS_WIN_ROOT}/include)
+SET(OPENBLAS_LIB_SEARCH_PATHS /lib/
+                              /lib/openblas-base
+                              /lib64/
+                              /usr/lib
+                              /usr/lib/openblas-base
+                              /usr/lib64
+                              /usr/local/lib
+                              /usr/local/lib64
+                              /opt/OpenBLAS/lib
+                              $ENV{OpenBLAS}
+                              $ENV{OPENBLAS_ROOT}/lib
+                              $ENV{OpenBLAS_WIN_ROOT}/lib
+                              $ENV{OpenBLAS_WIN_ROOT}
+                              $ENV{OpenBLAS_WIN_ROOT}/lib)
+SET(OPENBLAS_NAMES libopenblas openblas libopenblas.dll)
 # Look for includes
-FIND_PATH(OPENBLAS_INCLUDE_DIR NAMES cblas.h HINTS ${Open_BLAS_INCLUDE_SEARCH_PATHS})
+FIND_PATH(OPENBLAS_INCLUDE_DIR NAMES cblas.h HINTS ${OPENBLAS_INCLUDE_SEARCH_PATHS})
 # Library
-IF(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-  FIND_LIBRARY(OPENBLAS_LIB NAMES libopenblas openblas HINTS ${Open_BLAS_LIB_SEARCH_PATHS})
-ELSE(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
-  FIND_FILE(OPENBLAS_LIBRARIES libopenblas.dll.a ${Open_BLAS_LIB_SEARCH_PATHS})
-ENDIF(NOT ${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+FIND_LIBRARY(OPENBLAS_LIBRARIES NAMES ${OPENBLAS_NAMES} HINTS ${OPENLAS_LIB_SEARCH_PATHS})
 
 # handle the QUIETLY and REQUIRED arguments and set FlyCapture_FOUND to TRUE if
 # all listed variables are TRUE
@@ -51,7 +42,7 @@ FIND_PACKAGE_HANDLE_STANDARD_ARGS( "BLAS" DEFAULT_MSG OPENBLAS_INCLUDE_DIR OPENB
 MARK_AS_ADVANCED(OPENBLAS_INCLUDE_DIR)
 IF(BLAS_FOUND AND NOT TARGET ext::blas)
   # Dump info
-  MESSAGE(STATUS "Found BLAS libraries: ${OPENBLAS_LIB}")
+  MESSAGE(STATUS "Found BLAS libraries: ${OPENBLAS_LIBRARIES}")
   MESSAGE(STATUS "Found BLAS include: ${OPENBLAS_INCLUDE_DIR}")
   # Define target
   ADD_LIBRARY(ext::blas SHARED IMPORTED)
