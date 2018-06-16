@@ -6,7 +6,7 @@ set(SUBSYS_DEPS core)
 set(build TRUE)
 FACEKIT_SUBSYS_OPTION(build "${SUBSYS_NAME}" "${SUBSYS_DESC}" ON)
 #Add dependencies as well as external dependencies
-FACEKIT_SUBSYS_DEPEND(build "${SUBSYS_NAME}" DEPS ${SUBSYS_DEPS} EXT_DEPS "")
+FACEKIT_SUBSYS_DEPEND(build "${SUBSYS_NAME}" DEPS ${SUBSYS_DEPS})
 if(build)
   # Add sources 
   set(srcs
@@ -18,12 +18,18 @@ if(build)
     include/facekit/${SUBSYS_NAME}/mesh.hpp)
   # Set library name
   set(LIB_NAME "facekit_${SUBSYS_NAME}")
-  # Add include folder location
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include ${FACEKIT_SOURCE_DIR}/3rdparty)
-
   # Add library
-  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} ${srcs_ext})
-
+  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" 
+                      FILES ${srcs} ${incs} ${srcs_ext} 
+                      PUBLIC_LINK facekit_core)
+  TARGET_INCLUDE_DIRECTORIES(${LIB_NAME}
+    PUBLIC
+      $<INSTALL_INTERFACE:include>
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+      ${CMAKE_CURRENT_SOURCE_DIR}/include
+      ${FACEKIT_SOURCE_DIR}/3rdparty/ply)
+    
   #EXAMPLES
   IF(WITH_EXAMPLES)
       #FACEKIT_ADD_EXAMPLE(oglkit_video_splitter FILES file LINK_WITH lib)

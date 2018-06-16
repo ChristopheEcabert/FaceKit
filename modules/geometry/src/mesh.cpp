@@ -14,7 +14,7 @@
 #include <dispatch/dispatch.h>
 #endif
 
-#include "ply/ply.h"
+#include "ply.h"
 
 #include "facekit/geometry/mesh.hpp"
 

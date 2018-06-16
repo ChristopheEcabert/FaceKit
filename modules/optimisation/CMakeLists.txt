@@ -20,10 +20,14 @@ if(build)
     include/facekit/${SUBSYS_NAME}/population.hpp)
   # Set library name
   set(LIB_NAME "facekit_${SUBSYS_NAME}")
-  # Add include folder location
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
   # Add library
-  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} LINK_WITH facekit_core)
+  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} PUBLIC_LINK facekit_core)
+  TARGET_INCLUDE_DIRECTORIES(${LIB_NAME}
+  PUBLIC
+    $<INSTALL_INTERFACE:include>
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include)
    
   #EXAMPLES
   IF(WITH_EXAMPLES)

@@ -104,13 +104,13 @@ macro(FACEKIT_SUBSYS_DEPEND _var _name)
             else(NOT _status)
                 FACEKIT_GET_SUBSYS_INCLUDE_DIR(_include_dir ${_dep})
                 STRING(REGEX MATCH "(.?cuda_)" match ${_include_dir})
-                IF(match)
-                    STRING(REGEX REPLACE "^([^_]*)\\_(.*)" "\\1/\\2" _cuda_include_dir ${_include_dir})
-                    include_directories(${PROJECT_SOURCE_DIR}/modules/${_cuda_include_dir}/include)
-                    cuda_include_directories(${PROJECT_SOURCE_DIR}/modules/${_cuda_include_dir}/include)
-                ELSE(match)
-                    include_directories(${PROJECT_SOURCE_DIR}/modules/${_include_dir}/include)
-                ENDIF(match)
+                # Not needed anymore with CMake targets
+                # IF(match)
+                #     STRING(REGEX REPLACE "^([^_]*)\\_(.*)" "\\1/\\2" _cuda_include_dir ${_include_dir})
+                #     include_directories(${PROJECT_SOURCE_DIR}/modules/${_cuda_include_dir}/include)
+                # ELSE(match)
+                #     include_directories(${PROJECT_SOURCE_DIR}/modules/${_include_dir}/include)
+                # ENDIF(match)
             endif(NOT _status)
         endforeach(_dep)
         endif(SUBSYS_DEPS)
@@ -134,46 +134,46 @@ endmacro(FACEKIT_SUBSYS_DEPEND)
 # _parent The parent subsystem name.
 # _name The name of the subsubsystem.
 # ARGN The subsystems and external libraries to depend on.
-macro(FACEKIT_SUBSUBSYS_DEPEND _var _parent _name)
-    set(options)
-    set(parentArg)
-    set(nameArg)
-    set(multiValueArgs DEPS EXT_DEPS OPT_DEPS)
-    cmake_parse_arguments(SUBSYS "${options}" "${parentArg}" "${nameArg}" "${multiValueArgs}" ${ARGN} )
-    if(SUBSUBSYS_DEPS)
-        SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_DEPS ${_parent}_${_name} "${SUBSUBSYS_DEPS}")
-    endif(SUBSUBSYS_DEPS)
-    if(SUBSUBSYS_EXT_DEPS)
-        SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_EXT_DEPS ${_parent}_${_name} "${SUBSUBSYS_EXT_DEPS}")
-    endif(SUBSUBSYS_EXT_DEPS)
-    if(SUBSUBSYS_OPT_DEPS)
-        SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_OPT_DEPS ${_parent}_${_name} "${SUBSUBSYS_OPT_DEPS}")
-    endif(SUBSUBSYS_OPT_DEPS)
-    GET_IN_MAP(subsys_status FACEKIT_SUBSYS_HYPERSTATUS ${_parent}_${_name})
-    if(${_var} AND (NOT ("${subsys_status}" STREQUAL "AUTO_OFF")))
-        if(SUBSUBSYS_DEPS)
-        foreach(_dep ${SUBSUBSYS_DEPS})
-            FACEKIT_GET_SUBSYS_STATUS(_status ${_dep})
-            if(NOT _status)
-                set(${_var} FALSE)
-                FACEKIT_SET_SUBSYS_STATUS(${_parent}_${_name} FALSE "Requires ${_dep}.")
-            else(NOT _status)
-                FACEKIT_GET_SUBSYS_INCLUDE_DIR(_include_dir ${_dep})
-                include_directories(${PROJECT_SOURCE_DIR}/${_include_dir}/include)
-            endif(NOT _status)
-        endforeach(_dep)
-        endif(SUBSUBSYS_DEPS)
-        if(SUBSUBSYS_EXT_DEPS)
-        foreach(_dep ${SUBSUBSYS_EXT_DEPS})
-            string(TOUPPER "${_dep}_found" EXT_DEP_FOUND)
-            if(NOT ${EXT_DEP_FOUND} OR (NOT ("${EXT_DEP_FOUND}" STREQUAL "TRUE")))
-                set(${_var} FALSE)
-                FACEKIT_SET_SUBSYS_STATUS(${_parent}_${_name} FALSE "Requires external library ${_dep}.")
-            endif(NOT ${EXT_DEP_FOUND} OR (NOT ("${EXT_DEP_FOUND}" STREQUAL "TRUE")))
-        endforeach(_dep)
-        endif(SUBSUBSYS_EXT_DEPS)
-    endif(${_var} AND (NOT ("${subsys_status}" STREQUAL "AUTO_OFF")))
-endmacro(FACEKIT_SUBSUBSYS_DEPEND)
+# macro(FACEKIT_SUBSUBSYS_DEPEND _var _parent _name)
+#     set(options)
+#     set(parentArg)
+#     set(nameArg)
+#     set(multiValueArgs DEPS EXT_DEPS OPT_DEPS)
+#     cmake_parse_arguments(SUBSYS "${options}" "${parentArg}" "${nameArg}" "${multiValueArgs}" ${ARGN} )
+#     if(SUBSUBSYS_DEPS)
+#         SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_DEPS ${_parent}_${_name} "${SUBSUBSYS_DEPS}")
+#     endif(SUBSUBSYS_DEPS)
+#     if(SUBSUBSYS_EXT_DEPS)
+#         SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_EXT_DEPS ${_parent}_${_name} "${SUBSUBSYS_EXT_DEPS}")
+#     endif(SUBSUBSYS_EXT_DEPS)
+#     if(SUBSUBSYS_OPT_DEPS)
+#         SET_IN_GLOBAL_MAP(FACEKIT_SUBSYS_OPT_DEPS ${_parent}_${_name} "${SUBSUBSYS_OPT_DEPS}")
+#     endif(SUBSUBSYS_OPT_DEPS)
+#     GET_IN_MAP(subsys_status FACEKIT_SUBSYS_HYPERSTATUS ${_parent}_${_name})
+#     if(${_var} AND (NOT ("${subsys_status}" STREQUAL "AUTO_OFF")))
+#         if(SUBSUBSYS_DEPS)
+#         foreach(_dep ${SUBSUBSYS_DEPS})
+#             FACEKIT_GET_SUBSYS_STATUS(_status ${_dep})
+#             if(NOT _status)
+#                 set(${_var} FALSE)
+#                 FACEKIT_SET_SUBSYS_STATUS(${_parent}_${_name} FALSE "Requires ${_dep}.")
+#             else(NOT _status)
+#                 FACEKIT_GET_SUBSYS_INCLUDE_DIR(_include_dir ${_dep})
+#                 include_directories(${PROJECT_SOURCE_DIR}/${_include_dir}/include)
+#             endif(NOT _status)
+#         endforeach(_dep)
+#         endif(SUBSUBSYS_DEPS)
+#         if(SUBSUBSYS_EXT_DEPS)
+#         foreach(_dep ${SUBSUBSYS_EXT_DEPS})
+#             string(TOUPPER "${_dep}_found" EXT_DEP_FOUND)
+#             if(NOT ${EXT_DEP_FOUND} OR (NOT ("${EXT_DEP_FOUND}" STREQUAL "TRUE")))
+#                 set(${_var} FALSE)
+#                 FACEKIT_SET_SUBSYS_STATUS(${_parent}_${_name} FALSE "Requires external library ${_dep}.")
+#             endif(NOT ${EXT_DEP_FOUND} OR (NOT ("${EXT_DEP_FOUND}" STREQUAL "TRUE")))
+#         endforeach(_dep)
+#         endif(SUBSUBSYS_EXT_DEPS)
+#     endif(${_var} AND (NOT ("${subsys_status}" STREQUAL "AUTO_OFF")))
+# endmacro(FACEKIT_SUBSUBSYS_DEPEND)
 
 ###############################################################################
 # Add a set of include files to install.
@@ -181,8 +181,9 @@ endmacro(FACEKIT_SUBSUBSYS_DEPEND)
 # _subdir The sub-directory for these include files.
 # ARGN The include files.
 macro(FACEKIT_ADD_INCLUDES _component _subdir)
-    install(FILES ${ARGN} DESTINATION ${INCLUDE_INSTALL_DIR}/${_subdir}
-        COMPONENT facekit_${_component})
+    install(FILES ${ARGN} 
+            DESTINATION ${INCLUDE_INSTALL_DIR}/${_subdir}
+            COMPONENT facekit_${_component})
 endmacro(FACEKIT_ADD_INCLUDES)
 
 
@@ -194,12 +195,13 @@ endmacro(FACEKIT_ADD_INCLUDES)
 # ARGN:
 #   FILES       The source files for the library.
 #   PROTO_FILES The protobuf files that need to be generated
-#   LINK_WITH   List if library to link against
+#   PUBLIC_LINK    List Of library to link against (PUBLIC)
+#   PRIVATE_LINK    List Of library to link against (PRIVATE)
 macro(FACEKIT_ADD_LIBRARY _name _component)
   # parse arguments
   SET(options)
   SET(oneValueArgs)
-  SET(multiValueArgs FILES PROTO_FILES LINK_WITH)
+  SET(multiValueArgs FILES PROTO_FILES PUBLIC_LINK PRIVATE_LINK)
   cmake_parse_arguments(FACEKIT_ADD_LIBRARY "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
   # Check if protobuf class need to be generated
   SET(PROTO_GEN_FILES)
@@ -207,8 +209,6 @@ macro(FACEKIT_ADD_LIBRARY _name _component)
     # Generate files
     PROTOBUF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS ${FACEKIT_ADD_LIBRARY_PROTO_FILES})
     # Copy to <build>/proto
-    SET(PROTO_GEN_FILES)
-    INCLUDE_DIRECTORIES(${FACEKIT_OUTPUT_PROTO_DIR})
     FOREACH(_f ${PROTO_SRCS} ${PROTO_HDRS})
       GET_FILENAME_COMPONENT(_fname ${_f} NAME)
       GET_FILENAME_COMPONENT(_folder ${_f} DIRECTORY)
@@ -223,8 +223,9 @@ macro(FACEKIT_ADD_LIBRARY _name _component)
   ENDIF()
   # Create libbrary
   ADD_LIBRARY(${_name} ${FACEKIT_LIB_TYPE} ${FACEKIT_ADD_LIBRARY_FILES} ${PROTO_GEN_FILES})
+  TARGET_INCLUDE_DIRECTORIES(${_name} PRIVATE ${FACEKIT_OUTPUT_PROTO_DIR})
   # Add link
-  TARGET_LINK_LIBRARIES(${_name} PRIVATE ${FACEKIT_ADD_LIBRARY_LINK_WITH})
+  TARGET_LINK_LIBRARIES(${_name} PUBLIC ${FACEKIT_ADD_LIBRARY_PUBLIC_LINK} PRIVATE ${FACEKIT_ADD_LIBRARY_PRIVATE_LINK})
 
   IF((UNIX AND NOT ANDROID) OR MINGW)
     TARGET_LINK_LIBRARIES(${_name} PRIVATE m)
@@ -242,6 +243,7 @@ macro(FACEKIT_ADD_LIBRARY _name _component)
     SOVERSION ${FACEKIT_MAJOR_VERSION}.${FACEKIT_MINOR_VERSION})
 
   install(TARGETS ${_name}
+    EXPORT facekit-export
     RUNTIME DESTINATION ${BIN_INSTALL_DIR} COMPONENT facekit_${_component}
     LIBRARY DESTINATION ${LIB_INSTALL_DIR} COMPONENT facekit_${_component}
     ARCHIVE DESTINATION ${LIB_INSTALL_DIR} COMPONENT facekit_${_component})
@@ -267,9 +269,10 @@ macro(FACEKIT_CUDA_ADD_LIBRARY _name _component)
       SOVERSION ${FACEKIT_MAJOR_VERSION})
 
     install(TARGETS ${_name}
-        RUNTIME DESTINATION ${BIN_INSTALL_DIR} COMPONENT facekit_${_component}
-        LIBRARY DESTINATION ${LIB_INSTALL_DIR} COMPONENT facekit_${_component}
-        ARCHIVE DESTINATION ${LIB_INSTALL_DIR} COMPONENT facekit_${_component})
+      EXPORT facekit-export
+      RUNTIME DESTINATION ${BIN_INSTALL_DIR} COMPONENT facekit_${_component}
+      LIBRARY DESTINATION ${LIB_INSTALL_DIR} COMPONENT facekit_${_component}
+      ARCHIVE DESTINATION ${LIB_INSTALL_DIR} COMPONENT facekit_${_component})
 endmacro(FACEKIT_CUDA_ADD_LIBRARY)
 
 
@@ -289,43 +292,6 @@ macro(FACEKIT_ADD_EXECUTABLE _name _component)
   install(TARGETS ${_name} RUNTIME DESTINATION ${BIN_INSTALL_DIR}
       COMPONENT facekit_${_component})
 endmacro(FACEKIT_ADD_EXECUTABLE)
-
-###############################################################################
-# Add an executable target as a bundle when available and required
-# _name The executable name.
-# _component The part of FACEKIT that this library belongs to.
-# _bundle
-# ARGN the source files for the library.
-macro(FACEKIT_ADD_EXECUTABLE_OPT_BUNDLE _name _component)
-if(APPLE AND VTK_USE_COCOA)
-    add_executable(${_name} MACOSX_BUNDLE ${ARGN})
-else(APPLE AND VTK_USE_COCOA)
-    add_executable(${_name} ${ARGN})
-endif(APPLE AND VTK_USE_COCOA)
-
-    if(WIN32 AND MSVC)
-      set_target_properties(${_name} PROPERTIES DEBUG_OUTPUT_NAME ${_name}${CMAKE_DEBUG_POSTFIX}
-                                                RELEASE_OUTPUT_NAME ${_name}${CMAKE_RELEASE_POSTFIX})
-    endif()
-
-    if(USE_PROJECT_FOLDERS)
-      set_target_properties(${_name} PROPERTIES FOLDER "Tools and demos")
-    endif(USE_PROJECT_FOLDERS)
-
-    set(FACEKIT_EXECUTABLES ${FACEKIT_EXECUTABLES} ${_name})
-#    message(STATUS "COMMAND ${CMAKE_COMMAND} -E create_symlink \"${_name}.app/Contents/MacOS/${_name}\" \"${_name}\"")
-if(APPLE AND VTK_USE_COCOA)
-#     add_custom_command(TARGET ${_name}
-#                         POST_BUILD
-#                         COMMAND ${CMAKE_COMMAND} -E create_symlink ${FACEKIT_OUTPUT_BIN_DIR}/${_name}.app/Contents/MacOS/${_name} ${FACEKIT_OUTPUT_BIN_DIR}/${_name}
-# #			WORKING_DIRECTORY
-#                         COMMENT "Creating an alias for ${_name}.app to ${_name}")
-    install(TARGETS ${_name} BUNDLE DESTINATION ${BIN_INSTALL_DIR} COMPONENT facekit_${_component})
-else(APPLE AND VTK_USE_COCOA)
-    install(TARGETS ${_name} RUNTIME DESTINATION ${BIN_INSTALL_DIR} COMPONENT facekit_${_component})
-endif(APPLE AND VTK_USE_COCOA)
-endmacro(FACEKIT_ADD_EXECUTABLE_OPT_BUNDLE)
-
 
 ###############################################################################
 # Add an executable target.
@@ -358,20 +324,22 @@ macro(FACEKIT_ADD_TEST _name _exename)
     set(oneValueArgs)
     set(multiValueArgs FILES ARGUMENTS WORKING_DIR LINK_WITH)
     cmake_parse_arguments(FACEKIT_ADD_TEST "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
-    add_executable(facekit_ut_${_exename} ${FACEKIT_ADD_TEST_FILES})
     # Add google test framework if not already build
-    IF(NOT TARGET gtest)
-      SET(INSTALL_GTEST OFF)
-      SET(INSTALL_GMOCK OFF)
-      ADD_SUBDIRECTORY(${FACEKIT_SOURCE_DIR}/3rdparty/googletest ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/googletest EXCLUDE_FROM_ALL)
+    IF(NOT TARGET google::gtest)
+      ADD_SUBDIRECTORY(${FACEKIT_SOURCE_DIR}/3rdparty/gtest ${FACEKIT_OUTPUT_3RDPARTY_LIB_DIR}/google EXCLUDE_FROM_ALL)
       MARK_AS_ADVANCED(BUILD_GMOCK BUILD_GTEST BUILD_SHARED_LIBS INSTALL_GTEST INSTALL_GMOCK gmock_build_tests gtest_build_samples gtest_build_tests
                        gtest_disable_pthreads gtest_force_shared_crt gtest_hide_internal_symbols)
-    ENDIF(NOT TARGET gtest)
-    # Add include location for testing framework
-    include_directories(SYSTEM ${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googletest/include)
-    include_directories(SYSTEM ${FACEKIT_SOURCE_DIR}/3rdparty/googletest/googlemock/include)
+    ENDIF(NOT TARGET google::gtest)
+    # Add test executable
+    add_executable(facekit_ut_${_exename} ${FACEKIT_ADD_TEST_FILES})
+    # Add folder where proto files are generated
+    target_include_directories(facekit_ut_${_exename} 
+      PRIVATE 
+        ${FACEKIT_OUTPUT_PROTO_DIR} 
+        $<TARGET_PROPERTY:google::gtest,INCLUDE_DIRECTORIES>
+        $<TARGET_PROPERTY:google::gmock,INCLUDE_DIRECTORIES>)
     # Link extra library
-    target_link_libraries(facekit_ut_${_exename} PRIVATE ${FACEKIT_ADD_TEST_LINK_WITH} gtest gmock ${CLANG_LIBRARIES})
+    target_link_libraries(facekit_ut_${_exename} PRIVATE ${FACEKIT_ADD_TEST_LINK_WITH} google::gtest google::gmock ${CLANG_LIBRARIES})
     # Only link if needed
     if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
       if(NOT CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
@@ -442,75 +410,6 @@ macro(FACEKIT_ADD_LINKFLAGS _name _flags)
             LINK_FLAGS "${_current_flags} ${_flags}")
     endif(NOT _current_flags)
 endmacro(FACEKIT_ADD_LINKFLAGS)
-
-
-###############################################################################
-# Make a pkg-config file for a library. Do not include general FACEKIT stuff in the
-# arguments; they will be added automaticaly.
-# _name The library name. "facekit_" will be preprended to this.
-# _component The part of FACEKIT that this pkg-config file belongs to.
-# _desc Description of the library.
-# _facekit_deps External dependencies to facekit libs, as a list. (will get mangled to external pkg-config name)
-# _ext_deps External dependencies, as a list.
-# _int_deps Internal dependencies, as a list.
-# _cflags Compiler flags necessary to build with the library.
-# _lib_flags Linker flags necessary to link to the library.
-macro(FACEKIT_MAKE_PKGCONFIG _name _component _desc _facekit_deps _ext_deps _int_deps _cflags
-        _lib_flags)
-    set(PKG_NAME ${_name})
-    set(PKG_DESC ${_desc})
-    set(PKG_CFLAGS ${_cflags})
-    set(PKG_LIBFLAGS ${_lib_flags})
-    LIST_TO_STRING(_ext_deps_str "${_ext_deps}")
-    set(PKG_EXTERNAL_DEPS ${_ext_deps_str})
-    foreach(_dep ${_facekit_deps})
-      set(PKG_EXTERNAL_DEPS "${PKG_EXTERNAL_DEPS} facekit_${_dep}-${FACEKIT_MAJOR_VERSION}.${FACEKIT_MINOR_VERSION}")
-    endforeach(_dep)
-    set(PKG_INTERNAL_DEPS "")
-    foreach(_dep ${_int_deps})
-        set(PKG_INTERNAL_DEPS "${PKG_INTERNAL_DEPS} -l${_dep}")
-    endforeach(_dep)
-
-    set(_pc_file ${CMAKE_CURRENT_BINARY_DIR}/${_name}-${FACEKIT_MAJOR_VERSION}.${FACEKIT_MINOR_VERSION}.pc)
-    configure_file(${PROJECT_SOURCE_DIR}/cmake/pkgconfig.cmake.in ${_pc_file}
-        @ONLY)
-    install(FILES ${_pc_file} DESTINATION ${PKGCFG_INSTALL_DIR}
-        COMPONENT facekit_${_component})
-endmacro(FACEKIT_MAKE_PKGCONFIG)
-
-###############################################################################
-# Make a pkg-config file for a header-only library.
-# Essentially a duplicate of FACEKIT_MAKE_PKGCONFIG, but
-# ensures that no -L or l flags will be created
-# Do not include general FACEKIT stuff in the
-# arguments; they will be added automaticaly.
-# _name The library name. "facekit_" will be preprended to this.
-# _component The part of FACEKIT that this pkg-config file belongs to.
-# _desc Description of the library.
-# _facekit_deps External dependencies to facekit libs, as a list. (will get mangled to external pkg-config name)
-# _ext_deps External dependencies, as a list.
-# _int_deps Internal dependencies, as a list.
-# _cflags Compiler flags necessary to build with the library.
-macro(FACEKIT_MAKE_PKGCONFIG_HEADER_ONLY _name _component _desc _facekit_deps _ext_deps _int_deps _cflags)
-set(PKG_NAME ${_name})
-set(PKG_DESC ${_desc})
-set(PKG_CFLAGS ${_cflags})
-#set(PKG_LIBFLAGS ${_lib_flags})
-LIST_TO_STRING(_ext_deps_str "${_ext_deps}")
-set(PKG_EXTERNAL_DEPS ${_ext_deps_str})
-foreach(_dep ${_facekit_deps})
-set(PKG_EXTERNAL_DEPS "${PKG_EXTERNAL_DEPS} facekit_${_dep}-${FACEKIT_MAJOR_VERSION}.${FACEKIT_MINOR_VERSION}")
-endforeach(_dep)
-set(PKG_INTERNAL_DEPS "")
-foreach(_dep ${_int_deps})
-set(PKG_INTERNAL_DEPS "${PKG_INTERNAL_DEPS} -l${_dep}")
-endforeach(_dep)
-set(_pc_file ${CMAKE_CURRENT_BINARY_DIR}/${_name}-${FACEKIT_MAJOR_VERSION}.${FACEKIT_MINOR_VERSION}.pc)
-configure_file(${PROJECT_SOURCE_DIR}/cmake/pkgconfig-headeronly.cmake.in ${_pc_file} @ONLY)
-install(FILES ${_pc_file} DESTINATION ${PKGCFG_INSTALL_DIR}
-COMPONENT facekit_${_component})
-endmacro(FACEKIT_MAKE_PKGCONFIG_HEADER_ONLY)
-
 
 ###############################################################################
 # PRIVATE

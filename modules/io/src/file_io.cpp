@@ -11,7 +11,7 @@
 #include <fstream>
 #include <stack>
 
-#include "tinydir/tinydir.h"
+#include "tinydir.h"
 
 #include "facekit/io/file_io.hpp"
 #include "facekit/core/logger.hpp"

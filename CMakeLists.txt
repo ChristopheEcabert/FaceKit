@@ -26,9 +26,9 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/" ${CMAKE_MODULE_PATH})
 include (FindPkgConfig)
 
 # ---[ Release/Debug specific flags
-if(CMAKE_BUILD_TYPE STREQUAL "Release" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
-  add_definitions("-DEIGEN_NO_DEBUG")
-endif()
+# if(CMAKE_BUILD_TYPE STREQUAL "Release" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+#   add_definitions("-DEIGEN_NO_DEBUG")
+# endif()
 
 # ---[ special maintainer mode
 SET(CMAKE_CXX_FLAGS_MAINTAINER "-pedantic -Wno-variadic-macros -Weffc++ -Wno-long-long" CACHE STRING
@@ -69,10 +69,15 @@ endif()
 include("${FACEKIT_SOURCE_DIR}/cmake/facekit_targets.cmake")
 include("${FACEKIT_SOURCE_DIR}/cmake/facekit_options.cmake")
 
+# ---[ Enable modern standard C++11
+SET(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_EXTENSIONS OFF) # use -std=c++11 instead of -std=gnu++11
+
 # ---[ Unix/Darwin/Windows specific flags
 if(CMAKE_COMPILER_IS_GNUCXX)
   if("${CMAKE_CXX_FLAGS}" STREQUAL "")
-    SET(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-unknown-pragmas -fno-strict-aliasing -Wno-format-extra-args -Wno-sign-compare -Wno-invalid-offsetof -Wno-conversion -std=c++11 ${SSE_FLAGS}")
+    SET(CMAKE_CXX_FLAGS "-Wall -Wextra -Wno-unknown-pragmas -fno-strict-aliasing -Wno-format-extra-args -Wno-sign-compare -Wno-invalid-offsetof -Wno-conversion ${SSE_FLAGS}")
 
     # Enable -Wabi for GCC > 4.3, and -Wno-deprecated for GCC < 4.3
     # to disable a lot of warnings which are not fixable
@@ -143,7 +148,7 @@ if (CMAKE_COMPILER_IS_CLANG)
   endif()
   if("${CMAKE_CXX_FLAGS}" STREQUAL "")
     #Unfortunately older Clang versions do not have this: -Wno-unnamed-type-template-args
-    SET(CMAKE_CXX_FLAGS "-ftemplate-depth=1024 -Qunused-arguments -Wno-invalid-offsetof -std=c++11 -stdlib=libc++ ${SSE_FLAGS}") 
+    SET(CMAKE_CXX_FLAGS "-ftemplate-depth=1024 -Qunused-arguments -Wno-invalid-offsetof -stdlib=libc++ ${SSE_FLAGS}") 
   endif()
   SET(CLANG_LIBRARIES "c++")
 endif()
@@ -258,19 +263,10 @@ ENDIF(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 # http://stackoverflow.com/questions/37534604/opencv-with-cmake-version-3-5-2-vs-cmake-2-x-x
 #SET(CUDA_USE_STATIC_CUDA_RUNTIME OFF CACHE BOOL "Cuda runtime" FORCE)
 FIND_PACKAGE(OpenCV REQUIRED)
-IF(OpenCV_LIBRARIES)
-  INCLUDE_DIRECTORIES(${OpenCV_INCLUDE_DIRS})
-	SET(OPENCV_FOUND TRUE)
-	MARK_AS_ADVANCED(OpenCV_DIR)
-ENDIF(OpenCV_LIBRARIES)
 
 ### ---[ Protobuf, want static library
 SET(Protobuf_USE_STATIC_LIBS ON)
 FIND_PACKAGE(Protobuf REQUIRED)
-IF(Protobuf_FOUND)
-  INCLUDE_DIRECTORIES(${Protobuf_INCLUDE_DIRS})
-  SET(PROTOBUF_FOUND TRUE)
-ENDIF(Protobuf_FOUND)  
 
 ### ---[ Doxygen
 FIND_PACKAGE(Doxygen QUIET)
@@ -280,7 +276,6 @@ set(facekit_config_h_in "${CMAKE_CURRENT_SOURCE_DIR}/cmake/facekit_config.h.in")
 set(facekit_config_h "${CMAKE_CURRENT_BINARY_DIR}/include/facekit/facekit_config.h")
 configure_file("${facekit_config_h_in}" "${facekit_config_h}")
 FACEKIT_ADD_INCLUDES("" "" "${facekit_config_h}")
-include_directories("${CMAKE_CURRENT_BINARY_DIR}/include")
 
 ### ---[ Set up for tests
 IF(WITH_TESTS)

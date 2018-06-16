@@ -69,15 +69,18 @@ if(build)
     src/proto/types.proto)
   # Set library name
   set(LIB_NAME "facekit_${SUBSYS_NAME}")
-  # Add include folder location
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-
   # Add library
   FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}"
                       FILES ${srcs} ${incs} ${incs_math} ${incs_mem} ${incs_utils}
                       PROTO_FILES ${proto}
-                      LINK_WITH ${OpenCV_LIBRARIES} ${BLAS_LIBRARIES} ${Protobuf_LIBRARIES})
-
+                      PUBLIC_LINK ${OpenCV_LIBRARIES} 
+                      PRIVATE_LINK ${BLAS_LIBRARIES} ${Protobuf_LIBRARIES})
+  TARGET_INCLUDE_DIRECTORIES(${LIB_NAME} 
+    PUBLIC 
+      $<INSTALL_INTERFACE:include>
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+      ${CMAKE_CURRENT_SOURCE_DIR}/include)
   #EXAMPLES
   IF(WITH_EXAMPLES)
     FACEKIT_ADD_EXAMPLE(thread_pool FILES example/ex_thread_pool.cpp LINK_WITH facekit_core)
@@ -85,9 +88,9 @@ if(build)
 
   # TESTS
   FACEKIT_ADD_TEST(ut_cmd_parser cmd_parser FILES test/ut_cmd_parser.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
-  FACEKIT_ADD_TEST(ut_linear_algebra linear_algebra FILES test/ut_linear_algebra.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core ${OpenCV_LIBRARIES})
+  FACEKIT_ADD_TEST(ut_linear_algebra linear_algebra FILES test/ut_linear_algebra.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_logger logger FILES test/ut_logger.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
-  FACEKIT_ADD_TEST(ut_refcounter refcounter FILES test/ut_refcounter.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "")
+  FACEKIT_ADD_TEST(ut_refcounter refcounter FILES test/ut_refcounter.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_types types FILES test/ut_types.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_status status FILES test/ut_status.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_allocator allocator FILES test/ut_allocator.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)

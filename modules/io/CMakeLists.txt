@@ -37,20 +37,26 @@ if(build)
     include/facekit/${SUBSYS_NAME}/tga_image.hpp)
   # Set library name
   set(LIB_NAME "facekit_${SUBSYS_NAME}")
-  # Add include folder location
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include 
-                      ${FACEKIT_SOURCE_DIR}/3rdparty
-                      ${FACEKIT_OUTPUT_PROTO_DIR}
-                      ${PNG_INCLUDE_DIRS}
-                      ${JPEG_INCLUDE_DIRS})
   # Add library
-  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${srcs} ${incs} LINK_WITH facekit_core ${OpenCV_LIBS} ${PNG_LIBRARIES} ${JPEG_LIBRARIES})
-  ADD_DEPENDENCIES("${LIB_NAME}" libpng libjpeg) 
+  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" 
+                      FILES ${srcs} ${incs} 
+                      PUBLIC_LINK facekit_core ${OpenCV_LIBS} 
+                      PRIVATE_LINK ext::jpeg ext::png ext::zlib)
+  TARGET_INCLUDE_DIRECTORIES(${LIB_NAME} 
+    PUBLIC 
+      $<INSTALL_INTERFACE:include>
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+      ${FACEKIT_SOURCE_DIR}/3rdparty/tinydir
+      ${FACEKIT_OUTPUT_PROTO_DIR}
+      $<TARGET_PROPERTY:ext::jpeg,INCLUDE_DIRECTORIES>
+      $<TARGET_PROPERTY:ext::png,INCLUDE_DIRECTORIES>)
+  ADD_DEPENDENCIES("${LIB_NAME}" ext::png ext::jpeg)
   #EXAMPLES
   IF(WITH_EXAMPLES)
     FACEKIT_ADD_EXAMPLE(image_loader FILES example/ex_image_loader.cpp LINK_WITH facekit_core facekit_io)
   ENDIF(WITH_EXAMPLES)
-
+  
   # TESTS
   
   # Install include files

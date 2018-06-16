@@ -25,15 +25,17 @@ if(build)
     include/facekit/${SUBSYS_NAME}/weak_projection.hpp)
 
   set(LIB_NAME "facekit_${SUBSYS_NAME}")
-  include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-
-  # Define library SRC, LINK
-  SET(LIB_SRCS ${srcs} ${incs})
-  SET(LIB_LINK ${OpenCV_LIBS} facekit_core facekit_io)
-
   # Add library
-  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" FILES ${LIB_SRCS} LINK_WITH ${LIB_LINK})
-
+  FACEKIT_ADD_LIBRARY("${LIB_NAME}" "${SUBSYS_NAME}" 
+                      FILES ${srcs} ${incs} 
+                      PUBLIC_LINK ${OpenCV_LIBS} facekit_core facekit_io facekit_geometry)
+  TARGET_INCLUDE_DIRECTORIES(${LIB_NAME}
+    PUBLIC
+      $<INSTALL_INTERFACE:include>
+      $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    PRIVATE
+      ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    
   #EXAMPLE
   IF(WITH_EXAMPLES)
   ENDIF(WITH_EXAMPLES)

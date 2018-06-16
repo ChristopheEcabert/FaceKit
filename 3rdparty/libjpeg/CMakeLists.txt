@@ -33,12 +33,9 @@ ExternalProject_Add(libjpeg_project
         
 # Library
 ExternalProject_Get_Property(libjpeg_project binary_dir)
-SET(LIBJPEG_LIBRARY_PATH ${binary_dir}/${CMAKE_STATIC_LIBRARY_PREFIX}jpeg.a)
-ADD_LIBRARY(libjpeg STATIC IMPORTED GLOBAL)
-SET_PROPERTY(TARGET libjpeg PROPERTY IMPORTED_LOCATION ${LIBJPEG_LIBRARY_PATH})
-ADD_DEPENDENCIES(libjpeg libjpeg_project)
-# Export libraries
-SET(JPEG_LIBRARIES libjpeg PARENT_SCOPE)
-# Specify include dir
 ExternalProject_Get_Property(libjpeg_project source_dir)
-SET(JPEG_INCLUDE_DIRS ${source_dir} ${binary_dir} PARENT_SCOPE)
+SET(LIBJPEG_LIBRARY_PATH ${binary_dir}/${CMAKE_STATIC_LIBRARY_PREFIX}jpeg.a)
+ADD_LIBRARY(ext::jpeg STATIC IMPORTED GLOBAL)
+SET_PROPERTY(TARGET ext::jpeg PROPERTY IMPORTED_LOCATION ${LIBJPEG_LIBRARY_PATH})
+SET_PROPERTY(TARGET ext::jpeg PROPERTY INCLUDE_DIRECTORIES ${source_dir} ${binary_dir})
+ADD_DEPENDENCIES(ext::jpeg libjpeg_project)

@@ -12,6 +12,11 @@ IF(NOT CMAKE_BUILD_TYPE)
 ENDIF(NOT CMAKE_BUILD_TYPE)
 # Find zlib
 FIND_PACKAGE(ZLIB REQUIRED)
+
+ADD_LIBRARY(ext::zlib STATIC IMPORTED GLOBAL)
+SET_PROPERTY(TARGET ext::zlib PROPERTY IMPORTED_LOCATION ${ZLIB_LIBRARIES})
+SET_PROPERTY(TARGET ext::zlib PROPERTY INTERFACE_INCLUDE_DIRECTORY ${ZLIB_INCLUDE_DIRS})
+
 # Add libpng
 ExternalProject_Add(libpng_project
         GIT_REPOSITORY https://github.com/glennrp/libpng.git
@@ -33,12 +38,11 @@ ExternalProject_Add(libpng_project
 
 # Library
 ExternalProject_Get_Property(libpng_project binary_dir)
-SET(LIBPNG_LIBRARY_PATH ${binary_dir}/${CMAKE_STATIC_LIBRARY_PREFIX}png.a)
-ADD_LIBRARY(libpng STATIC IMPORTED GLOBAL)
-SET_PROPERTY(TARGET libpng PROPERTY IMPORTED_LOCATION ${LIBPNG_LIBRARY_PATH} )
-ADD_DEPENDENCIES(libpng libpng_project)
-# Export libraries
-SET(PNG_LIBRARIES libpng ${ZLIB_LIBRARIES} PARENT_SCOPE)
-# Specify include dir
 ExternalProject_Get_Property(libpng_project source_dir)
-SET(PNG_INCLUDE_DIRS ${source_dir} ${binary_dir} PARENT_SCOPE)
+
+SET(LIBPNG_LIBRARY_PATH ${binary_dir}/${CMAKE_STATIC_LIBRARY_PREFIX}png.a)
+ADD_LIBRARY(ext::png STATIC IMPORTED GLOBAL)
+SET_PROPERTY(TARGET ext::png PROPERTY IMPORTED_LOCATION ${LIBPNG_LIBRARY_PATH})
+SET_PROPERTY(TARGET ext::png PROPERTY INCLUDE_DIRECTORIES ${source_dir} ${binary_dir})
+ADD_DEPENDENCIES(ext::png libpng_project)
+
