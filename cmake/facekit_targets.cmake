@@ -319,10 +319,11 @@ endmacro(FACEKIT_CUDA_ADD_EXECUTABLE)
 #    FILES the source files for the test
 #    ARGUMENTS Arguments for test executable
 #    LINK_WITH link test executable with libraries
+#    INC_FOLDER Extra include folder
 macro(FACEKIT_ADD_TEST _name _exename)
     set(options)
     set(oneValueArgs)
-    set(multiValueArgs FILES ARGUMENTS WORKING_DIR LINK_WITH)
+    set(multiValueArgs FILES ARGUMENTS WORKING_DIR LINK_WITH INC_FOLDER)
     cmake_parse_arguments(FACEKIT_ADD_TEST "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN} )
     # Add google test framework if not already build
     IF(NOT TARGET google::gtest)
@@ -337,7 +338,8 @@ macro(FACEKIT_ADD_TEST _name _exename)
       PRIVATE 
         ${FACEKIT_OUTPUT_PROTO_DIR} 
         $<TARGET_PROPERTY:google::gtest,INCLUDE_DIRECTORIES>
-        $<TARGET_PROPERTY:google::gmock,INCLUDE_DIRECTORIES>)
+        $<TARGET_PROPERTY:google::gmock,INCLUDE_DIRECTORIES>
+        ${FACEKIT_ADD_TEST_INC_FOLDER})
     # Link extra library
     target_link_libraries(facekit_ut_${_exename} PRIVATE ${FACEKIT_ADD_TEST_LINK_WITH} google::gtest google::gmock ${CLANG_LIBRARIES})
     # Only link if needed
