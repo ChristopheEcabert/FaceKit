@@ -11,7 +11,6 @@
 #include <type_traits>
 
 #include "gtest/gtest.h"
-#include "google/protobuf/text_format.h"
 
 #include "nd_array_dims.pb.h"
 
@@ -39,8 +38,8 @@ TEST(NDArrayDims, CTor) {
   EXPECT_EQ(d3.n_elems(), 80);
   // Move constructor
   FK::NDArrayDims d4(std::move(d2));
-  EXPECT_EQ(d3.dims(), 2);
-  EXPECT_EQ(d3.n_elems(), 80);
+  EXPECT_EQ(d4.dims(), 2);
+  EXPECT_EQ(d4.n_elems(), 80);
 }
 
 TEST(NDArrayDims, AddDimension) {
@@ -127,8 +126,8 @@ TEST(NDArrayDims, Proto) {
   
   // Create protobuf message from string
   FK::NDArrayDimsProto proto;
-  std::string in = "dims {\n size: 20\n}\n dims{\n size: 250\n}\n";
-  EXPECT_TRUE(pb::TextFormat::ParseFromString(in, &proto));
+  proto.add_dims()->set_size(20);
+  proto.add_dims()->set_size(250);
   // Create NDArrayDims obj
   FK::NDArrayDims d(proto);
   EXPECT_EQ(d.dims(), 2);
@@ -155,8 +154,12 @@ TEST(NDArrayDims, Proto) {
   EXPECT_EQ(d1.n_elems(), 750);
   
   // Check invalid proto
-  in += "dims{\n size: 2\n}\n dims{\n size: 3\n}\n dims{\n size: 4\n}\n";
-  EXPECT_TRUE(pb::TextFormat::ParseFromString(in, &proto));
+  proto.Clear();
+  proto.add_dims()->set_size(2);
+  proto.add_dims()->set_size(3);
+  proto.add_dims()->set_size(4);
+  proto.add_dims()->set_size(5);
+  proto.add_dims()->set_size(6);
   d1.Clear();
   auto s = d1.FromProto(proto);
   EXPECT_EQ(s.Code(), FK::Status::Type::kInvalidArgument);
