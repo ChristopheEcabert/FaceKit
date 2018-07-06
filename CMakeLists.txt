@@ -148,7 +148,7 @@ if (CMAKE_COMPILER_IS_CLANG)
   endif()
   if("${CMAKE_CXX_FLAGS}" STREQUAL "")
     #Unfortunately older Clang versions do not have this: -Wno-unnamed-type-template-args
-    SET(CMAKE_CXX_FLAGS "-ftemplate-depth=1024 -Qunused-arguments -Wno-invalid-offsetof -stdlib=libc++ ${SSE_FLAGS}") 
+    SET(CMAKE_CXX_FLAGS "-ftemplate-depth=1024 -Qunused-arguments -Wno-invalid-offsetof -stdlib=libc++") 
   endif()
   SET(CLANG_LIBRARIES "c++")
 endif()
