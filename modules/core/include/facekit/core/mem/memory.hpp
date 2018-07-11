@@ -67,15 +67,13 @@ void FreeAligned(void* ptr);
   
 /**
  *  @name   Malloc
- *  @fn     void* Malloc(const size_t& size, const size_t& alignment)
- *  @brief  Allocate a block of memory of a given size with a given alignment 
- *          requirement (Done by hand)
+ *  @fn     void* Malloc(const size_t& size)
+ *  @brief  Allocate a block of memory of a given size
  *  @param[in]  size      Number of bytes needed
- *  @param[in]  alignment Desired alignment
  *  @return Pointer to the allocated memory or nullptr if failed
  *  @ingroup core
  */
-void* Malloc(const size_t& size, const size_t& alignment);
+void* Malloc(const size_t& size);
   
 /**
  *  @name   Realloc
@@ -96,6 +94,58 @@ void* Realloc(const size_t& new_size, void* ptr);
  *  @ingroup core
  */
 void Free(void* ptr);
+  
+/**
+ *  @class  ScopedBuffer
+ *  @brief  Helper class to release (i.e. free) a buffer allocated with `malloc`
+ *          when the out-of-scope
+ *  @author Christophe Ecabert
+ *  @date   10.06.18
+ *  @ingroup core
+ */
+class ScopedBuffer {
+ public:
+  
+  /**
+   *  @name   ScopedBuffer
+   *  @fn     ScopedBuffer(void* buffer)
+   *  @brief  Constructor
+   *  @param[in] buffer Address of the buffer to transfer ownership
+   */
+  ScopedBuffer(void* buffer) : buffer_(buffer) {}
+  
+  /**
+   *  @name   ScopedBuffer
+   *  @fn     ScopedBuffer(const ScopedBuffer& other) = delete
+   *  @brief  Copy constructor
+   *  @param[in] other  Object to copy from
+   */
+  ScopedBuffer(const ScopedBuffer& other) = delete;
+  
+  /**
+   *  @name   operator=
+   *  @fn     ScopedBuffer& operator=(const ScopedBuffer& rhs) = delete
+   *  @brief  Assignment operator
+   *  @param[in]  rhs Object to assign from
+   *  @return Newly assigned object
+   */
+  ScopedBuffer& operator=(const ScopedBuffer& rhs) = delete;
+  
+  /**
+   *  @name   ~ScopedBuffer
+   *  @fn     ~ScopedBuffer(void)
+   *  @brief  Destructor
+   */
+  ~ScopedBuffer(void) {
+    if (buffer_) {
+      std::free(buffer_);
+    }
+  }
+  
+ private:
+  /** Buffer to manage */
+  void* buffer_;
+};
   
 }  // namespace Mem
 }  // namespace FaceKit

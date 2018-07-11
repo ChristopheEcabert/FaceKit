@@ -25,6 +25,10 @@ if(build)
     src/posix_file_system.cpp
     src/proto.cpp
     src/scanner.cpp
+    src/stacktrace_resolver_dladdr.cpp
+    src/stacktrace_resolver_windows.cpp
+    src/stacktrace_resolver.cpp
+    src/stacktrace.cpp
     src/status.cpp
     src/string.cpp
     src/types.cpp
@@ -57,6 +61,10 @@ if(build)
     include/facekit/${SUBSYS_NAME}/sys/file_system_factory.hpp
     include/facekit/${SUBSYS_NAME}/sys/file_system.hpp
     include/facekit/${SUBSYS_NAME}/sys/posix_file_system.hpp
+    include/facekit/${SUBSYS_NAME}/sys/stacktrace_resolver_dladdr.hpp
+    include/facekit/${SUBSYS_NAME}/sys/stacktrace_resolver_windows.hpp
+    include/facekit/${SUBSYS_NAME}/sys/stacktrace_resolver.hpp
+    include/facekit/${SUBSYS_NAME}/sys/stacktrace.hpp
     include/facekit/${SUBSYS_NAME}/sys/windows_file_system.hpp)
   set(incs_utils
     include/facekit/${SUBSYS_NAME}/utils/enum_bitmask_operator.hpp
@@ -104,6 +112,7 @@ if(build)
   FACEKIT_ADD_TEST(ut_paths paths FILES test/ut_path.cpp WORKING_DIR "${CMAKE_CURRENT_SOURCE_DIR}/test" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_filesystem posix_file_system FILES test/ut_file_system.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_scanner scanner FILES test/ut_scanner.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
+  FACEKIT_ADD_TEST(ut_stacktrace stacktrace FILES test/ut_stacktrace.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
 
   # Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})

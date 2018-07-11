@@ -26,6 +26,9 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/" ${CMAKE_MODULE_PATH})
 include (FindPkgConfig)
 
 # ---[ Release/Debug specific flags
+IF("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+  ADD_DEFINITIONS(-DDEBUG)
+ENDIF("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")  
 # if(CMAKE_BUILD_TYPE STREQUAL "Release" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
 #   add_definitions("-DEIGEN_NO_DEBUG")
 # endif()
@@ -266,8 +269,8 @@ FIND_PACKAGE(Protobuf REQUIRED)
 FIND_PACKAGE(Doxygen QUIET)
 
 ### ---[ Create the config.h file
-set(facekit_config_h_in "${CMAKE_CURRENT_SOURCE_DIR}/cmake/facekit_config.h.in")
-set(facekit_config_h "${CMAKE_CURRENT_BINARY_DIR}/include/facekit/facekit_config.h")
+set(facekit_config_h_in "${CMAKE_CURRENT_SOURCE_DIR}/cmake/facekit_config.hpp.in")
+set(facekit_config_h "${CMAKE_CURRENT_BINARY_DIR}/include/facekit/facekit_config.hpp")
 configure_file("${facekit_config_h_in}" "${facekit_config_h}")
 FACEKIT_ADD_INCLUDES("" "" "${facekit_config_h}")
 

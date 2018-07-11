@@ -40,7 +40,7 @@ void* MallocAligned(const size_t& size, const size_t& alignment) {
 #ifndef WIN32
   // alignment > sizeof(void*)
   if (alignment < sizeof(void*)) {
-    ptr = Malloc(size, alignment);
+    ptr = Malloc(size);
   } else {
     // Try allocation
     int err = posix_memalign(&ptr, alignment, size);
@@ -64,20 +64,12 @@ void FreeAligned(void* ptr) {
   
 /*
  *  @name   Malloc
- *  @fn     void* Malloc(const size_t& size, const size_t& alignment)
- *  @brief  Allocate a block of memory of a given size with a given alignment
- *          requirement (Done by hand)
+ *  @fn     void* Malloc(const size_t& size)
+ *  @brief  Allocate a block of memory of a given size
  *  @param[in]  size      Number of bytes needed
- *  @param[in]  alignment Desired alignment
  *  @return Pointer to the allocated memory or nullptr if failed
  */
-void* Malloc(const size_t& size, const size_t& alignment) {
-  /*uint8_t* ptr = (uint8_t*)malloc(size + sizeof(void*) + alignment);
-  if (ptr) {
-    uint8_t** a_ptr = AlignPointer(alignment, (uint8_t**)ptr + 1);
-    a_ptr[-1] = ptr;
-    return a_ptr;
-  }*/
+void* Malloc(const size_t& size) {
   return malloc(size);
 }
   
