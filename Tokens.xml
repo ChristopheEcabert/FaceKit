@@ -555,8 +555,8 @@
       <Scope>FaceKit::Mem</Scope>
     </TokenIdentifier>
     <Path>group__core.html</Path>
-    <Anchor>ga0676f967e2812c5c181e6f88024863fc</Anchor>
-    <Abstract>Allocate a block of memory of a given size with a given alignment requirement (Done by hand)</Abstract>
+    <Anchor>gaa5752a122152946b21467c15dd681fd7</Anchor>
+    <Abstract>Allocate a block of memory of a given size.</Abstract>
     <DeclaredIn>memory.hpp</DeclaredIn>
   </Token>
   <Token>
@@ -593,6 +593,29 @@
     <Anchor>a3b17e11862e5c0d6185ef225796079d0</Anchor>
     <Abstract>Register a given file_system.</Abstract>
     <DeclaredIn>file_system_factory.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>REGISTER_STACKTRACE_RESOLVER_SYSTEM</Name>
+      <APILanguage>unknown</APILanguage>
+      <Type>macro</Type>
+    </TokenIdentifier>
+    <Path>stacktrace__resolver_8hpp.html</Path>
+    <Anchor>a9eb06453deb98f3128c05e6c0c5a43e2</Anchor>
+    <Abstract>Register a given resolver_system (StackTraceResolver)</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_stacktrace_resolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a1e606bc1d6459c878fcfb2b46719fc4b</Anchor>
+    <Abstract>Provide a stacktrace resolver.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1103,8 +1126,8 @@
       <Scope>FaceKit::Mem</Scope>
     </TokenIdentifier>
     <Path>group__core.html</Path>
-    <Anchor>ga0676f967e2812c5c181e6f88024863fc</Anchor>
-    <Abstract>Allocate a block of memory of a given size with a given alignment requirement (Done by hand)</Abstract>
+    <Anchor>gaa5752a122152946b21467c15dd681fd7</Anchor>
+    <Abstract>Allocate a block of memory of a given size.</Abstract>
     <DeclaredIn>memory.hpp</DeclaredIn>
   </Token>
   <Token>
@@ -1635,6 +1658,18 @@
     <Anchor>af76ca29ab2010c57d9906d63a599b0ae</Anchor>
     <Abstract>Search for an allocator of a given name.</Abstract>
     <DeclaredIn>allocator.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_stacktrace_resolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>func</Type>
+      <Scope>FaceKit</Scope>
+    </TokenIdentifier>
+    <Path>namespace_face_kit.html</Path>
+    <Anchor>a1e606bc1d6459c878fcfb2b46719fc4b</Anchor>
+    <Abstract>Provide a stacktrace resolver.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -11083,6 +11118,124 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>FaceKit::ResolverDlAddr</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::ResolverDlAddr</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_resolver_dl_addr.html</Path>
+    <Abstract>Stack trace resolver based on DlAddr posix function.</Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/sys/stacktrace_resolver_dladdr.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ResolverDlAddr</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ResolverDlAddr</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_resolver_dl_addr.html</Path>
+    <Anchor>a8777c960388b6555dd0a9fbaadba1b77</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver_dladdr.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ResolverDlAddr</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ResolverDlAddr</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_resolver_dl_addr.html</Path>
+    <Anchor>a2a71673ffefb8daf3a20d1e82a1d17ca</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver_dladdr.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Resolve</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ResolverDlAddr</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_resolver_dl_addr.html</Path>
+    <Anchor>ac81d283c253b0bfdd52b11b47da2ded5</Anchor>
+    <Abstract>Gather information for a given stack trace, using dladdr function.</Abstract>
+    <DeclaredIn>stacktrace_resolver_dladdr.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~StackTraceResolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver.html</Path>
+    <Anchor>adb16e10a18c032e8ecaa8acf0496f50d</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::ResolverWindows</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::ResolverWindows</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_resolver_windows.html</Path>
+    <Abstract>Stack trace resolver for windows platform.</Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/sys/stacktrace_resolver_windows.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ResolverWindows</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ResolverWindows</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_resolver_windows.html</Path>
+    <Anchor>a4c891a4047acc26efbb4792bcfe51f28</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver_windows.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ResolverWindows</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ResolverWindows</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_resolver_windows.html</Path>
+    <Anchor>a2bb2d5b5829dbb0b9bdbad32d60810c5</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver_windows.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Resolve</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::ResolverWindows</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_resolver_windows.html</Path>
+    <Anchor>a7bfd0aaf948036c085ae2869f344f5d4</Anchor>
+    <Abstract>Gather information for a given stack trace.</Abstract>
+    <DeclaredIn>stacktrace_resolver_windows.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~StackTraceResolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver.html</Path>
+    <Anchor>adb16e10a18c032e8ecaa8acf0496f50d</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>FaceKit::Serializable</Name>
       <APILanguage>c</APILanguage>
       <Type>cl</Type>
@@ -11163,6 +11316,648 @@
     <Anchor>aa0df185624a89bd3e6c2087a1766ca06</Anchor>
     <Abstract>Helper method to search within a stream a given object name.</Abstract>
     <DeclaredIn>serializable.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::StackTrace</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Abstract>Create a trace of the current stack for debugging purpose.</Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/sys/stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>StackTrace</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>a3ac1280f1ec34cdc25e0a58ae010a8d8</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>StackTrace</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>a2df8a6fc3794833c64da11ca3273d25b</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>StackTrace</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>abf5ffd12f11f0d87a23404f703959a3e</Anchor>
+    <Abstract>Copy constructor.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>ac1bac01d0b70876432dac77e64749319</Anchor>
+    <Abstract>Assignment operator.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ToString</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>a6b3060159d2a1d4ca5563f5bd141e838</Anchor>
+    <Abstract>Convert the trace into a readable string.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsTraceValid</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>a03b99ff50bf8ebc1522050a6c8a4f58b</Anchor>
+    <Abstract>Indicate if the trace has been properly queried return True if query was successful,...</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Size</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>a91cbbb5d6f20d1da716893326296fc67</Anchor>
+    <Abstract>Give the dimension of the trace.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>kDefaultDepth_</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>data</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>a8f088ee6cd5d1833c48d60b6d00e1f98</Anchor>
+    <Abstract>Default depth.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~StackTrace</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>a2400f36452f70a39a725a174be190306</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>At</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTrace</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace.html</Path>
+    <Anchor>afb7884e821548dd019a0199c6769fcd7</Anchor>
+    <Abstract>Provide access to the frame at position k (read/write)</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::StackTraceFrame</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Abstract>Provide an attribute class describing an element (frame) of the current stacktrace.</Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/sys/stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>StackTraceFrame</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a55a68da6fc8565991e85d571a203dbe7</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>StackTraceFrame</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>adca3fac4aad3ff60783d54a4c15dc90c</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>StackTraceFrame</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>ae43666d5d4647e18e2be9765573eb091</Anchor>
+    <Abstract>Copy constructor.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a27e01e471dbb0d32d566ef9644815ec3</Anchor>
+    <Abstract>Assignment operator.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~StackTraceFrame</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a8953aa9bf96afc06330e9480d728c678</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Print</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a7c9c18d2d5093ef845a3761a45097486</Anchor>
+    <Abstract>Print this frame into a given stream.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>set_address</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a2721a26581b07a0c981a8bd5d4bd9155</Anchor>
+    <Abstract>Fill the address attribute.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_address</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a402ee996fbb7b7faaf3202ef4be8ad37</Anchor>
+    <Abstract>Provide the frame&amp;#39;s address.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>set_library_name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>aaa7e213f232fba9f8e40b855753aa1b9</Anchor>
+    <Abstract>Set the library&amp;#39;s name for the frame.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_library_name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a6753e647826cc4cb2fb4b822569e2e04</Anchor>
+    <Abstract>Provide the library&amp;#39;s name for the frame.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>set_line_number</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>aca8f137196b6c47c64495b6b710a1c50</Anchor>
+    <Abstract>Set line number of the frame.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_line_number</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a6a361169734cc6b047b89b8d970d49bd</Anchor>
+    <Abstract>Provide the frame&amp;#39;s line number.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>set_mangled_symbol_name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>ad1d66d07a8a90b2312876ffbdf0829c4</Anchor>
+    <Abstract>Set symbol&amp;#39;s mangled name.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_mangled_symbol_name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>afaa17e01bd05a523f63b2a291e65b94d</Anchor>
+    <Abstract>Provide frame&amp;#39;s mangled symbol&amp;#39;s name.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>set_symbol_name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a3f7fa8cd03527e19eacffe75494b02e3</Anchor>
+    <Abstract>Set unmnagled symbol&amp;#39;s name.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_symbol_name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a2b00e770f930607afd4974872f3d6d7b</Anchor>
+    <Abstract>Give the unmangled symbol&amp;#39;s name of the frame.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>set_offset</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a744709871a1d4df6a07781cf991c54a7</Anchor>
+    <Abstract>Set symbol&amp;#39;s offset.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_offset</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>aada57cc429216e932dd6d8a3eec054aa</Anchor>
+    <Abstract>Give the symbol&amp;#39;s offset.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>set_src_file_name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a273c16f900e36b659e2634d65fc1b297</Anchor>
+    <Abstract>Set the src filename of the frame&amp;#39;s symbol.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>get_src_file_name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a50c9ca90a3b0658425c0c720f83a3e59</Anchor>
+    <Abstract>Give the source filename.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsAddressKnown</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>af788060ef80da81e478928cab495ecba</Anchor>
+    <Abstract>Indicate if the address is known.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsLibraryNameKnown</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>ad9320d3e6ff1c549b8d517858c649841</Anchor>
+    <Abstract>Indicate if the library name has been set.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsLineNumberKnown</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a3cb38ff6d51f8825aa19e55020579688</Anchor>
+    <Abstract>Indicate if the line number has been set.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsMangledSymbolNameKnown</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a7cb90221bb673888708a24593a4a5d4b</Anchor>
+    <Abstract>Indicate if the mangled symbol&amp;#39;s name has been set.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsSymbolNameKnown</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>aee9f9a683a44c4c8f7a44315d7cf6c9e</Anchor>
+    <Abstract>Indicate if the symbol&amp;#39;s name has been set.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsOffsetKnown</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>abfbe639003cddc118b4bfe2f443cab1f</Anchor>
+    <Abstract>Indicate if the offset is set.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>IsSourceFileNameKnown</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceFrame</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_frame.html</Path>
+    <Anchor>a63e74f4774e5a90e5c378cfa613bbdc0</Anchor>
+    <Abstract>Indicate if the source file is set.</Abstract>
+    <DeclaredIn>stacktrace.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::StackTraceResolver</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::StackTraceResolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver.html</Path>
+    <Abstract>Abstract interface for stack trace resolver.</Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/sys/stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~StackTraceResolver</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver.html</Path>
+    <Anchor>adb16e10a18c032e8ecaa8acf0496f50d</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Resolve</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolver</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver.html</Path>
+    <Anchor>ad6a91ffd74ea9a708eda8573a31ed66e</Anchor>
+    <Abstract>Gather information for a given stack trace.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::StackTraceResolverFactory</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::StackTraceResolverFactory</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_factory.html</Path>
+    <Abstract>Mechanism to store StackTraceResolver implementations.</Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/sys/stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~StackTraceResolverFactory</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverFactory</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_factory.html</Path>
+    <Anchor>afb63c9908ed0d79ec2f085036193a0e1</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverFactory</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_factory.html</Path>
+    <Anchor>a315df2c611051854d394f955de827740</Anchor>
+    <Abstract>Copy assignment.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Register</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverFactory</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_factory.html</Path>
+    <Anchor>ac1c02a9d67434004fbe4bab038e12b9b</Anchor>
+    <Abstract>Register a new stack trace resolver system into the factory.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Retrieve</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverFactory</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_factory.html</Path>
+    <Anchor>a24cea6c5e16d1e54b5adbd480fad43fd</Anchor>
+    <Abstract>Retrieve a stack trace resolver corresponding to a given name or nullptr.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Get</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>clm</Type>
+      <Scope>FaceKit::StackTraceResolverFactory</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_factory.html</Path>
+    <Anchor>a298caa2f1f6f4eceb5d7d41e226e725a</Anchor>
+    <Abstract>Provide single instance of the factory.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>StackTraceResolverFactory</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverFactory</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_factory.html</Path>
+    <Anchor>a1bdcaf582d94da5e24e40f622f7da418</Anchor>
+    <Abstract>Copy constructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::StackTraceResolverProxy</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::StackTraceResolverProxy</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_proxy.html</Path>
+    <Abstract>Proxy for registering/creating StackTraceResolver.</Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/sys/stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>StackTraceResolverProxy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverProxy</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_proxy.html</Path>
+    <Anchor>a23107588996250281f54d762e4bc0f5e</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~StackTraceResolverProxy</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverProxy</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_proxy.html</Path>
+    <Anchor>ad43d8ed0c8f5ea91be9e35b1b1630071</Anchor>
+    <Abstract>Destructor.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Create</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverProxy</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_proxy.html</Path>
+    <Anchor>a5896df419b02e9810ab98c9b3fa7e0d8</Anchor>
+    <Abstract>Craete an instance of StackTraceResolver for this proxy.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>Name</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::StackTraceResolverProxy</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_stack_trace_resolver_proxy.html</Path>
+    <Anchor>a9cb5d55bc3547380ff63b8ae598d426e</Anchor>
+    <Abstract>Provide the name of the proxy.</Abstract>
+    <DeclaredIn>stacktrace_resolver.hpp</DeclaredIn>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -13386,8 +14181,8 @@
       <Scope>FaceKit::Mem</Scope>
     </TokenIdentifier>
     <Path>group__core.html</Path>
-    <Anchor>ga0676f967e2812c5c181e6f88024863fc</Anchor>
-    <Abstract>Allocate a block of memory of a given size with a given alignment requirement (Done by hand)</Abstract>
+    <Anchor>gaa5752a122152946b21467c15dd681fd7</Anchor>
+    <Abstract>Allocate a block of memory of a given size.</Abstract>
     <DeclaredIn>memory.hpp</DeclaredIn>
   </Token>
   <Token>
@@ -13412,6 +14207,65 @@
     <Path>group__core.html</Path>
     <Anchor>gac7bdbf2032ca9c8d1a56cfbf1e2b2668</Anchor>
     <Abstract>Deallocated a block of memory pointed by ptr</Abstract>
+    <DeclaredIn>memory.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>FaceKit::Mem::ScopedBuffer</Name>
+      <APILanguage>c</APILanguage>
+      <Type>cl</Type>
+      <Scope>FaceKit::Mem::ScopedBuffer</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_mem_1_1_scoped_buffer.html</Path>
+    <Abstract>Helper class to release (i.e.</Abstract>
+    <DeclaredIn>modules/core/include/facekit/core/mem/memory.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ScopedBuffer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Mem::ScopedBuffer</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_mem_1_1_scoped_buffer.html</Path>
+    <Anchor>a0122ed270294dcab6057747f60cd2b8e</Anchor>
+    <Abstract>Constructor.</Abstract>
+    <DeclaredIn>memory.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>ScopedBuffer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Mem::ScopedBuffer</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_mem_1_1_scoped_buffer.html</Path>
+    <Anchor>ae4d5dc44c129088c924106e05a7b0caf</Anchor>
+    <Abstract>Copy constructor.</Abstract>
+    <DeclaredIn>memory.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>operator=</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Mem::ScopedBuffer</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_mem_1_1_scoped_buffer.html</Path>
+    <Anchor>a25260724b92d10503cb57fc46795e94d</Anchor>
+    <Abstract>Assignment operator.</Abstract>
+    <DeclaredIn>memory.hpp</DeclaredIn>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>~ScopedBuffer</Name>
+      <APILanguage>cpp</APILanguage>
+      <Type>instm</Type>
+      <Scope>FaceKit::Mem::ScopedBuffer</Scope>
+    </TokenIdentifier>
+    <Path>class_face_kit_1_1_mem_1_1_scoped_buffer.html</Path>
+    <Anchor>ae9f6272bb4d43ec5e103f4d549e36fb4</Anchor>
+    <Abstract>Destructor.</Abstract>
     <DeclaredIn>memory.hpp</DeclaredIn>
   </Token>
   <Token>
