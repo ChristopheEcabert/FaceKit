@@ -113,6 +113,7 @@ if(build)
   FACEKIT_ADD_TEST(ut_filesystem posix_file_system FILES test/ut_file_system.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_scanner scanner FILES test/ut_scanner.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
   FACEKIT_ADD_TEST(ut_stacktrace stacktrace FILES test/ut_stacktrace.cpp WORKING_DIR "${FACEKIT_BINARY_DIR}" ARGUMENTS "" LINK_WITH facekit_core)
+  set_target_properties(facekit_ut_stacktrace PROPERTIES ENABLE_EXPORTS YES)  # ensure symbols are exported to properly test the stack trace acquisition
 
   # Install include files
   FACEKIT_ADD_INCLUDES("${SUBSYS_NAME}" "${SUBSYS_NAME}" ${incs})

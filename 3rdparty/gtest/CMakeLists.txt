@@ -33,14 +33,17 @@ ExternalProject_Add(gtest_project
 # Library
 ExternalProject_Get_Property(gtest_project binary_dir)
 ExternalProject_Get_Property(gtest_project source_dir)
+IF(CMAKE_BUILD_TYPE STREQUAL "Debug")
+  SET(GOOGLE_LIB_POSTIF d)
+ENDIF(CMAKE_BUILD_TYPE STREQUAL "Debug")
 # GTest
-SET(GTEST_LIBRARY_PATH ${binary_dir}/googlemock/gtest/${CMAKE_STATIC_LIBRARY_PREFIX}gtest.a)
+SET(GTEST_LIBRARY_PATH ${binary_dir}/googlemock/gtest/${CMAKE_STATIC_LIBRARY_PREFIX}gtest${GOOGLE_LIB_POSTIF}.a)
 ADD_LIBRARY(google::gtest STATIC IMPORTED GLOBAL)
 SET_PROPERTY(TARGET google::gtest PROPERTY IMPORTED_LOCATION ${GTEST_LIBRARY_PATH} )
 SET_PROPERTY(TARGET google::gtest PROPERTY INCLUDE_DIRECTORIES "${source_dir}/googletest/include")
 ADD_DEPENDENCIES(google::gtest gtest_project)
 # GMock
-SET(GMOCK_LIBRARY_PATH ${binary_dir}/googlemock/${CMAKE_STATIC_LIBRARY_PREFIX}gmock.a)
+SET(GMOCK_LIBRARY_PATH ${binary_dir}/googlemock/${CMAKE_STATIC_LIBRARY_PREFIX}gmock${GOOGLE_LIB_POSTIF}.a)
 ADD_LIBRARY(google::gmock STATIC IMPORTED GLOBAL)
 SET_PROPERTY(TARGET google::gmock PROPERTY IMPORTED_LOCATION ${GMOCK_LIBRARY_PATH} )
 SET_PROPERTY(TARGET google::gmock PROPERTY INCLUDE_DIRECTORIES "${source_dir}/googlemock/include")

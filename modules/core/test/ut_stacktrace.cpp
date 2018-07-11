@@ -18,8 +18,9 @@
 
 namespace FK = FaceKit;
 
+#define NO_INLINE __attribute__ ((noinline))
 
-#ifdef DEBUG
+#if defined(DEBUG) && defined(__APPLE__)
 std::string symbols[] = {"FaceKit::StackTrace::StackTrace(",
   "FaceKit::StackTrace::StackTrace(",
   "FaceKit::StackTrace::StackTrace()",
@@ -48,7 +49,7 @@ size_t trace_range = 4;
  *  @fn     FK::Status GenerateStackTrace(std::string* trace)
  *  @brief  Generate a stack trace
  */
-FK::Status GenerateStackTrace(std::string* trace) {
+NO_INLINE FK::Status GenerateStackTrace(std::string* trace) {
   FK::StackTrace st;
   return st.ToString(trace);
 }
@@ -135,6 +136,11 @@ TEST(StackTrace, Trace) {
   // Check values
   std::vector<std::string> parts;
   FK::String::Split(trace, "\n", &parts);
+
+  for (size_t k = 1; k < trace_range; ++k) {
+    std::cout << parts[k] << std::endl;
+  }
+
   // Process each line
   for (size_t k = 1; k < trace_range; ++k) {
     // Get symbol name
