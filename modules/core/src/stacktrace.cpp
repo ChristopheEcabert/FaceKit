@@ -18,6 +18,7 @@
 #endif
 
 #include <sstream>
+#include <limits>
 
 #include "facekit/core/sys/stacktrace.hpp"
 #include "facekit/core/sys/stacktrace_resolver.hpp"

@@ -13,6 +13,7 @@
 #if defined(__APPLE__) || defined(__linux__)
 #include <dlfcn.h>    // for dladdr
 #include <cxxabi.h>   // for __cxa_demangle
+#include <cstring>
 #define IS_POSIX
 #endif
 
