@@ -706,7 +706,7 @@ public:
    *  @fn Matrix4& operator=(const T s)
    *  @brief  Assignment operator
    *  @param[in]  s Scalar to assign to this matrix
-   *  @return
+   *  @return Newly assigned operator
    */
   Matrix4& operator=(const T s) {
     #pragma unroll

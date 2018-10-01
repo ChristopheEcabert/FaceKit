@@ -101,8 +101,7 @@ public:
   /**
    *  @name   Print
    *  @fn     std::ostream& Print(std::ostream& stream,
-   const size_t& level,
-   const size_t& space_per_level) const
+                                const size_t& level, const size_t& space) const
    *  @brief  Print this frame into a given stream
    *  @param[in] stream Stream where to dump the frame
    *  @param[in] level  Level of the trace

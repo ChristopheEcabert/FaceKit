@@ -68,18 +68,19 @@ GeneticSolver<T>::~GeneticSolver(void) {
  *  @param[in] params Configuration
  */
 template<typename T>
-typename GeneticSolver<T>::ConvergenceType GeneticSolver<T>::Solve(const Parameters& params) {
-  
+typename GeneticSolver<T>::ConvergenceType
+GeneticSolver<T>::Solve(const Parameters& params) {
   std::ofstream stream("log.txt");
-  
   // Compute fitness
-  T avg_fit_begin = curr_population_->Fitness();
+  // T avg_fit_begin = curr_population_->Fitness();
   size_t n_gen = 0;
   T prev_max_fit = 0.0;
   T max_max_fit = 0.0;
-  size_t hist_max_fit_cnt = 0;  // Counter of how many generation have the same max_fit
+  size_t hist_max_fit_cnt = 0;  // Counter of how many gen have the same max_fit
   // Iterate
-  while(n_gen < params.max_generation && prev_max_fit < params.fitness_target && hist_max_fit_cnt < params.n_max_fitness_generation) {
+  while(n_gen < params.max_generation &&
+        prev_max_fit < params.fitness_target &&
+        hist_max_fit_cnt < params.n_max_fitness_generation) {
     // Perform CrossOver / Mutation / Fitness
     this->CrossOver(params.p_crossover);
     this->Mutate(params.p_mutation);
@@ -94,7 +95,8 @@ typename GeneticSolver<T>::ConvergenceType GeneticSolver<T>::Solve(const Paramet
       hist_max_fit_cnt = 0;
     } else {
       T fit_inc_percent = std::abs(prev_max_fit - max_max_fit) / max_max_fit;
-      if (fit_inc_percent != 0.0 && fit_inc_percent <= params.percentage_fitness) {
+      if (fit_inc_percent != 0.0 &&
+          fit_inc_percent <= params.percentage_fitness) {
         hist_max_fit_cnt += 1;
       } else {
         hist_max_fit_cnt = 0;
@@ -104,7 +106,8 @@ typename GeneticSolver<T>::ConvergenceType GeneticSolver<T>::Solve(const Paramet
     stream << avg_fit_next << "," << next_max_fit << std::endl;
     
   }
-  return n_gen == params.max_generation ? ConvergenceType::kReachMaxGeneration : ConvergenceType::kConverged;
+  return (n_gen == params.max_generation ?
+          ConvergenceType::kReachMaxGeneration : ConvergenceType::kConverged);
 }
   
 /*
@@ -114,7 +117,8 @@ typename GeneticSolver<T>::ConvergenceType GeneticSolver<T>::Solve(const Paramet
  *  @return Chromosome with solution
  */
 template<typename T>
-typename GeneticSolver<T>::ChromosomeType* GeneticSolver<T>::BestFitness(void) const {
+typename GeneticSolver<T>::ChromosomeType*
+GeneticSolver<T>::BestFitness(void) const {
   // Get best fitness index
   size_t k = curr_population_->maximum_fitness_index();
   return curr_population_->at(k);
@@ -154,7 +158,6 @@ template<typename T>
 void GeneticSolver<T>::Mutate(const T& rate) {
   next_population_->Mutate(rate);
 }
-  
   
 #pragma mark -
 #pragma mark Explicit instantiation
